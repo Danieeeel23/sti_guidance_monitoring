@@ -1,0 +1,932 @@
+@import url('https://fonts.goggleapis.com/css?family=poppins:200,300,400,500,600,700,800,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    overflow-x: hidden;
+    background: rgb(241, 237, 237);
+   
+}
+.container{
+    position: relative;
+    width: 100%;
+    scroll-padding-top: 20px; 
+   
+}
+.navigation{
+    position:fixed;
+    width: 100px;
+    height: 100%;
+    background: rgb(54, 50, 104);
+    transition: 05s;
+    overflow: hidden;  
+ 
+}
+.navigation ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.navigation ul li{
+    position: relative;
+    width: 100%;
+    list-style: none;
+}
+.navigation ul li:hover{
+    background: rgb(217, 217, 217);  
+    
+}
+
+.navigation ul li:nth-child(1)
+{
+
+    margin-bottom: 20px;
+    
+}
+.navigation ul li:nth-child(1):hover{
+    background: transparent;
+
+}
+.navigation ul li a{
+    position: relative;
+    margin: 10px;
+    display: block;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    
+    text-decoration: none;
+    color: white;
+}
+.navigation ul li a .icon{
+    position: relative;
+    display: block;
+    margin-left: 15px;
+    padding-bottom: 53px;
+    min-width: 20px;
+    height: 20px;
+    line-height: 10px;
+    text-align: center;
+}
+.navigation ul li a .icon img{
+    width: 30px;
+}
+.navigation ul li a .titlea{
+    position: absolute;
+    display: block;
+    font-size: 12px;
+    margin-left: -10px;
+    padding-top: 0px;
+    height: 50px;
+    text-align: center;
+    line-height: 30px;
+    white-space: nowrap;
+}
+.navigation ul li a .titleb{
+    position: absolute;
+    display: block;
+    font-size: 12px;
+    margin-left: -10px;
+    padding-top: 0px;
+    height: 50px;
+    text-align: center;
+    line-height: 30px;
+    white-space: nowrap;
+}
+.navigation ul li a .titlec{
+    position: absolute;
+    display: block;
+    font-size: 12px;
+    margin-left: -10px;
+    padding-top: 0px;
+    height: 50px;
+    text-align: center;
+    line-height: 30px;
+    white-space: nowrap;
+}
+.navigation ul li a .title0{
+    position: absolute;
+    display: block;
+    font-size: 12px;
+    margin-left: -10px;
+    padding-top: 0px;
+    height: 50px;
+    text-align: center;
+    line-height: 30px;
+    white-space: nowrap;
+}
+.navigation ul li a .title01{
+    position: absolute;
+    display: block;
+    font-size: 12px;
+    margin-left: -10px;
+    padding-top: 0px;
+    height: 50px;
+    text-align: center;
+    line-height: 30px;
+    white-space: nowrap;
+}
+.navigation ul li a .title{
+    position: absolute;
+    display: block;
+    font-size: 12px;
+    margin-left: 5px;
+    padding-top: 0px;
+    height: 50px;
+    text-align: center;
+    line-height: 30px;
+    white-space: nowrap;
+}
+.navigation ul li a .titleh{
+    position: absolute;
+    display: block;
+    font-size: 12px;
+    margin-left: 0px;
+    padding: 0 13px;
+    height: 60px;
+    text-align: center;
+    line-height: 30px;
+    white-space: nowrap;
+}
+.navigation ul li a .title1{
+    position: absolute;
+    display: block;
+    font-size: 12px;
+    margin-left: -20px;
+    padding: 0 13px;
+    height: 60px;
+    text-align: center;
+    line-height: 30px;
+    white-space: nowrap;
+}
+.navigation ul li a .titlee{
+    position: absolute;
+    display: block;
+    font-size: 12px;
+    margin-left: 0px;
+    padding: 0 2px;
+    height: 60px;
+    text-align: center;
+    line-height: 30px;
+    white-space: nowrap;
+}
+.navigation ul li a .title2{
+    position: absolute;
+    display: block;
+    font-size: 12px;
+    margin-left: -15px;
+    padding: 0 2px;
+    height: 60px;
+    text-align: center;
+    line-height: 30px;
+    white-space: nowrap;
+}
+.navigation ul li a .title3{
+    position: absolute;
+    display: block;
+    font-size: 12px;
+    margin-left: 0px;
+    padding: 0 5px;
+    height: 60px;
+    text-align: center;
+    line-height: 30px;
+    white-space: nowrap;
+}
+.navigation ul li a .title4{
+    position: absolute;
+    display: block;
+    font-size: 12px;
+    margin-left: 0px;
+    padding: 0 10px;
+    height: 60px;
+    text-align: center;
+    line-height: 30px;
+    white-space: nowrap;
+}
+
+.main{
+    
+    position: fixed;
+    background: rgb(47, 79, 192);
+    width: 100%;
+    height: 50px;
+    display: inline-flex;
+}
+.topbar{
+    display: flex;
+    position: relative;
+}
+.main .toptitle{
+    position: relative;
+    display: inline;
+    color: white;
+    align-items: center;
+    margin-top: -5px;
+    margin-left: 10px;
+    margin-right: 100px;
+    padding: 15px;
+    width: 265px;
+    
+}
+.toptitle h2{
+    display: inline;
+    font-size: 25px;
+    margin-top: -8px;
+}
+#logo img{
+    margin:10px 30px 10px 25px;
+    width: 50px;
+}
+.icons{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin-left: 665px;
+    align-items: center;
+    padding: 20px;
+    color: white;
+    
+}
+.icons i{
+    width: 30px;
+    text-align: center;
+}
+
+.icons1{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    color: white;
+    
+}
+.icons1 i{
+    margin-left: 10px;
+    align-items: center;
+}
+.icons1 h3{
+    font-size: 18px;
+    align-items: center;
+    margin-top: -5px;
+    margin-left: -10px;
+    
+}
+.main1{
+   
+   margin-top: 0px;
+   padding-top: 50px;
+    margin-left: 100px;
+}
+.main1 .title2 h1{
+    align-content: center;
+    padding-top: 1000px;
+    font-size: 20px;
+    font-family: Poppins,sans-serif;
+    padding: 20px;
+}
+.bot{
+    margin-left: 800px;
+    display: flex;
+}
+.delete :nth-child(1){
+    background-color: rgb(255, 140, 140);
+}
+.import :nth-last-child(1){
+    background-color: rgb(246, 226, 33);
+}
+input[type=submit]{
+    margin-left: 30px;
+    margin-bottom: 20px;
+    padding: 2px;
+    height: 100px;
+    width: 120px;
+    background-color: rgb(47, 79, 192);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.summit input[type=submit]{
+    margin-left: 10px;
+    margin-bottom: 20px;
+    padding: 2px;
+    height: 50px;
+    width: 100px;
+    background-color: rgb(47, 79, 192);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.summit input[type=submit]:hover {
+    border-style: groove;
+    background: whitesmoke;
+    color:blue;
+  }
+.create input[type=submit]:hover {
+    border-style: groove;
+    padding-right: 30px;
+    background: whitesmoke;
+    color:blue;
+  }
+  .delete input[type=submit]:hover {
+    border-style: groove;
+    background: whitesmoke;
+    color:blue;
+  }
+  .import input[type=submit]:hover {
+    border-style: groove;
+    background: whitesmoke;
+    color:blue;
+  }
+  
+ 
+  input[type=text], select {
+    width: 200px;
+    padding: 10px 20px;
+    margin: 8px 20px;
+    display: inline-block;
+    border: 1px solid white;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  #sea{
+    margin-left: 10px;
+    width: 100%;
+  }
+  #sea ::placeholder{
+    padding-left: 0px;
+  }
+ 
+  input[type=text], select :nth-child(2) {
+    width: 900px;
+    padding: 12px 20px;
+    margin: 8px 25px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+.table1{
+    margin-left: 70px;
+}
+.card-header{
+    position: absolute;
+    top: 250px;
+    left: 90px;
+    text-align: center;
+
+}
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0 0px 90px;
+    font-size: 0.8em;
+    width: 1100px;
+    font-family: sans-serif;
+    min-width: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+.styled-table thead tr {
+    background-color:  rgb(47, 79, 192);
+    color: white;
+    text-align: center;
+}
+.styled-table th,
+.styled-table td {
+    text-align: left;
+    padding: 20px 20px 20px 150px;
+   
+}
+.styled-table input{
+    margin-right: 10px;
+    width: 50;
+    size: 100px;
+}
+.styled-table tbody tr {
+
+    border-bottom: 10px solid #dddddd;
+}
+.styled-table tbody tr {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+.summit input[type="submit"]{
+    position: absolute;
+    right: 5%;
+    top: 70px;
+   
+}
+
+.create input[type="submit"]{
+    padding-left: 2em;
+    position: relative;
+    margin-top: -100px;
+}
+.create .fa{
+    color: white;
+    display: inline-block;
+    position: absolute;
+    left: 2em;
+    top: 30%;
+}
+.bot .create .fa{
+    margin-left: 920px;
+    margin-top: 59px;
+}
+.bot .create .fa :hover{
+    background: white;
+    color: blue;
+}
+.search #sea i{
+    left: 160px;
+    bottom: 22px;
+    position: absolute;
+    display: inline-block;
+}
+#sea input[type=text]{
+    padding-left: 60px;
+}
+
+.styled-table input.larger{
+    position: absolute;
+    left: 110px;
+    width: 20px;
+    height: 20px;
+}
+.styled-table tr td span{
+    position: absolute;
+    left: 200px;
+    padding: 0px 300px 0px 0px;
+}
+.bsinfo{
+    background: white;
+    width: 350px;
+    height: 600px;
+    margin-left: 25px;
+    margin-top: 10px;
+    box-shadow: 5px 5px 5px rgb(139, 134, 134);
+}
+.bsinfo h4{
+    padding: 20px;
+    margin-left: 20px;
+}
+.bsinfo .info h5{
+    display: inline;
+    margin-left: 40px;
+}
+
+.info input[type=text], select :nth-child(2) {
+    width: 190px;
+    height: 25px;
+    padding: 12px 10px;
+    margin: 20px 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .info input[type=date], select :nth-child(2) {
+    width: 190px;
+    height: 25px;
+    padding: 12px 10px;
+    margin-left: 10px;
+    margin-top: 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .content{
+    margin-top: -30px;
+    background: rgb(255, 255, 255);
+    width: 100px;
+    height: 10px;
+    margin-left: 1000px;
+    box-shadow: 5px 5px 5px rgb(139, 134, 134);
+}
+.content .coninfo{
+    margin-left: -80px;
+    padding: 10px 30px;
+}
+#textarea{
+    margin-left: 40px;
+    
+}
+.coninfo1 .btn {
+    background-color: DodgerBlue;
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    color: white;
+    width: 10px;
+    height: 30px;
+    border-radius: 10px;
+    padding: 5px 30px;
+    cursor: pointer;
+    font-size: 15px;
+    text-align: center;
+  }
+  
+  /* Darker background on mouse-over */
+  .btn:hover {
+    background-color: RoyalBlue;
+  }
+  .content{
+    margin-left: 400px;
+    margin-top: -600px;
+    width: 1010px;
+    height: 600px;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+.btnn {
+    background-color: rgb(248, 222, 126);
+    border: none;
+    color: white;
+    width: 150px;
+    height: 30px;
+    margin-left: 50px;
+    border-radius: 10px;
+    padding: 5px 10px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 15px;
+    margin-top: 0px;
+  }
+  
+  /* Darker background on mouse-over */
+  .btnn:hover {
+    background-color: rgb(246, 226, 33);
+  }
+  textarea {
+    resize: none;
+    padding: 30px 40px 0px 40px;
+  }
+  .bsinfo .info select{
+    border-style:ridge;
+  }
+  .info label[for=Violation]{
+    font-size: 0.8rem;
+    padding: 0px 10px;
+    margin-left: 1px;
+    margin-right: -5px;
+}
+
+    .info label[for=Date]{
+        font-size: 0.8rem;
+        padding: 0px 10px;
+        margin-left: 20px;
+    }
+    .info label[for=Name]{
+        font-size: 0.9rem;
+        padding: 0px 15px;
+        margin-left: 20px;
+        
+    }
+    .info label[for=Status]{
+        font-size: 0.8rem;
+        padding: 0px 10px;
+        margin-left: 20px;
+    }
+    .info label[for=Strand]{
+        padding: -10px 10px;
+        margin-left: 20px;
+    }
+    .info label[for=Section]{
+        padding: -10px 10px;
+        margin-left: 20px;
+    }
+    .info label[for=Violation]{
+        padding: 0px 10px;
+        margin-left: 20px;
+    }
+    .info label[for=Offense]{
+        padding: 0px 10px;
+        margin-left: 20px;
+    }
+    .info label[for=level_Offense]{
+        padding: 0px 10px;
+        margin-left: 20px;
+    }
+    
+
+    .info .Year{
+        width: 10px;
+        height: 27px;
+        padding: 12px 10px;
+        margin: 10px 20px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    .info .Strand{
+        width: 200px;
+        height: 27px;
+        padding: 12px 10px;
+        margin: 10px 20px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    .info .Section{
+        width: 200px;
+        height: 27px;
+        padding: 12px 10px;
+        margin: 10px 20px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    .info .Violation {
+        width: 200px;
+        height: 27px;
+        padding: 5px 7px;
+        margin: 10px 10px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    .info .Offense{
+        width: 200px;
+        height: 27px;
+        padding: 5px 7px;
+        margin: 10px 10px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    .info .Status{
+        width: 200px;
+        height: 27px;
+        padding: 5px 7px;
+        margin: 10px 10px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    #textarea label[for=Description]{
+        padding: 100px 0px;
+        margin-left: 200px;
+        top: 0px;
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+       
+    }
+    .coninfo1 label[for=Image]{
+        padding: 40px 0 0 0;
+        margin-left: 180px;
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .coninfo1 input[type=image]{
+        margin-top: 20px;
+    }
+    /* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    border-radius: 10px;
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    width: 30%;
+  }
+
+  h5#exampleModalLabel.modal-title {
+    font-size: 20px;
+    background-color: #2F4FC0;
+    color: white;
+    margin-top: -20px;
+    width: 110%;
+    margin-left: -21px;
+    padding: 10px 0 10px 15px;
+  }
+
+  h6#modal_body{
+    font-size: 15px;
+    margin-top: 10px;
+    font-weight: normal;
+  }
+
+  button.close{
+    background-color: #2F4FC0;
+    border: none;
+    margin-top: 5px;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  input#comment{
+    width: 360px;
+    height: 100px;
+  }
+
+  input[type=file]::file-selector-button {
+    margin-right: 10px;
+    border: none;
+    background: #084cdf;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+  }
+  
+  input[type=file]::file-selector-button:hover {
+    background: #B2C8DF;
+    color: black;
+  }
+  input[type=file] {
+    width: 350px;
+    max-width: 100%;
+    color: #444;
+    padding: 5px;
+    margin-left: 20px;
+    margin-bottom: 5px;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid #555;
+  }
+  .coninfo1 button{
+    background: #084cdf;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    color: white;
+    margin-left: -20px;
+    transition: background .2s ease-in-out;
+  }
+  
+  .coninfo1 button:hover {
+    background: #B2C8DF;;
+    color: black;  
+  }
+
+  .dropbtn {
+    background: rgb(47, 79, 192);
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    margin-left: -20px;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  .dropdown:hover .dropbtn {background: rgb(47, 79, 192);}
+
+  .dropdown1{
+    position: relative;
+    margin-top: -30px;
+    margin-bottom: 30px;
+ }
+ .dropdown-user{
+    top: 0;
+ }
+.dropdown1 .dropbtn1 {
+    text-decoration: none;
+    color: white;
+   }
+   
+   .dropdown-user {
+        display: none;
+        min-width: 100px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+   }
+   
+   .dropdown-user a { 
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display:flex;
+        text-align: right;
+    }
+   
+   .dropdown-user a:hover {
+        background-color: white;
+        color:#1f386f;
+    
+   }
+   
+   .dropdown1:hover .dropdown-user {
+        z-index: 10;
+        display:inline-block;
+        background-color: #1f386f;
+   }
+   button.btn.btn-primary.btn-sm{
+    background-color: rgb(248, 222, 126);
+    border: none;
+    color: white;
+    width: 130px;
+    height: 43px;
+    margin-left: 310px;
+    
+    border-radius: 10px;
+    padding: 5px 5px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 15px;
+    margin-top: 0px;
+   }
+   button.btn.btn-primary.btn-sm1{
+    background-color: rgb(248, 222, 126);
+    border: none;
+    color: white;
+    width: 130px;
+    height: 43px;
+    border-radius: 10px;
+    padding: 5px 5px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 15px;
+    margin-top: 0px;
+   }
+  /* Darker background on mouse-over */
+  button.btn-primary.btn-sm:hover{
+    background-color: blue;
+  }
+  button.btn-primary.btn-sm1:hover{
+    background-color: blue;
+  }
+  #reasons
+  {
+      width: 165px;
+      height: 27px;
+      padding: 5px 7px;
+      margin-left: -15px;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+  }
+  .info label[for=reasons]{
+    font-size: 0.9rem;
+    padding: 0px 15px;
+    margin-left: 15px;
+    
+}
