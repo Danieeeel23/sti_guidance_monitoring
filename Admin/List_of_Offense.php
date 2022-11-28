@@ -115,11 +115,12 @@
                             <span class="create1">
                                 <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal" id="submit">Add Offense</button>                       
                             </span> 
-                                                   
+                              
                       <span class="delete"><input type="submit" value="Delete" id="delete_records"></span>
                     </div>
                     </div>
                     <!-- Modal -->
+                    <form action="code.php" method="POST">
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog"> 
                             <div class="modal-content"> 
@@ -132,13 +133,14 @@
 
                                     <label for="Offense" class="Offense">Name of Offense</label> <input type="text" class="off" placeholder="" name="offense">
                                     <h6 id="modal_body"></h6>
-                                    <input type="submit" class="btnn" name="save_subject" onClick="window.location.href=window.location.href" value="Create"> 
+                                    <input type="submit" class="btnn" name="save_violation" onClick="window.location.href=window.location.href" value="Create"> 
                                 </div> 
                             </div> 
                         </div> 
                     </div>
                 </div>
                 </div>
+                </form>
                
                 <div class="card-header">
                     <table id="myDataTable" class="hover" style="margin-left: 80px;">
