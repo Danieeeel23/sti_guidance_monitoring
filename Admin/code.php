@@ -1260,6 +1260,28 @@ if(isset($_POST['save_concerns']))
         }  
 }
 
+if(isset($_POST['save_subject']))
+{
+    $subject = mysqli_real_escape_string($link, $_POST['subject']);
+  
+    $query = "INSERT INTO `subject`(`Subject_Name`) VALUES 
+              ('$subject')";
+
+    $query_run = mysqli_multi_query($link, $query);
+        if($query_run)
+        {
+            $_SESSION['message'] = "Subject Created Successfully";
+            header("Location: Lists_of_Subjects.php");
+            exit(0);
+        }
+        else
+        {
+            $_SESSION['message'] = "Subject Not Created";
+            header("Location: Lists_of_Subjects.php");
+            exit(0);
+        }  
+}
+
 if(isset($_POST['update_concerns']))
 {
     $concern_id = mysqli_real_escape_string($link, $_POST['concernno']);

@@ -58,8 +58,9 @@ if(!isset($_SESSION['admin_id'])){
                             <a href="Lists_of_Student.php">Students</a>
                             <a href="Lists_of_Teacher.php">Teachers</a>
                             <a href="Lists_of_Parent.php">Parents</a>
-                            <a href="Lists_of_Subject.php">Subjects</a>
+                            <a href="Lists_of_Subjects.php">Subjects</a>
                             <a href="Lists_of_Section.php">Sections</a>
+                            <a href="Lists_of_Schedule.php">Schedule</a>
                         </div>
                     </div></a>
               

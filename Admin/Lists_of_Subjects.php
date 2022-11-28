@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <!--font-->
-     <link rel="stylesheet" href="Lists_of_Section.css" type="text/css">
+     <link rel="stylesheet" href="Lists_of_Subjects.css" type="text/css">
      <link href="css/jquery.dataTables.min.css" rel="stylesheet">
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
@@ -18,7 +18,7 @@
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
      <script type="text/javascript" src="delete_script.js"></script>
 
-    <title>List of Sections</title>
+    <title>List of Subjects</title>
 </head>
 <body>
     <div class="container">
@@ -87,7 +87,7 @@
             <span id="logo"><img src="images/sti_logo.png" alt=""></span>
             <div class="topbar">
                 <div class="toptitle">
-                    <h2>Section</h2>
+                    <h2>Subject</h2>
                 </div>
                 <div class="icons">
                     <i class="fa fa-bell"></i>
@@ -106,35 +106,29 @@
                 <div class="main1">
                 <?php include('message.php'); ?>
                     <div class="title2">
-                      <h1>List of Sections</h1>
+                      <h1>List of Subjects</h1>
                       <div class="bot">
                       <span class="delete"><input type="submit" value="Delete" id="delete_records"></span>
                       <form action="code.php" method="POST" enctype="multipart/form-data">
                         <span class="create">
-                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal" id="submit">Add Section</button>                       
+                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal" id="submit">Add Subject</button>                       
                         </span>
                         
                       <!-- <span class="rows_selected" id="select_count">0 Selected</span> -->
                     </div>
                     </div>
-                        <!--Accepted Modal -->
+                        <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog"> 
                             <div class="modal-content"> 
                                 <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button> 
-                                    <h5 class="modal-title" id="exampleModalLabel">Add Section</h5>  
+                                    <h5 class="modal-title" id="exampleModalLabel">Add Subject</h5>  
                                 </div> 
                                 <div class="modal-body"> 
                                     <!-- Data passed is displayed in this part of the modal body -->
 
-                    <div class="select-field">
-
-                        <label for="Section">Section Name</label> <span id="btk"> <input type="text" placeholder="" name="section"></span>
-                    </div>    
-
-                    
-                        
+                                    <label for="Subject" class="Subject">Subject Name</label> <input type="text" class="sub" placeholder="" name="subject">
 
                     <script type="text/javascript">
                         $(document).ready(function () {
@@ -187,9 +181,7 @@
                     });
                     </script>
                                     <h6 id="modal_body"></h6>
-                                    <input type="hidden" name="status" value="Accepted">
-                                    <input type="hidden" name="comment" value="The Guidance Office Accepts This Excuse Letter">
-                                    <input type="submit" class="btnn" name="save_teacher_subject" onClick="window.location.href=window.location.href" value="Create" style="width: 150px; height: 30px; margin-top: 180px; margin-bottom: -10px; margin-left: 820px; font-size: 15px;"> 
+                                    <input type="submit" class="btnn" name="save_subject" onClick="window.location.href=window.location.href" value="Create"> 
                                 </div> 
                             </div> 
                         </div> 
@@ -200,30 +192,28 @@
                     <table id="myDataTable" class="hover" style="margin-left: 80px;">
                         <thead>
                             <tr>
-                                <th></th>
-                                <th>Section</th>
-                                <!-- <th>Teacher Name</th>
-                                <th>Student Name</th> -->
+                                <th></th>                              
+                                <th>Subject Name</th>
                                 <th>Update</th>
                             </tr>
                         </thead>
                         <tbody>
                         <?php 
 
-                            $query = "SELECT * FROM `section`";
+                            $query = "SELECT * FROM `subject` ORDER BY `Subject_Name` ASC";
                             $query_run = mysqli_query($link, $query);
 
                             if(mysqli_num_rows($query_run) > 0)
                             {
-                                foreach($query_run as $section)
+                                foreach($query_run as $subject)
                                 {
                                     ?>
                                     <tr>
                                         <td>
-                                            <input type="checkbox" class="emp_checkbox" data-emp-id="<?= $section['Section_ID']; ?>">
+                                            <input type="checkbox" class="emp_checkbox" data-emp-id="<?= $subject['Subject_ID']; ?>">
                                         </td>
-                                        <td><?= $section['Section']; ?>
-                                        <td><a href="Update_Section.php?id=<?= $section['Section_ID']; ?>"><button type="submit" class="btn btn-update">View</button></a></td>
+                                        <td><?= $subject['Subject_Name']; ?></a></td>
+                                        <td><a href="Update_Subject.php?id=<?= $subject['Subject_ID']; ?>"><button type="submit" class="btn btn-update">View</button></a></td>
                                     </tr>
                                     <?php
                                 }
@@ -302,7 +292,7 @@
 			                var selected_values = employee.join(",");
 			                $.ajax({ 
                                 type: "POST",  
-                                url: "delete_subject_assigned.php",  
+                                url: "delete_subject.php",  
                                 cache:false,  
                                 data: 'emp_id='+selected_values,  
                                 success: function(response) {	

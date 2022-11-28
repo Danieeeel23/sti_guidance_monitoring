@@ -154,7 +154,7 @@ body{
     margin-left: 10px;
     margin-right: 200px;
     padding: 15px;
-    width: 220px;
+    width: 177px;
     
 }
 .toptitle h2{
@@ -169,7 +169,7 @@ body{
     display: flex;
     justify-content: space-between;
     text-align: center;
-    margin-left: 620px;
+    margin-left: 750px;
     align-items: center;
     padding: 20px;
     color: white;
@@ -232,11 +232,7 @@ input[type=submit]{
     cursor: pointer;
 }
 .create input[type=submit]{
-    margin-left: 200px;
-    position: relative;
-}
-.create1 input[type=submit]{
-    margin-left: 300px;
+    margin-left: 230px;
     position: relative;
 }
 .delete input[type=submit]{
@@ -245,12 +241,6 @@ input[type=submit]{
     margin-left: 20px;
 }
 .create input[type=submit]:hover {
-    border-style: groove;
-    padding-right: -10px;
-    background: whitesmoke;
-    color:blue;
-  }
-  .create1 input[type=submit]:hover {
     border-style: groove;
     padding-right: -10px;
     background: whitesmoke;
@@ -431,7 +421,8 @@ input[type=submit]{
     margin-top: -30px;
     margin-bottom: 30px;
  }
- .dropdown-user{
+
+  .dropdown-user{
     top: 0;
  }
 .dropdown1 .dropbtn1 {
@@ -465,7 +456,6 @@ input[type=submit]{
         display:inline-block;
         background-color: #1f386f;
    }
-
    .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -499,6 +489,21 @@ input[type=submit]{
     margin-left: -21px;
     padding: 10px 0 10px 15px;
   }
+  
+  label.Subject{
+    margin-left: 2em;
+    margin-top: 30px;
+  }
+
+  input#delete_records{
+    margin-left: 160px;
+    margin-right: -150px;
+  }
+
+  input.sub{
+    margin-top: 20px;
+    width: 290px;
+  }
 
   h6#modal_body{
     font-size: 15px;
@@ -526,45 +531,197 @@ input[type=submit]{
     text-decoration: none;
     cursor: pointer;
   }
-
-  label.Offense{
-    margin-left: 2em;
-    margin-top: 30px;
-  }
-
-  input#delete_records{
-    margin-left: -37px;
-    margin-right: -500px;
-  }
-
-  input.off{
-    margin-top: 20px;
-    width: 290px;
-  }
-
-  input.btn.btn-primary.btn-lg{
-    margin-left: 100px;
-    margin-right: 100px;
-  }
-
   button#submit.btn.btn-primary.btn-sm{
     background-color: rgb(248, 222, 126);
     border: none;
     color: white;
-    width: 100px;
+    width: 130px;
     height: 43px;
-    margin-left: -80px;
-    margin-right: 60px;
+    margin-left: 200px;
     
-    border-radius: 6px;
+    border-radius: 10px;
     padding: 5px 5px;
     text-align: center;
     cursor: pointer;
     font-size: 15px;
     margin-top: 47px;
    }
+   .multi-selector{
+    width: max-content;
+}
 
-   input.btnn{
+.select-field,.task,.list{
+    width: 40%;
+    margin-left: 45px;
+    background-color: white;
+    padding: 0.3rem;
+}
+
+.list{
+    box-shadow: 0 30px 60px rgb(0,0,0,0.2);
+    display: none;
+   
+    
+}
+.down-arrow{
+    font-size: 1.2rem;
+    display: inline-block;
+    cursor: pointer;
+    transition: 0.2s linear;
+    margin-left: -47px;
+    user-select:none;
+}
+.task{
+    display: block;
+    padding-left: 0;
+}
+.task span{
+    float: right;
+    font-size: 0.6rem;
+    padding-top: 6px;
+}
+.task:hover{
+    background-color: aliceblue;
+}
+.show{
+    display: block;
+    margin-top: -20px;
+    margin-left: 10px;
+}
+div.list.show{
+    display: block;
+    margin-top: -10px;
+    margin-left: 6px;
+    overflow-y: scroll;
+    height: 240px;
+    width: 290px;
+    font-size: 15px;
+}
+.rotate180{
+    transform: rotate(-60deg);
+}
+input.input-selector{
+    width: 130px;
+    user-select:none;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.list1{
+    box-shadow: 0 30px 60px rgb(0,0,0,0.2);
+    display: none;
+   
+    
+}
+.down-arrow1{
+    font-size: 1.2rem;
+    display: inline-block;
+    cursor: pointer;
+    transition: 0.2s linear;
+    margin-left: -50px;
+    user-select: none;
+}
+.task{
+    display: block;
+    padding-left: 0;
+}
+.task span{
+    float: right;
+    font-size: 0.6rem;
+    padding-top: 6px;
+}
+.task:hover{
+    background-color: aliceblue;
+}
+.show{
+    display: block;
+    margin-top: -20px;
+    margin-left: 10px;
+}
+div.list1.show{
+    display: block;
+    margin-top: -20px;
+    margin-left: 360px;
+    height: 150px;
+    width: 220px;
+    font-size: 15px;
+    overflow-y: scroll;
+}
+
+input.input-selector1{
+    width: 130px;
+    user-select:none;
+    cursor: pointer;
+}
+.select-field1,.task,.list1{
+    width: 40%;
+    margin-left: 370px;
+    margin-top: -63px;
+    background-color: white;
+    padding: 0.3rem;
+}
+.list1{
+    box-shadow: 0 30px 60px rgb(0,0,0,0.2);
+    display: none;
+}
+
+.down-arrow2{
+    font-size: 1.2rem;
+    display: inline-block;
+    cursor: pointer;
+    transition: 0.2s linear;
+    margin-left: -50px;
+}
+.task{
+    display: block;
+    padding-left: 0;
+}
+.task span{
+    float: right;
+    font-size: 0.6rem;
+    padding-top: 6px;
+}
+.task:hover{
+    background-color: aliceblue;
+}
+.show{
+    display: block;
+    margin-top: -20px;
+    margin-left: 10px;
+}
+div.list2.show{
+    display: block;
+    margin-top: 0px;
+    margin-left: 670px;
+    width: 280px;
+    overflow-y: scroll;
+}
+
+input.input-selector2{
+    width: 130px;
+}
+.select-field2,.task,.list2{
+    width: 35%;
+    margin-top: -67px;
+    margin-left: 690px;
+    background-color: white;
+    padding: 0.3rem;
+}
+.list2{
+    box-shadow: 0 30px 60px rgb(0,0,0,0.2);
+    display: none;
+}
+select.Violation{
+    border: 1px solid black;
+}
+select.Violation1{
+    border: 1px solid black;
+}
+select.Violation2{
+    border: 1px solid black;
+}
+
+input.btnn{
     margin-left: 260px;
     margin-top: 10px;
     width: 150px;
