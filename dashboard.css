@@ -1,0 +1,1182 @@
+.dashboard-dashboard {
+    width: 1280px;
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    max-width: 1920px;
+    box-sizing: border-box;
+    align-items: flex-start;
+    border-color: transparent;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .dashboard-rectangle21 {
+    top: 0px;
+    left: 0px;
+    width: 1280px;
+    max-width: 1920px;
+    height: 27px;
+    position: absolute;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+    box-sizing: border-box;
+    object-fit: cover;
+    border-color: transparent;
+    background-color: rgba(47, 79, 192, 1);
+  }
+  .dashboard-text {
+    top: 8px;
+    left: 28px;
+    color: rgba(255, 255, 255, 1);
+    width: 73px;
+    height: auto;
+    position: absolute;
+    font-size: 12px;
+    align-self: auto;
+    font-style: normal;
+    text-align: center;
+    font-family: Roboto;
+    font-weight: 400px;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-rectangle23 {
+    top: 27px;
+    left: 0px;
+    width: 49px;
+    height: 100%;
+    position: absolute;
+    box-sizing: border-box;
+    object-fit: cover;
+    border-color: transparent;
+    background-color: rgba(54, 49, 104, 1);
+  }
+  .dashboard-text01 {
+    top: 261px;
+    left: 13px;
+    color: rgba(255, 255, 255, 1);
+    width: 22px;
+    height: auto;
+    position: absolute;
+    font-size: 5px;
+    align-self: auto;
+    font-style: normal;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 400px;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-text02 {
+    top: 61px;
+    left: 13px;
+    color: rgba(255, 255, 255, 1);
+    width: 22px;
+    height: auto;
+    position: absolute;
+    font-size: 5px;
+    align-self: auto;
+    font-style: normal;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 400px;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-text03 {
+    top: 126px;
+    left: 5px;
+    color: rgba(255, 255, 255, 1);
+    width: 38px;
+    height: auto;
+    position: absolute;
+    font-size: 5px;
+    align-self: auto;
+    font-style: normal;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 400px;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-text04 {
+    top: 160px;
+    left: 5px;
+    color: rgba(255, 255, 255, 1);
+    width: 38px;
+    height: auto;
+    position: absolute;
+    font-size: 5px;
+    align-self: auto;
+    font-style: normal;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 400px;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-text05 {
+    top: 194px;
+    left: 4px;
+    color: rgba(255, 255, 255, 1);
+    width: 40px;
+    height: auto;
+    position: absolute;
+    font-size: 5px;
+    align-self: auto;
+    font-style: normal;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 400px;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-text06 {
+    top: 230px;
+    left: 11px;
+    color: rgba(255, 255, 255, 1);
+    width: 27px;
+    height: auto;
+    position: absolute;
+    font-size: 5px;
+    align-self: auto;
+    font-style: normal;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 400px;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-text07 {
+    top: 95px;
+    left: 10px;
+    color: rgba(255, 255, 255, 1);
+    width: 28px;
+    height: auto;
+    position: absolute;
+    font-size: 5px;
+    align-self: auto;
+    font-style: normal;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 400px;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-svg {
+    top: 114px;
+    left: 10.454148292541504px;
+    width: 38;
+    height: 27;
+    position: absolute;
+  }
+  .dashboard-rectangle28 {
+    top: 44px;
+    left: 1px;
+    width: 47px;
+    height: 29px;
+    position: absolute;
+    box-sizing: border-box;
+    object-fit: cover;
+    border-color: transparent;
+    background-color: rgba(217, 217, 217, 0.3199999928474426);
+  }
+  .dashboard-text08 {
+    top: 7px;
+    left: 458px;
+    color: rgba(255, 255, 255, 1);
+    width: 58px;
+    height: auto;
+    position: absolute;
+    font-size: 12px;
+    align-self: auto;
+    font-style: normal;
+    text-align: center;
+    font-family: Roboto;
+    font-weight: 400px;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-svg1 {
+    top: 12px;
+    left: 510px;
+    width: 8;
+    height: 5;
+    position: absolute;
+  }
+  .dashboard-svg2 {
+    top: 9px;
+    left: 450px;
+    width: 10;
+    height: 10;
+    position: absolute;
+  }
+  .dashboard-svg3 {
+    top: 9px;
+    left: 435px;
+    width: 10;
+    height: 10;
+    position: absolute;
+  }
+  .dashboard-dashboardbackground {
+    top: 27px;
+    left: 49px;
+    width: 1280px;
+    max-width: 1920px;
+    height: 100%;
+    position: absolute;
+    box-sizing: border-box;
+    object-fit: cover;
+    border-color: transparent;
+    background-color: rgba(241, 237, 237, 1);
+  }
+  .dashboard-rectangle252 {
+    top: 59px;
+    left: 67px;
+    width: 101px;
+    height: 36px;
+    position: absolute;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+    box-sizing: border-box;
+    object-fit: cover;
+    border-color: transparent;
+    border-radius: 2px;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .dashboard-rectangle260 {
+    top: 66px;
+    left: 98px;
+    width: 1px;
+    height: 22px;
+    position: absolute;
+    box-sizing: border-box;
+    object-fit: cover;
+    border-color: transparent;
+    background-color: rgba(217, 217, 217, 1);
+  }
+  .dashboard-rectangle259 {
+    top: 65px;
+    left: 209px;
+    width: 1px;
+    height: 24px;
+    position: absolute;
+    box-sizing: border-box;
+    object-fit: cover;
+    border-color: transparent;
+    background-color: rgba(217, 217, 217, 1);
+  }
+  .dashboard-rectangle254 {
+    top: 59px;
+    left: 297px;
+    width: 94px;
+    height: 36px;
+    position: absolute;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+    box-sizing: border-box;
+    object-fit: cover;
+    border-color: transparent;
+    border-radius: 2px;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .dashboard-rectangle253 {
+    top: 59px;
+    left: 182px;
+    width: 101px;
+    height: 36px;
+    position: absolute;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+    box-sizing: border-box;
+    object-fit: cover;
+    border-color: transparent;
+    border-radius: 2px;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .dashboard-maskgroup {
+    top: 71px;
+    left: 306px;
+    width: 12px;
+    height: 12px;
+    display: flex;
+    position: absolute;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+  }
+  .dashboard-rectangle101 {
+    top: -4.1376953125px;
+    left: -3.7610294818878174px;
+    width: 20px;
+    height: 23px;
+    position: absolute;
+    box-sizing: border-box;
+    object-fit: cover;
+    border-color: transparent;
+    background-color: rgba(174, 107, 227, 1);
+  }
+  .dashboard-maskgroup01 {
+    top: 71px;
+    left: 191px;
+    width: 11px;
+    height: 11px;
+    display: flex;
+    position: absolute;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+  }
+  .dashboard-svg4 {
+    top: -4.052669048309326px;
+    left: -3.7633464336395264px;
+    width: 18;
+    height: 19;
+    position: absolute;
+  }
+  .dashboard-maskgroup02 {
+    top: 69px;
+    left: 77px;
+    width: 14px;
+    height: 13px;
+    display: flex;
+    position: absolute;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+  }
+  .dashboard-rectangle1011 {
+    top: -4.482503414154053px;
+    left: -4.387867450714111px;
+    width: 23px;
+    height: 25px;
+    position: absolute;
+    box-sizing: border-box;
+    object-fit: cover;
+    border-color: transparent;
+    background-color: rgba(229, 178, 178, 1);
+  }
+  .dashboard-rectangle255 {
+    top: 59px;
+    left: 67px;
+    width: 2px;
+    height: 36px;
+    position: absolute;
+    box-sizing: border-box;
+    object-fit: cover;
+    border-color: transparent;
+    background-color: rgba(229, 179, 179, 1);
+  }
+  .dashboard-rectangle256 {
+    top: 59px;
+    left: 182px;
+    width: 2px;
+    height: 36px;
+    position: absolute;
+    box-sizing: border-box;
+    object-fit: cover;
+    border-color: transparent;
+    background-color: rgba(150, 202, 238, 1);
+  }
+  .dashboard-rectangle257 {
+    top: 59px;
+    left: 297px;
+    width: 2px;
+    height: 36px;
+    position: absolute;
+    box-sizing: border-box;
+    object-fit: cover;
+    border-color: transparent;
+    background-color: rgba(174, 107, 227, 1);
+  }
+  .dashboard-rectangle258 {
+    top: 66px;
+    left: 209px;
+    width: 1px;
+    height: 22px;
+    position: absolute;
+    box-sizing: border-box;
+    object-fit: cover;
+    border-color: transparent;
+    background-color: rgba(217, 217, 217, 1);
+  }
+  .dashboard-rectangle261 {
+    top: 66px;
+    left: 324px;
+    width: 1px;
+    height: 22px;
+    position: absolute;
+    box-sizing: border-box;
+    object-fit: cover;
+    border-color: transparent;
+    background-color: rgba(217, 217, 217, 1);
+  }
+  .dashboard-rectangle236 {
+    top: 60px;
+    left: 402px;
+    width: 121px;
+    height: 182px;
+    position: absolute;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+    box-sizing: border-box;
+    object-fit: cover;
+    border-color: transparent;
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .dashboard-text09 {
+    top: 74px;
+    left: 402px;
+    color: rgba(54, 50, 104, 1);
+    width: 83px;
+    height: auto;
+    position: absolute;
+    font-size: 8px;
+    align-self: auto;
+    font-style: normal;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 700px;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-text10 {
+    top: 96px;
+    left: 422px;
+    color: rgba(146, 180, 236, 1);
+    width: 123px;
+    height: auto;
+    position: absolute;
+    font-size: 5px;
+    align-self: auto;
+    font-style: normal;
+    text-align: left;
+    font-family: Inter;
+    font-weight: 700px;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-text11 {
+    color: rgba(146, 180, 236, 1);
+    width: 123px;
+    height: auto;
+    align-self: auto;
+    font-style: normal;
+    text-align: left;
+    font-weight: 700px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-text12 {
+    color: rgba(146, 180, 236, 1);
+    width: 123px;
+    height: auto;
+    align-self: auto;
+    font-style: normal;
+    text-align: left;
+    font-weight: 400px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-text13 {
+    color: rgba(146, 180, 236, 1);
+    width: 123px;
+    height: auto;
+    align-self: auto;
+    font-style: normal;
+    text-align: left;
+    font-weight: 700px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-text14 {
+    top: 120px;
+    left: 422px;
+    color: rgba(146, 180, 236, 1);
+    width: 123px;
+    height: auto;
+    position: absolute;
+    font-size: 5px;
+    align-self: auto;
+    font-style: normal;
+    text-align: left;
+    font-family: Inter;
+    font-weight: 700px;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-text15 {
+    color: rgba(146, 180, 236, 1);
+    width: 123px;
+    height: auto;
+    align-self: auto;
+    font-style: normal;
+    text-align: left;
+    font-weight: 700px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-text16 {
+    color: rgba(146, 180, 236, 1);
+    width: 123px;
+    height: auto;
+    align-self: auto;
+    font-style: normal;
+    text-align: left;
+    font-weight: 500px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-text17 {
+    color: rgba(146, 180, 236, 1);
+    width: 123px;
+    height: auto;
+    align-self: auto;
+    font-style: normal;
+    text-align: left;
+    font-weight: 700px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-text18 {
+    top: 143px;
+    left: 422px;
+    color: rgba(146, 180, 236, 1);
+    width: 123px;
+    height: auto;
+    position: absolute;
+    font-size: 5px;
+    align-self: auto;
+    font-style: normal;
+    text-align: left;
+    font-family: Inter;
+    font-weight: 700px;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-text19 {
+    color: rgba(146, 180, 236, 1);
+    width: 123px;
+    height: auto;
+    align-self: auto;
+    font-style: normal;
+    text-align: left;
+    font-weight: 700px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-text20 {
+    color: rgba(146, 180, 236, 1);
+    width: 123px;
+    height: auto;
+    align-self: auto;
+    font-style: normal;
+    text-align: left;
+    font-weight: 500px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-text21 {
+    color: rgba(146, 180, 236, 1);
+    width: 123px;
+    height: auto;
+    align-self: auto;
+    font-style: normal;
+    text-align: left;
+    font-weight: 700px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-text22 {
+    top: 166px;
+    left: 422px;
+    color: rgba(146, 180, 236, 1);
+    width: 123px;
+    height: auto;
+    position: absolute;
+    font-size: 5px;
+    align-self: auto;
+    font-style: normal;
+    text-align: left;
+    font-family: Inter;
+    font-weight: 700px;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-text23 {
+    color: rgba(146, 180, 236, 1);
+    width: 123px;
+    height: auto;
+    align-self: auto;
+    font-style: normal;
+    text-align: left;
+    font-weight: 700px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-text24 {
+    color: rgba(146, 180, 236, 1);
+    width: 123px;
+    height: auto;
+    align-self: auto;
+    font-style: normal;
+    text-align: left;
+    font-weight: 500px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-text25 {
+    color: rgba(146, 180, 236, 1);
+    width: 123px;
+    height: auto;
+    align-self: auto;
+    font-style: normal;
+    text-align: left;
+    font-weight: 700px;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-text26 {
+    top: 104px;
+    left: 459px;
+    color: rgba(115, 119, 123, 1);
+    width: 41px;
+    height: auto;
+    position: absolute;
+    font-size: 5px;
+    align-self: auto;
+    font-style: normal;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 400px;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-text27 {
+    top: 128px;
+    left: 460px;
+    color: rgba(115, 119, 123, 1);
+    width: 41px;
+    height: auto;
+    position: absolute;
+    font-size: 5px;
+    align-self: auto;
+    font-style: normal;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 400px;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-text28 {
+    top: 151px;
+    left: 460px;
+    color: rgba(115, 119, 123, 1);
+    width: 41px;
+    height: auto;
+    position: absolute;
+    font-size: 5px;
+    align-self: auto;
+    font-style: normal;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 400px;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-text29 {
+    top: 174px;
+    left: 460px;
+    color: rgba(115, 119, 123, 1);
+    width: 41px;
+    height: auto;
+    position: absolute;
+    font-size: 5px;
+    align-self: auto;
+    font-style: normal;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 400px;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-rectangle262 {
+    top: 106px;
+    left: 67px;
+    width: 324px;
+    height: 109px;
+    position: absolute;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+    box-sizing: border-box;
+    object-fit: cover;
+    border-color: transparent;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .dashboard-text30 {
+    top: 36px;
+    left: 64px;
+    color: rgba(54, 50, 104, 1);
+    width: 99px;
+    height: auto;
+    position: absolute;
+    font-size: 9px;
+    align-self: auto;
+    font-style: normal;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 700px;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-rectangle263 {
+    top: 129px;
+    left: 73px;
+    width: 96px;
+    height: 58px;
+    position: absolute;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+    box-sizing: border-box;
+    object-fit: cover;
+    border-color: rgba(0, 0, 0, 1);
+    border-style: solid;
+    border-width: 0.10000000149011612px;
+    border-radius: 4px 4px 0 0;
+  }
+  .dashboard-rectangle265 {
+    top: 129px;
+    left: 289px;
+    width: 96px;
+    height: 78px;
+    position: absolute;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+    box-sizing: border-box;
+    object-fit: cover;
+    border-color: rgba(0, 0, 0, 1);
+    border-style: solid;
+    border-width: 0.10000000149011612px;
+    border-radius: 4px;
+  }
+  .dashboard-rectangle264 {
+    top: 129px;
+    left: 181px;
+    width: 96px;
+    height: 60px;
+    position: absolute;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+    box-sizing: border-box;
+    object-fit: cover;
+    border-color: rgba(0, 0, 0, 1);
+    border-style: solid;
+    border-width: 0.10000000149011612px;
+    border-radius: 4px;
+  }
+  .dashboard-rectangle266 {
+    top: 186px;
+    left: 73px;
+    width: 96px;
+    height: 22px;
+    position: absolute;
+    box-sizing: border-box;
+    object-fit: cover;
+    border-color: rgba(0, 0, 0, 1);
+    border-style: solid;
+    border-width: 0.10000000149011612px;
+    border-radius: 0 0 4px 4px;
+    background-color: rgba(229, 179, 179, 1);
+  }
+  .dashboard-rectangle267 {
+    top: 186px;
+    left: 181px;
+    width: 96px;
+    height: 21px;
+    position: absolute;
+    box-sizing: border-box;
+    object-fit: cover;
+    border-color: rgba(0, 0, 0, 1);
+    border-style: solid;
+    border-width: 0.10000000149011612px;
+    border-radius: 0 0 4px 4px;
+    background-color: rgba(150, 202, 238, 1);
+  }
+  .dashboard-rectangle268 {
+    top: 186px;
+    left: 289px;
+    width: 96px;
+    height: 21px;
+    position: absolute;
+    box-sizing: border-box;
+    object-fit: cover;
+    border-color: rgba(0, 0, 0, 1);
+    border-style: solid;
+    border-width: 0.10000000149011612px;
+    border-radius: 0 0 4px 4px;
+    background-color: rgba(174, 107, 227, 1);
+  }
+  .dashboard-text31 {
+    top: 193px;
+    left: 68px;
+    color: rgba(255, 255, 255, 1);
+    width: 57px;
+    height: auto;
+    position: absolute;
+    font-size: 7px;
+    align-self: auto;
+    font-style: normal;
+    text-align: center;
+    font-family: Roboto;
+    font-weight: 400px;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-text32 {
+    top: 112px;
+    left: 67px;
+    color: rgba(0, 0, 0, 1);
+    width: 57px;
+    height: auto;
+    position: absolute;
+    font-size: 7px;
+    align-self: auto;
+    font-style: normal;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 500px;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-text33 {
+    top: 193px;
+    left: 181px;
+    color: rgba(255, 255, 255, 1);
+    width: 57px;
+    height: auto;
+    position: absolute;
+    font-size: 7px;
+    align-self: auto;
+    font-style: normal;
+    text-align: center;
+    font-family: Roboto;
+    font-weight: 400px;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-text34 {
+    top: 192px;
+    left: 287px;
+    color: rgba(255, 255, 255, 1);
+    width: 57px;
+    height: auto;
+    position: absolute;
+    font-size: 7px;
+    align-self: auto;
+    font-style: normal;
+    text-align: center;
+    font-family: Roboto;
+    font-weight: 400px;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-text35 {
+    top: 66px;
+    left: 73px;
+    color: rgba(0, 0, 0, 1);
+    width: 96px;
+    height: auto;
+    position: absolute;
+    font-size: 8px;
+    align-self: auto;
+    font-style: normal;
+    text-align: center;
+    font-family: Roboto;
+    font-weight: 600px;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-text36 {
+    top: 66px;
+    left: 182px;
+    color: rgba(0, 0, 0, 1);
+    width: 96px;
+    height: auto;
+    position: absolute;
+    font-size: 8px;
+    align-self: auto;
+    font-style: normal;
+    text-align: center;
+    font-family: Roboto;
+    font-weight: 600px;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-text37 {
+    top: 66px;
+    left: 299px;
+    color: rgba(0, 0, 0, 1);
+    width: 96px;
+    height: auto;
+    position: absolute;
+    font-size: 8px;
+    align-self: auto;
+    font-style: normal;
+    text-align: center;
+    font-family: Roboto;
+    font-weight: 600px;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-text38 {
+    top: 76px;
+    left: 102px;
+    color: rgba(0, 0, 0, 1);
+    width: 21px;
+    height: auto;
+    position: absolute;
+    font-size: 7px;
+    align-self: auto;
+    font-style: normal;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 700px;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-text39 {
+    top: 76px;
+    left: 213px;
+    color: rgba(0, 0, 0, 1);
+    width: 21px;
+    height: auto;
+    position: absolute;
+    font-size: 7px;
+    align-self: auto;
+    font-style: normal;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 700px;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-text40 {
+    top: 76px;
+    left: 326px;
+    color: rgba(0, 0, 0, 1);
+    width: 21px;
+    height: auto;
+    position: absolute;
+    font-size: 7px;
+    align-self: auto;
+    font-style: normal;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 700px;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-text41 {
+    top: 112px;
+    left: 343px;
+    color: rgba(0, 0, 0, 1);
+    height: auto;
+    position: absolute;
+    font-size: 7px;
+    align-self: auto;
+    font-style: normal;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 400px;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .dashboard-maskgroup03 {
+    top: 48px;
+    left: 18px;
+    width: 12px;
+    height: 12px;
+    display: flex;
+    position: absolute;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+  }
+  .dashboard-rectangle445 {
+    top: -17px;
+    left: -10px;
+    width: 31px;
+    height: 31px;
+    position: absolute;
+    box-sizing: border-box;
+    object-fit: cover;
+    border-color: transparent;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .dashboard-maskgroup04 {
+    top: 83px;
+    left: 18px;
+    width: 12px;
+    height: 12px;
+    display: flex;
+    position: absolute;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+  }
+  .dashboard-rectangle446 {
+    top: -10.588309288024902px;
+    left: -14.1181640625px;
+    width: 44px;
+    height: 35px;
+    position: absolute;
+    box-sizing: border-box;
+    object-fit: cover;
+    border-color: rgba(0, 0, 0, 1);
+    border-style: solid;
+    border-width: 1px;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .dashboard-maskgroup05 {
+    top: 114px;
+    left: 18px;
+    width: 12px;
+    height: 12px;
+    display: flex;
+    position: absolute;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+  }
+  .dashboard-rectangle447 {
+    top: -5.142857074737549px;
+    left: -7.7138671875px;
+    width: 28px;
+    height: 23px;
+    position: absolute;
+    box-sizing: border-box;
+    object-fit: cover;
+    border-color: transparent;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .dashboard-maskgroup06 {
+    top: 180px;
+    left: 18px;
+    width: 12px;
+    height: 12px;
+    display: flex;
+    position: absolute;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+  }
+  .dashboard-rectangle448 {
+    top: -19.714284896850586px;
+    left: -25.7138671875px;
+    width: 60px;
+    height: 52px;
+    position: absolute;
+    box-sizing: border-box;
+    object-fit: cover;
+    border-color: transparent;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .dashboard-maskgroup07 {
+    top: 215px;
+    left: 18px;
+    width: 12px;
+    height: 12px;
+    display: flex;
+    position: absolute;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+  }
+  .dashboard-rectangle451 {
+    right: -189px;
+    width: 87px;
+    bottom: -135px;
+    height: 62px;
+    position: absolute;
+    box-sizing: border-box;
+    object-fit: cover;
+    border-color: transparent;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .dashboard-maskgroup08 {
+    top: 247px;
+    left: 18px;
+    width: 12px;
+    height: 12px;
+    display: flex;
+    position: absolute;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+  }
+  .dashboard-rectangle452 {
+    top: -12.857142448425293px;
+    left: -20.5712890625px;
+    width: 51px;
+    height: 44px;
+    position: absolute;
+    box-sizing: border-box;
+    object-fit: cover;
+    border-color: transparent;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .dashboard-maskgroup09 {
+    top: 147px;
+    left: 18px;
+    width: 12px;
+    height: 12px;
+    display: flex;
+    position: absolute;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+  }
+  .dashboard-rectangle455 {
+    top: -7.714285850524902px;
+    left: -15.4287109375px;
+    width: 39px;
+    height: 27px;
+    position: absolute;
+    box-sizing: border-box;
+    object-fit: cover;
+    border-color: transparent;
+    background-color: rgba(255, 255, 255, 1);
+  }

@@ -1,0 +1,457 @@
+@import url('https://fonts.goggleapis.com/css?family=poppins:200,300,400,500,600,700,800,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    overflow-x: hidden;
+    background: rgb(241, 237, 237);
+   
+}
+.container{
+    position: relative;
+    width: 100%;
+    scroll-padding-top: 20px; 
+   
+}
+.navigation{
+    position:fixed;
+    width: 100px;
+    height: 100%;
+    background: rgb(54, 50, 104);
+    transition: 05s;
+    overflow: hidden;  
+ 
+}
+.navigation ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.navigation ul li{
+    position: relative;
+    width: 100%;
+    list-style: none;
+}
+.navigation ul li:hover{
+    background: rgb(217, 217, 217);  
+    
+}
+
+.navigation ul li:nth-child(1)
+{
+
+    margin-bottom: 20px;
+    
+}
+.navigation ul li:nth-child(1):hover{
+    background: transparent;
+
+}
+.navigation ul li a{
+    position: relative;
+    margin: 10px;
+    display: block;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    
+    text-decoration: none;
+    color: white;
+}
+.navigation ul li a .icon{
+    position: relative;
+    display: block;
+    margin-left: 15px;
+    padding-bottom: 53px;
+    min-width: 20px;
+    height: 20px;
+    line-height: 10px;
+    text-align: center;
+}
+.navigation ul li a .icon img{
+    width: 30px;
+}
+
+.navigation ul li a .title{
+    position: absolute;
+    display: block;
+    font-size: 12px;
+    margin-left: -10px;
+    padding-top: 0px;
+    height: 50px;
+    text-align: center;
+    line-height: 30px;
+    white-space: nowrap;
+}
+.navigation ul li a .title1{
+    position: absolute;
+    display: block;
+    font-size: 12px;
+    margin-left: 0px;
+    padding: 0 13px;
+    height: 60px;
+    text-align: center;
+    line-height: 30px;
+    white-space: nowrap;
+}
+.navigation ul li a .title2{
+    position: absolute;
+    display: block;
+    font-size: 12px;
+    margin-left: 0px;
+    padding: 0 2px;
+    height: 60px;
+    text-align: center;
+    line-height: 30px;
+    white-space: nowrap;
+}
+.navigation ul li a .title3{
+    position: absolute;
+    display: block;
+    font-size: 12px;
+    margin-left: 0px;
+    padding: 0 5px;
+    height: 60px;
+    text-align: center;
+    line-height: 30px;
+    white-space: nowrap;
+}
+.navigation ul li a .title4{
+    position: absolute;
+    display: block;
+    font-size: 12px;
+    margin-left: 0px;
+    padding: 0 10px;
+    height: 60px;
+    text-align: center;
+    line-height: 30px;
+    white-space: nowrap;
+}
+
+.main{
+    position: relative;
+    background: rgb(47, 79, 192);
+    width: 100%;
+    height: 50px;
+    display: inline-flex;
+}
+.topbar{
+    display: flex;
+    position: relative;
+   
+}
+.main .toptitle{
+    position: relative;
+    display: inline-block;
+    color: white;
+    align-items: center;
+    margin-top: 2px;
+    margin-left: 10px;
+    margin-right: 200px;
+    padding: 15px;
+    width: 220px;
+    
+}
+.toptitle h2{
+    font-size: 25px;
+    margin-top: -8px;
+}
+#logo img{
+    margin:10px 30px 10px 25px;
+    width: 50px;
+}
+.icons{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin-left: 620px;
+    align-items: center;
+    padding: px;
+    color: white;
+    
+}
+.icons i{
+    width: 30px;
+    text-align: center;
+    
+}
+
+.icons1{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    color: white;
+   
+}
+.icons1 i{
+    margin-left: 10px;
+    align-items: center;
+}
+.icons1 h3{
+    font-size: 18px;
+    align-items: center;
+    margin-top: -5px;
+    margin-left: -10px;
+    
+}
+.main1{
+    position: relative;
+    margin-left: 100px;
+}
+.title2 h1{
+    position: relative;
+    align-content: center;
+    font-size: 20px;
+    font-family: Poppins,sans-serif;
+    padding: 20px;
+}
+.bot{
+    margin-left: 800px;
+    display: flex;
+}
+.delete :nth-child(1){
+    background-color: rgb(255, 140, 140);
+}
+
+input[type=submit]{
+    position: fixed;
+    margin-left: 40px;
+    margin-bottom: 40px;
+    margin-top: 50px;
+    padding: 2px;
+    height: 40px;
+    width: 100px;
+    background-color: rgb(47, 79, 192);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.create input[type=submit]{
+    margin-left: 200px;
+    position: relative;
+}
+.delete input[type=submit]{
+    margin-left: 330px;
+    position: relative;
+    margin-left: 20px;
+}
+.create input[type=submit]:hover {
+    border-style: groove;
+    padding-right: -10px;
+    background: whitesmoke;
+    color:blue;
+  }
+  .delete input[type=submit]:hover {
+    border-style: groove;
+    background: whitesmoke;
+    color:blue;
+  }
+ 
+  input[type=text], select {
+    width: 200px;
+    padding: 12px 10px;
+    margin: 8px 20px;
+    display: inline-block;
+    border: 1px solid white;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  #sea{
+    margin-left: 10px;
+    width: 100%;
+  }
+  #sea ::placeholder{
+    padding-left: 0px;
+  }
+ 
+  input[type=text], select :nth-child(2) {
+    width: 900px;
+    padding: 12px 10px;
+    margin: 8px 25px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+.table1{
+    margin-left: 70px;
+}
+.card-header{
+    position: absolute;
+    top: 250px;
+    left: 30px;
+    text-align: center;
+
+}
+.hover {
+    border-collapse: collapse;
+    margin: 25px 0 0px 50px;
+    font-size: 0.8em;
+    width: 100px;
+    font-family: sans-serif;
+    min-width: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+.hover thead tr {
+    background-color:  rgb(47, 79, 192);
+    color: white;
+    text-align: center;
+}
+.hover th,
+.hover td {
+    text-align: left;
+    padding: 20px 20px 20px 50px;
+   
+}
+.hover input{
+    margin-right: 10px;
+    width: 50;
+    size: 100px;
+}
+.hover tbody tr {
+
+    border-bottom: 10px solid #dddddd;
+}
+.hover tbody tr {
+    background-color: #f3f3f3;
+}
+
+.hover tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.search #sea i{
+    left: 160px;
+    bottom: 22px;
+    position: absolute;
+    display: inline-block;
+}
+#sea input[type=text]{
+    padding-left: 60px;
+}
+
+.hover input.larger{
+    position: absolute;
+    left: 110px;
+    width: 20px;
+    height: 20px;
+}
+.hover tr td span{
+    position: absolute;
+    left: 290px;
+    padding: 0px 300px 0px 0px;
+}
+
+
+.card-header button.btn.btn-view[type=submit]{
+    background-color: yellow;
+    border-color: yellow;
+    margin-left: -20px;
+    cursor:pointer;
+}
+.card-header button.btn.btn-update[type=submit]{
+    background-color: rgb(106, 106, 224);
+    border-color:   rgb(106, 106, 224);
+    color: white;
+    margin-left: -20px;
+    cursor:pointer;
+}
+
+.card-header button.btn.btn-view[type=submit].btn:hover{
+    background-color: rgb(126, 126, 19);
+    color: white;
+    margin-left: -20px;
+    
+}
+.card-header button.btn.btn-update[type=submit].btn:hover{
+    background-color: blue;
+    color: white;
+    margin-left: -20px;
+    
+}
+.btn{
+    color: black;
+    text-align: center;
+    font-size:0.8em;
+    padding: 5px;
+}
+.dropbtn {
+    background: rgb(47, 79, 192);
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  .dropdown:hover .dropbtn {background: rgb(47, 79, 192);}
+
+  .dropdown1{
+    position: relative;
+    margin-top: -30px;
+    margin-bottom: 30px;
+ }
+ .dropdown-user{
+    top: 0;
+ }
+.dropdown1 .dropbtn1 {
+    text-decoration: none;
+    color: white;
+   }
+   
+   .dropdown-user {
+        display: none;
+        min-width: 100px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+   }
+   
+   .dropdown-user a { 
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display:flex;
+        text-align: right;
+    }
+   
+   .dropdown-user a:hover {
+        background-color: white;
+        color:#1f386f;
+    
+   }
+   
+   .dropdown1:hover .dropdown-user {
+        z-index: 10;
+        display:inline-block;
+        background-color: #1f386f;
+   }
