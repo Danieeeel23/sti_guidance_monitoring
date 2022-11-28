@@ -193,8 +193,8 @@ session_start();
                        
                         
                         <label for="Violation" name ="Violation">Type of Violation</label>
-                        <select class="Violation" placeholder="Type of Violation" name="Violation" required>
-                            <option value="0">Type of Violation</option>
+                        <select class="Violation" name="Violation" required>
+                            <option value="No input"></option>
                             <option value="Bullying">Bullying</option>
                             <option value="Smoking">Smoking</option>
                             <option value="Vandalism">Vandalism</option>
@@ -204,8 +204,8 @@ session_start();
 
                          
                         <label for="Offense" name ="Offense">Type of Offense</label>
-                        <select class="Offense" placeholder="Type of Offense" name="Offense" required>
-                            <option value="0">Type of Offense</option>
+                        <select class="Offense" name="Offense" required>
+                            <option value="No input"></option>
                             <option value="Minor Offense">Minor Offense</option>
                             <option value="Major Offense A">Major Offense A</option>
                             <option value="Major Offense B">Major Offense B</option>
@@ -215,19 +215,14 @@ session_start();
                         
                          
                         <label for="Level_Offense" name ="Offense">Level of Offense</label>
-                        <select class="Level_Offense" placeholder="Level of Offense" name="Level_Offense" required>
-                             <option value="0">Level of Offense</option>
+                        <select class="Level_Offense" name="Level_Offense" required>
+                             <option value="No input"></option>
                              <option value="First Offense">First Offense</option>
                              <option value="Second Offense">Second Offense</option>
                              <option value="Third Offense">Third Offense</option>
                             </select>
 
-                        <label for="Status" name ="Status">Status</label>
-                        <select class="Status" placeholder="" name="Status" required>
-                            <option value="No input"></option>
-                            <option value="Ongoing">Ongoing</option>
-                            <option value="Resolved">Resolved</option>
-                        </select>
+                            <input type="hidden" name="status" value="Ongoing">
 
                         <label for="Date">Date</label>
                         <input type="date" placeholder="Date" id="Date" name="date" required>

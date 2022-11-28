@@ -125,6 +125,9 @@ require 'config.php';
                         <div class="info">
                         
                         <?php
+                                    $country  = mysqli_query($link, "SELECT DISTINCT Type_of_Violation FROM violation");
+                                    $option = mysqli_query($link, "SELECT DISTINCT Type_of_Violation FROM `offense`");
+
                                     if(isset($_GET['id']))
                                     {
                                         $violation_id = mysqli_real_escape_string($link, $_GET['id']);
@@ -151,50 +154,18 @@ require 'config.php';
                        
                         <label for="Violation" name ="Violation">Type of Violation</label>
                         <select class="Violation" placeholder="Type of Violation" name="Violation">
-                            <option value="<?= $violation['Type_of_Violation']; ?>"></option>
-                            <option value="Bullying"
-                            <?php 
-                                if($violation['Type_of_Violation'] == "Bullying")
-                                {
-                                    echo "selected";
-                                }
-                                ?>>Bullying</option>
-                            <option value="Smoking"
-                            <?php 
-                                if($violation['Type_of_Violation'] == "Smoking")
-                                {
-                                    echo "selected";
-                                }
-                                ?>>Smoking</option>
-                            <option value="Vandalism"
-                            <?php 
-                                if($violation['Type_of_Violation'] == "Vandalism")
-                                {
-                                    echo "selected";
-                                }
-                                ?>>Vandalism</option>
-                            <option value="Gambling"
-                            <?php 
-                                if($violation['Type_of_Violation'] == "Gambling")
-                                {
-                                    echo "selected";
-                                }
-                                ?>>Gambling</option>
-                            <option value="Cheating"
-                            <?php 
-                                if($violation['Type_of_Violation'] == "Cheating")
-                                {
-                                    echo "selected";
-                                }
-                                ?>>Cheating</option>
-                            <option value="Others"
-                            <?php 
-                                if($violation['Type_of_Violation'] == "Others")
-                                {
-                                    echo "selected";
-                                }
-                                ?>>Others</option>
-                            </select>
+                        <?php foreach($country as $rows):?>
+                                        <option value="<?php echo $rows['Type_of_Violation'] ?>"
+          
+                                    ><?php echo $rows['Type_of_Violation'] ?></option>
+                                    <?php endforeach;?>
+                                    
+                                    <!-- To View All Subjects -->
+                                    <?php foreach($option as $key => $value){ ?>
+                                        <option value="<?=$value['Type_of_Violation'] ;?>"><?=$value['Type_of_Violation'] ;?></option>
+                                    <?php } ?>
+                                </select>
+
 
                          
                         <label for="Offense" name ="Offense">Type of Offense</label>

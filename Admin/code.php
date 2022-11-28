@@ -1130,7 +1130,7 @@ if(isset($_POST['save_offense']))
     $violation = mysqli_real_escape_string($link, $_POST['Violation']); 
     $offense = mysqli_real_escape_string($link, $_POST['Offense']);
     $loffense = mysqli_real_escape_string($link, $_POST['Level_Offense']);
-    $vstatus = mysqli_real_escape_string($link, $_POST['Status']);   
+    $vstatus = mysqli_real_escape_string($link, $_POST['status']);   
     $date = date('Y-m-d', strtotime($_POST['date']));
   
 
@@ -1160,13 +1160,13 @@ if(isset($_POST['save_offense']))
                 $query_run = mysqli_multi_query($link, $query);
                 if($query_run)
                 {
-                    $_SESSION['message'] = "Violation Created Successfully";
+                    $_SESSION['message'] = "Offense Created Successfully";
                     header("Location: List_of_Offense.php");
                     exit(0);
                 }
                 else
                 {
-                    $_SESSION['message'] = "Violation Not Created";
+                    $_SESSION['message'] = "Offense Not Created";
                     header("Location: List_of_Offense.php");
                     exit(0);
                 }
@@ -1309,6 +1309,28 @@ if(isset($_POST['update_concerns']))
         {
             $_SESSION['message'] = "Violation Not Created";
             header("Location: Lists_of_Concerns.php");
+            exit(0);
+        }  
+}
+
+if(isset($_POST['save_violation']))
+{
+    $offense = mysqli_real_escape_string($link, $_POST['offense']);
+  
+    $query = "INSERT INTO `offense`(`Type_of_Violation`) VALUES 
+              ('$offense')";
+
+    $query_run = mysqli_multi_query($link, $query);
+        if($query_run)
+        {
+            $_SESSION['message'] = "Violation Created Successfully";
+            header("Location: List_of_Offense.php");
+            exit(0);
+        }
+        else
+        {
+            $_SESSION['message'] = "Violation Not Created";
+            header("Location: List_of_Offense.php");
             exit(0);
         }  
 }

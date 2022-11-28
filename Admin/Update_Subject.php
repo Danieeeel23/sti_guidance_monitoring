@@ -120,7 +120,7 @@ require 'config.php';
                         <div class="info-latest">
                             <?php
                                         $country  = mysqli_query($link, "SELECT DISTINCT Subject_Name FROM subject_teacher");
-                                        $option = mysqli_query($link, "SELECT * FROM `subject`");
+                                        $option = mysqli_query($link, "SELECT DISTINCT Subject_Name FROM `subject`");
 
                                         if(isset($_GET['id']))
                                         {
@@ -139,8 +139,15 @@ require 'config.php';
                                 <label for="Strand2">Subjects:</label>
                                 <select name="Strand2" id="Strand2">
                                 <?php foreach($country as $rows):?>
-                                        <option value="<?php echo $rows['Subject_Name'] ?>"
-          
+                                    <option value="<?php echo $rows['Subject_Name'] ?>"
+
+                                    <?php 
+                                    if($subjects['Subject_Name'] == $rows['Subject_Name'])
+                                    {
+                                        echo 'selected="selected"';
+                                    }
+                                    ?>
+
                                     ><?php echo $rows['Subject_Name'] ?> </option>
                                     <?php endforeach;?>
                                     
