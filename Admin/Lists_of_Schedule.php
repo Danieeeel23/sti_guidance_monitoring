@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <!--font-->
-     <link rel="stylesheet" href="Lists_of_Subject.css" type="text/css">
+     <link rel="stylesheet" href="Lists_of_Schedule.css" type="text/css">
      <link href="css/jquery.dataTables.min.css" rel="stylesheet">
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
@@ -111,7 +111,7 @@
                       <span class="delete"><input type="submit" value="Delete" id="delete_records"></span>
                       <form action="code.php" method="POST" enctype="multipart/form-data">
                         <span class="create">
-                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal" id="submit">Add Teacher Subject</button>                       
+                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal" id="submit">Add Schedule</button>                       
                         </span>
                         
                       <!-- <span class="rows_selected" id="select_count">0 Selected</span> -->
@@ -268,7 +268,7 @@
                                     <h6 id="modal_body"></h6>
                                     <input type="hidden" name="status" value="Accepted">
                                     <input type="hidden" name="comment" value="The Guidance Office Accepts This Excuse Letter">
-                                    <input type="submit" class="btnn" name="save_teacher_subject" onClick="window.location.href=window.location.href" value="Create" style="width: 150px; height: 30px; margin-top: 180px; margin-bottom: -10px; margin-left: 820px; font-size: 15px;"> 
+                                    <input type="submit" class="btnn" name="save_schedule" onClick="window.location.href=window.location.href" value="Create" style="width: 150px; height: 30px; margin-top: 180px; margin-bottom: -10px; margin-left: 820px; font-size: 15px;"> 
                                 </div> 
                             </div> 
                         </div> 

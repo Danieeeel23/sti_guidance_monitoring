@@ -10,15 +10,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <!--font-->
-    <link rel="stylesheet" href="List_of_Offense.css">
-    <link href="css/jquery.dataTables.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+     <link rel="stylesheet" href="Lists_of_Subjects.css" type="text/css">
+     <link href="css/jquery.dataTables.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
      <script type="text/javascript" src="delete_script.js"></script>
 
-    <title>Lists of Offenses/ Violation</title>
+    <title>List of Subjects</title>
 </head>
 <body>
     <div class="container">
@@ -54,7 +54,7 @@
                             <a href="Lists_of_Teacher.php">Teachers</a>
                             <a href="Lists_of_Parent.php">Parents</a>
                         </div>
-                    </div></a>            
+                    </div></a>             
                 </li>
                 <li>
                     <a href="Lists_of_Announcement.php">
@@ -87,7 +87,7 @@
             <span id="logo"><img src="images/sti_logo.png" alt=""></span>
             <div class="topbar">
                 <div class="toptitle">
-                    <h2>Student Record</h2>
+                    <h2>Subject</h2>
                 </div>
                 <div class="icons">
                     <i class="fa fa-bell"></i>
@@ -102,35 +102,84 @@
                 </div>
             
                 </div>
+                
                 <div class="main1">
                 <?php include('message.php'); ?>
                     <div class="title2">
-                      <h1>Lists of Offenses/ Violation</h1>
+                      <h1>List of Subjects</h1>
                       <div class="bot">
-                        <span class="create">
-                            <form action="Manage_Offense.php" method="POST"> 
-                            <input type="submit" class="btn btn-primary btn-lg" value="Create">
-                            </form>
-                        </span>
-                            <span class="create1">
-                                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal" id="submit">Add Offense</button>                       
-                            </span> 
-                                                   
                       <span class="delete"><input type="submit" value="Delete" id="delete_records"></span>
+                      <form action="code.php" method="POST" enctype="multipart/form-data">
+                        <span class="create">
+                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal" id="submit">Add Subject</button>                       
+                        </span>
+                        
+                      <!-- <span class="rows_selected" id="select_count">0 Selected</span> -->
                     </div>
                     </div>
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog"> 
                             <div class="modal-content"> 
                                 <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button> 
-                                    <h5 class="modal-title" id="exampleModalLabel">Add Offense</h5>  
+                                    <h5 class="modal-title" id="exampleModalLabel">Add Subject</h5>  
                                 </div> 
                                 <div class="modal-body"> 
                                     <!-- Data passed is displayed in this part of the modal body -->
 
-                                    <label for="Offense" class="Offense">Name of Offense</label> <input type="text" class="off" placeholder="" name="offense">
+                                    <label for="Subject" class="Subject">Subject Name</label> <input type="text" class="sub" placeholder="" name="subject">
+
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            $("#live_search").keyup(function () {
+                                var query = $(this).val();
+                                if (query != "") {
+                                    $.ajax({
+                                        url: 'ajax-live-search.php',
+                                        method: 'POST',
+                                        data: {
+                                            query: query
+                                        },
+                                        success: function (data) {
+                                            $('#teacher_result').html(data);
+                                            $('#teacher_result').css('display', 'block');
+                                            $("#teacher_result").focusout(function () {
+                                                $('#teacher_result').css('display', 'none');
+                                            });
+                                            $("#live_search").focusin(function () {
+                                                $('#teacher_result').css('display', 'block');
+                                            });
+                                        }
+                                    });
+                                } else {
+                                    $('#list1').css('display', 'none');
+                                }
+                            });
+                        });
+                    </script>
+                    </div>
+
+                    <script>
+                    document.querySelector('.select-field').addEventListener('click',()=>{
+                        document.querySelector('.list').classList.toggle('show');
+                        document.querySelector('.down-arrow').classList.toggle('rotate180');
+                    });
+                    </script>
+
+                    <script>
+                    document.querySelector('.select-field1').addEventListener('click',()=>{
+                        document.querySelector('.list1').classList.toggle('show');
+                        document.querySelector('.down-arrow1').classList.toggle('rotate180');
+                    });
+                    </script>
+
+                    <script>
+                    document.querySelector('.select-field2').addEventListener('click',()=>{
+                        document.querySelector('.list2').classList.toggle('show');
+                        document.querySelector('.down-arrow2').classList.toggle('rotate180');
+                    });
+                    </script>
                                     <h6 id="modal_body"></h6>
                                     <input type="submit" class="btnn" name="save_subject" onClick="window.location.href=window.location.href" value="Create"> 
                                 </div> 
@@ -139,45 +188,34 @@
                     </div>
                 </div>
                 </div>
-               
                 <div class="card-header">
                     <table id="myDataTable" class="hover" style="margin-left: 80px;">
                         <thead>
                             <tr>
-                                <th></th>
-                                <th>Student No</th>
-                                <th>Names</th>
-                                <th>Year&Section</th>
-                                <th>Violation</th>
-                                <th>Status</th>
-                                <th>Date</th>
+                                <th></th>                              
+                                <th>Subject Name</th>
                                 <th>Update</th>
                             </tr>
                         </thead>
                         <tbody>
                         <?php 
 
-                            $query = "SELECT * FROM `violation`";
+                            $query = "SELECT * FROM `subject` ORDER BY `Subject_Name` ASC";
                             $query_run = mysqli_query($link, $query);
 
                             if(mysqli_num_rows($query_run) > 0)
                             {
-                                foreach($query_run as $violation)
+                                foreach($query_run as $subject)
                                 {
                                     ?>
-                            <tr>
-                                <td>
-                                    <input type="checkbox" class="emp_checkbox" data-emp-id="<?= $violation['Violation_ID']; ?>">
-                                </td>
-                                <td><?= $violation['Student_ID']; ?></td>
-                                <td><?= $violation['Name']; ?></td>
-                                <td><?= $violation['Year_Level']; ?> - <?= $violation['Section']; ?></td>
-                                <td><?= $violation['Type_of_Violation']; ?></td>
-                                <td><?= $violation['Status']; ?></td>
-                                <td><?= $violation['Date']; ?></td>
-                                <td><a href="Update_Offense.php?id=<?= $violation['Violation_ID']; ?>"><button type="submit" class="btn btn-update" style="margin-left: 7px;">View</button></a></td>
-                            </tr>
-                            <?php
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" class="emp_checkbox" data-emp-id="<?= $subject['Subject_ID']; ?>">
+                                        </td>
+                                        <td><?= $subject['Subject_Name']; ?></a></td>
+                                        <td><a href="Update_Subject.php?id=<?= $subject['Subject_ID']; ?>"><button type="submit" class="btn btn-update">View</button></a></td>
+                                    </tr>
+                                    <?php
                                 }
                             }
                             else
@@ -186,11 +224,12 @@
                             }
                         ?>
                        
-                       
                             <!-- and so on... -->
                         </tbody>
                     </table>
                 </div>
+                </form>
+                
                 <script src="js/jquery-3.6.1.min.js"></script>
                 <script src="js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
                 <script>
@@ -253,7 +292,7 @@
 			                var selected_values = employee.join(",");
 			                $.ajax({ 
                                 type: "POST",  
-                                url: "delete_violation.php",  
+                                url: "delete_subject.php",  
                                 cache:false,  
                                 data: 'emp_id='+selected_values,  
                                 success: function(response) {	
@@ -268,7 +307,18 @@
 		                }  
 	                }  
                 });
-                </script>  
+                </script>
+
+                <!--<script>
+                    window.setInterval('refresh()', 300000); 	
+                    // Call a function every 10000 milliseconds 
+                    // (OR 10 seconds).
+
+                    // Refresh or reload page.
+                    function refresh() {
+                        window .location.reload();
+                    }
+                </script>-->
    
 </body>
 </html>
