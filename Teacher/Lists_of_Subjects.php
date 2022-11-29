@@ -1,6 +1,7 @@
 <?php
-session_start();
+
 require 'config.php';
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -84,7 +85,13 @@ require 'config.php';
         </div>
         <div class="main1">
             <div class="title2">
-                <h1>List of Classes</h1>
+                <h1>List of Classes
+                    <?php if (isset($_SESSION['teacher_id'])) {
+
+                        echo $_SESSION['teacher_id'];
+                    } else {
+                        echo "No Session ID";
+                    }  ?></h1>
                 <div class="bot">
                     <span class="create">
                         <i class="fa fa-plus"></i>
@@ -128,8 +135,9 @@ require 'config.php';
             <thead>
                 <tr>
                     <th></th>
+                    <th>Teacher ID</th>
+                    <th>Teacher Name</th>
                     <th>Subject Name</th>
-                    <th>Course</th>
                     <th>Section</th>
                     <th>Number of Students</th>
                     <th>Update</th>
@@ -137,8 +145,8 @@ require 'config.php';
             </thead>
             <tbody>
                 <?php
-
-                $query = "SELECT * FROM `subject_teacher` ORDER BY `Subject_Name` ASC";
+                $currentteacherid = $_SESSION['teacher_id'];
+                $query = "SELECT * FROM `subject_teacher` WHERE `Teacher_ID`= $currentteacherid ";
                 $query_run = mysqli_query($link, $query);
 
                 if (mysqli_num_rows($query_run) > 0) {
@@ -148,10 +156,11 @@ require 'config.php';
                             <td>
                                 <input type="checkbox" class="emp_checkbox" data-emp-id="<?= $subject['Subject_Teacher_ID']; ?>">
                             </td>
-                            <td><?= $subject['Subject_Name']; ?>
+                            <td><?= $subject['Teacher_ID']; ?></td>
+                            <td><?= $subject['Teacher_Name']; ?></td>
+                            <td><?= $subject['Subject_Name']; ?></td>
                             <td><?= $subject['Section']; ?></td>
-                            <td><?= $subject['Section']; ?></td>
-                            <td><?= $subject['Section']; ?></td>
+                            <td><?= $subject['Teacher_ID']; ?></td>
                             <td><a href="Update_Subject.php?id=<?= $subject['Subject_Teacher_ID']; ?>"><button type="submit" class="btn btn-update">View</button></a></td>
                         </tr>
                 <?php

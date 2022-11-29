@@ -185,7 +185,7 @@ require 'config.php';
                                     if (mysqli_num_rows($query_run) > 0) {
                                         foreach ($query_run as $subjects) {
                                     ?>
-                                            <option value="<?= $subjects['Subject_ID'], ":", $subjects['Subject_Name']; ?>"><?= $subjects['Subject_ID'], ":", $subjects['Subject_Name']; ?></option>
+                                            <option value="<?= $subjects['Subject_ID'], ":", $subjects['Subject_Name']; ?>"><?= $subjects['Subject_Name']; ?></option>
                                     <?php
                                         }
                                     } else {
@@ -207,7 +207,7 @@ require 'config.php';
                                     if (mysqli_num_rows($query_run) > 0) {
                                         foreach ($query_run as $teachers) {
                                     ?>
-                                            <option value="<?= $teachers['Teacher_ID'], ":", $teachers['Names']; ?>"><?= $teachers['Teacher_ID'], ":", $teachers['Names']; ?></option> <br>
+                                            <option value="<?= $teachers['Teacher_ID'], ":", $teachers['Names']; ?>"><?= $teachers['Names']; ?></option> <br>
                                     <?php
                                         }
                                     } else {
@@ -229,7 +229,7 @@ require 'config.php';
                                     if (mysqli_num_rows($query_run) > 0) {
                                         foreach ($query_run as $sections) {
                                     ?>
-                                            <option value="<?= $sections['Section_ID'], ":", $sections['Section']; ?>"><?= $sections['Section_ID'], ":", $sections['Section']; ?></option>
+                                            <option value="<?= $sections['Section_ID'], ":", $sections['Section']; ?>"><?= $sections['Section']; ?></option>
                                     <?php
                                         }
                                     } else {
