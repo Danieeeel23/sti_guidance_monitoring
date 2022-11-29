@@ -997,46 +997,56 @@ if (isset($_POST['update_announcement'])) {
 }
 
 //insert teacher subject / schedule
-if (isset($_POST['save_teacher_subject'])) {
-    $teacher = mysqli_real_escape_string($link, $_POST['teachers']);
-    $section = mysqli_real_escape_string($link, $_POST['section']);
-    $subject = mysqli_real_escape_string($link, $_POST['subjects']);
+if (isset($_POST['save_schedule'])) {
+    $subject = explode(":", mysqli_real_escape_string($link, $_POST['subjects']));
+    $teacher = explode(":", mysqli_real_escape_string($link, $_POST['teachers']));
+    $section = explode(":", mysqli_real_escape_string($link, $_POST['section']));
     $starttime = date('Y-m-d H:i:s', strtotime($_POST['starttime']));
     $endtime = date('Y-m-d H:i:s', strtotime($_POST['endtime']));
 
-    //try ko yung with teacher id
-    $teacherfullname = explode(' ', $teacher);
-    $teacherfirstname = reset($teacherfullname);
-    $teacherlastname = end($teacherfullname);
-    $teacheridquery = "SELECT Teacher_ID FROM teacher WHERE First_Name='$teacherfirstname' Last_Name='$teacherlastname'";
+    $subjectid = $subject[0];
+    $subjectname = $subject[1];
 
-    $teacherquery_run = mysqli_query($link, $teacheridquery);
-    if (mysqli_num_rows($teacherquery_run) > 0) {
-        foreach ($teacherquery_run as $teacherids) {
-            $teacherid = $teacherids['Teacher_ID'];
-        }
-    } else {
-        echo "No Teacher Found";
-    }
+    $teacherid = $teacher[0];
+    $teachername = $teacher[1];
 
-    $query = "INSERT INTO `subject_teacher`(`Teacher_ID`, `Teacher_Name`, `Section`, `Subject_Name`, `Start_Time`, `End_Time`) VALUES 
-             ('$teacherid','$teacher','$section','$subject','$starttime','$endtime')";
+    $sectionid = $section[0];
+    $sectionname = $section[1];
+
+
+    // //try ko yung with teacher id
+    // $teacherfullname = explode(' ', $teacher);
+    // $teacherfirstname = reset($teacherfullname);
+    // $teacherlastname = end($teacherfullname);
+    // $teacheridquery = "SELECT Teacher_ID FROM teacher WHERE First_Name='$teacherfirstname' AND Last_Name='$teacherlastname'";
+
+    // $teacherquery_run = mysqli_query($link, $teacheridquery);
+    // if (mysqli_num_rows($teacherquery_run) > 0) {
+    //     foreach ($teacherquery_run as $teacherids) {
+    //         $teacherid = $teacherids['Teacher_ID'];
+    //     }
+    // } else {
+    //     echo "No Teacher Found";
+    // }
+
+    $query = "INSERT INTO `subject_teacher`(`Teacher_ID`, `Teacher_Name`, `Section_ID`, `Section`, `Subject_ID`, `Subject_Name`, `Start_Time`, `End_Time`) VALUES 
+             ('$teacherid','$teachername','$sectionid','$sectionname','$subjectid','$subjectname','$starttime','$endtime')";
 
     $query_run = mysqli_multi_query($link, $query);
 
     if ($query_run) {
         $_SESSION['message'] = "Subject Teacher Created Successfully";
-        header("Location: Lists_of_Subject.php");
+        header("Location: Lists_of_Schedule.php");
         exit(0);
     } else {
         $_SESSION['message'] = "Subject Teacher Not Created";
-        header("Location: Lists_of_Subject.php");
+        header("Location: Lists_of_Schedule.php");
         exit(0);
     }
 }
 
 //insert schedule
-if (isset($_POST['save_schedule'])) {
+if (isset($_POST['save_teacher_subject'])) {
     $teacher = mysqli_real_escape_string($link, $_POST['teachers']);
     $section = mysqli_real_escape_string($link, $_POST['section']);
     $subject = mysqli_real_escape_string($link, $_POST['subjects']);

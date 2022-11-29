@@ -174,18 +174,18 @@ require 'config.php';
                         <div class="modal-body">
                             <!-- Data passed is displayed in this part of the modal body -->
                             <div class="select-field">
-                                <select class="Violation" placeholder="" name="subjects">
+                                <select class="Violation" placeholder="" name="subjects" onchange="changeSubjectValue(event)">
                                     <option>Choose Subject</option>
                                     <?php
                                     $link = mysqli_connect("localhost", "root", "", "sti guidance monitoring");
 
-                                    $query = "SELECT DISTINCT Subject_Name FROM `subject`";
+                                    $query = "SELECT DISTINCT * FROM `subject`";
                                     $query_run = mysqli_query($link, $query);
 
                                     if (mysqli_num_rows($query_run) > 0) {
                                         foreach ($query_run as $subjects) {
                                     ?>
-                                            <option value="<?= $subjects['Subject_Name']; ?>"><?= $subjects['Subject_Name']; ?></option>
+                                            <option value="<?= $subjects['Subject_ID'], ":", $subjects['Subject_Name']; ?>"><?= $subjects['Subject_ID'], ":", $subjects['Subject_Name']; ?></option>
                                     <?php
                                         }
                                     } else {
@@ -196,7 +196,7 @@ require 'config.php';
                             </div>
 
                             <div class="select-field1">
-                                <select class="Violation1" placeholder="" name="teachers">
+                                <select class="Violation1" placeholder="" name="teachers" onchange="changeTeacherValue(event)">
                                     <option>Choose Teacher</option>
                                     <?php
                                     $link = mysqli_connect("localhost", "root", "", "sti guidance monitoring");
@@ -207,7 +207,7 @@ require 'config.php';
                                     if (mysqli_num_rows($query_run) > 0) {
                                         foreach ($query_run as $teachers) {
                                     ?>
-                                            <option value="<?= $teachers['Names']; ?>"><?= $teachers['Names']; ?></option> <br>
+                                            <option value="<?= $teachers['Teacher_ID'], ":", $teachers['Names']; ?>"><?= $teachers['Teacher_ID'], ":", $teachers['Names']; ?></option> <br>
                                     <?php
                                         }
                                     } else {
@@ -218,18 +218,18 @@ require 'config.php';
                             </div>
 
                             <div class="select-field2">
-                                <select class="Violation2" placeholder="" name="section">
+                                <select class="Violation2" placeholder="" name="section" onchange="changeSectionValue(event)">
                                     <option>Choose Section</option>
                                     <?php
                                     $link = mysqli_connect("localhost", "root", "", "sti guidance monitoring");
 
-                                    $query = "SELECT DISTINCT Section FROM `section`";
+                                    $query = "SELECT DISTINCT * FROM `section`";
                                     $query_run = mysqli_query($link, $query);
 
                                     if (mysqli_num_rows($query_run) > 0) {
                                         foreach ($query_run as $sections) {
                                     ?>
-                                            <option value="<?= $sections['Section']; ?>"><?= $sections['Section']; ?></option>
+                                            <option value="<?= $sections['Section_ID'], ":", $sections['Section']; ?>"><?= $sections['Section_ID'], ":", $sections['Section']; ?></option>
                                     <?php
                                         }
                                     } else {
@@ -244,7 +244,9 @@ require 'config.php';
 
                             <label for="Time">End Time</label>
                             <input type="time" id="EndTime" name="endtime" value="">
-
+                            <input type="text" name="subjectid" id="subjectid" style="display: none;">
+                            <input type="text" name="teacherid" id="teacherid" style="display: none;">
+                            <input type="text" name="sectionid" id="sectionid" style="display: none;">
                             <script type="text/javascript">
                                 $(document).ready(function() {
                                     $("#live_search").keyup(function() {
@@ -274,6 +276,22 @@ require 'config.php';
                                 });
                             </script>
                         </div>
+                        <script>
+                            function changeSubjectValue(e) {
+                                separate = e.target.value.split(":");
+                                document.getElementById("subjectid").value = separate[0];
+                            }
+
+                            function changeTeacherValue(e) {
+                                separate = e.target.value.split(":");
+                                document.getElementById("teacherid").value = separate[0];
+                            }
+
+                            function changeSectionValue(e) {
+                                separate = e.target.value.split(":");
+                                document.getElementById("sectionid").value = separate[0];
+                            }
+                        </script>
                         <script>
                             document.querySelector('.select-field').addEventListener('click', () => {
                                 document.querySelector('.list').classList.toggle('show');
