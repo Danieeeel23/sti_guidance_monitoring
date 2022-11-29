@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <!--font-->
-     <link rel="stylesheet" href="Lists_of_Subject.css" type="text/css">
+     <link rel="stylesheet" href="Lists_of_Section.css" type="text/css">
      <link href="css/jquery.dataTables.min.css" rel="stylesheet">
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
@@ -128,13 +128,7 @@
                                 <div class="modal-body"> 
                                     <!-- Data passed is displayed in this part of the modal body -->
 
-                    <div class="select-field">
-
-                        <label for="Section">Section Name</label> <span id="btk"> <input type="text" placeholder="" name="section"></span>
-                    </div>    
-
-                    
-                        
+                                <label for="Section" class="Section">Section Name</label> <input type="text" class="sect" placeholder="" name="section">               
 
                     <script type="text/javascript">
                         $(document).ready(function () {
@@ -187,9 +181,7 @@
                     });
                     </script>
                                     <h6 id="modal_body"></h6>
-                                    <input type="hidden" name="status" value="Accepted">
-                                    <input type="hidden" name="comment" value="The Guidance Office Accepts This Excuse Letter">
-                                    <input type="submit" class="btnn" name="save_teacher_subject" onClick="window.location.href=window.location.href" value="Create" style="width: 150px; height: 30px; margin-top: 180px; margin-bottom: -10px; margin-left: 820px; font-size: 15px;"> 
+                                    <input type="submit" class="btnn" name="save_section" onClick="window.location.href=window.location.href" value="Create"> 
                                 </div> 
                             </div> 
                         </div> 

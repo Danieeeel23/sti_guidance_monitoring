@@ -1335,6 +1335,28 @@ if(isset($_POST['save_violation']))
         }  
 }
 
+if(isset($_POST['save_section']))
+{
+    $section = mysqli_real_escape_string($link, $_POST['section']);
+  
+    $query = "INSERT INTO `section`(`Section`) VALUES 
+              ('$section')";
+
+    $query_run = mysqli_multi_query($link, $query);
+        if($query_run)
+        {
+            $_SESSION['message'] = "Section Created Successfully";
+            header("Location: Lists_of_Section.php");
+            exit(0);
+        }
+        else
+        {
+            $_SESSION['message'] = "Section Not Created";
+            header("Location: Lists_of_Section.php");
+            exit(0);
+        }  
+}
+
 if(isset($_POST['imports']))
 {
     $fileName = $_FILES['excel']['name'];
