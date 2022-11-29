@@ -218,7 +218,7 @@ require 'config.php';
                             </div>
 
                             <div class="select-field2">
-                                <select class="Violation2" placeholder="" name="subjects">
+                                <select class="Violation2" placeholder="" name="section">
                                     <option>Choose Section</option>
                                     <?php
                                     $link = mysqli_connect("localhost", "root", "", "sti guidance monitoring");

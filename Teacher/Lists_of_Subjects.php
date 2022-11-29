@@ -19,7 +19,7 @@ require 'config.php';
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="delete_script.js"></script>
     <link rel="stylesheet" href="ListStyle.css" type="text/css">
-    <title>List of Subjects</title>
+    <title>List of Classes</title>
     <style>
 
     </style>
@@ -68,7 +68,7 @@ require 'config.php';
             <span id="logo"><img src="images/sti_logo.png" alt=""></span>
             <div class="topbar">
                 <div class="toptitle">
-                    <h2>Subjects</h2>
+                    <h2>Classes</h2>
                 </div>
                 <div class="icons">
                     <i class="fa fa-bell"></i>
@@ -84,7 +84,7 @@ require 'config.php';
         </div>
         <div class="main1">
             <div class="title2">
-                <h1>List of Subjects</h1>
+                <h1>List of Classes</h1>
                 <div class="bot">
                     <span class="create">
                         <i class="fa fa-plus"></i>
@@ -128,11 +128,10 @@ require 'config.php';
             <thead>
                 <tr>
                     <th></th>
-                    <th>Start Time</th>
-                    <th>End Time</th>
                     <th>Subject Name</th>
-                    <th>Teacher Name</th>
+                    <th>Course</th>
                     <th>Section</th>
+                    <th>Number of Students</th>
                     <th>Update</th>
                 </tr>
             </thead>
@@ -149,11 +148,10 @@ require 'config.php';
                             <td>
                                 <input type="checkbox" class="emp_checkbox" data-emp-id="<?= $subject['Subject_Teacher_ID']; ?>">
                             </td>
-                            <td><?= $subject['Start_Time']; ?></a></td>
-                            <td><?= $subject['End_Time']; ?></a></td>
                             <td><?= $subject['Subject_Name']; ?>
-                            <td><?= $subject['Teacher_Name']; ?>
-                            <td><?= $subject['Section']; ?></a></td>
+                            <td><?= $subject['Section']; ?></td>
+                            <td><?= $subject['Section']; ?></td>
+                            <td><?= $subject['Section']; ?></td>
                             <td><a href="Update_Subject.php?id=<?= $subject['Subject_Teacher_ID']; ?>"><button type="submit" class="btn btn-update">View</button></a></td>
                         </tr>
                 <?php
