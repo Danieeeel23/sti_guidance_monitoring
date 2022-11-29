@@ -173,72 +173,92 @@ require 'config.php';
                         </div>
                         <div class="modal-body">
                             <!-- Data passed is displayed in this part of the modal body -->
-                            <div class="select-field">
-                                <select class="Violation" placeholder="" name="subjects" onchange="changeSubjectValue(event)">
-                                    <option>Choose Subject</option>
-                                    <?php
-                                    $link = mysqli_connect("localhost", "root", "", "sti guidance monitoring");
+                            <div class="select-field-group">
+                                <div class="select-field">
+                                    <select class="Violation" placeholder="" name="subjects" onchange="changeSubjectValue(event)">
+                                        <option>Choose Subject</option>
+                                        <?php
+                                        $link = mysqli_connect("localhost", "root", "", "sti guidance monitoring");
 
-                                    $query = "SELECT DISTINCT * FROM `subject`";
-                                    $query_run = mysqli_query($link, $query);
+                                        $query = "SELECT DISTINCT * FROM `subject`";
+                                        $query_run = mysqli_query($link, $query);
 
-                                    if (mysqli_num_rows($query_run) > 0) {
-                                        foreach ($query_run as $subjects) {
-                                    ?>
-                                            <option value="<?= $subjects['Subject_ID'], ":", $subjects['Subject_Name']; ?>"><?= $subjects['Subject_Name']; ?></option>
-                                    <?php
+                                        if (mysqli_num_rows($query_run) > 0) {
+                                            foreach ($query_run as $subjects) {
+                                        ?>
+                                                <option value="<?= $subjects['Subject_ID'], ":", $subjects['Subject_Name']; ?>"><?= $subjects['Subject_Name']; ?></option>
+                                        <?php
+                                            }
+                                        } else {
+                                            echo "No Subject Found";
                                         }
-                                    } else {
-                                        echo "No Subject Found";
-                                    }
-                                    ?>
-                                </select>
-                            </div>
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="select-field">
+                                    <select class="Violation" placeholder="" name="teachers" onchange="changeTeacherValue(event)">
+                                        <option>Choose Teacher</option>
+                                        <?php
+                                        $link = mysqli_connect("localhost", "root", "", "sti guidance monitoring");
 
-                            <div class="select-field1">
-                                <select class="Violation1" placeholder="" name="teachers" onchange="changeTeacherValue(event)">
-                                    <option>Choose Teacher</option>
-                                    <?php
-                                    $link = mysqli_connect("localhost", "root", "", "sti guidance monitoring");
+                                        $query = "SELECT *, CONCAT(First_Name,' ',Middle_Initial,' ',Last_Name) AS Names FROM `teacher`";
+                                        $query_run = mysqli_query($link, $query);
 
-                                    $query = "SELECT *, CONCAT(First_Name,' ',Middle_Initial,' ',Last_Name) AS Names FROM `teacher`";
-                                    $query_run = mysqli_query($link, $query);
-
-                                    if (mysqli_num_rows($query_run) > 0) {
-                                        foreach ($query_run as $teachers) {
-                                    ?>
-                                            <option value="<?= $teachers['Teacher_ID'], ":", $teachers['Names']; ?>"><?= $teachers['Names']; ?></option> <br>
-                                    <?php
+                                        if (mysqli_num_rows($query_run) > 0) {
+                                            foreach ($query_run as $teachers) {
+                                        ?>
+                                                <option value="<?= $teachers['Teacher_ID'], ":", $teachers['Names']; ?>"><?= $teachers['Names']; ?></option> <br>
+                                        <?php
+                                            }
+                                        } else {
+                                            echo "No Teacher Found";
                                         }
-                                    } else {
-                                        echo "No Teacher Found";
-                                    }
-                                    ?>
-                                </select>
-                            </div>
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="select-field">
+                                    <select class="Violation" placeholder="" name="strand" onchange="changeStrandValue(event)">
+                                        <option>Choose Strand</option>
+                                        <?php
+                                        $link = mysqli_connect("localhost", "root", "", "sti guidance monitoring");
 
-                            <div class="select-field2">
-                                <select class="Violation2" placeholder="" name="section" onchange="changeSectionValue(event)">
-                                    <option>Choose Section</option>
-                                    <?php
-                                    $link = mysqli_connect("localhost", "root", "", "sti guidance monitoring");
+                                        $query = "SELECT DISTINCT * FROM `strand`";
+                                        $query_run = mysqli_query($link, $query);
 
-                                    $query = "SELECT DISTINCT * FROM `section`";
-                                    $query_run = mysqli_query($link, $query);
-
-                                    if (mysqli_num_rows($query_run) > 0) {
-                                        foreach ($query_run as $sections) {
-                                    ?>
-                                            <option value="<?= $sections['Section_ID'], ":", $sections['Section']; ?>"><?= $sections['Section']; ?></option>
-                                    <?php
+                                        if (mysqli_num_rows($query_run) > 0) {
+                                            foreach ($query_run as $strands) {
+                                        ?>
+                                                <option value="<?= $strands['Strand_ID'], ":", $strands['Name']; ?>"><?= $strands['Name']; ?></option>
+                                        <?php
+                                            }
+                                        } else {
+                                            echo "No Strands Found";
                                         }
-                                    } else {
-                                        echo "No Sections Found";
-                                    }
-                                    ?>
-                                </select>
-                            </div>
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="select-field">
+                                    <select class="Violation" placeholder="" name="section" onchange="changeSectionValue(event)">
+                                        <option>Choose Section</option>
+                                        <?php
+                                        $link = mysqli_connect("localhost", "root", "", "sti guidance monitoring");
 
+                                        $query = "SELECT DISTINCT * FROM `section`";
+                                        $query_run = mysqli_query($link, $query);
+
+                                        if (mysqli_num_rows($query_run) > 0) {
+                                            foreach ($query_run as $sections) {
+                                        ?>
+                                                <option value="<?= $sections['Section_ID'], ":", $sections['Section']; ?>"><?= $sections['Section']; ?></option>
+                                        <?php
+                                            }
+                                        } else {
+                                            echo "No Sections Found";
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                            </div>
                             <label for="Time">Start Time</label>
                             <input type="time" id="StartTime" name="starttime" value="">
 
@@ -246,6 +266,7 @@ require 'config.php';
                             <input type="time" id="EndTime" name="endtime" value="">
                             <input type="text" name="subjectid" id="subjectid" style="display: none;">
                             <input type="text" name="teacherid" id="teacherid" style="display: none;">
+                            <input type="text" name="strandid" id="strandid" style="display: none;">
                             <input type="text" name="sectionid" id="sectionid" style="display: none;">
                             <script type="text/javascript">
                                 $(document).ready(function() {
@@ -285,6 +306,11 @@ require 'config.php';
                             function changeTeacherValue(e) {
                                 separate = e.target.value.split(":");
                                 document.getElementById("teacherid").value = separate[0];
+                            }
+
+                            function changeStrandValue(e) {
+                                separate = e.target.value.split(":");
+                                document.getElementById("strandid").value = separate[0];
                             }
 
                             function changeSectionValue(e) {
@@ -330,6 +356,7 @@ require 'config.php';
                     <th>End Time</th>
                     <th>Subject Name</th>
                     <th>Teacher Name</th>
+                    <th>Strand</th>
                     <th>Section</th>
                     <th>Update</th>
                 </tr>
@@ -349,8 +376,9 @@ require 'config.php';
                             </td>
                             <td><?= $subject['Start_Time']; ?></a></td>
                             <td><?= $subject['End_Time']; ?></a></td>
-                            <td><?= $subject['Subject_Name']; ?>
-                            <td><?= $subject['Teacher_Name']; ?>
+                            <td><?= $subject['Subject_Name']; ?></td>
+                            <td><?= $subject['Teacher_Name']; ?></td>
+                            <td><?= $subject['Strand']; ?></a></td>
                             <td><?= $subject['Section']; ?></a></td>
                             <td><a href="Update_Subject.php?id=<?= $subject['Subject_Teacher_ID']; ?>"><button type="submit" class="btn btn-update">View</button></a></td>
                         </tr>

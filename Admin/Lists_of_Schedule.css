@@ -534,20 +534,30 @@ input[type=submit]{
    .multi-selector{
     width: max-content;
 }
-
-.select-field,.task,.list{
-    width: 40%;
-    margin-left: 45px;
+.select-field-group{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.select-field{
+    /* width: 40%;
+    margin-left: 45px; */
     background-color: white;
-    padding: 0.3rem;
+    /* padding: 0.3rem; */
+}
+
+.select-field .Violation{
+    border: 1px solid black;
+    margin: 0;
 }
 
 .list{
     box-shadow: 0 30px 60px rgb(0,0,0,0.2);
     display: none;
-   
-    
 }
+
 .down-arrow{
     font-size: 1.2rem;
     display: inline-block;
@@ -638,13 +648,13 @@ input.input-selector1{
     user-select:none;
     cursor: pointer;
 }
-.select-field1,.task,.list1{
+/* .select-field1,.task,.list1{
     width: 40%;
     margin-left: 370px;
     margin-top: -63px;
     background-color: white;
     padding: 0.3rem;
-}
+} */
 .list1{
     box-shadow: 0 30px 60px rgb(0,0,0,0.2);
     display: none;
@@ -687,23 +697,14 @@ div.list2.show{
 input.input-selector2{
     width: 130px;
 }
-.select-field2,.task,.list2{
+/* .select-field2,.task,.list2{
     width: 35%;
     margin-top: -67px;
     margin-left: 690px;
     background-color: white;
     padding: 0.3rem;
-}
+} */
 .list2{
     box-shadow: 0 30px 60px rgb(0,0,0,0.2);
     display: none;
-}
-select.Violation{
-    border: 1px solid black;
-}
-select.Violation1{
-    border: 1px solid black;
-}
-select.Violation2{
-    border: 1px solid black;
 }

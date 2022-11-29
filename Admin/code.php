@@ -120,16 +120,20 @@ if (isset($_POST['save_student'])) {
     $_SESSION['studentid'] = $student_id = rand();
     $strand_id = rand();
     $credential = mysqli_real_escape_string($link, $_POST['credential']);
+
     $firstname = mysqli_real_escape_string($link, $_POST['firstname']);
     $middlename = mysqli_real_escape_string($link, $_POST['middlename']);
     $lastname = mysqli_real_escape_string($link, $_POST['lastname']);
-    $gender = mysqli_real_escape_string($link, $_POST['gender']);
     $birthdate = date('Y-m-d', strtotime($_POST['birthday']));
+    $gender = mysqli_real_escape_string($link, $_POST['gender']);
+
+    $yrlvl = mysqli_real_escape_string($link, $_POST['yrlvl']);
+    $section = mysqli_real_escape_string($link, $_POST['Section']);
+
     $strand = mysqli_real_escape_string($link, $_POST['Strand']);
     //$_SESSION['strand'] = $strand;
-    $strand = mysqli_real_escape_string($link, $_POST['Strand']);
-    $yrlvl = mysqli_real_escape_string($link, $_POST['yrlvl']);
-    $section = mysqli_real_escape_string($link, $_POST['section']);
+
+
     $address = mysqli_real_escape_string($link, $_POST['address']);
     $city = mysqli_real_escape_string($link, $_POST['city']);
     $province = mysqli_real_escape_string($link, $_POST['province']);
@@ -137,6 +141,7 @@ if (isset($_POST['save_student'])) {
     $telno = mysqli_real_escape_string($link, $_POST['telno']);
     $mobileno = mysqli_real_escape_string($link, $_POST['mobileno']);
     $email = mysqli_real_escape_string($link, $_POST['email']);
+
     $role = mysqli_real_escape_string($link, $_POST['role']);
 
     //Instantiation and passing true enables exceptions
@@ -1000,6 +1005,7 @@ if (isset($_POST['update_announcement'])) {
 if (isset($_POST['save_schedule'])) {
     $subject = explode(":", mysqli_real_escape_string($link, $_POST['subjects']));
     $teacher = explode(":", mysqli_real_escape_string($link, $_POST['teachers']));
+    $strand = explode(":", mysqli_real_escape_string($link, $_POST['strand']));
     $section = explode(":", mysqli_real_escape_string($link, $_POST['section']));
     $starttime = date('Y-m-d H:i:s', strtotime($_POST['starttime']));
     $endtime = date('Y-m-d H:i:s', strtotime($_POST['endtime']));
@@ -1010,27 +1016,14 @@ if (isset($_POST['save_schedule'])) {
     $teacherid = $teacher[0];
     $teachername = $teacher[1];
 
+    $strandid = $strand[0];
+    $strandname = $strand[1];
+
     $sectionid = $section[0];
     $sectionname = $section[1];
 
-
-    // //try ko yung with teacher id
-    // $teacherfullname = explode(' ', $teacher);
-    // $teacherfirstname = reset($teacherfullname);
-    // $teacherlastname = end($teacherfullname);
-    // $teacheridquery = "SELECT Teacher_ID FROM teacher WHERE First_Name='$teacherfirstname' AND Last_Name='$teacherlastname'";
-
-    // $teacherquery_run = mysqli_query($link, $teacheridquery);
-    // if (mysqli_num_rows($teacherquery_run) > 0) {
-    //     foreach ($teacherquery_run as $teacherids) {
-    //         $teacherid = $teacherids['Teacher_ID'];
-    //     }
-    // } else {
-    //     echo "No Teacher Found";
-    // }
-
-    $query = "INSERT INTO `subject_teacher`(`Teacher_ID`, `Teacher_Name`, `Section_ID`, `Section`, `Subject_ID`, `Subject_Name`, `Start_Time`, `End_Time`) VALUES 
-             ('$teacherid','$teachername','$sectionid','$sectionname','$subjectid','$subjectname','$starttime','$endtime')";
+    $query = "INSERT INTO `subject_teacher`(`Teacher_ID`, `Teacher_Name`, `Strand_ID`, `Strand`, `Section_ID`, `Section`, `Subject_ID`, `Subject_Name`, `Start_Time`, `End_Time`) VALUES 
+             ('$teacherid','$teachername','$strandid','$strandname','$sectionid','$sectionname','$subjectid','$subjectname','$starttime','$endtime')";
 
     $query_run = mysqli_multi_query($link, $query);
 

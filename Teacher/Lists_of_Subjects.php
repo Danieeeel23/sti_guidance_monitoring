@@ -138,6 +138,7 @@ session_start();
                     <th>Teacher ID</th>
                     <th>Teacher Name</th>
                     <th>Subject Name</th>
+                    <th>Strand</th>
                     <th>Section</th>
                     <th>Number of Students</th>
                     <th>Update</th>
@@ -159,6 +160,7 @@ session_start();
                             <td><?= $subject['Teacher_ID']; ?></td>
                             <td><?= $subject['Teacher_Name']; ?></td>
                             <td><?= $subject['Subject_Name']; ?></td>
+                            <td><?= $subject['Strand']; ?></td>
                             <td><?= $subject['Section']; ?></td>
                             <td><?= $subject['Teacher_ID']; ?></td>
                             <td><a href="Update_Subject.php?id=<?= $subject['Subject_Teacher_ID']; ?>"><button type="submit" class="btn btn-update">View</button></a></td>
