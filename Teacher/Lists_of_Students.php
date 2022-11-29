@@ -20,7 +20,7 @@ session_start();
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="delete_script.js"></script>
     <link rel="stylesheet" href="ListStyle.css" type="text/css">
-    <title>List of Classes</title>
+    <title>List of Students</title>
     <style>
 
     </style>
@@ -69,7 +69,7 @@ session_start();
             <span id="logo"><img src="images/sti_logo.png" alt=""></span>
             <div class="topbar">
                 <div class="toptitle">
-                    <h2>Classes</h2>
+                    <h2>Students</h2>
                 </div>
                 <div class="icons">
                     <i class="fa fa-bell"></i>
@@ -85,7 +85,7 @@ session_start();
         </div>
         <div class="main1">
             <div class="title2">
-                <h1>List of Classes
+                <h1>List of Students
                     <?php if (isset($_SESSION['teacher_id'])) {
 
                         echo $_SESSION['teacher_id'];
@@ -135,44 +135,29 @@ session_start();
             <thead>
                 <tr>
                     <th></th>
-                    <th>Subject Name</th>
+                    <th>Name</th>
                     <th>Strand</th>
                     <th>Section</th>
-                    <th>Number of Students</th>
                     <th>Update</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
                 $currentteacherid = $_SESSION['teacher_id'];
-                $query = "SELECT * FROM `subject_teacher` WHERE `Teacher_ID`= $currentteacherid ";
+                $query = "SELECT *, CONCAT(First_Name,' ',Middle_Name,' ',Last_Name) AS Name FROM `student` ";
                 $query_run = mysqli_query($link, $query);
 
                 if (mysqli_num_rows($query_run) > 0) {
-                    foreach ($query_run as $subject) {
+                    foreach ($query_run as $student) {
                 ?>
                         <tr>
                             <td>
                                 <input type="checkbox" class="emp_checkbox" data-emp-id="<?= $subject['Subject_Teacher_ID']; ?>">
                             </td>
-                            <td><?= $subject['Subject_Name']; ?></td>
-                            <td><?= $subject['Strand']; ?></td>
-                            <td><?= $subject['Section']; ?></td>
-                            <?php
-                            //for student count
-                            //MULTIPLE ROW SUBQUERY
-                            $countstrand = $subject['Strand'];
-                            $countsection = $subject['Section'];
-                            $countquery = "SELECT * FROM `student` WHERE strand IN (SELECT Name FROM strand WHERE Name = '$countstrand' ) AND section IN (SELECT Section FROM section WHERE Section = '$countsection')";
-                            $countquery_run = mysqli_query($link, $countquery);
-                            if (mysqli_num_rows($countquery_run) > 0) {
-                                $studentcount = mysqli_num_rows($countquery_run);
-                            } else {
-                                $studentcount = 0;
-                            }
-                            ?>
-                            <td><?= $studentcount; ?></td>
-                            <td><a href="Lists_of_Students.php?strand=<?= $subject['Strand']?>&section=<?= $subject['Section']; ?>"><button type="submit" class="btn btn-update">View</button></a></td>
+                            <td><?= $student['Name']; ?></td>
+                            <td><?= $student['Strand']; ?></td>
+                            <td><?= $student['Section']; ?></td>
+                            <td><a href="Update_Subject.php?id=<?= $subject['Subject_Teacher_ID']; ?>"><button type="submit" class="btn btn-update">View</button></a></td>
                         </tr>
                 <?php
                     }
