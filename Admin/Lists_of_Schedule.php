@@ -305,10 +305,10 @@
                                         </td>
                                         <td><?= $subject['Start_Time']; ?></a></td>
                                         <td><?= $subject['End_Time']; ?></a></td>
-                                        <td><?= $subject['Subject_Name']; ?>
-                                        <td><?= $subject['Teacher_Name']; ?>
+                                        <td><?= $subject['Subject_Name']; ?></td>
+                                        <td><?= $subject['Teacher_Name']; ?></td>
                                         <td><?= $subject['Section']; ?></a></td>
-                                        <td><a href="Update_Subject.php?id=<?= $subject['Subject_Teacher_ID']; ?>"><button type="submit" class="btn btn-update">View</button></a></td>
+                                        <td><a href="Update_Schedule.php?id=<?= $subject['Subject_Teacher_ID']; ?>"><button type="submit" class="btn btn-update">View</button></a></td>
                                     </tr>
                                     <?php
                                 }

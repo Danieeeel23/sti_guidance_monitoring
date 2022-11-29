@@ -953,3 +953,11 @@ select.Strand{
     display: flex;
     flex-direction: column;
 }
+
+select#Strand2{
+    border: 1px solid black;
+}
+
+select#Strand3{
+    border: 1px solid black;
+}
