@@ -135,8 +135,6 @@ session_start();
             <thead>
                 <tr>
                     <th></th>
-                    <th>Teacher ID</th>
-                    <th>Teacher Name</th>
                     <th>Subject Name</th>
                     <th>Strand</th>
                     <th>Section</th>
@@ -157,12 +155,23 @@ session_start();
                             <td>
                                 <input type="checkbox" class="emp_checkbox" data-emp-id="<?= $subject['Subject_Teacher_ID']; ?>">
                             </td>
-                            <td><?= $subject['Teacher_ID']; ?></td>
-                            <td><?= $subject['Teacher_Name']; ?></td>
                             <td><?= $subject['Subject_Name']; ?></td>
                             <td><?= $subject['Strand']; ?></td>
                             <td><?= $subject['Section']; ?></td>
-                            <td><?= $subject['Teacher_ID']; ?></td>
+                            <?php
+                            //for student count
+                            //MULTIPLE ROW SUBQUERY
+                            $countstrand = $subject['Strand'];
+                            $countsection = $subject['Section'];
+                            $countquery = "SELECT * FROM `student` WHERE strand IN (SELECT Name FROM strand WHERE Name = '$countstrand' ) AND section IN (SELECT Section FROM section WHERE Section = '$countsection')";
+                            $countquery_run = mysqli_query($link, $countquery);
+                            if (mysqli_num_rows($countquery_run) > 0) {
+                                $studentcount = mysqli_num_rows($countquery_run);
+                            } else {
+                                $studentcount = 0;
+                            }
+                            ?>
+                            <td><?= $studentcount; ?></td>
                             <td><a href="Update_Subject.php?id=<?= $subject['Subject_Teacher_ID']; ?>"><button type="submit" class="btn btn-update">View</button></a></td>
                         </tr>
                 <?php
