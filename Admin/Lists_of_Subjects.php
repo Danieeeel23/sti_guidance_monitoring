@@ -186,52 +186,6 @@
                             </div> 
                         </div> 
                     </div>
-                    <!-- Update Modal -->
-                    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog"> 
-                            <div class="modal-content"> 
-                                <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button> 
-                                    <h5 class="modal-title" id="exampleModalLabel">Update Subject</h5>  
-                                </div> 
-                                <div class="modal-body"> 
-                                    <!-- Data passed is displayed in this part of the modal body -->
-
-                                    <label for="Strand2">Subjects:</label>
-                                <select name="Strand2" id="Strand2">
-                                <?php foreach($country as $rows):?>
-                                    <option value="<?php echo $rows['Subject_Name'] ?>"
-
-                                    <?php 
-                                    if($subjects['Subject_Name'] == $rows['Subject_Name'])
-                                    {
-                                        echo 'selected="selected"';
-                                    }
-                                    ?>
-
-                                    ><?php echo $rows['Subject_Name'] ?> </option>
-                                    <?php endforeach;?>
-                                    
-                                    <!-- To View All Subjects -->
-                                    <?php foreach($option as $key => $value){ ?>
-                                        <option value="<?=$value['Subject_Name'] ;?>"><?=$value['Subject_Name'] ;?></option>
-                                    <?php } ?>
-                                </select>
-
-                                <?php
-                                    }
-                                    else
-                                    {
-                                        echo "<h4>No Such Id Found</h4>";
-                                    }
-                                }
-                                ?>
-                                    <h6 id="modal_body"></h6>
-                                    <input type="submit" class="btnn" name="update_subject" onClick="window.location.href=window.location.href" value="Update"> 
-                                </div> 
-                            </div> 
-                        </div> 
-                    </div>
                 </div>
                 </div>
                 <div class="card-header">
@@ -259,7 +213,7 @@
                                             <input type="checkbox" class="emp_checkbox" data-emp-id="<?= $subject['Subject_ID']; ?>">
                                         </td>
                                         <td><?= $subject['Subject_Name']; ?></a></td>
-                                        <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal1" id="submit">Add Subject</button></td>
+                                        <td><a href="Update_Subject.php?id=<?= $subject['Subject_ID']; ?>"><button type="submit" class="btn btn-update">View</button></a></td>
                                     </tr>
                                     <?php
                                 }
