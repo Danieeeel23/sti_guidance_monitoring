@@ -71,14 +71,23 @@ session_start();
                 <div class="toptitle">
                     <h2>Classes</h2>
                 </div>
-                <div class="icons">
-                    <i class="fa fa-bell"></i>
-                    <i class="fa fa-search"></i>
+                <div class="rightbar">
+                    <div class="icons">
+                        <i class="fa fa-bell"></i>
+                        <i class="fa fa-search"></i>
+                    </div>
+                    <div class="dropdown">
 
-                </div>
-                <div class="icons1">
-                    <h3>Teacher</h3>
-                    <i class="fa fa-angle-down"></i>
+                        <div class="icons1">
+                            <h3 class="dropbtn">Teacher </h3>
+                            <i class="fa fa-angle-down"></i>
+                        </div>
+                        <div class="dropdown-content">
+                            <a href="../logins/logout.php">Logout</a>
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
 
@@ -172,7 +181,7 @@ session_start();
                             }
                             ?>
                             <td><?= $studentcount; ?></td>
-                            <td><a href="Lists_of_Students.php?strand=<?= $subject['Strand']?>&section=<?= $subject['Section']; ?>"><button type="submit" class="btn btn-update">View</button></a></td>
+                            <td><a href="Lists_of_Students.php?strand=<?= $subject['Strand'] ?>&section=<?= $subject['Section']; ?>"><button type="submit" class="btn btn-update">View</button></a></td>
                         </tr>
                 <?php
                     }

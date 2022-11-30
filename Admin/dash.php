@@ -106,16 +106,15 @@ if(!isset($_SESSION['admin_id'])){
                 <div class="dropdown">
                     <button class="dropbtn">Admin</button>
                     <div class="dropdown-content">
-                    <a href="../logins/logout.php">Logout</a>
+                        <a href="../logins/logout.php">Logout</a>
+                    </div>
                 </div>
-                </div>
-                </div>
+            </div>
+        </div>
 
-                </div>
-
-                <div class="1title">
-                    <p>Admin’s Dashboard</p>
-                </div>
+        <div class="1title">
+            <p>Admin’s Dashboard</p>
+        </div>
                 
         <div class="cardbox">
         <?php include('message.php'); ?>

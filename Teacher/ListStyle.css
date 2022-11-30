@@ -180,15 +180,16 @@ body{
 .icons1{
     display: flex;
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 0;
+    padding-right: 20px;
     color: white;
     align-items: center;
 }
 .icons1 i{
-    margin-left: 10px;
+    /* margin-left: 10px; */
 }
 .icons1 h3{
-    font-size: 18px;
+    /* font-size: 18px; */
 }
 /* MAIN1 */
 .main1{
@@ -410,25 +411,25 @@ body{
     padding: 16px;
     font-size: 16px;
     border: none;
-    margin-left: -20px;
   }
   
   .dropdown {
     position: relative;
     display: inline-block;
+    cursor: pointer;
   }
   
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f1f1f1;
+    background-color: rgb(54, 50, 104);
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
   }
   
   .dropdown-content a {
-    color: black;
+    color: white;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
