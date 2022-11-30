@@ -2,6 +2,26 @@
 
 require 'config.php';
 session_start();
+
+if (isset($_SESSION['teacher_id'])) {
+    $currentteacherid = $_SESSION['teacher_id'];
+    $query = "SELECT *, CONCAT(First_Name,' ',Middle_Initial,' ',Last_Name) AS Name FROM `teacher` WHERE `Teacher_ID`= $currentteacherid ";
+    $result = mysqli_query($link, $query);
+
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_array($result);
+        $currentteachername = $row['Name'];
+    }
+} else {
+    echo "No Session ID";
+}
+
+if (isset($_GET['strand']) && isset($_GET['section'])) {
+    $currentstrand = $_GET['strand'];
+    $currentsection = $_GET['section'];
+} else {
+    echo "No Strand and Section";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,9 +96,14 @@ session_start();
                         <i class="fa fa-bell"></i>
                         <i class="fa fa-search"></i>
                     </div>
-                    <div class="icons1">
-                        <h3>Teacher</h3>
-                        <i class="fa fa-angle-down"></i>
+                    <div class="dropdown">
+                        <div class="icons1">
+                            <h3 class="dropbtn"> <?php echo $currentteachername ?> </h3>
+                            <i class="fa fa-angle-down"></i>
+                        </div>
+                        <div class="dropdown-content">
+                            <a href="../logins/logout.php">Logout</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -86,13 +111,7 @@ session_start();
         </div>
         <div class="main1">
             <div class="title2">
-                <h1>List of Students
-                    <?php if (isset($_SESSION['teacher_id'])) {
-
-                        echo $_SESSION['teacher_id'];
-                    } else {
-                        echo "No Session ID";
-                    }  ?></h1>
+                <h1>List of Students of <?php echo $currentstrand, "-", $currentsection ?></h1>
                 <div class="bot">
                     <span class="create">
                         <i class="fa fa-plus"></i>
@@ -145,8 +164,6 @@ session_start();
             </thead>
             <tbody>
                 <?php
-                $currentstrand = $_GET['strand'];
-                $currentsection = $_GET['section'];
                 $query = "SELECT * FROM `student` WHERE Strand='$currentstrand' AND Section='$currentsection'";
                 $query_run = mysqli_query($link, $query);
 

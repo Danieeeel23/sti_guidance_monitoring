@@ -2,6 +2,19 @@
 
 require 'config.php';
 session_start();
+
+if (isset($_SESSION['teacher_id'])) {
+    $currentteacherid = $_SESSION['teacher_id'];
+    $query = "SELECT *, CONCAT(First_Name,' ',Middle_Initial,' ',Last_Name) AS Name FROM `teacher` WHERE `Teacher_ID`= $currentteacherid ";
+    $result = mysqli_query($link, $query);
+
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_array($result);
+        $currentteachername = $row['Name'];
+    }
+} else {
+    echo "No Session ID";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,30 +90,21 @@ session_start();
                         <i class="fa fa-search"></i>
                     </div>
                     <div class="dropdown">
-
                         <div class="icons1">
-                            <h3 class="dropbtn">Teacher </h3>
+                            <h3 class="dropbtn"> <?php echo $currentteachername ?> </h3>
                             <i class="fa fa-angle-down"></i>
                         </div>
                         <div class="dropdown-content">
                             <a href="../logins/logout.php">Logout</a>
                         </div>
-
                     </div>
-
                 </div>
             </div>
 
         </div>
         <div class="main1">
             <div class="title2">
-                <h1>List of Classes
-                    <?php if (isset($_SESSION['teacher_id'])) {
-
-                        echo $_SESSION['teacher_id'];
-                    } else {
-                        echo "No Session ID";
-                    }  ?></h1>
+                <h1>List of Classes</h1>
                 <div class="bot">
                     <span class="create">
                         <i class="fa fa-plus"></i>
@@ -153,7 +157,6 @@ session_start();
             </thead>
             <tbody>
                 <?php
-                $currentteacherid = $_SESSION['teacher_id'];
                 $query = "SELECT * FROM `subject_teacher` WHERE `Teacher_ID`= $currentteacherid ";
                 $query_run = mysqli_query($link, $query);
 
