@@ -137,7 +137,8 @@ body{
 .topbar{
     display: flex;
     position: relative;
-   
+    width: 100%;
+    justify-content: space-between;
 }
 .main .toptitle{
     position: relative;
@@ -146,10 +147,9 @@ body{
     align-items: center;
     margin-top: 2px;
     margin-left: 10px;
-    margin-right: 200px;
+    /* margin-right: 200px; */
     padding: 15px;
-    width: 177px;
-    
+    /* width: 177px; */
 }
 .toptitle h2{
     font-size: 25px;
@@ -159,11 +159,14 @@ body{
     margin:10px 30px 10px 25px;
     width: 50px;
 }
+.rightbar{
+    display: flex;
+}
 .icons{
     display: flex;
     justify-content: space-between;
     text-align: center;
-    margin-left: 750px;
+    /* margin-left: 750px; */
     align-items: center;
     padding: 20px;
     color: white;
@@ -177,20 +180,15 @@ body{
 .icons1{
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    padding: 0 20px;
     color: white;
-    
+    align-items: center;
 }
 .icons1 i{
     margin-left: 10px;
-    align-items: center;
 }
 .icons1 h3{
     font-size: 18px;
-    align-items: center;
-    margin-top: -5px;
-    margin-left: -10px;
-    
 }
 /* MAIN1 */
 .main1{
@@ -811,4 +809,12 @@ table.dataTable td {
 table.dataTable td {
     background-color: white;
     height: 10px;
+}
+
+table.dataTable td select{
+    font-size: 16px;
+    background-color: rgb(47, 79, 192);
+    color: white;
+    width: 100px;
+    margin: 0;
 }

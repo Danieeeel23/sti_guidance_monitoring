@@ -71,14 +71,15 @@ session_start();
                 <div class="toptitle">
                     <h2>Students</h2>
                 </div>
-                <div class="icons">
-                    <i class="fa fa-bell"></i>
-                    <i class="fa fa-search"></i>
-
-                </div>
-                <div class="icons1">
-                    <h3>Teacher</h3>
-                    <i class="fa fa-angle-down"></i>
+                <div class="rightbar">
+                    <div class="icons">
+                        <i class="fa fa-bell"></i>
+                        <i class="fa fa-search"></i>
+                    </div>
+                    <div class="icons1">
+                        <h3>Teacher</h3>
+                        <i class="fa fa-angle-down"></i>
+                    </div>
                 </div>
             </div>
 
@@ -135,16 +136,18 @@ session_start();
             <thead>
                 <tr>
                     <th></th>
-                    <th>Name</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
                     <th>Strand</th>
                     <th>Section</th>
-                    <th>Update</th>
+                    <th>Status</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                $currentteacherid = $_SESSION['teacher_id'];
-                $query = "SELECT *, CONCAT(First_Name,' ',Middle_Name,' ',Last_Name) AS Name FROM `student` ";
+                $currentstrand = $_GET['strand'];
+                $currentsection = $_GET['section'];
+                $query = "SELECT * FROM `student` WHERE Strand='$currentstrand' AND Section='$currentsection'";
                 $query_run = mysqli_query($link, $query);
 
                 if (mysqli_num_rows($query_run) > 0) {
@@ -152,12 +155,18 @@ session_start();
                 ?>
                         <tr>
                             <td>
-                                <input type="checkbox" class="emp_checkbox" data-emp-id="<?= $subject['Subject_Teacher_ID']; ?>">
+                                <input type="checkbox" class="emp_checkbox" data-emp-id="<?= $student['Student_ID']; ?>">
                             </td>
-                            <td><?= $student['Name']; ?></td>
+                            <td><?= $student['First_Name']; ?></td>
+                            <td><?= $student['Last_Name']; ?></td>
                             <td><?= $student['Strand']; ?></td>
                             <td><?= $student['Section']; ?></td>
-                            <td><a href="Update_Subject.php?id=<?= $subject['Subject_Teacher_ID']; ?>"><button type="submit" class="btn btn-update">View</button></a></td>
+                            <td>
+                                <select id="Status" name="Status">
+                                    <option value="0">Absent</option>
+                                    <option value="1">Present</option>
+                                </select>
+                            </td>
                         </tr>
                 <?php
                     }
