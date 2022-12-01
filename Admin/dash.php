@@ -275,7 +275,6 @@ if(!isset($_SESSION['admin_id'])){
                      </div>
                      <div class="cement">
                         <p><strong>Announcement</strong></p>
-                        <a href="List_of_Inquiries.php" class="btn2">View All</a>
 
                         <?php 
 
@@ -287,7 +286,7 @@ if(!isset($_SESSION['admin_id'])){
                                             foreach($query_run as $announcements)
                                             {
                                                 ?>
-                        <p><i class="fa fa-bullhorn" aria-hidden="true"></i><?= $announcements['Title']; ?></p>
+                        <p style="color:#00008B;"><i class="fa fa-bullhorn" aria-hidden="true"></i><a href="Update_Announcement.php?id=<?= $announcements['Announcement_ID']; ?>" style="text-decoration: none;"><?= $announcements['Title']; ?></a></p>
                        
                         <?php
                                     }

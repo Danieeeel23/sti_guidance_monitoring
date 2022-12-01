@@ -863,3 +863,8 @@ input[type=submit]{
     border-radius: 4px;
     box-sizing: border-box;
 }
+
+span.asterisk{
+    color: red;
+    font-size: 19px;
+}

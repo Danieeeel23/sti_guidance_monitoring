@@ -112,7 +112,7 @@ if(window.history.replaceState)
                         <div class="info">
                         
                             
-                          <label for="Firstname">Firstname</label> <span id="btk"> <input type="text" placeholder="" name="firstname"></span>
+                          <label for="Firstname">First Name<span class="asterisk"> *</span></label> <span id="btk"> <input type="text" placeholder="" name="firstname" required></span>
 
                       <label for="MI">MI</label> <span id="btk"> <input type="text" placeholder="" name="middlename"></span>
                       

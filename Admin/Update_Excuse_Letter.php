@@ -133,34 +133,6 @@ require 'config.php';
                             <label for="Name">Student ID</label>
                             <span id="btk"> <input type="text" placeholder="" name="studentno" id="studentno" value="<?= $excuse['Student_ID']; ?>" readonly></span>
                             <span id="btk"> <input type="hidden" placeholder="" name="excuseletterno" id="excuseletterno" value="<?= $excuse['Excuse_Letter_ID']; ?>" readonly></span>
-                            <label for="Status" name ="Status">Status</label>
-                            <select class="Status" placeholder="Status" name="Status">
-                                <option value="<?= $excuse['Status']; ?>"></option>
-                                <option value="Request" 
-                                <?php 
-                                if($excuse['Status'] == "Request")
-                                {
-                                    echo "selected";
-                                }
-                                ?>>Request</option>
-                                <option value="Rejected"
-                                <?php 
-                                if($excuse['Status'] == "Rejected")
-                                {
-                                    echo "selected";
-                                }
-                                ?>>Rejected</option>
-                                <option value="Accepted"
-                                <?php 
-                                if($excuse['Status'] == "Accepted")
-                                {
-                                    echo "selected";
-                                }
-                                ?>>Accepted</option>
-                                </select>
-                        
-                            
-                                <br>
                             
                             <span id="btk"> <input type="hidden" placeholder=""  name="datetime" id="datetime" value="<?= $excuse['Sent']; ?>" readonly></span>
                             <label for="Name">Name</label>

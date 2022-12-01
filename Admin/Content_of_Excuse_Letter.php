@@ -174,9 +174,8 @@ require 'config.php';
                         </div>
                         <div class="coninfo1">
                             <label for="Image" name ="Image">Proof of Absence</label>
-                            <input type="file" id="inputFile" style="margin-top: 15px; width: 270px; margin-left: 3px;" name="file" value="<?php echo $excuse['Images']; ?>" readonly/> 
                             <!--<input type="image" style="border-style:outset" height="560" width="470"/>--> 
-                            <img id="file" src="<?php echo "../Uploads/".$excuse['Images']; ?>" value="<?php echo "../Uploads/".$excuse['Images']; ?>" name="image" style="border-style:outset; margin-top: 10px;" height="400" width="420"/>
+                            <img id="file" src="<?php echo "../Uploads/".$excuse['Images']; ?>" value="<?php echo "../Uploads/".$excuse['Images']; ?>" name="image" style="border-style:outset; margin-top: 40px;" height="400" width="420"/>
                             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal" id="submit">Accepted</button>
                             <button type="button" class="btn btn-primary btn-sm1" data-toggle="modal" data-target="#exampleModal1" style="margin-left: -450px;">Rejected</button> 
                         </div>
