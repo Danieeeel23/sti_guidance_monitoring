@@ -109,9 +109,9 @@ require 'config.php';
                     <?php include('message.php'); ?>
                       <h1>Update Concerns</h1>
                       <div class="coninfo1">
-                      <a href="Lists_of_Concerns.php"><input type="submit" class="btnn2" value="Cancel" style="position:absolute;width: 150px; height: 30px; margin-top: -40px; margin-left: 980px; font-size: 15px;"></a>
+                      <a href="Lists_of_Concerns.php"><input type="submit" class="btnn2" value="Cancel" style="position:absolute;width: 120px; height: 40px; margin-top: -40px; margin-left: 1270px; font-size: 15px;"></a>
                       <form action="code.php" method="POST" enctype="multipart/form-data">
-                            <input type="submit" class="btnn" name="update_concerns" value="Update" style="position:absolute;width: 150px; height: 30px; margin-top: -40px; margin-left: 800px; font-size: 15px;">
+                            <input type="submit" class="btnn" name="update_concerns" value="Update" style="position:absolute;width: 120px; height: 40px; margin-top: -40px; margin-left: 1100px; font-size: 15px;">
                             
 
                      
