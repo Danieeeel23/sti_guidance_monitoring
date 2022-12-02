@@ -930,3 +930,24 @@ input[type=submit]{
     margin-left: 15px;
     
 }
+span.badge{
+    background-color: red;
+    border-radius: 50px;
+    font-size: 0.7em;
+    text-align: center;
+    padding: 0px;
+    width: 15px;
+    height: 15px;
+    margin-top: -10px;
+    margin-left: -10px;
+}
+span.badge2{
+    background-color: red;
+    border-radius: 50px;
+    font-size: 0.7em;
+    text-align: center;
+    padding: 0px;
+    width: 15px;
+    height: 15px;
+   
+}
