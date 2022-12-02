@@ -105,16 +105,6 @@ if (isset($_SESSION['teacher_id'])) {
         <div class="main1">
             <div class="title2">
                 <h1>List of Classes</h1>
-                <div class="bot">
-                    <span class="create">
-                        <i class="fa fa-plus"></i>
-                        <form action="MyUserTech.php" method="POST">
-                            <input type="submit" class="btn btn-primary btn-lg" value="Create">
-                        </form>
-                    </span>
-
-                    <!-- <form action="code.php" method="POST"> -->
-                </div>
             </div>
         </div>
     </div>
