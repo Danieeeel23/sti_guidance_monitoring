@@ -119,7 +119,7 @@ require 'config.php';
                     <div class="bsinfo">
                     <form action="code.php" method="POST" enctype="multipart/form-data">
                     <div class="coninfo1">
-                            <input type="submit" class="btnn" name="update_excuse_letter" value="Update" style=" position:absolute; width: 150px; height: 30px; margin-top: -50px; margin-left: 1200px; font-size: 15px;">  
+                            <input type="submit" class="btnn" name="update_excuse_letter" value="Update" style=" position:absolute; width: 120px; height: 40px; margin-top: -50px; margin-left: 1230px; font-size: 15px;">  
                         </div>
                         <h4>Basic Information</h4>
                         <div class="info">
