@@ -112,35 +112,10 @@ if (isset($_SESSION['teacher_id'])) {
                             <input type="submit" class="btn btn-primary btn-lg" value="Create">
                         </form>
                     </span>
-                    <span class="create">
-                        <i class="fa fa-plus"></i>
-                        <form action="MyUserTech.php" method="POST">
-                            <input type="submit" class="btn btn-primary btn-lg" value="Create">
-                        </form>
-                    </span>
-                    <span class="create">
-                        <i class="fa fa-plus"></i>
-                        <form action="MyUserTech.php" method="POST">
-                            <input type="submit" class="btn btn-primary btn-lg" value="Create">
-                        </form>
-                    </span>
+
                     <!-- <form action="code.php" method="POST"> -->
                 </div>
             </div>
-            <!-- <div class="search">
-                <span id="sea"><i class="fa fa-search"></i> <input type="text" placeholder="Search.." name="search"></span>
-                <label for="strand" name="Strand"></label>
-                <select id="Strand" name="Strand">
-                    <option value="0">STRAND</option>
-                    <option value="1">STEM</option>
-                    <option value="2">ABM</option>
-                    <option value="3">HUMSS</option>
-                    <option value="4">TVL</option>
-                    <option value="5">GAS</option>
-                </select>
-                <i class="fa fa-filter"></i>
-            </div> -->
-
         </div>
     </div>
     <div class="card-header">
@@ -157,24 +132,24 @@ if (isset($_SESSION['teacher_id'])) {
             </thead>
             <tbody>
                 <?php
-                $query = "SELECT * FROM `subject_teacher` WHERE `Teacher_ID`= $currentteacherid ";
+                $query = "SELECT * FROM `class` WHERE `Teacher_ID`= $currentteacherid ";
                 $query_run = mysqli_query($link, $query);
 
                 if (mysqli_num_rows($query_run) > 0) {
-                    foreach ($query_run as $subject) {
+                    foreach ($query_run as $class) {
                 ?>
                         <tr>
                             <td>
-                                <input type="checkbox" class="emp_checkbox" data-emp-id="<?= $subject['Subject_Teacher_ID']; ?>">
+                                <input type="checkbox" class="emp_checkbox" data-emp-id="<?= $class['Class_ID']; ?>">
                             </td>
-                            <td><?= $subject['Subject_Name']; ?></td>
-                            <td><?= $subject['Strand']; ?></td>
-                            <td><?= $subject['Section']; ?></td>
+                            <td><?= $class['Subject_Name']; ?></td>
+                            <td><?= $class['Strand']; ?></td>
+                            <td><?= $class['Section']; ?></td>
                             <?php
                             //for student count
                             //MULTIPLE ROW SUBQUERY
-                            $countstrand = $subject['Strand'];
-                            $countsection = $subject['Section'];
+                            $countstrand = $class['Strand'];
+                            $countsection = $class['Section'];
                             $countquery = "SELECT * FROM `student` WHERE strand IN (SELECT Name FROM strand WHERE Name = '$countstrand' ) AND section IN (SELECT Section FROM section WHERE Section = '$countsection')";
                             $countquery_run = mysqli_query($link, $countquery);
                             if (mysqli_num_rows($countquery_run) > 0) {
@@ -184,7 +159,7 @@ if (isset($_SESSION['teacher_id'])) {
                             }
                             ?>
                             <td><?= $studentcount; ?></td>
-                            <td><a href="Lists_of_Students.php?strand=<?= $subject['Strand'] ?>&section=<?= $subject['Section']; ?>"><button type="submit" class="btn btn-update">View</button></a></td>
+                            <td><a href="Lists_of_Students.php?class=<?= $class['Class_ID'] ?>"><button type="submit" class="btn btn-update">View</button></a></td>
                         </tr>
                 <?php
                     }
@@ -192,47 +167,8 @@ if (isset($_SESSION['teacher_id'])) {
                 }
                 ?>
 
-                <!-- and so on... -->
             </tbody>
         </table>
-        <!-- <table class="styled-table">
-            <thead>
-                <tr>
-                    <th>List of Subjects</th>
-                    <th>Year & Section</th>
-                    <th>Number of Student</th>
-                    <th>Last Modified</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><input type="checkbox" class="larger" name="checkbox">Information Assurance and Security</td>
-                    <td>Grade 11 - ABM 1 - A</td>
-                    <td>40</td>
-                    <td>June 06,2022 1:00 PM</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" class="larger" name="checkbox">Advance Systems and Architecture</td>
-                    <td>Grade 11 - STEM 1-A </td>
-                    <td>50</td>
-                    <td>June 06,2022 1:00 PM</td>
-
-                </tr>
-                <tr>
-                    <td><input type="checkbox" class="larger" name="checkbox">Web Systems and Technologies</td>
-                    <td>Grade 11 - ICT 1 - A</td>
-                    <td>50</td>
-                    <td>June 06,2022 1:00 PM</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" class="larger" name="checkbox">Management Information Systems</td>
-                    <td>Grade 11 - ICT 1 - A</td>
-                    <td>50</td>
-                    <td>June 06,2022 1:00 PM</td>
-                </tr>
-            </tbody>
-        </table> -->
-        <!-- </form> -->
     </div>
 
     <script src="js/jquery-3.6.1.min.js"></script>

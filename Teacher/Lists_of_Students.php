@@ -16,12 +16,35 @@ if (isset($_SESSION['teacher_id'])) {
     echo "No Session ID";
 }
 
-if (isset($_GET['strand']) && isset($_GET['section'])) {
-    $currentstrand = $_GET['strand'];
-    $currentsection = $_GET['section'];
+if (isset($_GET['class'])) {
+    $currentclassid = $_GET['class'];
+    $query = "SELECT * FROM `class` WHERE `Class_ID`= $currentclassid ";
+    $result = mysqli_query($link, $query);
+
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_array($result);
+        $currentsubjectid = $row['Subject_ID'];
+        $currentstrand = $row['Strand'];
+        $currentsection = $row['Section'];
+    }
 } else {
-    echo "No Strand and Section";
+    echo "No Class ID";
 }
+
+if (isset($currentsubjectid)) {
+
+    // $currentsubject = mysqli_real_escape_string($link, $_GET['subject']);
+    $query = "SELECT * FROM `subject` WHERE `Subject_ID`= $currentsubjectid ";
+    $result = mysqli_query($link, $query);
+
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_array($result);
+        $currentsubject = $row['Subject_Name'];
+    }
+} else {
+    echo "No Subject ID";
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -111,43 +134,9 @@ if (isset($_GET['strand']) && isset($_GET['section'])) {
         </div>
         <div class="main1">
             <div class="title2">
-                <h1>List of Students of <?php echo $currentstrand, "-", $currentsection ?></h1>
-                <div class="bot">
-                    <span class="create">
-                        <i class="fa fa-plus"></i>
-                        <form action="MyUserTech.php" method="POST">
-                            <input type="submit" class="btn btn-primary btn-lg" value="Create">
-                        </form>
-                    </span>
-                    <span class="create">
-                        <i class="fa fa-plus"></i>
-                        <form action="MyUserTech.php" method="POST">
-                            <input type="submit" class="btn btn-primary btn-lg" value="Create">
-                        </form>
-                    </span>
-                    <span class="create">
-                        <i class="fa fa-plus"></i>
-                        <form action="MyUserTech.php" method="POST">
-                            <input type="submit" class="btn btn-primary btn-lg" value="Create">
-                        </form>
-                    </span>
-                    <!-- <form action="code.php" method="POST"> -->
-                </div>
+                <h1><?php echo "(", $currentsubject, ") ", $currentstrand, "-", $currentsection ?></h1>
+                <h1><?php echo date("l"), " ", date("Y/m/d") ?></h1>
             </div>
-            <!-- <div class="search">
-                <span id="sea"><i class="fa fa-search"></i> <input type="text" placeholder="Search.." name="search"></span>
-                <label for="strand" name="Strand"></label>
-                <select id="Strand" name="Strand">
-                    <option value="0">STRAND</option>
-                    <option value="1">STEM</option>
-                    <option value="2">ABM</option>
-                    <option value="3">HUMSS</option>
-                    <option value="4">TVL</option>
-                    <option value="5">GAS</option>
-                </select>
-                <i class="fa fa-filter"></i>
-            </div> -->
-
         </div>
     </div>
     <div class="card-header">
@@ -157,8 +146,6 @@ if (isset($_GET['strand']) && isset($_GET['section'])) {
                     <th></th>
                     <th>First Name</th>
                     <th>Last Name</th>
-                    <th>Strand</th>
-                    <th>Section</th>
                     <th>Status</th>
                 </tr>
             </thead>
@@ -168,6 +155,7 @@ if (isset($_GET['strand']) && isset($_GET['section'])) {
                 $query_run = mysqli_query($link, $query);
 
                 if (mysqli_num_rows($query_run) > 0) {
+                    $students = mysqli_fetch_array($query_run);
                     foreach ($query_run as $student) {
                 ?>
                         <tr>
@@ -176,12 +164,10 @@ if (isset($_GET['strand']) && isset($_GET['section'])) {
                             </td>
                             <td><?= $student['First_Name']; ?></td>
                             <td><?= $student['Last_Name']; ?></td>
-                            <td><?= $student['Strand']; ?></td>
-                            <td><?= $student['Section']; ?></td>
                             <td>
                                 <select id="Status" name="Status">
-                                    <option value="0">Absent</option>
-                                    <option value="1">Present</option>
+                                    <option value="Absent">Absent</option>
+                                    <option value="Present">Present</option>
                                 </select>
                             </td>
                         </tr>
@@ -191,47 +177,23 @@ if (isset($_GET['strand']) && isset($_GET['section'])) {
                 }
                 ?>
 
-                <!-- and so on... -->
             </tbody>
         </table>
-        <!-- <table class="styled-table">
-            <thead>
-                <tr>
-                    <th>List of Subjects</th>
-                    <th>Year & Section</th>
-                    <th>Number of Student</th>
-                    <th>Last Modified</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><input type="checkbox" class="larger" name="checkbox">Information Assurance and Security</td>
-                    <td>Grade 11 - ABM 1 - A</td>
-                    <td>40</td>
-                    <td>June 06,2022 1:00 PM</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" class="larger" name="checkbox">Advance Systems and Architecture</td>
-                    <td>Grade 11 - STEM 1-A </td>
-                    <td>50</td>
-                    <td>June 06,2022 1:00 PM</td>
+        <div class="main1">
+            <div class="bot">
+                <span class="create">
+                    <i class="fa fa-plus"></i>
+                    <form action="code.php" method="POST">
+                        <input type="hidden" name="classid" value="<?= $currentclassid; ?>">
+                        <input type="text" name="studentid" value="<?php echo $students
+                                                                    ?>">
+                        <input type="submit" class="btn btn-primary btn-lg" name="save_attendance" value="Submit Report">
+                    </form>
+                </span>
+                <!-- <form action="code.php" method="POST"> -->
+            </div>
+        </div>
 
-                </tr>
-                <tr>
-                    <td><input type="checkbox" class="larger" name="checkbox">Web Systems and Technologies</td>
-                    <td>Grade 11 - ICT 1 - A</td>
-                    <td>50</td>
-                    <td>June 06,2022 1:00 PM</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" class="larger" name="checkbox">Management Information Systems</td>
-                    <td>Grade 11 - ICT 1 - A</td>
-                    <td>50</td>
-                    <td>June 06,2022 1:00 PM</td>
-                </tr>
-            </tbody>
-        </table> -->
-        <!-- </form> -->
     </div>
 
     <script src="js/jquery-3.6.1.min.js"></script>
