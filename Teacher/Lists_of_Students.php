@@ -140,60 +140,76 @@ if (isset($currentsubjectid)) {
         </div>
     </div>
     <div class="card-header">
-        <table id="myDataTable" class="hover">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                $query = "SELECT * FROM `student` WHERE Strand='$currentstrand' AND Section='$currentsection'";
-                $query_run = mysqli_query($link, $query);
+        <form action="code.php" method="POST">
+            <table id="myDataTable" class="hover">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $query = "SELECT * FROM `student` WHERE Strand='$currentstrand' AND Section='$currentsection'";
+                    $query_run = mysqli_query($link, $query);
 
-                if (mysqli_num_rows($query_run) > 0) {
-                    $students = mysqli_fetch_array($query_run);
-                    foreach ($query_run as $student) {
-                ?>
-                        <tr>
-                            <td>
-                                <input type="checkbox" class="emp_checkbox" data-emp-id="<?= $student['Student_ID']; ?>">
-                            </td>
-                            <td><?= $student['First_Name']; ?></td>
-                            <td><?= $student['Last_Name']; ?></td>
-                            <td>
-                                <select id="Status" name="Status">
-                                    <option value="Absent">Absent</option>
-                                    <option value="Present">Present</option>
-                                </select>
-                            </td>
-                        </tr>
-                <?php
+                    if (mysqli_num_rows($query_run) > 0) {
+                        $students = $query_run;
+                        foreach ($query_run as $student) {
+                    ?>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" class="emp_checkbox" data-emp-id="<?= $student['Student_ID']; ?>">
+                                </td>
+                                <td><?= $student['First_Name']; ?></td>
+                                <td><?= $student['Last_Name']; ?></td>
+                                <td>
+                                    <select id="Status" class="Status" name="Status[]">
+                                        <option value="Absent">Absent</option>
+                                        <option value="Present">Present</option>
+                                    </select>
+
+                                </td>
+                            </tr>
+                    <?php
+                        }
+                    } else {
                     }
-                } else {
-                }
-                ?>
+                    ?>
 
-            </tbody>
-        </table>
-        <div class="main1">
-            <div class="bot">
-                <span class="create">
-                    <i class="fa fa-plus"></i>
-                    <form action="code.php" method="POST">
+                </tbody>
+            </table>
+            <div class="main1">
+                <div class="bot">
+                    <span class="create">
+                        <i class="fa fa-plus"></i>
+
                         <input type="hidden" name="classid" value="<?= $currentclassid; ?>">
-                        <input type="text" name="studentid" value="<?php echo $students
+                        <input type="hidden" name="subjectid" value="<?= $currentsubjectid; ?>">
+                        <input type="hidden" name="studentid" value="<?php
+                                                                        foreach ($students as $student) {
+                                                                            echo $student['Student_ID'], ":";
+                                                                        }
+                                                                        ?>">
+                        <input type="hidden" name="firstname" value="<?php
+                                                                        foreach ($students as $student) {
+                                                                            echo $student['First_Name'], ":";
+                                                                        }
+                                                                        ?>">
+                        <input type="hidden" name="lastname" value="<?php
+                                                                    foreach ($students as $student) {
+                                                                        echo $student['Last_Name'], ":";
+                                                                    }
                                                                     ?>">
                         <input type="submit" class="btn btn-primary btn-lg" name="save_attendance" value="Submit Report">
-                    </form>
-                </span>
-                <!-- <form action="code.php" method="POST"> -->
-            </div>
-        </div>
 
+                    </span>
+                    <!-- <form action="code.php" method="POST"> -->
+                </div>
+            </div>
+        </form>
     </div>
 
     <script src="js/jquery-3.6.1.min.js"></script>
@@ -206,8 +222,34 @@ if (isset($currentsubjectid)) {
                     [5, 10, 15, 20],
                     [5, 10, 15, 20]
                 ]
-            })
+            });
         });
+
+        var select = document.getElementsByClassName("Status");
+        var input = document.getElementsByClassName("inpStatus");
+        for (let index = 0; index < select.length; index++) {
+            select[index].onchange = click(index);
+        }
+        var click = (i) => {
+            alert(select[i].value);
+        }
+
+        function getSelectedOptions(sel) {
+            var opts = [],
+                opt;
+            var len = sel.options.length;
+            for (var i = 0; i < len; i++) {
+                opt = sel.options[i];
+
+                if (opt.selected) {
+                    opts.push(opt);
+                    alert(opt.value);
+                }
+            }
+
+
+            return opts;
+        }
     </script>
 
 
