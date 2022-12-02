@@ -118,9 +118,9 @@ require 'config.php';
                 <?php include('message.php'); ?>
                     <div class="title2">
                       <h1>Manage Concerns</h1>
-                      <a href="Lists_of_Concerns.php"><input type="submit" class="btnn2" value="Cancel" style="position:absolute;width: 150px; height: 30px; margin-top: -40px; margin-left: 980px; font-size: 15px;"></a>
+                      <a href="Lists_of_Concerns.php"><input type="submit" class="btnn2" value="Cancel" style="position:absolute;width: 120px; height: 40px; margin-top: -40px; margin-left: 1250px; font-size: 15px;"></a>
                       <form action="code.php" method="POST" enctype="multipart/form-data">
-                        <input type="submit" class="btnn" name="save_concerns" value="Create" style="position:absolute;width: 150px; height: 30px; margin-top: -40px; margin-left: 800px; font-size: 15px;">
+                        <input type="submit" class="btnn" name="save_concerns" value="Create" style="position:absolute;width: 120px; height: 40px; margin-top: -40px; margin-left: 1100px; font-size: 15px;">
                
                     </div>
                     <div class="bsinfo">
