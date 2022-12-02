@@ -109,7 +109,7 @@ require 'config.php';
                     <?php include('message.php'); ?>
                       <h1>Content of Announcement</h1>
                       <form action="code.php" method="POST" enctype="multipart/form-data">
-                      <input type="submit" class="btnn" name="update_announcement" value="Update" style=" position:absolute; width: 150px; height: 30px; margin-top: -40px; margin-left: 1000px; font-size: 15px;">  
+                      <input type="submit" class="btnn" name="update_announcement" value="Update" style=" position:absolute; padding: 5px; width: 120px; height: 35px; margin-top: -40px; margin-left: 1230px; font-size: 15px;">  
                     </div>
                     <div class="bsinfo">
                         <h4>Basic Information</h4>
