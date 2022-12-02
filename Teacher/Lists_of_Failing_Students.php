@@ -15,6 +15,36 @@ if (isset($_SESSION['teacher_id'])) {
 } else {
     echo "No Session ID";
 }
+
+if (isset($_GET['class'])) {
+    $currentclassid = $_GET['class'];
+    $query = "SELECT * FROM `class` WHERE `Class_ID`= $currentclassid ";
+    $result = mysqli_query($link, $query);
+
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_array($result);
+        $currentsubjectid = $row['Subject_ID'];
+        $currentstrand = $row['Strand'];
+        $currentsection = $row['Section'];
+    }
+} else {
+    echo "No Class ID";
+}
+
+if (isset($currentsubjectid)) {
+
+    // $currentsubject = mysqli_real_escape_string($link, $_GET['subject']);
+    $query = "SELECT * FROM `subject` WHERE `Subject_ID`= $currentsubjectid ";
+    $result = mysqli_query($link, $query);
+
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_array($result);
+        $currentsubject = $row['Subject_Name'];
+    }
+} else {
+    echo "No Subject ID";
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +63,7 @@ if (isset($_SESSION['teacher_id'])) {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="delete_script.js"></script>
     <link rel="stylesheet" href="ListStyle.css" type="text/css">
-    <title>List of Classes</title>
+    <title>List of Students</title>
     <style>
 
     </style>
@@ -82,7 +112,7 @@ if (isset($_SESSION['teacher_id'])) {
             <span id="logo"><img src="images/sti_logo.png" alt=""></span>
             <div class="topbar">
                 <div class="toptitle">
-                    <h2>Classes</h2>
+                    <h2>Students</h2>
                 </div>
                 <div class="rightbar">
                     <div class="icons">
@@ -104,62 +134,61 @@ if (isset($_SESSION['teacher_id'])) {
         </div>
         <div class="main1">
             <div class="title2">
-                <h1>List of Classes</h1>
-
+                <h1><?php echo "(", $currentsubject, ") ", $currentstrand, "-", $currentsection ?></h1>
+                <div class="bot">
+                    <span class="create">
+                        <i class="fa fa-plus"></i>
+                        <input type="submit" class="btn btn-primary btn-lg" name="save_attendance" value="Create">
+                    </span>
+                    <span class="delete">
+                        <i class="fa fa-trash"></i>
+                        <input type="submit" class="btn btn-primary btn-lg" name="save_attendance" value="Delete">
+                    </span>
+                    <!-- <form action="code.php" method="POST"> -->
+                </div>
             </div>
+
+
         </div>
     </div>
     <div class="card-header">
-        <table id="myDataTable" class="hover">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Subject Name</th>
-                    <th>Strand</th>
-                    <th>Section</th>
-                    <th>Number of Students</th>
-                    <th>Update</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                $query = "SELECT * FROM `class` WHERE `Teacher_ID`= $currentteacherid ";
-                $query_run = mysqli_query($link, $query);
+        <form action="code.php" method="POST">
+            <table id="myDataTable" class="hover">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Grades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $query = "SELECT * FROM `failing_grades`";
+                    $query_run = mysqli_query($link, $query);
 
-                if (mysqli_num_rows($query_run) > 0) {
-                    foreach ($query_run as $class) {
-                ?>
-                        <tr>
-                            <td>
-                                <input type="checkbox" class="emp_checkbox" data-emp-id="<?= $class['Class_ID']; ?>">
-                            </td>
-                            <td><?= $class['Subject_Name']; ?></td>
-                            <td><?= $class['Strand']; ?></td>
-                            <td><?= $class['Section']; ?></td>
-                            <?php
-                            //for student count
-                            //MULTIPLE ROW SUBQUERY
-                            $countstrand = $class['Strand'];
-                            $countsection = $class['Section'];
-                            $countquery = "SELECT * FROM `student` WHERE strand IN (SELECT Name FROM strand WHERE Name = '$countstrand' ) AND section IN (SELECT Section FROM section WHERE Section = '$countsection')";
-                            $countquery_run = mysqli_query($link, $countquery);
-                            if (mysqli_num_rows($countquery_run) > 0) {
-                                $studentcount = mysqli_num_rows($countquery_run);
-                            } else {
-                                $studentcount = 0;
-                            }
-                            ?>
-                            <td><?= $studentcount; ?></td>
-                            <td><a href="Lists_of_Failing_Students.php?class=<?= $class['Class_ID'] ?>"><button type="submit" class="btn btn-update">View</button></a></td>
-                        </tr>
-                <?php
+                    if (mysqli_num_rows($query_run) > 0) {
+                        $students = $query_run;
+                        foreach ($query_run as $student) {
+                    ?>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" class="emp_checkbox" data-emp-id="<?= $student['Student_ID']; ?>">
+                                </td>
+                                <td><?= $student['First_Name']; ?></td>
+                                <td><?= $student['Last_Name']; ?></td>
+                                <td><?= $student['Grades']; ?></td>
+                            </tr>
+                    <?php
+                        }
+                    } else {
                     }
-                } else {
-                }
-                ?>
+                    ?>
 
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+
+        </form>
     </div>
 
     <script src="js/jquery-3.6.1.min.js"></script>
@@ -172,7 +201,7 @@ if (isset($_SESSION['teacher_id'])) {
                     [5, 10, 15, 20],
                     [5, 10, 15, 20]
                 ]
-            })
+            });
         });
     </script>
 

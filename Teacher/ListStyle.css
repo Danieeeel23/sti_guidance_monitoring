@@ -235,16 +235,20 @@ body {
   cursor: pointer;
 }
 /* CREATE BUTTON STYLE */
-.create {
+.create, 
+.delete {
   position: relative;
   display: inline-block;
 }
-.create input[type="submit"] {
+.create input[type="submit"], 
+.delete input[type="submit"] {
   position: relative;
   margin: 0;
   padding-left: 2em;
 }
-.create .fa {
+
+.create .fa, 
+.delete .fa {
   z-index: 2;
   color: white;
   display: inline-block;
@@ -253,21 +257,20 @@ body {
   top: 30%;
 }
 
-.delete input[type="submit"] {
-  margin-left: 330px;
-  position: relative;
-  margin-left: 20px;
-}
-.create input[type="submit"]:hover {
+.create input[type="submit"]:hover, 
+.delete input[type="submit"]:hover {
   border-style: groove;
   padding-right: 30px;
   background: whitesmoke;
   color: blue;
 }
+
+.delete input[type="submit"] {
+  background-color: rgb(255, 140, 140);
+}
+
 .delete input[type="submit"]:hover {
-  border-style: groove;
-  background: whitesmoke;
-  color: blue;
+  color: red;
 }
 
 input[type="text"],

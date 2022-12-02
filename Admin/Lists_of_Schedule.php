@@ -364,7 +364,7 @@ require 'config.php';
             <tbody>
                 <?php
 
-                $query = "SELECT * FROM `subject_teacher` ORDER BY `Subject_Name` ASC";
+                $query = "SELECT * FROM `class` ORDER BY `Subject_Name` ASC";
                 $query_run = mysqli_query($link, $query);
 
                 if (mysqli_num_rows($query_run) > 0) {
@@ -372,7 +372,7 @@ require 'config.php';
                 ?>
                         <tr>
                             <td>
-                                <input type="checkbox" class="emp_checkbox" data-emp-id="<?= $subject['Subject_Teacher_ID']; ?>">
+                                <input type="checkbox" class="emp_checkbox" data-emp-id="<?= $subject['Class_ID']; ?>">
                             </td>
                             <td><?= $subject['Start_Time']; ?></a></td>
                             <td><?= $subject['End_Time']; ?></a></td>
@@ -380,7 +380,7 @@ require 'config.php';
                             <td><?= $subject['Teacher_Name']; ?></td>
                             <td><?= $subject['Strand']; ?></a></td>
                             <td><?= $subject['Section']; ?></a></td>
-                            <td><a href="Update_Subject.php?id=<?= $subject['Subject_Teacher_ID']; ?>"><button type="submit" class="btn btn-update">View</button></a></td>
+                            <td><a href="Update_Subject.php?id=<?= $subject['Class_ID']; ?>"><button type="submit" class="btn btn-update">View</button></a></td>
                         </tr>
                 <?php
                     }
