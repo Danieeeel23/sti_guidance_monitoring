@@ -117,13 +117,13 @@
                     <table id="myDataTable" class="hover" style="margin-left: 80px;">
                         <thead>
                             <tr>
-                                <th>Student No</th>
-                                <th>Names</th>
-                                <th>Year&Section</th>
-                                <th>Last Modified</th>
-                                <th>Subject</th>
-                                <th>Start Date</th>
-                                <th>End Date</th>
+                                <th>Attendance_ID</th>
+                                <th>Class_ID</th>
+                                <th>Student_ID</th>
+                                <th>Name</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Last_Modified</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -138,13 +138,14 @@
                                 {
                                     ?>
                             <tr>
+                                <td><?= $attendance['Attendance_ID']; ?></td>
+                                <td><?= $attendance['Class_ID']; ?></td>
                                 <td><?= $attendance['Student_ID']; ?></td>
-                                <td><?= $attendance['Names']; ?></td>
-                                <td><?= $attendance['Year_Level']; ?><?= $attendance['Section']; ?></td>
+                                <td><?= $attendance['Student_First_Name']; ?><?= $attendance['Student_Last_Name']; ?></td>
+                                <td><?= $attendance['Date']; ?></td>
+                                <td><?= $attendance['Status']; ?></td>
                                 <td><?= $attendance['Last_Modified']; ?></td>
-                                <td><?= $attendance['Subject']; ?></td>
-                                <td><?= $attendance['Start_Date']; ?></td>
-                                <td><?= $attendance['End_Date']; ?></td>
+                                
                             </tr>
                             <?php
                                 }

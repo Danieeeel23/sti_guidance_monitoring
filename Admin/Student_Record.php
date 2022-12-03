@@ -133,7 +133,7 @@ if(!isset($_SESSION['admin_id'])){
                     <div class="pictures">
                     <?php 
 
-                        $query = "SELECT * FROM attendance ORDER BY `Start_Date` DESC LIMIT 1";
+                        $query = "SELECT * FROM attendance ORDER BY `Last_Modified` DESC LIMIT 1";
                         $query_run = mysqli_query($link, $query);
 
                         if(mysqli_num_rows($query_run) > 0)
@@ -141,9 +141,9 @@ if(!isset($_SESSION['admin_id'])){
                             foreach($query_run as $attendance)
                             {
                                 ?>
-                                <div class="subjects"><p><strong><?= $attendance['Subject_Name']; ?></strong></p>
-                                <p class="name"><?= $attendance['Teacher_Name']; ?></p>
-                                <p class="date"><?= $attendance['Start_Date']; ?></p>
+                                <div class="subjects"><p><strong><?= $attendance['Class_ID']; ?></strong></p>
+                                <p class="name"><?= $attendance['Student_First_Name']; ?></p>
+                                <p class="date"><?= $attendance['Last_Modified']; ?></p>
                                 </div>
                             <?php
                             }
