@@ -1,3 +1,21 @@
+<?php
+
+require 'config.php';
+session_start();
+
+if (isset($_SESSION['teacher_id'])) {
+    $currentteacherid = $_SESSION['teacher_id'];
+    $query = "SELECT *, CONCAT(First_Name,' ',Middle_Initial,' ',Last_Name) AS Name FROM `teacher` WHERE `Teacher_ID`= $currentteacherid ";
+    $result = mysqli_query($link, $query);
+
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_array($result);
+        $currentteachername = $row['Name'];
+    }
+} else {
+    echo "No Session ID";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,13 +44,11 @@
                         <span class="title">Home</span>
                     </a>
                 </li>
-                <li><a href="Lists_of_Subjects.php">
-
+                <li>
+                    <a href="Lists_of_Subjects.php">
                         <span class="icon"><img src="Images/sidebar_menu/Edit Calendar.svg" alt=""></span>
                         <span class="title">Attendance</span>
-
                     </a>
-
                 </li>
                 <li>
                     <a href="Lists_of_Failing_Grades.php">
@@ -46,32 +62,35 @@
                         <span class="title">View of <br> Excuse Slip</span>
                     </a>
                 </li>
-
             </ul>
         </div>
         <div class="main">
-            <span id="logo"><img src="Images/sti_logo.png" alt=""></span>
+            <span id="logo"><img src="images/sti_logo.png" alt=""></span>
             <div class="topbar">
                 <div class="toptitle">
-                    <h2>Dashboard</h2>
+                    <h2>Classes</h2>
                 </div>
-                <div class="icons">
-                    <i class="fa fa-bell"></i>
-                    <i class="fa fa-search"></i>
-
-                </div>
-                <div class="icons1">
-                    <h3>Admin</h3>
-                    <i class="fa fa-angle-down"></i>
+                <div class="rightbar">
+                    <div class="icons">
+                        <i class="fa fa-bell"></i>
+                        <i class="fa fa-search"></i>
+                    </div>
+                    <div class="dropdown">
+                        <div class="icons1">
+                            <h3 class="dropbtn"> <?php echo $currentteachername ?> </h3>
+                            <i class="fa fa-angle-down"></i>
+                        </div>
+                        <div class="dropdown-content">
+                            <a href="../logins/logout.php">Logout</a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
         </div>
-
         <div class="1title">
             <p>Admin’s Dashboard</p>
         </div>
-
         <div class="cardbox">
             <div class="card">
                 <div class="iconss">

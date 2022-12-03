@@ -1,0 +1,135 @@
+@import url('https://fonts.goggleapis.com/css?family=poppins:200,300,400,500,600,700,800,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    overflow-x: hidden;
+    background: rgb(241, 237, 237);
+}
+.container{
+    position: relative;
+    width: 100%;
+    scroll-padding-top: 20px; 
+   
+}
+
+/* NAVBAR */
+.navigation{
+    position:fixed;
+    width: 120px;
+    height: 100%;
+    background: rgb(54, 50, 104);
+    overflow: hidden;
+}
+.navigation ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.navigation ul li{
+    position: relative;
+    width: 100%;
+    list-style: none;
+}
+.navigation ul li:hover{
+    background: rgb(217, 217, 217);  
+    
+}
+
+.navigation ul li:nth-child(1) {
+    margin-bottom: 20px;
+}
+.navigation ul li:nth-child(1):hover{
+    background: transparent;
+}
+.navigation ul li a{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+}
+.navigation ul li a .icon{
+    min-width: 20px;
+    line-height: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.navigation ul li a .icon img{
+    width: 30px;
+}
+
+.navigation ul li a .title{
+    font-size: 12px;
+    margin-left: 0px;
+    padding: 0 13px;
+    text-align: center;
+    line-height: 15px;
+    white-space: nowrap;
+}
+
+
+/* MAIN */
+.main {
+  position: fixed;
+  top: 0;
+  background: rgb(47, 79, 192);
+  width: 100%;
+  height: 50px;
+  display: inline-flex;
+}
+.topbar {
+  display: flex;
+  position: relative;
+  width: 100%;
+  justify-content: space-between;
+}
+.main .toptitle {
+  position: relative;
+  display: inline-block;
+  color: white;
+  align-items: center;
+  margin-top: 2px;
+  margin-left: 10px;
+  /* margin-right: 200px; */
+  padding: 15px;
+  /* width: 177px; */
+}
+.toptitle h2 {
+  font-size: 25px;
+  margin-top: -8px;
+}
+#logo img {
+  margin: 10px 30px 10px 25px;
+  width: 50px;
+}
+.rightbar {
+  display: flex;
+}
+.icons {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  /* margin-left: 750px; */
+  align-items: center;
+  padding: 20px;
+  color: white;
+}
+.icons i {
+  width: 30px;
+  text-align: center;
+}
+
+.icons1 {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  padding-right: 20px;
+  color: white;
+  align-items: center;
+}

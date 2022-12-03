@@ -43,39 +43,31 @@ if (isset($_SESSION['teacher_id'])) {
     <div class="container">
         <div class="navigation">
             <ul>
-                <li>
-                    <a href="">
-                        <span class="icon1"><img src="" alt=""></span>
-
-                    </a>
-                </li>
+                <li><a href=""><span class="icon1"><img src="" alt=""></span></a></li>
                 <li>
                     <a href="dash.php">
                         <span class="icon"><img src="Images/sidebar_menu/Mask group.svg" alt=""></span>
-                        <span class="title1"><br>Home</span>
+                        <span class="title">Home</span>
                     </a>
                 </li>
-                <li><a href="Lists_of_Subjects.php">
-
+                <li>
+                    <a href="Lists_of_Subjects.php">
                         <span class="icon"><img src="Images/sidebar_menu/Edit Calendar.svg" alt=""></span>
-                        <span class="title"><br>Attendance</span>
-
+                        <span class="title">Attendance</span>
                     </a>
-
                 </li>
                 <li>
                     <a href="Lists_of_Failing_Grades.php">
                         <span class="icon"><img src="Images/sidebar_menu/Terms and Conditions.svg" alt=""></span>
-                        <span class="title"><br>Record Failing Grades</span>
+                        <span class="title">Record Failing <br> Grades</span>
                     </a>
                 </li>
                 <li>
                     <a href="Lists_of_Excuse_Letter.php">
                         <span class="icon"><img src="Images/sidebar_menu/Vector.svg" alt=""></span>
-                        <span class="title"><br>View of Excuse Slip</span>
+                        <span class="title">View of <br> Excuse Slip</span>
                     </a>
                 </li>
-
             </ul>
         </div>
         <div class="main">
