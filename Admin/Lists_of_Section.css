@@ -476,8 +476,8 @@ input[type=submit]{
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
-    width: 70%;
-    height: 350px;
+    width: 30%;
+    height: 190px;
   }
 
   h5#exampleModalLabel.modal-title {
@@ -485,7 +485,7 @@ input[type=submit]{
     background-color: #2F4FC0;
     color: white;
     margin-top: -20px;
-    width: 107.3%;
+    width: 110%;
     margin-left: -21px;
     padding: 10px 0 10px 15px;
   }
@@ -706,4 +706,41 @@ select.Violation1{
 }
 select.Violation2{
     border: 1px solid black;
+}
+
+input.sect{
+    margin-top: 20px;
+    width: 290px;
+  }
+
+  input.sect{
+    margin-left: 260px;
+    margin-top: 10px;
+    width: 150px;
+    height: 30px;
+    font-size: 15px;
+}
+
+input.sect{
+    margin-top: 20px;
+    width: 290px;
+    margin-left: 30px;
+  }
+
+  label.Section{
+    margin-left: 2em;
+    margin-top: 30px;
+  }
+
+  input#delete_records{
+    margin-left: 160px;
+    margin-right: -150px;
+  }
+
+  input.btnn{
+    margin-left: 260px;
+    margin-top: 10px;
+    width: 150px;
+    height: 30px;
+    font-size: 15px;
 }

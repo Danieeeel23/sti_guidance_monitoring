@@ -1,0 +1,5 @@
+# Ignore all formatting
+*.html
+*.css
+*.php
+*.js

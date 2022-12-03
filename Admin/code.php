@@ -1100,12 +1100,15 @@ if (isset($_POST['save_offense'])) {
                 ('$student_id','$vfirstname','$vstrand','$vyrlvl','$vsection','$vdescription','$violation','$offense','$loffense','$fileNameNew','$vstatus','$date')";
 
                 $query_run = mysqli_multi_query($link, $query);
-                if ($query_run) {
-                    $_SESSION['message'] = "Violation Created Successfully";
+                if($query_run)
+                {
+                    $_SESSION['message'] = "Offense Created Successfully";
                     header("Location: List_of_Offense.php");
                     exit(0);
-                } else {
-                    $_SESSION['message'] = "Violation Not Created";
+                }
+                else
+                {
+                    $_SESSION['message'] = "Offense Not Created";
                     header("Location: List_of_Offense.php");
                     exit(0);
                 }
@@ -1234,7 +1237,52 @@ if (isset($_POST['update_concerns'])) {
     }
 }
 
-if (isset($_POST['imports'])) {
+if(isset($_POST['save_violation']))
+{
+    $offense = mysqli_real_escape_string($link, $_POST['offense']);
+  
+    $query = "INSERT INTO `offense`(`Type_of_Violation`) VALUES 
+              ('$offense')";
+
+    $query_run = mysqli_multi_query($link, $query);
+        if($query_run)
+        {
+            $_SESSION['message'] = "Violation Created Successfully";
+            header("Location: List_of_Offense.php");
+            exit(0);
+        }
+        else
+        {
+            $_SESSION['message'] = "Violation Not Created";
+            header("Location: List_of_Offense.php");
+            exit(0);
+        }  
+}
+
+if(isset($_POST['save_section']))
+{
+    $section = mysqli_real_escape_string($link, $_POST['section']);
+  
+    $query = "INSERT INTO `section`(`Section`) VALUES 
+              ('$section')";
+
+    $query_run = mysqli_multi_query($link, $query);
+        if($query_run)
+        {
+            $_SESSION['message'] = "Section Created Successfully";
+            header("Location: Lists_of_Section.php");
+            exit(0);
+        }
+        else
+        {
+            $_SESSION['message'] = "Section Not Created";
+            header("Location: Lists_of_Section.php");
+            exit(0);
+        }  
+}
+
+if(isset($_POST['imports']))
+{
     $fileName = $_FILES['excel']['name'];
     $fileExtension = explode('.', $fileName);
     $fileExtension = strtolower(end($fileExtension));
@@ -1270,3 +1318,5 @@ if (isset($_POST['imports'])) {
               ('$student_id','$firstname','$middlename','$lastname','$gender','$birthdate','$strand','$yrlvl','$section','$address','$city','$province','$postcode','$telno','$mobileno')");
     }
 }
+
+?>

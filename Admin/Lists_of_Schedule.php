@@ -364,50 +364,85 @@ require 'config.php';
             <tbody>
                 <?php
 
-                $query = "SELECT * FROM `class` ORDER BY `Subject_Name` ASC";
-                $query_run = mysqli_query($link, $query);
+                            $query = "SELECT * FROM `class` ORDER BY `Subject_Name` ASC";
+                            $query_run = mysqli_query($link, $query);
 
-                if (mysqli_num_rows($query_run) > 0) {
-                    foreach ($query_run as $subject) {
-                ?>
-                        <tr>
-                            <td>
-                                <input type="checkbox" class="emp_checkbox" data-emp-id="<?= $subject['Class_ID']; ?>">
-                            </td>
-                            <td><?= $subject['Start_Time']; ?></a></td>
-                            <td><?= $subject['End_Time']; ?></a></td>
-                            <td><?= $subject['Subject_Name']; ?></td>
-                            <td><?= $subject['Teacher_Name']; ?></td>
-                            <td><?= $subject['Strand']; ?></a></td>
-                            <td><?= $subject['Section']; ?></a></td>
-                            <td><a href="Update_Subject.php?id=<?= $subject['Class_ID']; ?>"><button type="submit" class="btn btn-update">View</button></a></td>
-                        </tr>
-                <?php
+                            if(mysqli_num_rows($query_run) > 0)
+                            {
+                                foreach($query_run as $subject)
+                                {
+                                    ?>
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" class="emp_checkbox" data-emp-id="<?= $subject['Class_ID']; ?>">
+                                        </td>
+                                        <td><?= $subject['Start_Time']; ?></a></td>
+                                        <td><?= $subject['End_Time']; ?></a></td>
+                                        <td><?= $subject['Subject_Name']; ?></td>
+                                        <td><?= $subject['Teacher_Name']; ?></td>
+                                        <td><?= $subject['Section']; ?></a></td>
+                                        <td><a href="Update_Schedule.php?id=<?= $subject['Class_ID']; ?>"><button type="submit" class="btn btn-update">View</button></a></td>
+                                    </tr>
+                                    <?php
+                                }
+                            }
+                            else
+                            {
+                                
+                            }
+                        ?>
+                       
+                            <!-- and so on... -->
+                        </tbody>
+                    </table>
+                </div>
+                </form>
+                
+                <script src="js/jquery-3.6.1.min.js"></script>
+                <script src="js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+                <script>
+                    $(document).ready( function () {
+                        $('#myDataTable').DataTable( {
+                            pageLength : 5,
+                            lengthMenu: [[5, 10, 15, 20], [5, 10, 15, 20]]
+                        } )
+                    } );
+                </script>
+                <style>
+                    .card-header{                       
+                        margin-left: 133px;
+                        text-align: center;
+                        margin-top: -60px;
                     }
-                } else {
-                }
-                ?>
-
-                <!-- and so on... -->
-            </tbody>
-        </table>
-    </div>
-    </form>
-
-    <script src="js/jquery-3.6.1.min.js"></script>
-    <script src="js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
-    <script>
-        $(document).ready(function() {
-            $('#myDataTable').DataTable({
-                pageLength: 5,
-                lengthMenu: [
-                    [5, 10, 15, 20],
-                    [5, 10, 15, 20]
-                ]
-            })
-        });
-    </script>
-
+                    label{
+                        margin-left: 80px;
+                        margin-bottom: -1100px;
+                    }
+                    div#myDataTable_length.dataTables_length{
+                        margin-top: -20px;
+                        margin-bottom: 30px;
+                    }
+                    div#myDataTable_info.dataTables_info{
+                        margin-left: 80px;
+                        margin-top: 10px;
+                    }
+                    div#myDataTable_paginate.dataTables_paginate.paging_simple_numbers{
+                        margin-right: -95px;
+                        margin-top: 10px;
+                    }
+                    div#myDataTable_filter.dataTables_filter{
+                        margin-right: 300px;
+                        margin-top: -10px;
+                    }
+                    table.dataTable th, table.dataTable td{
+                        border-bottom: 10px solid #f3f3f3;
+                        font-size: 16px; 
+                    }
+                    table.dataTable td{
+                        background-color: white;
+                        height: 10px;
+                    }
+                </style>
 
     <script>
         $('#delete_records').on('click', function(e) {

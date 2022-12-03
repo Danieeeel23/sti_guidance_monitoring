@@ -728,3 +728,11 @@ input.btnn{
     height: 30px;
     font-size: 15px;
 }
+
+select#Strand2{
+    border: 1px solid black;
+}
+
+select#Strand3{
+    border: 1px solid black;
+}

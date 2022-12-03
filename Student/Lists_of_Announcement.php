@@ -41,31 +41,31 @@
                 </li>
                 <li>
                     <a href="Lists_of_Concerns.php">
-                    <span class="icon"><img src="images/sidebar_menu/Concerns.svg" alt=""></span>
+                    <span class="icon"><img src="images/sidebar_menu/Concerns.svg" alt=""></span><span class="badge2 badge-primary">4</span>
                     <span class="title2" ><br>Concerns</span>
                     </a>
                 </li>
                 <li>
                     <a href="Lists_of_Excuse_Letter.php">
-                    <span class="icon"><img src="images/sidebar_menu/Excuse_slip.svg" alt=""></span>
+                    <span class="icon"><img src="images/sidebar_menu/Excuse_slip.svg" alt=""></span><span class="badge2 badge-primary">4</span>
                     <span class="title" ><br>Excuse Letter</span>
                     </a>
                 </li>
                 <li>
                     <a href="Lists_of_Violation.php">
-                    <span class="icon"><img src="images/sidebar_menu/Mask group (7).svg" alt=""></span>
+                    <span class="icon"><img src="images/sidebar_menu/Mask group (7).svg" alt=""></span><span class="badge2 badge-primary">4</span>
                     <span class="title3" ><br>Violation</span>
                     </a>
                 </li>
                 <li>
                     <a href="Lists_of_Failing_Grades.php">
-                    <span class="icon"><img src="images/sidebar_menu/Mask group (8).svg" alt=""></span>
+                    <span class="icon"><img src="images/sidebar_menu/Mask group (8).svg" alt=""></span><span class="badge2 badge-primary">4</span>
                     <span class="title4" ><br>Failing Grades</span>
                     </a>
                 </li>
                 <li>
                     <a href="Lists_of_Announcement.php">
-                    <span class="icon"><img src="images/sidebar_menu/Mask group (9).svg" alt=""></span>
+                    <span class="icon"><img src="images/sidebar_menu/Mask group (9).svg" alt=""></span><span class="badge2 badge-primary">4</span>
                     <span class="title5" ><br>Announcement</span>
                     </a>
                 </li>
@@ -80,7 +80,7 @@
                     <h2>Lists of Announcement</h2>
                 </div>
                 <div class="icons">
-                    <i class="fa fa-bell"></i>
+                    <i class="fa fa-bell"></i><span class="badge badge-light">4</span>
                     <i class="fa fa-question-circle"></i>
                 </div>
                 <div class="dropdown">

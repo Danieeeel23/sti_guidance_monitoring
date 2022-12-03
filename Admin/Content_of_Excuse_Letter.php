@@ -42,7 +42,7 @@ require 'config.php';
                 </li>
                 <li>
                     <a href="Lists_of_Excuse_Letter.php">
-                    <span class="icon"><img src="images/sidebar_menu/Excuse_slip.svg" alt=""></span>
+                    <span class="icon"><img src="images/sidebar_menu/Excuse_slip.svg" alt=""></span><span class="badge2 badge-primary">4</span>
                     <span class="title2" ><br>Excuse Slip</span>
                     </a>
                 </li>
@@ -62,25 +62,25 @@ require 'config.php';
                 </li>
                 <li>
                     <a href="Lists_of_Announcement.php">
-                    <span class="icon"><img src="images/sidebar_menu/Announcement.svg" alt=""></span>
+                    <span class="icon"><img src="images/sidebar_menu/Announcement.svg" alt=""></span><span class="badge2 badge-primary">4</span>
                     <span class="titlea" ><br>Announcement</span>
                     </a>
                 </li>
                 <li>
                     <a href="Student_Record.php">
-                    <span class="icon"><img src="images/sidebar_menu/Student_Record.svg" alt=""></span>
+                    <span class="icon"><img src="images/sidebar_menu/Student_Record.svg" alt=""></span><span class="badge2 badge-primary">4</span>
                     <span class="titlec" ><br>Student Record</span>
                     </a>
                 </li>
                 <li>
                     <a href="Lists_of_Concerns.php">
-                    <span class="icon"><img src="images/sidebar_menu/Concerns.svg" alt=""></span>
+                    <span class="icon"><img src="images/sidebar_menu/Concerns.svg" alt=""></span><span class="badge2 badge-primary">4</span>
                     <span class="title3" ><br>Concerns</span>
                     </a>
                 </li>
                 <li>
                     <a href="List_of_Inquiries.php">
-                    <span class="icon"><img src="images/sidebar_menu/Inquiry.svg" alt=""></span>
+                    <span class="icon"><img src="images/sidebar_menu/Inquiry.svg" alt=""></span><span class="badge2 badge-primary">4</span>
                     <span class="title4" ><br>Inquiry</span>
                     </a>
                 </li>
@@ -174,9 +174,8 @@ require 'config.php';
                         </div>
                         <div class="coninfo1">
                             <label for="Image" name ="Image">Proof of Absence</label>
-                            <input type="file" id="inputFile" style="margin-top: 15px; width: 270px; margin-left: 3px;" name="file" value="<?php echo $excuse['Images']; ?>" readonly/> 
                             <!--<input type="image" style="border-style:outset" height="560" width="470"/>--> 
-                            <img id="file" src="<?php echo "../Uploads/".$excuse['Images']; ?>" value="<?php echo "../Uploads/".$excuse['Images']; ?>" name="image" style="border-style:outset; margin-top: 10px;" height="400" width="420"/>
+                            <img id="file" src="<?php echo "../Uploads/".$excuse['Images']; ?>" value="<?php echo "../Uploads/".$excuse['Images']; ?>" name="image" style="border-style:outset; margin-top: 40px;" height="400" width="420"/>
                             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal" id="submit">Accepted</button>
                             <button type="button" class="btn btn-primary btn-sm1" data-toggle="modal" data-target="#exampleModal1" style="margin-left: -450px;">Rejected</button> 
                         </div>

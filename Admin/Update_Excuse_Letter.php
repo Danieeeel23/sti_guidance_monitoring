@@ -42,6 +42,7 @@ require 'config.php';
                 <li>
                     <a href="Lists_of_Excuse_Letter.php">
                     <span class="icon"><img src="images/sidebar_menu/Excuse_slip.svg" alt=""></span>
+<span class="badge2 badge-primary">4</span>
                     <span class="titlee" ><br>Excuse Slip</span>
                     </a>
                 </li>
@@ -62,24 +63,28 @@ require 'config.php';
                 <li>
                     <a href="Lists_of_Announcement.php">
                     <span class="icon"><img src="images/sidebar_menu/Announcement.svg" alt=""></span>
+<span class="badge2 badge-primary">4</span>
                     <span class="titlea" ><br>Announcement</span>
                     </a>
                 </li>
                 <li>
                     <a href="Student_Record.php">
                     <span class="icon"><img src="images/sidebar_menu/Student_Record.svg" alt=""></span>
+<span class="badge2 badge-primary">4</span>
                     <span class="titles" ><br>Student Record</span>
                     </a>
                 </li>
                 <li>
                     <a href="Lists_of_Concerns.php">
                     <span class="icon"><img src="images/sidebar_menu/Concerns.svg" alt=""></span>
+<span class="badge2 badge-primary">4</span>
                     <span class="titlec" ><br>Concerns</span>
                     </a>
                 </li>
                 <li>
                     <a href="List_of_Inquiries.php">
                     <span class="icon"><img src="images/sidebar_menu/Inquiry.svg" alt=""></span>
+<span class="badge2 badge-primary">4</span>
                     <span class="titlei" ><br>Inquiry</span>
                     </a>
                 </li>
@@ -114,7 +119,7 @@ require 'config.php';
                     <div class="bsinfo">
                     <form action="code.php" method="POST" enctype="multipart/form-data">
                     <div class="coninfo1">
-                            <input type="submit" class="btnn" name="update_excuse_letter" value="Update" style=" position:absolute; width: 150px; height: 30px; margin-top: -50px; margin-left: 1200px; font-size: 15px;">  
+                            <input type="submit" class="btnn" name="update_excuse_letter" value="Update" style=" position:absolute; width: 120px; height: 40px; margin-top: -50px; margin-left: 1230px; font-size: 15px;">  
                         </div>
                         <h4>Basic Information</h4>
                         <div class="info">
@@ -133,34 +138,6 @@ require 'config.php';
                             <label for="Name">Student ID</label>
                             <span id="btk"> <input type="text" placeholder="" name="studentno" id="studentno" value="<?= $excuse['Student_ID']; ?>" readonly></span>
                             <span id="btk"> <input type="hidden" placeholder="" name="excuseletterno" id="excuseletterno" value="<?= $excuse['Excuse_Letter_ID']; ?>" readonly></span>
-                            <label for="Status" name ="Status">Status</label>
-                            <select class="Status" placeholder="Status" name="Status">
-                                <option value="<?= $excuse['Status']; ?>"></option>
-                                <option value="Request" 
-                                <?php 
-                                if($excuse['Status'] == "Request")
-                                {
-                                    echo "selected";
-                                }
-                                ?>>Request</option>
-                                <option value="Rejected"
-                                <?php 
-                                if($excuse['Status'] == "Rejected")
-                                {
-                                    echo "selected";
-                                }
-                                ?>>Rejected</option>
-                                <option value="Accepted"
-                                <?php 
-                                if($excuse['Status'] == "Accepted")
-                                {
-                                    echo "selected";
-                                }
-                                ?>>Accepted</option>
-                                </select>
-                        
-                            
-                                <br>
                             
                             <span id="btk"> <input type="hidden" placeholder=""  name="datetime" id="datetime" value="<?= $excuse['Sent']; ?>" readonly></span>
                             <label for="Name">Name</label>

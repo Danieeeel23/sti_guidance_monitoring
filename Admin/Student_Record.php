@@ -1,3 +1,15 @@
+<?php
+
+@include 'config.php';
+
+session_start();
+
+if(!isset($_SESSION['admin_id'])){
+   header('location:../logins/login_form.php');
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +43,7 @@
                 </li>
                 <li>
                     <a href="Lists_of_Excuse_Letter.php">
-                    <span class="icon"><img src="images/sidebar_menu/Excuse_slip.svg" alt=""></span>
+                    <span class="icon"><img src="images/sidebar_menu/Excuse_slip.svg" alt=""></span><span class="badge2 badge-primary">4</span>
                     <span class="title2" ><br>Excuse Slip</span>
                     </a>
                 </li>
@@ -51,25 +63,25 @@
                 </li>
                 <li>
                     <a href="Lists_of_Announcement.php">
-                    <span class="icon"><img src="images/sidebar_menu/Announcement.svg" alt=""></span>
+                    <span class="icon"><img src="images/sidebar_menu/Announcement.svg" alt=""></span><span class="badge2 badge-primary">4</span>
                     <span class="title" ><br>Announcement</span>
                     </a>
                 </li>
                 <li>
                     <a href="Student_Record.php">
-                    <span class="icon"><img src="images/sidebar_menu/Student_Record.svg" alt=""></span>
+                    <span class="icon"><img src="images/sidebar_menu/Student_Record.svg" alt=""></span><span class="badge2 badge-primary">4</span>
                     <span class="title" ><br>Student Record</span>
                     </a>
                 </li>
                 <li>
                     <a href="Lists_of_Concerns.php">
-                    <span class="icon"><img src="images/sidebar_menu/Concerns.svg" alt=""></span>
+                    <span class="icon"><img src="images/sidebar_menu/Concerns.svg" alt=""></span><span class="badge2 badge-primary">4</span>
                     <span class="title3" ><br>Concerns</span>
                     </a>
                 </li>
                 <li>
                     <a href="List_of_Inquiries.php">
-                    <span class="icon"><img src="images/sidebar_menu/Inquiry.svg" alt=""></span>
+                    <span class="icon"><img src="images/sidebar_menu/Inquiry.svg" alt=""></span><span class="badge2 badge-primary">4</span>
                     <span class="title4" ><br>Inquiry</span>
                     </a>
                 </li>
@@ -83,7 +95,7 @@
                     <h2>Student Record</h2>
                 </div>
                 <div class="icons">
-                    <i class="fa fa-bell"></i>
+                    <i class="fa fa-bell"></i><span class="badge badge-light">4</span>
                     <i class="fa fa-question-circle"></i>
                 </div>
                 <div class="dropdown">
@@ -105,13 +117,42 @@
                 <div class="boddy">
                     <div class="cardbody">
                         <h2>Attendance</h2>
-                        <a href="Overview_of_Attendance.php" class="btn" style="text-decoration: none; color:black; margin-right: 180px;">View All</a>
+                        <a href="Overview_of_Attendance.php" class="btn" style="text-decoration: none; color:#00008B; margin-right: 180px;">View All</a>
+                        <span class="numbers" style="margin-left: 770px; color: red;">
+                        <?php
+                            $query = "SELECT Attendance_ID FROM attendance ORDER BY Attendance_ID";
+                            $query_run = mysqli_query($link, $query);
+        
+                            $row = mysqli_num_rows($query_run);
+        
+                            echo $row
+                            
+                        ?>
+                        </span> 
                     </div>
                     <div class="pictures">
-                        <div class="subjects"><p><strong>Subject 1</strong></p>
-                        <p class="name">Anna Lissa Abello</p>
-                        <p class="date">June 07 2021</p>
-                    </div>
+                    <?php 
+
+                        $query = "SELECT * FROM attendance ORDER BY `Last_Modified` DESC LIMIT 1";
+                        $query_run = mysqli_query($link, $query);
+
+                        if(mysqli_num_rows($query_run) > 0)
+                        {
+                            foreach($query_run as $attendance)
+                            {
+                                ?>
+                                <div class="subjects"><p><strong><?= $attendance['Class_ID']; ?></strong></p>
+                                <p class="name"><?= $attendance['Student_First_Name']; ?></p>
+                                <p class="date"><?= $attendance['Last_Modified']; ?></p>
+                                </div>
+                            <?php
+                            }
+                        }
+                        else
+                        {
+                            echo '<span style="margin-left: 30px; margin-top: 15px; color: red;">' . 'No Available Attendance' . '</span>';
+                        }
+                            ?>
                 
                 </div>
                 </div>
@@ -119,43 +160,109 @@
                     <div class="boddy">
                         <div class="cardbody2">
                             <h2>Failing Grades</h2>
-                            <a href="Overview_of_Failing_Grades.php" class="btn" style="text-decoration: none; color:black; margin-right: 180px;">View All</a>
+                            <a href="Overview_of_Failing_Grades.php" class="btn" style="text-decoration: none; color:#00008B; margin-right: 180px;">View All</a>
+                            <span class="numbers" style="margin-left: 770px; color: red;">
+                        <?php
+                            $query = "SELECT Failing_Grades_ID FROM failing_grades ORDER BY Failing_Grades_ID";
+                            $query_run = mysqli_query($link, $query);
+        
+                            $row = mysqli_num_rows($query_run);
+        
+                            echo $row
+                            
+                        ?>
+                        </span> 
                         </div>
                         <div class="pictures">
-                            <div class="subjects"><p><strong>Subject 1</strong></p>
-                            <p class="name">Anna Lissa Abello</p>
-                            <p class="date">June 07 2021</p>
-                        </div>
+                        <?php 
+
+                        $query = "SELECT * FROM failing_grades ORDER BY `Date_Issued` DESC LIMIT 1";
+                        $query_run = mysqli_query($link, $query);
+
+                        if(mysqli_num_rows($query_run) > 0)
+                        {
+                            foreach($query_run as $fails)
+                            {
+                                ?>
+                                <div class="subjects"><p><strong><?= $fails['Subject_Name']; ?></strong></p>
+                                <p class="name"><?= $fails['Teacher_Name']; ?></p>
+                                <p class="date"><?= $fails['Date_Issued']; ?></p>
+                                </div>
+                            <?php
+                            }
+                        }
+                        else
+                        {
+                            echo '<span style="margin-left: 30px; margin-top: 15px; color: red;">' . 'No Available Grades' . '</span>';
+                        }
+                            ?>              
                     </div>
-                
                     </div>
                     <div class="mainn3">
                         <div class="boddy">
                             <div class="cardbody3">
                                 <h2>Record Offenses / Violation</h2>
-                                <a href="List_of_Offense.php" class="btn" style="text-decoration: none; color:black; margin-right: 180px;">View All</a>
+                                <a href="List_of_Offense.php" class="btn" style="text-decoration: none; color:#00008B; margin-right: 180px;">View All</a>
+                                <span class="numbers" style="margin-left: 770px; color: red;">
+                        <?php
+                            $query = "SELECT Violation_ID FROM violation ORDER BY Violation_ID";
+                            $query_run = mysqli_query($link, $query);
+        
+                            $row = mysqli_num_rows($query_run);
+        
+                            echo $row
+                            
+                        ?>
+                        </span>
                             </div>
                             <div class="pictures">
-                                <div class="subjects"><p><strong>Subject 1</strong></p>
-                                <p class="name">Anna Lissa Abello</p>
-                                <p class="date">June 07 2021</p>
-                            </div>
-                        
-                
-                
+                            <?php 
+
+                            $query = "SELECT * FROM violation ORDER BY `Date` DESC LIMIT 1";
+                            $query_run = mysqli_query($link, $query);
+
+                            if(mysqli_num_rows($query_run) > 0)
+                            {
+                                foreach($query_run as $fails)
+                                {
+                                    ?>
+                                    <div class="subjects"><p><strong><?= $fails['Type_of_Violation']; ?></strong></p>
+                                    <p class="name"><?= $fails['Name']; ?></p>
+                                    <p class="date"><?= $fails['Date']; ?></p>
+                                    </div>
+                                <?php
+                                }
+                            }
+                            else
+                            {
+                                echo '<span style="margin-left: 30px; margin-top: 15px; color: red;">' . 'No Available Violation' . '</span>';
+                            }
+                                ?>               
                     </div>
                      </div>
                      <div class="cement">
                         <p><strong>Announcement</strong></p>
 
-                        <p><i class="fa fa-bullhorn" aria-hidden="true"></i>Announcement 1: School Requirements</p>
-                        <p class="date1">06/18/2022</p>
-                        <p><i class="fa fa-bullhorn" aria-hidden="true"></i>Announcement 2: Webinar</p>
-                        <p class="date1">06/18/2022</p>
-                        <p><i class="fa fa-bullhorn" aria-hidden="true"></i>Announcement 3: Parent’s Orientation</p>
-                        <p class="date1">06/18/2022</p>
-                        <p><i class="fa fa-bullhorn" aria-hidden="true"></i>Announcement 4: Enrollment</p>
-                        <p class="date1">06/18/2022</p>
+                        <?php 
+
+                                        $query = "SELECT * FROM announcement LIMIT 5";
+                                        $query_run = mysqli_query($link, $query);
+
+                                        if(mysqli_num_rows($query_run) > 0)
+                                        {
+                                            foreach($query_run as $announcements)
+                                            {
+                                                ?>
+                        <p style="color:#00008B;"><i class="fa fa-bullhorn" aria-hidden="true"></i><a href="Update_Announcement.php?id=<?= $announcements['Announcement_ID']; ?>" style="text-decoration: none;"><?= $announcements['Title']; ?></a></p>
+                       
+                        <?php
+                                    }
+                                }
+                                else
+                                {
+                                    echo '<span style="margin-left: 50px;">' . 'No Available Announcement' . '</span>';
+                                }
+                            ?>
                         
                      </div>
                     </div>

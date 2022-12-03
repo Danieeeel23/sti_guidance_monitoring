@@ -128,13 +128,7 @@
                                 <div class="modal-body"> 
                                     <!-- Data passed is displayed in this part of the modal body -->
 
-                    <div class="select-field">
-
-                        <label for="Section">Section Name</label> <span id="btk"> <input type="text" placeholder="" name="section"></span>
-                    </div>    
-
-                    
-                        
+                                <label for="Section" class="Section">Section Name</label> <input type="text" class="sect" placeholder="" name="section">               
 
                     <script type="text/javascript">
                         $(document).ready(function () {
@@ -187,9 +181,7 @@
                     });
                     </script>
                                     <h6 id="modal_body"></h6>
-                                    <input type="hidden" name="status" value="Accepted">
-                                    <input type="hidden" name="comment" value="The Guidance Office Accepts This Excuse Letter">
-                                    <input type="submit" class="btnn" name="save_teacher_subject" onClick="window.location.href=window.location.href" value="Create" style="width: 150px; height: 30px; margin-top: 180px; margin-bottom: -10px; margin-left: 820px; font-size: 15px;"> 
+                                    <input type="submit" class="btnn" name="save_section" onClick="window.location.href=window.location.href" value="Create"> 
                                 </div> 
                             </div> 
                         </div> 

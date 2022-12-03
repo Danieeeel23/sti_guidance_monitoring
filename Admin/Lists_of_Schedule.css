@@ -708,3 +708,30 @@ input.input-selector2{
     box-shadow: 0 30px 60px rgb(0,0,0,0.2);
     display: none;
 }
+select.Violation{
+    border: 1px solid black;
+}
+select.Violation1{
+    border: 1px solid black;
+}
+select.Violation2{
+    border: 1px solid black;
+}
+
+input#delete_records{
+    margin-left: 160px;
+    margin-right: -150px;
+  }
+
+  label.Subject{
+    margin-left: 2em;
+    margin-top: 30px;
+  }
+
+  input.btnn{
+    margin-left: 860px;
+    margin-top: 250px;
+    width: 150px;
+    height: 30px;
+    font-size: 15px;
+}

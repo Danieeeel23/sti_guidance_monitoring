@@ -38,7 +38,7 @@
                 </li>
                 <li>
                     <a href="Lists_of_Excuse_Letter.php">
-                    <span class="icon"><img src="images/sidebar_menu/Excuse_slip.svg" alt=""></span>
+                    <span class="icon"><img src="images/sidebar_menu/Excuse_slip.svg" alt=""></span><span class="badge2 badge-primary">4</span>
                     <span class="title2" ><br>Excuse Slip</span>
                     </a>
                 </li>
@@ -58,25 +58,25 @@
                 </li>
                 <li>
                     <a href="Lists_of_Announcement.php">
-                    <span class="icon"><img src="images/sidebar_menu/Announcement.svg" alt=""></span>
+                    <span class="icon"><img src="images/sidebar_menu/Announcement.svg" alt=""></span><span class="badge2 badge-primary">4</span>
                     <span class="title" ><br>Announcement</span>
                     </a>
                 </li>
                 <li>
                     <a href="Student_Record.php">
-                    <span class="icon"><img src="images/sidebar_menu/Student_Record.svg" alt=""></span>
+                    <span class="icon"><img src="images/sidebar_menu/Student_Record.svg" alt=""></span><span class="badge2 badge-primary">4</span>
                     <span class="title" ><br>Student Record</span>
                     </a>
                 </li>
                 <li>
                     <a href="Lists_of_Concerns.php">
-                    <span class="icon"><img src="images/sidebar_menu/Concerns.svg" alt=""></span>
+                    <span class="icon"><img src="images/sidebar_menu/Concerns.svg" alt=""></span><span class="badge2 badge-primary">4</span>
                     <span class="title3" ><br>Concerns</span>
                     </a>
                 </li>
                 <li>
                     <a href="List_of_Inquiries.php">
-                    <span class="icon"><img src="images/sidebar_menu/Inquiry.svg" alt=""></span>
+                    <span class="icon"><img src="images/sidebar_menu/Inquiry.svg" alt=""></span><span class="badge2 badge-primary">4</span>
                     <span class="title4" ><br>Inquiry</span>
                     </a>
                 </li>
@@ -90,7 +90,7 @@
                     <h2>Student Record</h2>
                 </div>
                 <div class="icons">
-                    <i class="fa fa-bell"></i>
+                    <i class="fa fa-bell"></i><span class="badge badge-light">4</span>
                     <i class="fa fa-question-circle"></i>
                 </div>
                 <div class="dropdown">
@@ -117,13 +117,13 @@
                     <table id="myDataTable" class="hover" style="margin-left: 80px;">
                         <thead>
                             <tr>
-                                <th>Student No</th>
-                                <th>Names</th>
-                                <th>Year&Section</th>
-                                <th>Last Modified</th>
-                                <th>Subject</th>
-                                <th>Start Date</th>
-                                <th>End Date</th>
+                                <th>Attendance_ID</th>
+                                <th>Class_ID</th>
+                                <th>Student_ID</th>
+                                <th>Name</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Last_Modified</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -138,13 +138,14 @@
                                 {
                                     ?>
                             <tr>
+                                <td><?= $attendance['Attendance_ID']; ?></td>
+                                <td><?= $attendance['Class_ID']; ?></td>
                                 <td><?= $attendance['Student_ID']; ?></td>
-                                <td><?= $attendance['Names']; ?></td>
-                                <td><?= $attendance['Year_Level']; ?><?= $attendance['Section']; ?></td>
+                                <td><?= $attendance['Student_First_Name']; ?><?= $attendance['Student_Last_Name']; ?></td>
+                                <td><?= $attendance['Date']; ?></td>
+                                <td><?= $attendance['Status']; ?></td>
                                 <td><?= $attendance['Last_Modified']; ?></td>
-                                <td><?= $attendance['Subject']; ?></td>
-                                <td><?= $attendance['Start_Date']; ?></td>
-                                <td><?= $attendance['End_Date']; ?></td>
+                                
                             </tr>
                             <?php
                                 }

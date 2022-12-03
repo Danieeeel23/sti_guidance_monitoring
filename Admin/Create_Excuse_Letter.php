@@ -45,7 +45,7 @@ session_start();
                 </li>
                 <li>
                     <a href="Lists_of_Excuse_Letter.php">
-                    <span class="icon"><img src="images/sidebar_menu/Excuse_slip.svg" alt=""></span>
+                    <span class="icon"><img src="images/sidebar_menu/Excuse_slip.svg" alt=""></span><span class="badge2 badge-primary">4</span>
                     <span class="title2" ><br>Excuse Slip</span>
                     </a>
                 </li>
@@ -65,25 +65,25 @@ session_start();
                 </li>
                 <li>
                     <a href="Lists_of_Announcement.php">
-                    <span class="icon"><img src="images/sidebar_menu/Announcement.svg" alt=""></span>
+                    <span class="icon"><img src="images/sidebar_menu/Announcement.svg" alt=""></span><span class="badge2 badge-primary">4</span>
                     <span class="titlec" ><br>Announcement</span>
                     </a>
                 </li>
                 <li>
                     <a href="Student_Record.php">
-                    <span class="icon"><img src="images/sidebar_menu/Student_Record.svg" alt=""></span>
+                    <span class="icon"><img src="images/sidebar_menu/Student_Record.svg" alt=""></span><span class="badge2 badge-primary">4</span>
                     <span class="titled" ><br>Student Record</span>
                     </a>
                 </li>
                 <li>
                     <a href="Lists_of_Concerns.php">
-                    <span class="icon"><img src="images/sidebar_menu/Concerns.svg" alt=""></span>
+                    <span class="icon"><img src="images/sidebar_menu/Concerns.svg" alt=""></span><span class="badge2 badge-primary">4</span>
                     <span class="titleb" ><br>Concerns</span>
                     </a>
                 </li>
                 <li>
                     <a href="List_of_Inquiries.php">
-                    <span class="icon"><img src="images/sidebar_menu/Inquiry.svg" alt=""></span>
+                    <span class="icon"><img src="images/sidebar_menu/Inquiry.svg" alt=""></span><span class="badge2 badge-primary">4</span>
                     <span class="title4" ><br>Inquiry</span>
                     </a>
                 </li>
@@ -97,7 +97,7 @@ session_start();
                     <h2>Excuse Slip</h2>
                 </div>
                 <div class="icons">
-                    <i class="fa fa-bell"></i>
+                    <i class="fa fa-bell"></i><span class="badge badge-light">4</span>
                     <i class="fa fa-question-circle"></i>
                 </div>
                 <div class="dropdown">
@@ -122,11 +122,9 @@ session_start();
                         <h4>Basic Information</h4>
                         <div class="info">
                             
-                            <label for="Stu">Search</label>
-                            <span id="btk"> <input type="text" placeholder="" name="studentno" id="studentno" onkeyup="GetDetail(this.value)" value="" required></span>
-                            <button class="btn"><i class="fa fa-search"></i></button>                           
-                        
-                         
+                            <label for="Stu">Search <span class="asterisk">*</span></label>
+                            <span id="btk"> <input type="text" placeholder="Enter Student ID" name="studentno" id="studentno" onkeyup="GetDetail(this.value)" value="" required></span>
+                                                                             
                             <label for="Name">Name</label>
                             <span id="btk"> <input type="text" placeholder=""  name="efirstname" id="firstname" value="" readonly></span>
                             <label for="Name1">Year</label>
@@ -197,8 +195,8 @@ session_start();
                                                 
                               
                            
-                           <label for="reasons">Reason</label>
-                            <select name="reasons" id="reasons">
+                           <label for="reasons">Reason <span class="asterisk">*</span></label>
+                            <select name="reasons" id="reasons" required>
                                 <option value=""></option>
                                 <option value="Health Related Problem">Health Related Problem</option>
                                 <option value="Family Issue">Family Issue</option>
@@ -208,13 +206,13 @@ session_start();
                                 <option value="Others">Others</option>
                             </select>
                        
-                        <label for="Date">Start Date</label>
+                        <label for="Date">Start Date <span class="asterisk">*</span></label>
                         <input type="date" placeholder="Date" id="Date" name="startdate" required>
 
                             <select name="Status" id="Status" style="display: none;">
                                 <option value="Accepted">Accepted</option>
                             </select>
-                        <label for="Date">End Date</label>
+                        <label for="Date">End Date <span class="asterisk">*</span></label>
                         <input type="date" placeholder="Date" id="Date" name="enddate" required>
 
                         <input type="hidden" placeholder="Date" id="Date" name="modified" required>
@@ -225,25 +223,15 @@ session_start();
                     <div class="content">
                         <div class="coninfo">
                             <div id="textarea">
-                                <label for="Description" name ="Description">Statement</label>
+                                <label for="Description" name ="Description">Statement <span class="asterisk">*</span></label>
 
-                                <textarea id="statement" name="statemen" rows="29" cols="60" style="margin-top: 25px; box-shadow: 5px 5px 5px rgb(139, 134, 134);" required>name:william  date: august  section : bsit  cLorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, 
-                                    pulvinar facilisis justo mollis, auctor consequat urna. Morbi a bibendum metus. 
-                                    Donec scelerisque sollicitudin enim eu venenatis. Duis tincidunt laoreet ex, 
-                                    in pretium orci vestibulum eget. Class aptent taciti sociosqu ad litora torquent
-                                    per conubia nostra, per inceptos himenaeos. Duis pharetra luctus lacus ut 
-                                    vestibulum. Maecenas ipsum lacus, lacinia quis posuere ut, pulvinar vitae dolor.
-                                    Integer eu nibh at nisi ullamcorper sagittis id vel leo. Integer feugiat 
-                                    faucibus libero, at maximus nisl suscipit posuere. Morbi nec enim nunc. 
-                                    Phasellus bibendum turpis ut ipsum egestas, sed sollicitudin elit convallis. 
-                                    Cras pharetra mi tristique sapien vestibulum lobortis. Nam eget bibendum metus, 
-                                    non dictum mauris. Nulla at tellus sagittis, viverra est a, bibendum metus.</textarea>
+                                <textarea id="statement" name="statemen" rows="29" cols="60" style="margin-top: 25px; box-shadow: 5px 5px 5px rgb(139, 134, 134);" required></textarea>
                             </div>
                         </div>
                         <div class="coninfo1">
                             <label for="Image" name ="Image">Proof of Absence</label>
                             <!--<input type="image" style="border-style:outset" height="560" width="470"/>--> 
-                            <input type="file" id="inputFile" style="width:88%; margin-top: 33px; margin-right: -85px; " name="file" onchange="readURL(this);" required/> <button type="button" onclick="removeImg()">Remove</button>
+                            <input type="file" id="inputFile" style="width:88%; margin-top: 33px; margin-right: -85px; " name="file" onchange="readURL(this);" /> <button type="button" onclick="removeImg()">Remove</button>
                             <img id="file" src="#" style="border-style:outset" height="445" width="465" " required/>
                     
                             
