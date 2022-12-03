@@ -63,7 +63,7 @@ if (isset($currentsubjectid)) {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="delete_script.js"></script>
     <link rel="stylesheet" href="ListStyle.css" type="text/css">
-    <title>List of Students</title>
+    <title>Failing Grades - Students</title>
     <style>
 
     </style>
@@ -71,7 +71,7 @@ if (isset($currentsubjectid)) {
 
 <body>
     <div class="container">
-    <div class="navigation">
+        <div class="navigation">
             <ul>
                 <li><a href=""><span class="icon1"><img src="" alt=""></span></a></li>
                 <li>
@@ -104,7 +104,7 @@ if (isset($currentsubjectid)) {
             <span id="logo"><img src="images/sti_logo.png" alt=""></span>
             <div class="topbar">
                 <div class="toptitle">
-                    <h2>Students</h2>
+                    <h2>Failing Grades</h2>
                 </div>
                 <div class="rightbar">
                     <div class="icons">
@@ -156,7 +156,7 @@ if (isset($currentsubjectid)) {
                 </thead>
                 <tbody>
                     <?php
-                    $query = "SELECT * FROM `failing_grades`";
+                    $query = "SELECT * FROM `student` WHERE Strand='$currentstrand' AND Section='$currentsection'";
                     $query_run = mysqli_query($link, $query);
 
                     if (mysqli_num_rows($query_run) > 0) {
@@ -169,7 +169,12 @@ if (isset($currentsubjectid)) {
                                 </td>
                                 <td><?= $student['First_Name']; ?></td>
                                 <td><?= $student['Last_Name']; ?></td>
-                                <td><?= $student['Grades']; ?></td>
+                                <td>
+                                    <select id="Status" class="Status" name="Status[]">
+                                        <option value="Passing">Passing</option>
+                                        <option value="Failing">Failing</option>
+                                    </select>
+                                </td>
                             </tr>
                     <?php
                         }

@@ -63,7 +63,7 @@ if (isset($currentsubjectid)) {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="delete_script.js"></script>
     <link rel="stylesheet" href="ListStyle.css" type="text/css">
-    <title>List of Students</title>
+    <title>Attendance - Students</title>
     <style>
 
     </style>
@@ -104,7 +104,7 @@ if (isset($currentsubjectid)) {
             <span id="logo"><img src="images/sti_logo.png" alt=""></span>
             <div class="topbar">
                 <div class="toptitle">
-                    <h2>Students</h2>
+                    <h2>Attendance</h2>
                 </div>
                 <div class="rightbar">
                     <div class="icons">
@@ -162,7 +162,6 @@ if (isset($currentsubjectid)) {
                                         <option value="Absent">Absent</option>
                                         <option value="Present">Present</option>
                                     </select>
-
                                 </td>
                             </tr>
                     <?php
