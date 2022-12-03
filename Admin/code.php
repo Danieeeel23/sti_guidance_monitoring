@@ -465,7 +465,7 @@ if (isset($_POST['save_teacher'])) {
 
         $query = "INSERT INTO `teacher`(`Teacher_ID`, `First_Name`, `Middle_Initial`, `Last_Name`, `Department`, `Gender`, `Address`, `City`, `Province`, `Postcode`, `Telephone_No`, `Mobile_No`) VALUES 
         ('$teacher_id','$tfirstname','$tmiddlename','$tlastname','$department','$tgender','$taddress','$tcity','$tprovince','$tpostcode','$ttelno','$tmobileno'); INSERT INTO `credentials` (`Teacher_ID`,`Email`, `Password`, `Role`) VALUES 
-        ('$teacher_id','$email','$password','$trole'); INSERT INTO `subject`(`Subject_ID`,`Teacher_ID`,`Student_ID`,`Student_Name`,`Subject_Name`) VALUES ('$subject_id','$teacher_id','$student_id','$student_name','$subjectArray'); INSERT INTO `strand`(`Subject_ID`,`Teacher_ID`,`Student_ID`,`Name`) VALUES ('$subject_id','$teacher_id','$student_id','$subjectArray'); INSERT INTO `subject_teacher`(`Subject_ID`,`Teacher_ID`) VALUES ('$subject_id','$teacher_id')";
+        ('$teacher_id','$email','$password','$trole'); INSERT INTO `subject`(`Subject_ID`,`Teacher_ID`,`Student_ID`,`Student_Name`,`Subject_Name`) VALUES ('$subject_id','$teacher_id','$student_id','$student_name','$subjectArray'); INSERT INTO `strand`(`Subject_ID`,`Teacher_ID`,`Student_ID`,`Name`) VALUES ('$subject_id','$teacher_id','$student_id','$subjectArray'); INSERT INTO `class`(`Subject_ID`,`Teacher_ID`) VALUES ('$subject_id','$teacher_id')";
 
         $query_run = mysqli_multi_query($link, $query);
         if ($query_run) {
@@ -1022,7 +1022,7 @@ if (isset($_POST['save_schedule'])) {
     $sectionid = $section[0];
     $sectionname = $section[1];
 
-    $query = "INSERT INTO `subject_teacher`(`Teacher_ID`, `Teacher_Name`, `Strand_ID`, `Strand`, `Section_ID`, `Section`, `Subject_ID`, `Subject_Name`, `Start_Time`, `End_Time`) VALUES 
+    $query = "INSERT INTO `class`(`Teacher_ID`, `Teacher_Name`, `Strand_ID`, `Strand`, `Section_ID`, `Section`, `Subject_ID`, `Subject_Name`, `Start_Time`, `End_Time`) VALUES 
              ('$teacherid','$teachername','$strandid','$strandname','$sectionid','$sectionname','$subjectid','$subjectname','$starttime','$endtime')";
 
     $query_run = mysqli_multi_query($link, $query);
@@ -1046,7 +1046,7 @@ if (isset($_POST['save_teacher_subject'])) {
     $starttime = date('Y-m-d H:i:s', strtotime($_POST['starttime']));
     $endtime = date('Y-m-d H:i:s', strtotime($_POST['endtime']));
 
-    $query = "INSERT INTO `subject_teacher`(`Teacher_Name`, `Section`, `Subject_Name`, `Start_Time`, `End_Time`) VALUES 
+    $query = "INSERT INTO `class`(`Teacher_Name`, `Section`, `Subject_Name`, `Start_Time`, `End_Time`) VALUES 
              ('$teacher','$section','$subject','$starttime','$endtime')";
 
     $query_run = mysqli_multi_query($link, $query);
