@@ -15,6 +15,32 @@ if (isset($_SESSION['teacher_id'])) {
 } else {
     echo "No Session ID";
 }
+
+$attendancequery = "SELECT * FROM `attendance`";
+$attendancequery_run = mysqli_query($link, $attendancequery);
+if (mysqli_num_rows($attendancequery_run) > 0) {
+    $attendancecount = mysqli_num_rows($attendancequery_run);
+} else {
+    $attendancecount = 0;
+}
+
+$failquery = "SELECT * FROM `failing_grades`";
+$failquery_run = mysqli_query($link, $failquery);
+if (mysqli_num_rows($failquery_run) > 0) {
+    $failcount = mysqli_num_rows($failquery_run);
+} else {
+    $failcount = 0;
+}
+
+$excusequery = "SELECT * FROM `excuse letter`";
+$excusequery_run = mysqli_query($link, $excusequery);
+if (mysqli_num_rows($excusequery_run) > 0) {
+    $excusecount = mysqli_num_rows($excusequery_run);
+} else {
+    $excusecount = 0;
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -98,7 +124,7 @@ if (isset($_SESSION['teacher_id'])) {
                 </div>
                 <div>
                     <div class="cardname"><strong>Attendance</strong></div>
-                    <div class="numbers">20</div>
+                    <div class="numbers"><?= $attendancecount ?></div>
                 </div>
             </div>
             <div class="card">
@@ -107,7 +133,7 @@ if (isset($_SESSION['teacher_id'])) {
                 </div>
                 <div>
                     <div class="cardname"><strong>Failing Grades</strong></div>
-                    <div class="numbers">20</div>
+                    <div class="numbers"><?= $failcount ?></div>
                 </div>
             </div>
             <div class="card">
@@ -116,7 +142,7 @@ if (isset($_SESSION['teacher_id'])) {
                 </div>
                 <div>
                     <div class="cardname"><strong>Excuse Letter</strong></div>
-                    <div class="numbers">20</div>
+                    <div class="numbers"><?= $excusecount ?></div>
                 </div>
             </div>
         </div>
@@ -151,15 +177,21 @@ if (isset($_SESSION['teacher_id'])) {
                 <div class="pictures">
                     <div class="card-pictures"><img src="Images/attendance.jpg" alt="">
                         <h3>Attendance</h3>
-                        <h4>Start <i class="fa fa-play" aria-hidden="true"></i></h4>
+                        <a href="Lists_of_Subjects.php">
+                            <h4>Start <i class="fa fa-play" aria-hidden="true"></i></h4>
+                        </a>
                     </div>
                     <div class="card-pictures"><img src="Images/failinggrades.jpg" alt="">
                         <h3>Failing Grades</h3>
-                        <h4>Start <i class="fa fa-play" aria-hidden="true"></i></h4>
+                        <a href="Lists_of_Failing_Grades.php">
+                            <h4>Start <i class="fa fa-play" aria-hidden="true"></i></h4>
+                        </a>
                     </div>
                     <div class="card-pictures"><img src="Images/ecuseletter.jpg" alt="">
                         <h3>Excuse Letter</h3>
-                        <h4>Start <i class="fa fa-play" aria-hidden="true"></i></h4>
+                        <a href="Lists_of_Excuse_Letter.php">
+                            <h4>Start <i class="fa fa-play" aria-hidden="true"></i></h4>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -171,7 +203,7 @@ if (isset($_SESSION['teacher_id'])) {
                         <div class="ongoing">
                             <div class="anoun-header">
                                 <p><strong>Failing Grades</strong></p>
-                                <a href="" class="btn">View All</a>
+                                <a href="Lists_of_Failing_Grades.php" class="btn">View All</a>
                             </div>
 
                             <div class="card1">
@@ -199,7 +231,7 @@ if (isset($_SESSION['teacher_id'])) {
                         <div class="expired">
                             <div class="anoun-header">
                                 <p><strong>Excuse Letter</strong></p>
-                                <a href="" class="btn">View All</a>
+                                <a href="Lists_of_Excuse_Letter.php" class="btn">View All</a>
                             </div>
                             <div class="card1">
                                 <table class="table1">

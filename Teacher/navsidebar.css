@@ -10,6 +10,9 @@ body{
     overflow-x: hidden;
     background: rgb(241, 237, 237);
 }
+a{
+  text-decoration: none;
+}
 .container{
     position: relative;
     width: 100%;
