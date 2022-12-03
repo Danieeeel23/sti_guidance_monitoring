@@ -97,7 +97,7 @@ session_start();
                     <h2>Excuse Slip</h2>
                 </div>
                 <div class="icons">
-                    <i class="fa fa-bell"></i>
+                    <i class="fa fa-bell"></i><span class="badge badge-light">4</span>
                     <i class="fa fa-question-circle"></i>
                 </div>
                 <div class="dropdown">

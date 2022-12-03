@@ -11,7 +11,13 @@ session_start();
      <!--font-->
     <link rel="stylesheet" href="Manage_Student.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
 
     <title>Add Student & Parent</title>
 </head>
@@ -40,37 +46,45 @@ if(window.history.replaceState)
                 </li>
                 <li>
                     <a href="Lists_of_Excuse_Letter.php">
-                    <span class="icon"><img src="images/sidebar_menu/Excuse_slip.svg" alt=""></span>
+                    <span class="icon"><img src="images/sidebar_menu/Excuse_slip.svg" alt=""></span><span class="badge2 badge-primary">4</span>
                     <span class="title2" ><br>Excuse Slip</span>
                     </a>
                 </li>
-                <li>
-                    <a href="">
-                    <span class="icon"><img src="images/sidebar_menu/Manage_Users.svg" alt=""></span>
-                    <span class="title" ><br>Manage Users</span>
-                    </a>
+                <li><a href="">
+                    <div class="dropdown1">
+                        <span class="icon" style="padding-top: -100px;"><img src="images/sidebar_menu/Manage_Users.svg" alt=""></span>
+                        <a class="dropbtn1" style="margin-top: -40px;">
+                            <span class="titlea">Manage Users</span>
+                        </a>
+
+                        <div class="dropdown-user">
+                            <a href="Lists_of_Student.php">Students</a>
+                            <a href="Lists_of_Teacher.php">Teachers</a>
+                            <a href="Lists_of_Parent.php">Parents</a>
+                        </div>
+                    </div></a> 
                 </li>
                 <li>
                     <a href="Lists_of_Announcement.php">
-                    <span class="icon"><img src="images/sidebar_menu/Announcement.svg" alt=""></span>
-                    <span class="title" ><br>Annoucement</span>
+                    <span class="icon"><img src="images/sidebar_menu/Announcement.svg" alt=""></span><span class="badge2 badge-primary">4</span>
+                    <span class="title" ><br>Announcement</span>
                     </a>
                 </li>
                 <li>
                     <a href="Student_Record.php">
-                    <span class="icon"><img src="images/sidebar_menu/Student_Record.svg" alt=""></span>
+                    <span class="icon"><img src="images/sidebar_menu/Student_Record.svg" alt=""></span><span class="badge2 badge-primary">4</span>
                     <span class="title" ><br>Student Record</span>
                     </a>
                 </li>
                 <li>
                     <a href="Lists_of_Concern.php">
-                    <span class="icon"><img src="images/sidebar_menu/Concerns.svg" alt=""></span>
+                    <span class="icon"><img src="images/sidebar_menu/Concerns.svg" alt=""></span><span class="badge2 badge-primary">4</span>
                     <span class="title3" ><br>Concerns</span>
                     </a>
                 </li>
                 <li>
                     <a href="Lists_of_Inquiries.php">
-                    <span class="icon"><img src="images/sidebar_menu/Inquiry.svg" alt=""></span>
+                    <span class="icon"><img src="images/sidebar_menu/Inquiry.svg" alt=""></span><span class="badge2 badge-primary">4</span>
                     <span class="title4" ><br>Inquiry</span>
                     </a>
                 </li>
@@ -84,15 +98,17 @@ if(window.history.replaceState)
                     <h2>My User</h2>
                 </div>
                 <div class="icons">
-                    <i class="fa fa-bell"></i>
-                    <i class="fa fa-search"></i>
-
+                    <i class="fa fa-bell"></i><span class="badge badge-light">4</span>
+                    <i class="fa fa-question-circle"></i>
                 </div>
-                <div class="icons1">
-                    <h3>Admin</h3>
-                    <i class="fa fa-angle-down"></i></div>
+                <div class="dropdown">
+                    <button class="dropbtn">Admin</button>
+                    <div class="dropdown-content">
+                    <a href="../logins/logout.php">Logout</a>
                 </div>
-                     
+                </div>
+                </div>
+            
                 </div>
                 <div class="main1">
                     <div class="title2">
@@ -112,11 +128,11 @@ if(window.history.replaceState)
                         <div class="info">
                         
                             
-                          <label for="Firstname">First Name<span class="asterisk"> *</span></label> <span id="btk"> <input type="text" placeholder="" name="firstname" required></span>
+                          <label for="Firstname">First Name<span class="asterisk"> *</span></label> <span id="btk"> <input type="text" style="margin-left: 17px;" placeholder="" name="firstname" required></span>
 
-                      <label for="MI">MI</label> <span id="btk"> <input type="text" placeholder="" name="middlename"></span>
+                          <label for="MI">MI</label> <span id="btk"> <input type="text" placeholder="" style="margin-left: 9px;"  name="middlename"></span>
                       
-                           <label for="Surname">Surname</label> <span id="btk"> <input type="text" placeholder="" name="lastname"></span>
+                           <label for="Surname">Surname<span class="asterisk"> *</span></label> <span id="btk"> <input type="text" placeholder="" style="margin-left: 7px;"  name="lastname" required></span>
                            <br>
                            <label for="Birthday">Birth Date</label>
                             <input type="date" id="Birthdayy" name="birthday" value="">
@@ -126,10 +142,33 @@ if(window.history.replaceState)
                         <input type="radio" name="gender" value="Female"> Female
 
 
-                        </br>
-                        <label for="Year">Year Level</label> <span id="btk"> <input type="text" placeholder="" name="yrlvl"></span>
+                        <br>
+                        <label for="Year">Year Level</label> <span id="btk"> <input type="text" placeholder="" name="yrlvl" required></span>
 
-                         <label for="Section">Section</label> <span id="btk"> <input type="text" placeholder="" name="section"></span>
+                        <label for="Section">Section</label>
+                         <select class="Violation2" placeholder="" name="subjects">
+                         <option></option>
+                         <?php
+                            $link = mysqli_connect("localhost","root","","sti guidance monitoring");
+
+                            $query = "SELECT DISTINCT Section FROM `section`";
+                            $query_run = mysqli_query($link, $query);
+
+                            if(mysqli_num_rows($query_run) > 0)
+                            {
+                                foreach($query_run as $sections)
+                                {
+                                    ?>
+                                    <option value="<?= $sections['Section']; ?>"><?= $sections['Section']; ?></option>                                                                        
+                                    <?php
+                                }
+                            }
+                            else
+                            {
+                                echo "No Sections Found";
+                            }
+                            ?>
+                            </select>
                         <br>
                     
                     <label for="Strand">Strand</label>
