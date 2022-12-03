@@ -119,13 +119,13 @@ require 'config.php';
                         <h4>Basic Information</h4>
                         <div class="info-latest">
                             <?php
-                                        $country  = mysqli_query($link, "SELECT DISTINCT Subject_Name FROM subject_teacher");
+                                        $country  = mysqli_query($link, "SELECT DISTINCT Subject_Name FROM class");
                                         $option = mysqli_query($link, "SELECT DISTINCT Subject_Name FROM `subject`");
 
                                         if(isset($_GET['id']))
                                         {
                                             $subject_id = mysqli_real_escape_string($link, $_GET['id']);
-                                            $query = "SELECT * FROM `subject_teacher` WHERE Subject_Teacher_ID='$subject_id' ";
+                                            $query = "SELECT * FROM `class` WHERE Class_ID='$subject_id' ";
                                             $query_run = mysqli_query($link, $query);
                                         
                                             if(mysqli_num_rows($query_run) > 0)
@@ -133,7 +133,7 @@ require 'config.php';
                                                 $subjects = mysqli_fetch_array($query_run);
                                                 ?>
 
-                                <span id="btk"> <input type="hidden" placeholder="" name="subjectno" id="subjectno" value="<?= $subjects['Subject_Teacher_ID']; ?>" readonly></span>
+                                <span id="btk"> <input type="hidden" placeholder="" name="subjectno" id="subjectno" value="<?= $subjects['Class_ID']; ?>" readonly></span>
                                             
                                 <br>    
                                 <label for="Strand2">Subjects:</label>
@@ -167,13 +167,13 @@ require 'config.php';
                                 ?>
 
                                 <?php
-                                    $country  = mysqli_query($link, "SELECT DISTINCT Teacher_Name FROM subject_teacher");
+                                    $country  = mysqli_query($link, "SELECT DISTINCT Teacher_Name FROM class");
                                     $option = mysqli_query($link, "SELECT *, CONCAT(First_Name,' ',Middle_Initial,' ',Last_Name) AS Names FROM `teacher`");
 
                                     if(isset($_GET['id']))
                                     {
                                         $subject_id = mysqli_real_escape_string($link, $_GET['id']);
-                                        $query = "SELECT * FROM `subject_teacher` WHERE Subject_Teacher_ID='$subject_id' ";
+                                        $query = "SELECT * FROM `class` WHERE Class_ID='$subject_id' ";
                                         $query_run = mysqli_query($link, $query);
                                         
                                         if(mysqli_num_rows($query_run) > 0)
@@ -212,13 +212,13 @@ require 'config.php';
                                 ?>
 
                                 <?php
-                                    $country  = mysqli_query($link, "SELECT DISTINCT Section FROM subject_teacher");
+                                    $country  = mysqli_query($link, "SELECT DISTINCT Section FROM class");
                                     $option = mysqli_query($link, "SELECT DISTINCT Section FROM `section`");
 
                                     if(isset($_GET['id']))
                                     {
                                         $subject_id = mysqli_real_escape_string($link, $_GET['id']);
-                                        $query = "SELECT * FROM `subject_teacher` WHERE Subject_Teacher_ID='$subject_id' ";
+                                        $query = "SELECT * FROM `class` WHERE Class_ID='$subject_id' ";
                                         $query_run = mysqli_query($link, $query);
                                         
                                         if(mysqli_num_rows($query_run) > 0)
@@ -265,7 +265,9 @@ require 'config.php';
                             <div id="textarea">
                                 <label for="Description" name ="Description">Description</label>
 
-  <textarea id="statement" name="statemen" rows="27" cols="130" style="margin-top: 25px; box-shadow: 5px 5px 5px rgb(139, 134, 134);"><?php echo $concerns['Statement']; ?></textarea>
+            <textarea id="statement" name="statement" rows="27" cols="130" style="margin-top: 25px; box-shadow: 5px 5px 5px rgb(139, 134, 134);">
+                <?php echo "I LOVE YOU RAIDEN SHOGUN PAKASALAN MO KO KAHIT MASUNGIT KA. I LOVE YOU MOMMY" ?>
+            </textarea>
                             </div>
                         </div>
                                                  

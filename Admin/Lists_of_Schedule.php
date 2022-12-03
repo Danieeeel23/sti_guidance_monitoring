@@ -380,6 +380,7 @@ require 'config.php';
                                         <td><?= $subject['End_Time']; ?></a></td>
                                         <td><?= $subject['Subject_Name']; ?></td>
                                         <td><?= $subject['Teacher_Name']; ?></td>
+                                        <td><?= $subject['Strand']; ?></a></td>
                                         <td><?= $subject['Section']; ?></a></td>
                                         <td><a href="Update_Schedule.php?id=<?= $subject['Class_ID']; ?>"><button type="submit" class="btn btn-update">View</button></a></td>
                                     </tr>
