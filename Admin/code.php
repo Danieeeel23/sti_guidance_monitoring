@@ -1028,11 +1028,11 @@ if (isset($_POST['save_schedule'])) {
     $query_run = mysqli_multi_query($link, $query);
 
     if ($query_run) {
-        $_SESSION['message'] = "Subject Teacher Created Successfully";
+        $_SESSION['message'] = "Class Created Successfully";
         header("Location: Lists_of_Schedule.php");
         exit(0);
     } else {
-        $_SESSION['message'] = "Subject Teacher Not Created";
+        $_SESSION['message'] = "Class Not Created";
         header("Location: Lists_of_Schedule.php");
         exit(0);
     }
@@ -1318,5 +1318,3 @@ if(isset($_POST['imports']))
               ('$student_id','$firstname','$middlename','$lastname','$gender','$birthdate','$strand','$yrlvl','$section','$address','$city','$province','$postcode','$telno','$mobileno')");
     }
 }
-
-?>

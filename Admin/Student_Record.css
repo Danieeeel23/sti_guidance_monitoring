@@ -247,6 +247,7 @@ body{
 }
 .mainn{
     margin-left: 130px;
+    margin-top: 50px;
 }
 .boddy{
     background: rgb(242, 242, 242);
@@ -254,29 +255,30 @@ body{
     border-width: 0.7px;
     border-color: #ddd6d6;
     box-shadow: 5px 5px #ddd6d6;
-    width: 850px;
-    height: 150px;
-    margin-top: 50px;
-    margin-bottom: 20px;
-
+    width: calc(100vw - 160px);
+    margin-bottom: 40px;
+}
+.cardbody {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
 }
 .cardbody h2{
-    margin-left: 20px;
-    padding: 10px;
-}
-.cardbody2 h2{
-    margin-left: 20px;
-    padding: 10px;
-}
-.cardbody3 h2{
-    margin-left: 20px;
     padding: 10px;
 }
 .cardbody a{
-    position: absolute;
-    right: 420px;
-    top: 90px;
+    text-decoration: none;
+    color:#00008B;
 }
+.cardright{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+.cardbody .numbers{
+    color: red;
+}
+
 .pictures{
     margin-left: 0px;
     display: grid;
@@ -489,58 +491,28 @@ body{
     margin-left: 200px;
     margin-top: -30px;
 }
-.subjects{
-    background-color: white;
-    padding: 30px 0px 20px 20px;
-    font-size: 15px;
-    width: 848px;
-    height: 90px;
+
+.cardtable{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
 }
+
+.classes,
+.lastmodified{
+    background-color: white;
+    padding: 20px 30px;
+    font-size: 15px;
+}
+.lastmodified{
+    text-align: right;
+}
+
 .pictures .date{
     margin-left: 700px;
     margin-top: -20px;
     font-size: 15px;
 }
 
-.subjects1{
-    background-color: white;
-    padding: 5px 0px 5px 20px;
-    width: 848px;
-    height: 50px;
-    margin-top: 20px;
-}
-.mainn2 .boddy{
-    background: rgb(242, 242, 242);
-    border-style: solid;
-    border-width: 0.7px;
-    border-color: #ddd6d6;
-    box-shadow: 5px 5px #ddd6d6;
-    width: 850px;
-    height: 150px;
-    margin-top: 50px;
-    margin-bottom: 20px;
-}
-.mainn3 .boddy{
-    background: rgb(242, 242, 242);
-    border-style: solid;
-    border-width: 0.7px;
-    border-color: #ddd6d6;
-    box-shadow: 5px 5px #ddd6d6;
-    width: 850px;
-    height: 150px;
-    margin-top: 50px;
-    margin-bottom: 20px;
-}
-.cardbody2 a{
-    position: absolute;
-    right: 420px;
-    top: 290px;
-}
-.cardbody3 a{
-    position: absolute;
-    right: 420px;
-    top: 490px;
-}
 .subjects{
     background-color: white;
     padding: 20px 0px 5px 30px;
