@@ -139,22 +139,20 @@ if (!isset($_SESSION['admin_id'])) {
                 <div class="cardtable">
                     <?php
 
-                    $lastmodifiedquery = "SELECT * FROM attendance ORDER BY `Last_Modified` DESC LIMIT 1";
-                    $query = "SELECT * FROM class";
-                    $lastmodifiedquery_run = mysqli_query($link, $lastmodifiedquery);
-                    $lastmodified = mysqli_fetch_array($lastmodifiedquery_run);
-                    $query_run = mysqli_query($link, $query);
+                    $attendancequery = "SELECT *, CONCAT(Student_First_Name,' ',Student_Last_Name) AS Name FROM attendance ORDER BY `Last_Modified` DESC LIMIT 3";
+                    $attendancequery_run = mysqli_query($link, $attendancequery);
+                    $query_run = mysqli_query($link, $attendancequery);
 
                     if (mysqli_num_rows($query_run) > 0) {
                         foreach ($query_run as $attendance) {
                     ?>
                             <div class="classes">
-                                <p><strong><?= $attendance['Teacher_Name']; ?></strong></p>
-                                <p class="name"><?= $attendance['Subject_Name']; ?></p>
+                                <p><strong><?= $attendance['Name']; ?></strong></p>
+                                <p class="name"><?= $attendance['Status']; ?></p>
 
                             </div>
                             <span class="lastmodified">
-                                <p class="date"><?= $lastmodified['Last_Modified']; ?></p>
+                                <p class="date"><?= $attendance['Last_Modified']; ?></p>
                             </span>
                     <?php
                         }
