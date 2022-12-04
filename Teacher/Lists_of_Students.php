@@ -172,7 +172,7 @@ if (isset($currentsubjectid)) {
 
                 </tbody>
             </table>
-            <div class="main1">
+            <div class="main2">
                 <div class="bot">
                     <span class="create">
                         <i class="fa fa-plus"></i>

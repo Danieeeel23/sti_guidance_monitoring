@@ -74,7 +74,7 @@ if (isset($_SESSION['teacher_id'])) {
             <span id="logo"><img src="images/sti_logo.png" alt=""></span>
             <div class="topbar">
                 <div class="toptitle">
-                    <h2>Classes</h2>
+                    <h2>Attendance</h2>
                 </div>
                 <div class="rightbar">
                     <div class="icons">
