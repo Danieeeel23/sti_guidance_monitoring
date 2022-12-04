@@ -96,7 +96,7 @@ if (isset($_SESSION['teacher_id'])) {
         </div>
         <div class="main1">
             <div class="title2">
-                <h1>List of Classes</h1>
+                <h1><?= $_SESSION['message'] ?></h1>
 
             </div>
         </div>

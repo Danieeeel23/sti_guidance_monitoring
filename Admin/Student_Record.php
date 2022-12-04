@@ -164,10 +164,11 @@ if (!isset($_SESSION['admin_id'])) {
                     ?>
                 </div>
 
+
             </div>
             <div class="boddy">
                 <div class="cardbody">
-                    <h2>Failing Grades</h2>
+                    <h2>Failing Students</h2>
                     <div class="cardright">
                         <a href="Overview_of_Failing_Grades.php" class="btn">View All</a>
                         <span class="numbers">
@@ -187,22 +188,23 @@ if (!isset($_SESSION['admin_id'])) {
                 <div class="cardtable">
                     <?php
 
-                    $lastmodifiedquery = "SELECT * FROM attendance ORDER BY `Last_Modified` DESC LIMIT 1";
-                    $query = "SELECT * FROM class";
-                    $lastmodifiedquery_run = mysqli_query($link, $lastmodifiedquery);
-                    $lastmodified = mysqli_fetch_array($lastmodifiedquery_run);
+                    $query = "SELECT *, CONCAT(First_Name,' ',Last_Name) AS Name FROM failing_grades WHERE Status = 'Failed' ORDER BY Last_Modified DESC";
                     $query_run = mysqli_query($link, $query);
-
                     if (mysqli_num_rows($query_run) > 0) {
-                        foreach ($query_run as $attendance) {
+                        foreach ($query_run as $fail) {
+                            $classid = $fail['Class_ID'];
+                            //get the subject using single row subquery
+                            $query1 = "SELECT * FROM subject WHERE Subject_ID = (SELECT Subject_ID FROM class WHERE Class_ID = $classid)";
+                            $query_run1 = mysqli_query($link, $query1);
+                            $subjects = mysqli_fetch_array($query_run1);
                     ?>
                             <div class="classes">
-                                <p><strong><?= $attendance['Teacher_Name']; ?></strong></p>
-                                <p class="name"><?= $attendance['Subject_Name']; ?></p>
+                                <p><strong><?= $fail['Name']; ?></strong></p>
+                                <p class="name"><?= $subjects['Subject_Name']; ?> (<?= $fail['Grades']; ?>)</p>
 
                             </div>
                             <span class="lastmodified">
-                                <p class="date"><?= $lastmodified['Last_Modified']; ?></p>
+                                <p class="date"><?= $fail['Last_Modified']; ?></p>
                             </span>
                     <?php
                         }
