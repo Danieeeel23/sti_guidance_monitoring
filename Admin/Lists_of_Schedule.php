@@ -19,7 +19,7 @@ require 'config.php';
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="delete_script.js"></script>
 
-    <title>List of Schedule</title>
+    <title>List of Classes</title>
     <style>
         .card-header {
             margin-left: 133px;
@@ -133,7 +133,7 @@ require 'config.php';
             <span id="logo"><img src="images/sti_logo.png" alt=""></span>
             <div class="topbar">
                 <div class="toptitle">
-                    <h2>Subject</h2>
+                    <h2>Classes</h2>
                 </div>
                 <div class="icons">
                     <i class="fa fa-bell"></i>
@@ -152,7 +152,7 @@ require 'config.php';
         <div class="main1">
             <?php include('message.php'); ?>
             <div class="title2">
-                <h1>List of Schedule</h1>
+                <h1>List of Classes</h1>
                 <div class="bot">
                     <span class="delete"><input type="submit" value="Delete" id="delete_records"></span>
                     <form action="code.php" method="POST" enctype="multipart/form-data">

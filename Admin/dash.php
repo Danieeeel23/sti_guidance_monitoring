@@ -48,9 +48,9 @@ if(!isset($_SESSION['admin_id'])){
                     </a>
                 </li>
                 <li><a href="">
-                    <div class="dropdown1">
+                    <div class="dropdown2">
                         <span class="icon" style="padding-top: -100px;"><img src="images/sidebar_menu/Manage_Users.svg" alt=""></span>
-                        <a class="dropbtn1" style="margin-top: -40px;">
+                        <a class="dropbtn2" style="margin-top: -40px;">
                             <span class="title3">Manage</span>
                         </a>
 
@@ -60,7 +60,7 @@ if(!isset($_SESSION['admin_id'])){
                             <a href="Lists_of_Parent.php">Parents</a>
                             <a href="Lists_of_Subjects.php">Subjects</a>
                             <a href="Lists_of_Section.php">Sections</a>
-                            <a href="Lists_of_Schedule.php">Schedule</a>
+                            <a href="Lists_of_Schedule.php">Classes</a>
                         </div>
                     </div></a>
               
@@ -100,24 +100,65 @@ if(!isset($_SESSION['admin_id'])){
                 </div>
                 <div class="icons">
                     <div class="dropdown">
-                        <button class="dropbtn"> <i class="fa fa-bell"></i></button>
-                        <div class="dropdown-content">
+                        <button class="dropbtn" onclick="myFunction()"><i class="fa fa-bell"></i><span class="badge badge-light">4</span></button>
+                        <div class="dropdown-content" id="myDropdown">
                         <a href="#">Action</a>
                         <a href="#">Another Action</a>
                         <a href="#">Something Else</a>
                     </div> 
-                </div>                    
+                </div> 
+                <script>
+                /* When the user clicks on the button, 
+                toggle between hiding and showing the dropdown content */
+                function myFunction() {
+                document.getElementById("myDropdown").classList.toggle("show");
+                }
+
+                // Close the dropdown if the user clicks outside of it
+                window.onclick = function(event) {
+                if (!event.target.matches('.dropbtn')) {
+                    var dropdowns = document.getElementsByClassName("dropdown-content");
+                    var i;
+                    for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                    }
+                }
+                }
+                </script>                   
                 <i class="fa fa-question-circle"></i>
                 </div>
-                <div class="dropdown">
-                    <button class="dropbtn">Admin</button>
-                    <div class="dropdown-content">
+                <div class="dropdown1">
+                    <button class="dropbtn1" onclick="myFunction1()">Admin</button>
+                    <div class="dropdown-content1" id="myDropdown1">
                         <a href="../logins/logout.php">Logout</a>
                     </div>
                 </div>
             </div>
         </div>
+        <script>
+                /* When the user clicks on the button, 
+                toggle between hiding and showing the dropdown content */
+                function myFunction1() {
+                document.getElementById("myDropdown1").classList.toggle("show");
+                }
 
+                // Close the dropdown if the user clicks outside of it
+                window.onclick = function(event) {
+                if (!event.target.matches('.dropbtn1')) {
+                    var dropdowns = document.getElementsByClassName("dropdown-content1");
+                    var i;
+                    for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                    }
+                }
+                }
+                </script>
         <div class="1title">
             <p>Admin’s Dashboard</p>
         </div>
