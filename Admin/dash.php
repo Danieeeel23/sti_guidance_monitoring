@@ -285,7 +285,7 @@ if(!isset($_SESSION['admin_id'])){
                                             foreach($query_run as $announcements)
                                             {
                                                 ?>
-                        <p style="color:#00008B;"><i class="fa fa-bullhorn" aria-hidden="true"></i><a href="Update_Announcement.php?id=<?= $announcements['Announcement_ID']; ?>" style="text-decoration: none;"><?= $announcements['Title']; ?> - <?= $announcements['Description']; ?></a></p>
+                        <p style="color:#00008B;"><i class="fa fa-bullhorn" aria-hidden="true"></i><a href="Update_Announcement.php?id=<?= $announcements['Announcement_ID']; ?>" style="text-decoration: none;"><?= $announcements['Title']; ?> - <?= $announcements['Description']; ?> <span style="font-size: 12px; color: gray;"><?= $announcements['Start_Date']; ?></span></a></p>
                        
                         <?php
                                     }
