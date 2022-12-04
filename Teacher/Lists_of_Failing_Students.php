@@ -148,9 +148,6 @@ if (isset($currentsubjectid)) {
                     <?php
                     $query = "SELECT * FROM `student` WHERE Strand='$currentstrand' AND Section='$currentsection'";
                     $query_run = mysqli_query($link, $query);
-
-
-
                     if (mysqli_num_rows($query_run) > 0) {
                         $students = $query_run;
                         foreach ($query_run as $student) {
