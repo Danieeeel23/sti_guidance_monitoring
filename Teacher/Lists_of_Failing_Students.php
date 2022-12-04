@@ -63,7 +63,7 @@ if (isset($currentsubjectid)) {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="delete_script.js"></script>
     <link rel="stylesheet" href="ListStyle.css" type="text/css">
-    <title>Failing Grades - Students</title>
+    <title>Grades - Students</title>
     <style>
 
     </style>
@@ -104,7 +104,7 @@ if (isset($currentsubjectid)) {
             <span id="logo"><img src="images/sti_logo.png" alt=""></span>
             <div class="topbar">
                 <div class="toptitle">
-                    <h2>Failing Grades</h2>
+                    <h2>Grades</h2>
                 </div>
                 <div class="rightbar">
                     <div class="icons">
@@ -127,17 +127,7 @@ if (isset($currentsubjectid)) {
         <div class="main1">
             <div class="title2">
                 <h1><?php echo "(", $currentsubject, ") ", $currentstrand, "-", $currentsection ?></h1>
-                <div class="bot">
-                    <span class="create">
-                        <i class="fa fa-plus"></i>
-                        <input type="submit" class="btn btn-primary btn-lg" name="save_attendance" value="Create">
-                    </span>
-                    <span class="delete">
-                        <i class="fa fa-trash"></i>
-                        <input type="submit" class="btn btn-primary btn-lg" name="save_attendance" value="Delete">
-                    </span>
-                    <!-- <form action="code.php" method="POST"> -->
-                </div>
+
             </div>
 
 
@@ -159,21 +149,30 @@ if (isset($currentsubjectid)) {
                     $query = "SELECT * FROM `student` WHERE Strand='$currentstrand' AND Section='$currentsection'";
                     $query_run = mysqli_query($link, $query);
 
+
+
                     if (mysqli_num_rows($query_run) > 0) {
                         $students = $query_run;
                         foreach ($query_run as $student) {
+                            $studentid = $student['Student_ID'];
+                            $query1 = "SELECT Grades FROM `failing_grades` WHERE Student_ID = $studentid AND Class_ID = $currentclassid";
+                            $query_run1 = mysqli_query($link, $query1);
+                            if (mysqli_num_rows($query_run1) > 0) {
+                                $grades = mysqli_fetch_array($query_run1);
+                                $grade = $grades['Grades'];
+                            } else {
+                                $grade = "";
+                            }
+
                     ?>
                             <tr>
                                 <td>
-                                    <input type="checkbox" class="emp_checkbox" data-emp-id="<?= $student['Student_ID']; ?>">
+                                    <input type="checkbox" class="emp_checkbox" data-emp-id="<?= $studentid; ?>">
                                 </td>
                                 <td><?= $student['First_Name']; ?></td>
-                                <td><?= $student['Last_Name']; ?></td>
+                                <td><?= $student['Last_Name'] ?></td>
                                 <td>
-                                    <select id="Status" class="Status" name="Status[]">
-                                        <option value="Passing">Passing</option>
-                                        <option value="Failing">Failing</option>
-                                    </select>
+                                    <input type="number" name="Grades[]" min="60" max="99" data-maxlength="2" oninput="this.value=this.value.slice(0,this.dataset.maxlength)" value="<?= $grade ?>">
                                 </td>
                             </tr>
                     <?php
@@ -184,7 +183,34 @@ if (isset($currentsubjectid)) {
 
                 </tbody>
             </table>
+            <div class="main2">
+                <div class="bot">
+                    <span class="create">
+                        <i class="fa fa-plus"></i>
 
+                        <input type="hidden" name="classid" value="<?= $currentclassid; ?>">
+                        <input type="hidden" name="subjectid" value="<?= $currentsubjectid; ?>">
+                        <input type="hidden" name="studentid" value="<?php
+                                                                        foreach ($students as $student) {
+                                                                            echo $student['Student_ID'], ":";
+                                                                        }
+                                                                        ?>">
+                        <input type="hidden" name="firstname" value="<?php
+                                                                        foreach ($students as $student) {
+                                                                            echo $student['First_Name'], ":";
+                                                                        }
+                                                                        ?>">
+                        <input type="hidden" name="lastname" value="<?php
+                                                                    foreach ($students as $student) {
+                                                                        echo $student['Last_Name'], ":";
+                                                                    }
+                                                                    ?>">
+                        <input type="submit" class="btn btn-primary btn-lg" name="save_failing_grades" value="Submit Grades">
+
+                    </span>
+                    <!-- <form action="code.php" method="POST"> -->
+                </div>
+            </div>
         </form>
     </div>
 
