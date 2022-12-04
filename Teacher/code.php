@@ -38,6 +38,7 @@ if (isset($_POST['save_failing_grades'])) {
     $firstnames = explode(":", mysqli_real_escape_string($link, $_POST['firstname']));
     $lastnames = explode(":", mysqli_real_escape_string($link, $_POST['lastname']));
     $grades = $_POST['Grades'];
+    $quarters = $_POST['Quarters'];
     $status = "Invalid";
     $date = date("Y/m/d");
 
@@ -62,7 +63,7 @@ if (isset($_POST['save_failing_grades'])) {
                 } else {
                     $status = "Passed";
                 }
-                $query = "UPDATE `failing_grades` SET `Grades` = $grades[$i] ,`Status` = '$status' WHERE `Class_ID` = $existingclass AND `Student_ID` = '$studentids[$i]'";
+                $query = "UPDATE `failing_grades` SET `Grades` = $grades[$i] ,`Status` = '$status' WHERE `Class_ID` = $existingclass AND `Student_ID` = '$studentids[$i]' AND `Quarter` = '$quarters[$i]'";
                 $query_run = mysqli_multi_query($link, $query);
             }
             $message = "Successfully Updated Grades ";
@@ -75,9 +76,14 @@ if (isset($_POST['save_failing_grades'])) {
                 } else {
                     $status = "Passed";
                 }
-                $query = "INSERT INTO `failing_grades`(`Class_ID`, `Student_ID`, `First_Name`, `Last_Name`, `Grades`, `Status` ) VALUES 
-             ('$classid','$studentids[$i]','$firstnames[$i]','$lastnames[$i]', '$grades[$i]', '$status')";
+                $query = "INSERT INTO `failing_grades`(`Class_ID`, `Student_ID`, `First_Name`, `Last_Name`, `Quarter`, `Grades`, `Status` ) VALUES 
+             ('$classid','$studentids[$i]','$firstnames[$i]','$lastnames[$i]', '1st', '$grades[$i]', '$status')";
                 $query_run = mysqli_multi_query($link, $query);
+
+                //Set default values for 2nd quarter
+                $query1 = "INSERT INTO `failing_grades`(`Class_ID`, `Student_ID`, `First_Name`, `Last_Name`, `Quarter`, `Grades`, `Status` ) VALUES 
+             ('$classid','$studentids[$i]','$firstnames[$i]','$lastnames[$i]', '2nd', 0, '$status')";
+                $query_run1 = mysqli_multi_query($link, $query1);
             }
             $message = "Successfully Inserted Grades";
         }

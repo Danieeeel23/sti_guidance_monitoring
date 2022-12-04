@@ -127,7 +127,14 @@ if (isset($currentsubjectid)) {
         <div class="main1">
             <div class="title2">
                 <h1><?php echo "(", $currentsubject, ") ", $currentstrand, "-", $currentsection ?></h1>
-
+                <div class="bot">
+                    <h3>Quarter: </h3>
+                    <select id="Quarter" class="Quarter" name="Quarter[]">
+                        <option value="" selected></option>
+                        <option value="1st">1st</option>
+                        <option value="2nd">2nd</option>
+                    </select>
+                </div>
             </div>
 
 
@@ -141,6 +148,7 @@ if (isset($currentsubjectid)) {
                         <th></th>
                         <th>First Name</th>
                         <th>Last Name</th>
+                        <th>Quarter</th>
                         <th>Grades</th>
                     </tr>
                 </thead>
@@ -152,13 +160,15 @@ if (isset($currentsubjectid)) {
                         $students = $query_run;
                         foreach ($query_run as $student) {
                             $studentid = $student['Student_ID'];
-                            $query1 = "SELECT Grades FROM `failing_grades` WHERE Student_ID = $studentid AND Class_ID = $currentclassid";
+                            $query1 = "SELECT Quarter, Grades FROM `failing_grades` WHERE Student_ID = $studentid AND Class_ID = $currentclassid";
                             $query_run1 = mysqli_query($link, $query1);
                             if (mysqli_num_rows($query_run1) > 0) {
                                 $grades = mysqli_fetch_array($query_run1);
                                 $grade = $grades['Grades'];
+                                $quarter = $grades['Quarter'];
                             } else {
                                 $grade = "";
+                                $quarter = "";
                             }
 
                     ?>
@@ -168,6 +178,9 @@ if (isset($currentsubjectid)) {
                                 </td>
                                 <td><?= $student['First_Name']; ?></td>
                                 <td><?= $student['Last_Name'] ?></td>
+                                <td><?= $quarter ?>
+                                    <input type="hidden" name="Quarters[]" value="<?= $quarter ?>">
+                                </td>
                                 <td>
                                     <input type="number" name="Grades[]" min="60" max="99" data-maxlength="2" oninput="this.value=this.value.slice(0,this.dataset.maxlength)" value="<?= $grade ?>">
                                 </td>
@@ -220,7 +233,20 @@ if (isset($currentsubjectid)) {
                 lengthMenu: [
                     [5, 10, 15, 20],
                     [5, 10, 15, 20]
-                ]
+                ],
+                // columnDefs: [{
+                //     target: 3,
+                //     visible: false,
+                // }]
+            });
+            var table = $('#myDataTable').DataTable();
+
+            // #myInput is a <input type="text"> element
+            $('#Quarter').on('change', function() {
+                table
+                    .columns(3)
+                    .search(this.value)
+                    .draw();
             });
         });
     </script>

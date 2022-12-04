@@ -17,7 +17,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 1180px;
+  width: 1130px;
 }
 .main1 .title2 h1 {
   position: relative;
@@ -30,6 +30,7 @@
 .bot {
   display: flex;
   gap: 2rem;
+  align-items: center;
 }
 
 .bot .create .fa :hover {
@@ -539,7 +540,7 @@ table.dataTable td {
   height: 10px;
 }
 
-table.dataTable td select {
+table.dataTable td select, .main1 .title2 select {
   font-size: 16px;
   background-color: rgb(47, 79, 192);
   color: white;
