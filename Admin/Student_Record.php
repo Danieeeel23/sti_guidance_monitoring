@@ -173,13 +173,10 @@ if (!isset($_SESSION['admin_id'])) {
                         <a href="Overview_of_Failing_Grades.php" class="btn">View All</a>
                         <span class="numbers">
                             <?php
-                            $query = "SELECT Failing_Grades_ID FROM failing_grades ORDER BY Failing_Grades_ID";
+                            $query = "SELECT * FROM failing_grades WHERE Status = 'Failed'";
                             $query_run = mysqli_query($link, $query);
-
                             $row = mysqli_num_rows($query_run);
-
                             echo $row
-
                             ?>
                         </span>
                     </div>
@@ -209,7 +206,7 @@ if (!isset($_SESSION['admin_id'])) {
                     <?php
                         }
                     } else {
-                        echo '<span style="margin-left: 30px; margin-top: 15px; color: red;">' . 'No Available Attendance' . '</span>';
+                        echo '<span style="margin-left: 30px; margin-top: 15px; color: red;">' . 'No Available Failing Students' . '</span>';
                     }
                     ?>
                 </div>
