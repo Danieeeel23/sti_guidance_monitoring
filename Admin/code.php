@@ -115,7 +115,7 @@ if (isset($_POST['save_student'])) {
     $password = substr(str_shuffle($chars), 0, 8);
 
     // Encrypt password
-    $password = password_hash($password, PASSWORD_ARGON2I);
+    //$password = password_hash($password, PASSWORD_ARGON2I);
 
     $_SESSION['studentid'] = $student_id = rand();
     $strand_id = rand();
@@ -225,7 +225,7 @@ if (isset($_POST['save_parent'])) {
     $password = substr(str_shuffle($chars), 0, 8);
 
     // Encrypt password
-    $password = password_hash($password, PASSWORD_ARGON2I);
+    //$password = password_hash($password, PASSWORD_ARGON2I);
 
     $_SESSION['parentid'] = $parent_id = rand();
     $_SESSION['studentid'];
@@ -374,7 +374,7 @@ if (isset($_POST['save_teacher'])) {
     $password = substr(str_shuffle($chars), 0, 8);
 
     // Encrypt password
-    $password = password_hash($password, PASSWORD_ARGON2I);
+    //$password = password_hash($password, PASSWORD_ARGON2I);
 
     $teacher_id = rand();
     $subject_id = rand();

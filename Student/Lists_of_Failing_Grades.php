@@ -123,7 +123,7 @@
                         <thead>
                             <tr>
                                 <th>Names</th>
-                                <th>Quarter</th>
+                                <th>Grades</th>
                                 <th>Status</th>
                                 <th>Date</th>
                                                               
@@ -141,10 +141,10 @@
                                 {
                                     ?>
                             <tr>
-                                <td><?= $fails['Name']; ?></td>
-                                <td><?= $fails['Quarter']; ?></td>
+                                <td><?= $fails['Subject_Name']; ?></td>
+                                <td><?= $fails['Grades']; ?></td>
                                 <td><?= $fails['Status']; ?></td>
-                                <td><?= $fails['Date']; ?></td>
+                                <td><?= $fails['Last_Modified']; ?></td>
                             
                             </tr>
                             <?php

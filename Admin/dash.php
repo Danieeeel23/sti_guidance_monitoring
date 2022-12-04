@@ -99,9 +99,15 @@ if(!isset($_SESSION['admin_id'])){
                     <h2>Dashboard</h2>
                 </div>
                 <div class="icons">
-                    <i class="fa fa-bell"></i><span class="badge badge-light">4</span>
-                    <i class="fa fa-question-circle"></i>
-
+                    <div class="dropdown">
+                        <button class="dropbtn"> <i class="fa fa-bell"></i></button>
+                        <div class="dropdown-content">
+                        <a href="#">Action</a>
+                        <a href="#">Another Action</a>
+                        <a href="#">Something Else</a>
+                    </div> 
+                </div>                    
+                <i class="fa fa-question-circle"></i>
                 </div>
                 <div class="dropdown">
                     <button class="dropbtn">Admin</button>
