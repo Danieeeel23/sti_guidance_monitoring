@@ -88,12 +88,16 @@ if (isset($_POST['save_grades'])) {
             }
             //Insert Function
             for ($i = 0; $i < count($studentids) - 1; $i++) {
+                if (!isset($grades[$i])) {
+                    $grades[$i] = 0;
+                }
                 //grades data validation
                 if ($grades[$i] < 75) {
                     $status = "Failed";
                 } else {
                     $status = "Passed";
                 }
+                //insert first quarter
                 $query = "INSERT INTO `failing_grades`(`Class_ID`, `Student_ID`, `First_Name`, `Last_Name`, `Subject_Name`, `Quarter`, `Grades`, `Status`) VALUES 
              ('$classid','$studentids[$i]','$firstnames[$i]','$lastnames[$i]', '$subjectname', '1st', '$grades[$i]', '$status')";
                 $query_run = mysqli_multi_query($link, $query);
@@ -103,10 +107,10 @@ if (isset($_POST['save_grades'])) {
              ('$classid','$studentids[$i]','$firstnames[$i]','$lastnames[$i]', '$subjectname', '2nd', 0, '$status')";
                 $query_run1 = mysqli_multi_query($link, $query1);
             }
-            if ($query_run) {
+            if ($query_run && $query_run1) {
                 $message = "Successfully Inserted Grades";
             } else {
-                $message = "Failed!";
+                $message = "Failed to Insert Students!";
             }
         }
     }

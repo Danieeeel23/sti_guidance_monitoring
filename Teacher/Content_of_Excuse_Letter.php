@@ -17,8 +17,8 @@ if (isset($_SESSION['teacher_id'])) {
 }
 
 if (isset($_GET['excuse'])) {
-    $currentexcuseid = $_GET['class'];
-    $query = "SELECT * FROM `send_excuse_letter` WHERE `Class_ID`= $currentclassid ";
+    $currentexcuseid = $_GET['excuse'];
+    $query = "SELECT * FROM `send_excuse_letter` WHERE `Send_Excuse_Letter_ID`= $currentexcuseid ";
     $result = mysqli_query($link, $query);
 
     if (mysqli_num_rows($result) > 0) {
@@ -31,9 +31,16 @@ if (isset($_GET['excuse'])) {
         $edate = $row['End_Date'];
         $statement = $row['Statement'];
         $proof = $row['Proof_of_Absence'];
+    } else {
+        $name = "";
+        $year = "";
+        $strand = "";
+        $section = "";
+        $sdate = "";
+        $edate = "";
+        $statement = "";
+        $proof = "";
     }
-} else {
-    echo "No Class ID";
 }
 ?>
 <!DOCTYPE html>
@@ -118,58 +125,40 @@ if (isset($_GET['excuse'])) {
                     <h4>Basic Information</h4>
                     <div class="info">
 
-                        <label for="Name">Search</label>
-                        <span id="btk"> <input type="text" placeholder="Search..." name="search"></span>
-
-                        <label for="Status" name="Status">Status</label>
-                        <select class="Status" placeholder="Status" name="Status">
-                            <option value="0">Status</option>
-                            <option value="1">Request</option>
-                            <option value="2">Rejected</option>
-                            <option value="3">Accepted</option>
-                        </select>
-
-                        <br>
                         <label for="Name">Name</label>
-                        <span id="btk"> <input type="text" placeholder="Name" name="search"></span>
+                        <span id="btk"> <input type="text" placeholder="Name" name="search" value="<?= $name ?>"></span>
                         <label for="Name">Year</label>
-                        <span id="btk"> <input type="text" placeholder="Year" name="search"></span>
-                        <label for="Name">Strand</label>
-                        <span id="btk"> <input type="text" placeholder="Strand" name="search"></span>
-                        <label for="Name">Section</label>
-                        <span id="btk"> <input type="text" placeholder="Section" name="search"></span>
+                        <span id="btk"> <input type="text" placeholder="Year" name="search" value="<?= $year ?>"></span>
+                        <label for=" Name">Strand</label>
+                        <span id="btk"> <input type="text" placeholder="Strand" name="search" value="<?= $strand ?>"></span>
+                        <label for=" Name">Section</label>
+                        <span id="btk"> <input type="text" placeholder="Section" name="search" value="<?= $section ?>"></span>
                         <br>
 
-                        <label for="Date">Start Date</label>
-                        <input type="date" placeholder="Date" id="Date" name="date">
+                        <label for=" Date">Start Date</label>
+                        <input type="date" placeholder="Date" id="Date" name="date" value="<?= $sdate ?>">
 
-                        <label for="Date">End Date</label>
-                        <input type="date" placeholder="Date" id="Date" name="date">
+                        <label for=" Date">End Date</label>
+                        <input type="date" placeholder="Date" id="Date" name="date" value="<?= $edate ?>">
 
 
                     </div>
 
             </div>
-            <div class="content">
+            <div class=" content">
                 <div class="coninfo">
                     <div id="textarea">
                         <label for="Description" name="Description">Description</label>
 
-                        <textarea id="statement" name="statemen">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur eos ipsam, magni harum repudiandae quisquam libero quidem fugiat ipsum impedit consequuntur voluptas amet perspiciatis ex unde, dolorem architecto asperiores facere!
+                        <textarea id="statement" name="statemen" readonly>
+                            <?= $statement ?>
                         </textarea>
                     </div>
                 </div>
                 <div class="coninfo1">
 
                     <label for="Image" name="Image">Image</label>
-                    <input type="image" src="images/image 4.png" />
-                    <div class="btn-container">
-                        <button class="btn"><i class="fa fa-download"></i> Upload</button>
-                        <button class="btnn">Send to Teacher</button>
-                    </div>
-
-
+                    <img src="../Uploads/<?= $proof ?>" alt="">
                 </div>
             </div>
             </form>

@@ -117,7 +117,8 @@ if (isset($_SESSION['teacher_id'])) {
             </thead>
             <tbody>
                 <?php
-                $query = "SELECT * FROM `send_excuse_letter` ";
+                $currentdate = date("Y-m-d");
+                $query = "SELECT * FROM `send_excuse_letter` WHERE Status = 'Accepted' AND ('$currentdate' BETWEEN Start_Date AND End_Date)";
                 $query_run = mysqli_query($link, $query);
 
                 if (mysqli_num_rows($query_run) > 0) {

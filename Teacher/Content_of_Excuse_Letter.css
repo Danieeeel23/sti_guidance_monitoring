@@ -30,9 +30,7 @@
     box-shadow: 5px 5px 5px rgb(139, 134, 134);
     gap: 20px;
 }
-.content .coninfo{
-    
-}
+
 #textarea label[for=Description], .coninfo1 label{
     display: block;
     text-align: center;
@@ -47,11 +45,10 @@
     padding: 70px 40px 0px 40px;
 }
 
-.coninfo1 label[for=Image]{
-    
-}
-.coninfo1 input[type=image]{
-    border-style:outset;
+
+.coninfo1 img{
+    border: 1px solid black;
+    box-shadow: 5px 5px 5px rgb(139, 134, 134);
     margin-top: 25px;
     height: 552px;
     width: 100%;
