@@ -37,8 +37,11 @@ if (isset($_POST['save_failing_grades'])) {
     $studentids = explode(":", mysqli_real_escape_string($link, $_POST['studentid']));
     $firstnames = explode(":", mysqli_real_escape_string($link, $_POST['firstname']));
     $lastnames = explode(":", mysqli_real_escape_string($link, $_POST['lastname']));
-    $grades = $_POST['Grades'];
-    $quarters = $_POST['Quarters'];
+    $grades1st = $_POST['Grades1st'];
+    // $quarters1st = $_POST['Quarters1st'];
+    $grades2nd = $_POST['Grades2nd'];
+    // $quarters2nd = $_POST['Quarters2nd'];
+    $selectedquarter = $_POST['selectedquarter'];
     $status = "Invalid";
     $date = date("Y/m/d");
 
@@ -55,6 +58,11 @@ if (isset($_POST['save_failing_grades'])) {
             }
         }
         if ($existingclass) {
+            if ($selectedquarter == "1st") {
+                $grades = $grades1st;
+            } else {
+                $grades = $grades2nd;
+            }
             //Update Function
             for ($i = 0; $i < count($studentids) - 1; $i++) {
                 //grades data validation
@@ -63,11 +71,20 @@ if (isset($_POST['save_failing_grades'])) {
                 } else {
                     $status = "Passed";
                 }
-                $query = "UPDATE `failing_grades` SET `Grades` = $grades[$i] ,`Status` = '$status' WHERE `Class_ID` = $existingclass AND `Student_ID` = '$studentids[$i]' AND `Quarter` = '$quarters[$i]'";
+                $query = "UPDATE `failing_grades` SET `Grades` = $grades[$i] ,`Status` = '$status' WHERE `Class_ID` = $existingclass AND `Student_ID` = '$studentids[$i]' AND `Quarter` = '$selectedquarter'";
                 $query_run = mysqli_multi_query($link, $query);
             }
-            $message = "Successfully Updated Grades ";
+            if ($query_run) {
+                $message = "Successfully Updated Grades ";
+            } else {
+                $message = "FAILED ";
+            }
         } else {
+            if ($selectedquarter == "1st") {
+                $grades = $grades1st;
+            } else {
+                $grades = $grades2nd;
+            }
             //Insert Function
             for ($i = 0; $i < count($studentids) - 1; $i++) {
                 //grades data validation
@@ -85,15 +102,15 @@ if (isset($_POST['save_failing_grades'])) {
              ('$classid','$studentids[$i]','$firstnames[$i]','$lastnames[$i]', '2nd', 0, '$status')";
                 $query_run1 = mysqli_multi_query($link, $query1);
             }
-            $message = "Successfully Inserted Grades";
+            if ($query_run) {
+                $message = "Successfully Inserted Grades";
+            } else {
+                $message = "Failed!";
+            }
         }
     }
 
-    if ($query_run) {
-        $_SESSION['message'] = $message;
-        header("Location: Lists_of_Failing_Grades.php");
-        exit(0);
-    } else {
-        echo "FAILED!";
-    }
+    $_SESSION['message'] = $message;
+    header("Location: Lists_of_Failing_Grades.php");
+    exit(0);
 }

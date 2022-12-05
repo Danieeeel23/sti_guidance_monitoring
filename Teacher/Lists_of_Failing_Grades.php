@@ -95,6 +95,7 @@ if (isset($_SESSION['teacher_id'])) {
 
         </div>
         <div class="main1">
+            <?php include('message.php'); ?>
             <div class="title2">
                 <h1>List of Classes</h1>
 
