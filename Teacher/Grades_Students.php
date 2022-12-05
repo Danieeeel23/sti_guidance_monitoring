@@ -217,7 +217,7 @@ if (isset($currentsubjectid)) {
                                 $grade = $grades['Grades'];
                                 $quarter = $grades['Quarter'];
                             } else {
-                                $grade = "0";
+                                $grade = "60";
                                 $quarter = "";
                             }
 
