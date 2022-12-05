@@ -192,6 +192,46 @@ if (isset($currentsubjectid)) {
 
                 </tbody>
             </table>
+            <table id="myDataTable1" class="hover">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $query = "SELECT * FROM `attendance` ";
+                    $query_run = mysqli_query($link, $query);
+
+                    if (mysqli_num_rows($query_run) > 0) {
+                        foreach ($query_run as $student) {
+                    ?>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" class="emp_checkbox" data-emp-id="<?= $student['Student_ID']; ?>">
+                                </td>
+                                <td><?= $student['Student_First_Name']; ?></td>
+                                <td><?= $student['Student_Last_Name']; ?></td>
+                                <td><?= $student['Date']; ?></td>
+                                <td>
+                                    <select id="Status" class="Status" name="Status[]">
+                                        <option value="Absent" <?= $student['Status'] == 'Absent' ? ' selected="selected"' : ''; ?>>Absent</option>
+                                        <option value="Present" <?= $student['Status'] == 'Present' ? ' selected="selected"' : ''; ?>>Present</option>
+                                    </select>
+                                </td>
+                            </tr>
+                    <?php
+                        }
+                    } else {
+                    }
+                    ?>
+
+                </tbody>
+            </table>
             <div class="main2">
                 <div class="bot">
                     <span class="create">
@@ -241,13 +281,33 @@ if (isset($currentsubjectid)) {
                     [5, 10, 15, 20]
                 ]
             });
+            $('#myDataTable1').DataTable({
+                pageLength: 5,
+                lengthMenu: [
+                    [5, 10, 15, 20],
+                    [5, 10, 15, 20]
+                ],
+                // columnDefs: [{
+                //     target: 3,
+                //     visible: false,
+                // }]
+            });
+            var table1 = $('#myDataTable1').DataTable();
+            $('#myDataTable1_wrapper').hide();
+            $('#myDataTable1_filter').hide();
             $('#SelectDate').on('change', function() {
                 if ($('#SelectDate').val() == currentDate) {
+                    $('#myDataTable1_wrapper').hide();
+                    $('#myDataTable_wrapper').show();
                     $('#check').text("CURRENT!");
                     $('#selecteddate').val("");
                     $('#insertattendance').show();
                     $('#updateattendance').hide();
                 } else {
+                    $('#myDataTable1_wrapper').show();
+                    $('#myDataTable_wrapper').hide();
+                    table1.search($('#SelectDate').val()).draw();
+
                     $('#check').text("NO.");
                     $('#selecteddate').val($('#SelectDate').val());
                     $('#insertattendance').hide();

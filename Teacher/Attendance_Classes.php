@@ -41,7 +41,7 @@ if (isset($_SESSION['teacher_id'])) {
 
 <body>
     <div class="container">
-    <div class="navigation">
+        <div class="navigation">
             <ul>
                 <li><a href=""><span class="icon1"><img src="" alt=""></span></a></li>
                 <li>
@@ -95,6 +95,7 @@ if (isset($_SESSION['teacher_id'])) {
 
         </div>
         <div class="main1">
+            <?php include('message.php'); ?>
             <div class="title2">
                 <h1>List of Classes</h1>
             </div>
