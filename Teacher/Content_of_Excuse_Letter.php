@@ -15,6 +15,26 @@ if (isset($_SESSION['teacher_id'])) {
 } else {
     echo "No Session ID";
 }
+
+if (isset($_GET['excuse'])) {
+    $currentexcuseid = $_GET['class'];
+    $query = "SELECT * FROM `send_excuse_letter` WHERE `Class_ID`= $currentclassid ";
+    $result = mysqli_query($link, $query);
+
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_array($result);
+        $name = $row['Name'];
+        $year = $row['Year_Level'];
+        $strand = $row['Strand'];
+        $section = $row['Section'];
+        $sdate = $row['Start_Date'];
+        $edate = $row['End_Date'];
+        $statement = $row['Statement'];
+        $proof = $row['Proof_of_Absence'];
+    }
+} else {
+    echo "No Class ID";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

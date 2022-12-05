@@ -107,43 +107,32 @@ if (isset($_SESSION['teacher_id'])) {
             <thead>
                 <tr>
                     <th></th>
-                    <th>Subject Name</th>
-                    <th>Strand</th>
+                    <th>Name</th>
                     <th>Section</th>
-                    <th>Number of Students</th>
+                    <th>Status</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
                     <th>Update</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                $query = "SELECT * FROM `class` WHERE `Teacher_ID`= $currentteacherid ";
+                $query = "SELECT * FROM `send_excuse_letter` ";
                 $query_run = mysqli_query($link, $query);
 
                 if (mysqli_num_rows($query_run) > 0) {
-                    foreach ($query_run as $class) {
+                    foreach ($query_run as $excuse) {
                 ?>
                         <tr>
                             <td>
-                                <input type="checkbox" class="emp_checkbox" data-emp-id="<?= $class['Class_ID']; ?>">
+                                <input type="checkbox" class="emp_checkbox" data-emp-id="<?= $excuse['Send_Excuse_Letter_ID']; ?>">
                             </td>
-                            <td><?= $class['Subject_Name']; ?></td>
-                            <td><?= $class['Strand']; ?></td>
-                            <td><?= $class['Section']; ?></td>
-                            <?php
-                            //for student count
-                            //MULTIPLE ROW SUBQUERY
-                            $countstrand = $class['Strand'];
-                            $countsection = $class['Section'];
-                            $countquery = "SELECT * FROM `student` WHERE strand IN (SELECT Name FROM strand WHERE Name = '$countstrand' ) AND section IN (SELECT Section FROM section WHERE Section = '$countsection')";
-                            $countquery_run = mysqli_query($link, $countquery);
-                            if (mysqli_num_rows($countquery_run) > 0) {
-                                $studentcount = mysqli_num_rows($countquery_run);
-                            } else {
-                                $studentcount = 0;
-                            }
-                            ?>
-                            <td><?= $studentcount; ?></td>
-                            <td><a href="Content_of_Excuse_Letter.php?class=<?= $class['Class_ID'] ?>"><button type="submit" class="btn btn-update">View</button></a></td>
+                            <td><?= $excuse['Name']; ?></td>
+                            <td><?= $excuse['Strand'] . '-' . $excuse['Section'] ?></td>
+                            <td><?= $excuse['Status']; ?></td>
+                            <td><?= $excuse['Start_Date']; ?></td>
+                            <td><?= $excuse['End_Date']; ?></td>
+                            <td><a href="Content_of_Excuse_Letter.php?excuse=<?= $excuse['Send_Excuse_Letter_ID'] ?>"><button type="submit" class="btn btn-update">View</button></a></td>
                         </tr>
                 <?php
                     }
