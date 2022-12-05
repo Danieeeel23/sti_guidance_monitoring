@@ -33,7 +33,7 @@ if (isset($_SESSION['teacher_id'])) {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="delete_script.js"></script>
     <link rel="stylesheet" href="ListStyle.css" type="text/css">
-    <title>Grades - Classes</title>
+    <title>List of Excuse Letter</title>
     <style>
 
     </style>
@@ -74,7 +74,7 @@ if (isset($_SESSION['teacher_id'])) {
             <span id="logo"><img src="images/sti_logo.png" alt=""></span>
             <div class="topbar">
                 <div class="toptitle">
-                    <h2>Grades</h2>
+                    <h2>Excuse Letter</h2>
                 </div>
                 <div class="rightbar">
                     <div class="icons">
@@ -97,7 +97,7 @@ if (isset($_SESSION['teacher_id'])) {
         <div class="main1">
             <?php include('message.php'); ?>
             <div class="title2">
-                <h1>List of Classes</h1>
+                <h1>List of Students</h1>
 
             </div>
         </div>
@@ -143,7 +143,7 @@ if (isset($_SESSION['teacher_id'])) {
                             }
                             ?>
                             <td><?= $studentcount; ?></td>
-                            <td><a href="Grades_Students.php?class=<?= $class['Class_ID'] ?>"><button type="submit" class="btn btn-update">View</button></a></td>
+                            <td><a href="Content_of_Excuse_Letter.php?class=<?= $class['Class_ID'] ?>"><button type="submit" class="btn btn-update">View</button></a></td>
                         </tr>
                 <?php
                     }

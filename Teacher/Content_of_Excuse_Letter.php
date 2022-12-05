@@ -1,3 +1,21 @@
+<?php
+
+require 'config.php';
+session_start();
+
+if (isset($_SESSION['teacher_id'])) {
+    $currentteacherid = $_SESSION['teacher_id'];
+    $query = "SELECT *, CONCAT(First_Name,' ',Middle_Initial,' ',Last_Name) AS Name FROM `teacher` WHERE `Teacher_ID`= $currentteacherid ";
+    $result = mysqli_query($link, $query);
+
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_array($result);
+        $currentteachername = $row['Name'];
+    }
+} else {
+    echo "No Session ID";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,11 +24,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--font-->
-    <link rel="stylesheet" href="Content_of_Excuse_letter.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
-">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css
-">
+
+    <link rel="stylesheet" href="ListStyle.css">
+    <link rel="stylesheet" href="Content_of_Excuse_Letter.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
 
     <title>View of Excuse Slip</title>
 </head>
@@ -27,15 +45,15 @@
                     </a>
                 </li>
                 <li>
-                    <a href="Lists_of_Subjects.php">
+                    <a href="Attendance_Classes.php">
                         <span class="icon"><img src="Images/sidebar_menu/Edit Calendar.svg" alt=""></span>
                         <span class="title">Attendance</span>
                     </a>
                 </li>
                 <li>
-                    <a href="Lists_of_Failing_Grades.php">
+                    <a href="Grades_Classes.php">
                         <span class="icon"><img src="Images/sidebar_menu/Terms and Conditions.svg" alt=""></span>
-                        <span class="title">Record Failing <br> Grades</span>
+                        <span class="title">Grades</span>
                     </a>
                 </li>
                 <li>
@@ -50,16 +68,22 @@
             <span id="logo"><img src="images/sti_logo.png" alt=""></span>
             <div class="topbar">
                 <div class="toptitle">
-                    <h2>View of Excuse Slip</h2>
+                    <h2>Excuse Letter</h2>
                 </div>
-                <div class="icons">
-                    <i class="fa fa-bell"></i>
-                    <i class="fa fa-search"></i>
-
-                </div>
-                <div class="icons1">
-                    <h3>Teacher</h3>
-                    <i class="fa fa-angle-down"></i>
+                <div class="rightbar">
+                    <div class="icons">
+                        <i class="fa fa-bell"></i>
+                        <i class="fa fa-search"></i>
+                    </div>
+                    <div class="dropdown">
+                        <div class="icons1">
+                            <h3 class="dropbtn"> <?php echo $currentteachername ?> </h3>
+                            <i class="fa fa-angle-down"></i>
+                        </div>
+                        <div class="dropdown-content">
+                            <a href="../logins/logout.php">Logout</a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -111,25 +135,19 @@
                     <div id="textarea">
                         <label for="Description" name="Description">Description</label>
 
-                        <textarea id="statement" name="statemen" rows="32" cols="65" style="margin-top: 25px; box-shadow: 5px 5px 5px rgb(139, 134, 134);">name:william  date: august  section : bsit  cLorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, 
-    pulvinar facilisis justo mollis, auctor consequat urna. Morbi a bibendum metus. 
-    Donec scelerisque sollicitudin enim eu venenatis. Duis tincidunt laoreet ex, 
-    in pretium orci vestibulum eget. Class aptent taciti sociosqu ad litora torquent
-    per conubia nostra, per inceptos himenaeos. Duis pharetra luctus lacus ut 
-    vestibulum. Maecenas ipsum lacus, lacinia quis posuere ut, pulvinar vitae dolor.
-    Integer eu nibh at nisi ullamcorper sagittis id vel leo. Integer feugiat 
-    faucibus libero, at maximus nisl suscipit posuere. Morbi nec enim nunc. 
-    Phasellus bibendum turpis ut ipsum egestas, sed sollicitudin elit convallis. 
-    Cras pharetra mi tristique sapien vestibulum lobortis. Nam eget bibendum metus, 
-    non dictum mauris. Nulla at tellus sagittis, viverra est a, bibendum metus.</textarea>
+                        <textarea id="statement" name="statemen">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur eos ipsam, magni harum repudiandae quisquam libero quidem fugiat ipsum impedit consequuntur voluptas amet perspiciatis ex unde, dolorem architecto asperiores facere!
+                        </textarea>
                     </div>
                 </div>
                 <div class="coninfo1">
-                    <label for="Image" name="Image">Image</label>
-                    <input type="image" src="images/image 4.png" style="border-style:outset" height="560" width="470" />
-                    <button class="btn" style="width:88%"><i class="fa fa-download"></i> Upload</button>
-                    <button class="btnn">Send to Teacher</button>
 
+                    <label for="Image" name="Image">Image</label>
+                    <input type="image" src="images/image 4.png" />
+                    <div class="btn-container">
+                        <button class="btn"><i class="fa fa-download"></i> Upload</button>
+                        <button class="btnn">Send to Teacher</button>
+                    </div>
 
 
                 </div>
