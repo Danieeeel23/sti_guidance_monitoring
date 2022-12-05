@@ -71,7 +71,7 @@ if (isset($currentsubjectid)) {
 
 <body>
     <div class="container">
-    <div class="navigation">
+        <div class="navigation">
             <ul>
                 <li><a href=""><span class="icon1"><img src="" alt=""></span></a></li>
                 <li>
@@ -126,8 +126,28 @@ if (isset($currentsubjectid)) {
         </div>
         <div class="main1">
             <div class="title2">
-                <h1><?php echo "(", $currentsubject, ") ", $currentstrand, "-", $currentsection ?></h1>
-                <h1><?php echo date("l"), " ", date("Y/m/d") ?></h1>
+                <h1 id="check"><?php echo "(", $currentsubject, ") ", $currentstrand, "-", $currentsection ?></h1>
+                <div class="bot">
+                    <select id="SelectDate" class="SelectDate" name="SelectDate[]" style="width: 200px;">
+                        <option value="<?= date("Y-m-d") ?>"><?= date("l") . ' ' . date("Y-m-d") ?></option>
+                        <?php
+                        $query = "SELECT DISTINCT Date FROM `attendance` ORDER BY Date DESC";
+                        $query_run = mysqli_query($link, $query);
+
+                        if (mysqli_num_rows($query_run) > 0) {
+                            foreach ($query_run as $dates) {
+                        ?>
+                                <option value="<?= $dates['Date'] ?>"><?= date("l", strtotime($dates['Date'])) . ' ' . $dates['Date'] ?></option>
+                        <?php
+                            }
+                        } else {
+                        }
+                        ?>
+
+                    </select>
+
+                </div>
+
             </div>
         </div>
     </div>
@@ -179,6 +199,7 @@ if (isset($currentsubjectid)) {
 
                         <input type="hidden" name="classid" value="<?= $currentclassid; ?>">
                         <input type="hidden" name="subjectid" value="<?= $currentsubjectid; ?>">
+                        <input type="hidden" id="selecteddate" name="selecteddate" value=" ">
                         <input type="hidden" name="studentid" value="<?php
                                                                         foreach ($students as $student) {
                                                                             echo $student['Student_ID'], ":";
@@ -194,8 +215,8 @@ if (isset($currentsubjectid)) {
                                                                         echo $student['Last_Name'], ":";
                                                                     }
                                                                     ?>">
-                        <input type="submit" class="btn btn-primary btn-lg" name="save_attendance" value="Submit Report">
-
+                        <input type="submit" class="btn btn-primary btn-lg" id="insertattendance" name="save_attendance" value="CREATE">
+                        <input type="submit" class="btn btn-primary btn-lg" id="updateattendance" name="update_attendance" value="UPDATE">
                     </span>
                     <!-- <form action="code.php" method="POST"> -->
                 </div>
@@ -206,6 +227,12 @@ if (isset($currentsubjectid)) {
     <script src="js/jquery-3.6.1.min.js"></script>
     <script src="js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
     <script>
+        var fullDate = new Date();
+        // var twoDigitMonth = ((fullDate.getMonth().length + 1) === 1) ? (fullDate.getMonth() + 1) : '0' + (fullDate.getMonth() + 1);
+        var month = fullDate.getMonth() + 1;
+        var day = fullDate.getDate() < 10 ? "0" + fullDate.getDate() : fullDate.getDate();
+        var currentDate = fullDate.getFullYear() + "-" + month + "-" + day;
+        console.log(currentDate);
         $(document).ready(function() {
             $('#myDataTable').DataTable({
                 pageLength: 5,
@@ -213,6 +240,20 @@ if (isset($currentsubjectid)) {
                     [5, 10, 15, 20],
                     [5, 10, 15, 20]
                 ]
+            });
+            $('#SelectDate').on('change', function() {
+                if ($('#SelectDate').val() == currentDate) {
+                    $('#check').text("CURRENT!");
+                    $('#selecteddate').val("");
+                    $('#insertattendance').show();
+                    $('#updateattendance').hide();
+                } else {
+                    $('#check').text("NO.");
+                    $('#selecteddate').val($('#SelectDate').val());
+                    $('#insertattendance').hide();
+                    $('#updateattendance').show();
+                }
+
             });
         });
     </script>

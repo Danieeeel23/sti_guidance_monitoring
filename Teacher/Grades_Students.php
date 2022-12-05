@@ -167,7 +167,7 @@ if (isset($currentsubjectid)) {
                                 $grade = $grades['Grades'];
                                 $quarter = $grades['Quarter'];
                             } else {
-                                $grade = "0";
+                                $grade = "60";
                                 $quarter = "";
                             }
 
@@ -181,7 +181,7 @@ if (isset($currentsubjectid)) {
                                 <td><?= $quarter ?>
                                 </td>
                                 <td>
-                                    <input type="number" name="Grades1st[]" min="60" max="99" data-maxlength="2" oninput="this.value=this.value.slice(0,this.dataset.maxlength);if (this.value=='') this.value=60" value="<?= $grade ?>">
+                                    <input type="number" name="Grades1st[]" max="99" data-maxlength="2" oninput="this.value=this.value.slice(0,this.dataset.maxlength);if (this.value=='') this.value=60" value="<?= $grade ?>">
                                 </td>
                             </tr>
                     <?php
@@ -217,7 +217,7 @@ if (isset($currentsubjectid)) {
                                 $grade = $grades['Grades'];
                                 $quarter = $grades['Quarter'];
                             } else {
-                                $grade = "0";
+                                $grade = "60";
                                 $quarter = "";
                             }
 
