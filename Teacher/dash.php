@@ -71,15 +71,15 @@ if (mysqli_num_rows($excusequery_run) > 0) {
                     </a>
                 </li>
                 <li>
-                    <a href="Lists_of_Subjects.php">
+                    <a href="Attendance_Classes.php">
                         <span class="icon"><img src="Images/sidebar_menu/Edit Calendar.svg" alt=""></span>
                         <span class="title">Attendance</span>
                     </a>
                 </li>
                 <li>
-                    <a href="Lists_of_Failing_Grades.php">
+                    <a href="Grades_Classes.php">
                         <span class="icon"><img src="Images/sidebar_menu/Terms and Conditions.svg" alt=""></span>
-                        <span class="title">Record Failing <br> Grades</span>
+                        <span class="title">Grades</span>
                     </a>
                 </li>
                 <li>
@@ -177,13 +177,13 @@ if (mysqli_num_rows($excusequery_run) > 0) {
                 <div class="pictures">
                     <div class="card-pictures"><img src="Images/attendance.jpg" alt="">
                         <h3>Attendance</h3>
-                        <a href="Lists_of_Subjects.php">
+                        <a href="Attendance_Classes.php">
                             <h4>Start <i class="fa fa-play" aria-hidden="true"></i></h4>
                         </a>
                     </div>
                     <div class="card-pictures"><img src="Images/failinggrades.jpg" alt="">
                         <h3>Failing Grades</h3>
-                        <a href="Lists_of_Failing_Grades.php">
+                        <a href="Grades_Classes.php">
                             <h4>Start <i class="fa fa-play" aria-hidden="true"></i></h4>
                         </a>
                     </div>
@@ -203,7 +203,7 @@ if (mysqli_num_rows($excusequery_run) > 0) {
                         <div class="ongoing">
                             <div class="anoun-header">
                                 <p><strong>Failing Grades</strong></p>
-                                <a href="Lists_of_Failing_Grades.php" class="btn">View All</a>
+                                <a href="Grades_Classes.php" class="btn">View All</a>
                             </div>
 
                             <div class="card1">

@@ -23,7 +23,7 @@ if (isset($_POST['save_attendance'])) {
 
     if ($query_run) {
         $_SESSION['message'] = "Attendance Created Successfully";
-        header("Location: Lists_of_Subjects.php");
+        header("Location: Attendance_Classes.php");
         exit(0);
     } else {
         echo "FAILED!";
@@ -111,6 +111,6 @@ if (isset($_POST['save_failing_grades'])) {
     }
 
     $_SESSION['message'] = $message;
-    header("Location: Lists_of_Failing_Grades.php");
+    header("Location: Grades_Classes.php");
     exit(0);
 }

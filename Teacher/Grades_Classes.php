@@ -41,7 +41,7 @@ if (isset($_SESSION['teacher_id'])) {
 
 <body>
     <div class="container">
-        <div class="navigation">
+    <div class="navigation">
             <ul>
                 <li><a href=""><span class="icon1"><img src="" alt=""></span></a></li>
                 <li>
@@ -51,15 +51,15 @@ if (isset($_SESSION['teacher_id'])) {
                     </a>
                 </li>
                 <li>
-                    <a href="Lists_of_Subjects.php">
+                    <a href="Attendance_Classes.php">
                         <span class="icon"><img src="Images/sidebar_menu/Edit Calendar.svg" alt=""></span>
                         <span class="title">Attendance</span>
                     </a>
                 </li>
                 <li>
-                    <a href="Lists_of_Failing_Grades.php">
+                    <a href="Grades_Classes.php">
                         <span class="icon"><img src="Images/sidebar_menu/Terms and Conditions.svg" alt=""></span>
-                        <span class="title">Record Failing <br> Grades</span>
+                        <span class="title">Grades</span>
                     </a>
                 </li>
                 <li>
@@ -143,7 +143,7 @@ if (isset($_SESSION['teacher_id'])) {
                             }
                             ?>
                             <td><?= $studentcount; ?></td>
-                            <td><a href="Lists_of_Failing_Students.php?class=<?= $class['Class_ID'] ?>"><button type="submit" class="btn btn-update">View</button></a></td>
+                            <td><a href="Grades_Students.php?class=<?= $class['Class_ID'] ?>"><button type="submit" class="btn btn-update">View</button></a></td>
                         </tr>
                 <?php
                     }
