@@ -132,7 +132,7 @@ if (mysqli_num_rows($excusequery_run) > 0) {
                     <i class="fa fa-users"></i>
                 </div>
                 <div>
-                    <div class="cardname"><strong>Failing Grades</strong></div>
+                    <div class="cardname"><strong>Grades</strong></div>
                     <div class="numbers"><?= $failcount ?></div>
                 </div>
             </div>
@@ -202,29 +202,41 @@ if (mysqli_num_rows($excusequery_run) > 0) {
                     <div class="anoun">
                         <div class="ongoing">
                             <div class="anoun-header">
-                                <p><strong>Failing Grades</strong></p>
+                                <p><strong>Grades</strong></p>
                                 <a href="Grades_Classes.php" class="btn">View All</a>
                             </div>
 
                             <div class="card1">
                                 <table class="table1">
-                                    <tbody>
-                                        <tr>
-                                            <td>Keane Klyde G. Lara</td>
-                                            <td>HUMSS-1-A</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jonah Mae V. Alejo</td>
-                                            <td>ABM-1-A</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Daniel Lois F. Hidalgo</td>
-                                            <td>STEM-1-A</td>
-                                        </tr>
+                                    <?php
+
+                                    $query = "SELECT *, CONCAT(First_Name,' ',Last_Name) AS Name FROM failing_grades ORDER BY Last_Modified DESC LIMIT 3";
+                                    $query_run = mysqli_query($link, $query);
+                                    if (mysqli_num_rows($query_run) > 0) {
+                                        foreach ($query_run as $fail) {
+                                            $classid = $fail['Class_ID'];
+                                            //get the subject using single row subquery
+                                            $query1 = "SELECT * FROM subject WHERE Subject_ID = (SELECT Subject_ID FROM class WHERE Class_ID = $classid)";
+                                            $query_run1 = mysqli_query($link, $query1);
+                                            $subjects = mysqli_fetch_array($query_run1);
+                                    ?>
+                                            <tbody>
+                                                <tr>
+                                                    <td><?= $fail['Name']; ?></td>
+                                                    <td><?= $subjects['Subject_Name']; ?></td>
+                                                    <td><?= $fail['Last_Modified']; ?></td>
+                                                </tr>
+                                                <!-- and so on... -->
+                                            </tbody>
+
+                                    <?php
+                                        }
+                                    } else {
+                                        echo '<span style="margin-left: 30px; margin-top: 15px; color: red;">' . 'No Available Failing Students' . '</span>';
+                                    }
+                                    ?>
 
 
-                                        <!-- and so on... -->
-                                    </tbody>
                                 </table>
                             </div>
                         </div>
