@@ -136,7 +136,7 @@
                         <tbody>
                             <?php 
                                 $i = 1;
-                                $query = "SELECT *, CONCAT(First_Name,' ',Middle_Name,' ',Last_Name) AS Names FROM `student`";
+                                $query = "SELECT *, CONCAT(First_Name,' ',Middle_Name,' ',Last_Name) AS Names FROM `student` ORDER BY Student_ID DESC";
                                 $query_run = mysqli_query($link, $query);
 
                                     foreach($query_run as $student) :

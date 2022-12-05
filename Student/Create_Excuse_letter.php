@@ -155,6 +155,7 @@ if(!isset($_SESSION['student_id'])){
                             <label for="reasons">Reason</label>
 
                             <select name="reasons" id="reasons">
+                                <option></option>
                                 <option value="Health Related Problem">Health Related Problem</option>
                                 <option value="Family Issue">Family Issue</option>
                                 <option value="Traffic">Traffic</option>

@@ -364,7 +364,7 @@ require 'config.php';
             <tbody>
                 <?php
 
-                            $query = "SELECT * FROM `class` ORDER BY `Subject_Name` ASC";
+                            $query = "SELECT * FROM `class` ORDER BY `Subject_Name` DESC";
                             $query_run = mysqli_query($link, $query);
 
                             if(mysqli_num_rows($query_run) > 0)

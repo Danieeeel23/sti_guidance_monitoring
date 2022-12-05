@@ -142,7 +142,7 @@ require 'config.php';
                         $classes = mysqli_fetch_array($classquery_run);
 
                         $subjectid = $classes['Subject_ID'];
-                        $subjectquery = "SELECT * FROM subject WHERE Subject_ID = $subjectid";
+                        $subjectquery = "SELECT * FROM subject WHERE Subject_ID = '$subjectid'";
                         $subjectquery_run = mysqli_query($link, $subjectquery);
                         $subjects = mysqli_fetch_array($subjectquery_run);
                 ?>
@@ -153,7 +153,7 @@ require 'config.php';
                             <td><?= $grades['Name'] ?></td>
                             <td><?= $classes['Strand'] . '-' . $classes['Section'] ?></td>
                             <td>
-                                <input type="number" name="Grades[]" min="60" max="99" data-maxlength="2" oninput="this.value=this.value.slice(0,this.dataset.maxlength)" value="<?= $grades['Grades'] ?>">
+                                <input type="number" name="Grades[]" min="60" max="99" data-maxlength="2" oninput="this.value=this.value.slice(0,this.dataset.maxlength)" value="<?= $grades['Grades'] ?>" readonly>
                             </td>
                             <td><?= $subjects['Subject_Name'] ?></td>
                             <td><?= $classes['Teacher_Name'] ?></td>

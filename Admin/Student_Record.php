@@ -115,7 +115,6 @@ if (!isset($_SESSION['admin_id'])) {
             <p>Admin’s Dashboard</p>
         </div>
 
-
         <div class="mainn">
             <div class="boddy">
                 <div class="cardbody">
@@ -139,7 +138,7 @@ if (!isset($_SESSION['admin_id'])) {
                 <div class="cardtable">
                     <?php
 
-                    $attendancequery = "SELECT *, CONCAT(Student_First_Name,' ',Student_Last_Name) AS Name FROM attendance ORDER BY `Last_Modified` DESC LIMIT 3";
+                    $attendancequery = "SELECT *, CONCAT(Student_First_Name,' ',Student_Last_Name) AS Name FROM attendance ORDER BY `Last_Modified` DESC LIMIT 1";
                     $attendancequery_run = mysqli_query($link, $attendancequery);
                     $query_run = mysqli_query($link, $attendancequery);
 
@@ -183,7 +182,7 @@ if (!isset($_SESSION['admin_id'])) {
                 <div class="cardtable">
                     <?php
 
-                    $query = "SELECT *, CONCAT(First_Name,' ',Last_Name) AS Name FROM failing_grades WHERE Status = 'Failed' ORDER BY Last_Modified DESC";
+                    $query = "SELECT *, CONCAT(First_Name,' ',Last_Name) AS Name FROM failing_grades WHERE Status = 'Failed' ORDER BY Last_Modified DESC LIMIT 1";
                     $query_run = mysqli_query($link, $query);
                     if (mysqli_num_rows($query_run) > 0) {
                         foreach ($query_run as $fail) {
@@ -208,6 +207,53 @@ if (!isset($_SESSION['admin_id'])) {
                     }
                     ?>
                 </div>
+
+            </div>
+            <div class="boddy">
+                <div class="cardbody">
+                    <h2>Offenses</h2>
+                    <div class="cardright">
+                        <a href="List_of_Offense.php" class="btn">View All</a>
+                        <span class="numbers">
+                            <?php
+                            $query = "SELECT Violation_ID FROM violation ORDER BY Violation_ID";
+                            $query_run = mysqli_query($link, $query);
+
+                            $row = mysqli_num_rows($query_run);
+
+                            echo $row
+
+                            ?>
+                        </span>
+                    </div>
+                </div>
+                <div class="pictures"></div>
+                <div class="cardtable">
+                    <?php
+
+                    $violation = "SELECT * FROM violation ORDER BY `Date` DESC LIMIT 1";
+                    $violationquery_run = mysqli_query($link, $violation);
+                    $query_run = mysqli_query($link, $violation);
+
+                    if (mysqli_num_rows($query_run) > 0) {
+                        foreach ($query_run as $violation) {
+                    ?>
+                            <div class="classes">
+                                <p><strong><?= $violation['Year_Level']; ?> - <?= $violation['Section']; ?></strong></p>
+                                <p class="name"><?= $violation['Name']; ?></p>
+
+                            </div>
+                            <span class="lastmodified">
+                                <p class="date"><?= $attendance['Date']; ?></p>
+                            </span>
+                    <?php
+                        }
+                    } else {
+                        echo '<span style="margin-left: 30px; margin-top: 15px; color: red;">' . 'No Available Offenses' . '</span>';
+                    }
+                    ?>
+                </div>
+
 
             </div>
         </div>

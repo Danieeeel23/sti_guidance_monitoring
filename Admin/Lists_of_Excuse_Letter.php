@@ -188,7 +188,7 @@
                         <tbody>
                         <?php 
 
-                            $query = "SELECT * FROM `excuse letter`";
+                            $query = "SELECT * FROM `excuse letter` ORDER BY `Sent` DESC";
                             $query_run = mysqli_query($link, $query);
 
                             if(mysqli_num_rows($query_run) > 0)

@@ -570,8 +570,9 @@ if (isset($_POST['save_excuse_letter'])) {
                 $fileDestination = '../Uploads/' . $fileNameNew;
                 move_uploaded_file($fileTmpName, $fileDestination);
 
-                $query = "INSERT INTO `send_excuse_letter`(`Student_ID`, `Name`, `Strand`, `Year_Level`, `Section`, `Statement`, `Reason`, `Comments`, `Status`, `Proof_of_Absence`, `Start_Date`, `End_Date`) VALUES 
-                ('$student_id','$efirstname','$estrand','$eyrlvl','$esection','$edescription','$ereasons','$ecomments','$estatus','$fileNameNew','$estartdate','$eenddate')";
+                $query = "INSERT INTO `send_excuse_letter`(`Student_ID`, `Name`, `Strand`, `Year_Level`, `Section`, `Statement`, `Reason`, `Comments`, `Status`, `Proof_of_Absence`, `Start_Date`, `End_Date`, `Date_Issued`) VALUES 
+                ('$student_id','$efirstname','$estrand','$eyrlvl','$esection','$edescription','$ereasons','$ecomments','$estatus','$fileNameNew','$estartdate','$eenddate',now()); INSERT INTO `excuse letter`(`Student_ID`, `Names`, `Section`, `Year_Level`, `Description`, `Sent`, `Reason_for_Absence`, `Images`, `Status`, `Strand`, `Start_Date`, `End_Date`) VALUES
+                ('$student_id','$efirstname','$esection','$eyrlvl','$edescription',now(),'$ereasons','$fileNameNew','$estatus','$estrand','$estartdate','$eenddate')";
 
                 $query_run = mysqli_multi_query($link, $query);
                 if ($query_run) {
@@ -787,10 +788,10 @@ if (isset($_POST['accepted_excuse_letter'])) {
     $fileActualExt = strtolower(end($fileExt));
     $fileNameNew = uniqid('', true) . "." . $fileActualExt;
     $fileDestination = '../Uploads/' . $fileNameNew;
-
+    
     move_uploaded_file($fileTmpName, $fileDestination);
-    $query = "INSERT INTO `send_excuse_letter`(`Student_ID`, `Name`, `Year_Level`, `Strand`, `Section`, `Start_Date`, `End_Date`, `Statement`, `Comments`, `Status`, `Proof_of_Absence`) VALUES
-                ('$student_id','$efirstname','$eyrlvl','$estrand','$esection','$estartdate','$eenddate','$estatement','$ecomments','$estatus','$fileNameNew'); UPDATE `excuse letter` SET `Status`='$estatus' WHERE Excuse_Letter_ID='$excuseletter_id'";
+    $query = "INSERT INTO `send_excuse_letter`(`Student_ID`, `Name`, `Strand`, `Year_Level`, `Section`, `Statement`, `Comments`, `Status`, `Proof_of_Absence`, `Start_Date`, `End_Date`, `Date_Issued`) VALUES
+                ('$student_id','$efirstname','$estrand','$eyrlvl','$esection','$estatement','$ecomments','$estatus','$fileNameNew','$estartdate','$eenddate',now()); UPDATE `excuse letter` SET `Status`='$estatus' WHERE Excuse_Letter_ID='$excuseletter_id'";
 
     $query_run = mysqli_multi_query($link, $query);
     if ($query_run) {

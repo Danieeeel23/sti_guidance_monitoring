@@ -266,7 +266,7 @@ require 'config.php';
                                 <label for="Description" name ="Description">Description</label>
 
             <textarea id="statement" name="statement" rows="27" cols="130" style="margin-top: 25px; box-shadow: 5px 5px 5px rgb(139, 134, 134);">
-                <?php echo "I LOVE YOU RAIDEN SHOGUN PAKASALAN MO KO KAHIT MASUNGIT KA. I LOVE YOU MOMMY" ?>
+                
             </textarea>
                             </div>
                         </div>

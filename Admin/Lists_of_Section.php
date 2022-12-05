@@ -294,7 +294,7 @@
 			                var selected_values = employee.join(",");
 			                $.ajax({ 
                                 type: "POST",  
-                                url: "delete_subject_assigned.php",  
+                                url: "delete_section.php",  
                                 cache:false,  
                                 data: 'emp_id='+selected_values,  
                                 success: function(response) {	

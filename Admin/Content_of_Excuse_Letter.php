@@ -215,6 +215,7 @@ require 'config.php';
                                     <h6 id="modal_body"><strong>Comments:</strong></h6>
                                     <textarea id="ecomments" name="ecomments" rows="4" cols="47" style="resize: none;"></textarea>
                                     <input type="hidden" name="estatus" value="Rejected">
+                                    
                                     <input type="submit" class="btnn" name="rejected_excuse_letter" onClick="window.location.href=window.location.href" value="Send" style="width: 150px; height: 30px; margin-top: 20px; margin-bottom: -10px; margin-left: 260px; font-size: 15px;"> 
                                 </div> 
                             </div> 
