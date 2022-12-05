@@ -31,7 +31,7 @@ if (isset($_POST['save_attendance'])) {
 }
 
 //insert failing grades data
-if (isset($_POST['save_failing_grades'])) {
+if (isset($_POST['save_grades'])) {
     $classid = mysqli_real_escape_string($link, $_POST['classid']);
     $subjectid = mysqli_real_escape_string($link, $_POST['classid']);
     $studentids = explode(":", mysqli_real_escape_string($link, $_POST['studentid']));

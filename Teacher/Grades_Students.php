@@ -71,7 +71,7 @@ if (isset($currentsubjectid)) {
 
 <body>
     <div class="container">
-    <div class="navigation">
+        <div class="navigation">
             <ul>
                 <li><a href=""><span class="icon1"><img src="" alt=""></span></a></li>
                 <li>
@@ -125,7 +125,7 @@ if (isset($currentsubjectid)) {
 
         </div>
         <div class="main1">
-            
+
             <div class="title2">
                 <h1><?php echo "(", $currentsubject, ") ", $currentstrand, "-", $currentsection ?></h1>
                 <div class="bot">
