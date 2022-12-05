@@ -23,7 +23,7 @@ if (isset($_POST['save_attendance'])) {
 
     if ($query_run) {
         $_SESSION['message'] = "Attendance Created Successfully";
-        header("Location: Lists_of_Subjects.php");
+        header("Location: Attendance_Classes.php");
         exit(0);
     } else {
         echo "FAILED!";
@@ -31,7 +31,7 @@ if (isset($_POST['save_attendance'])) {
 }
 
 //insert failing grades data
-if (isset($_POST['save_failing_grades'])) {
+if (isset($_POST['save_grades'])) {
     $classid = mysqli_real_escape_string($link, $_POST['classid']);
     $subjectid = mysqli_real_escape_string($link, $_POST['classid']);
     $subjectname = mysqli_real_escape_string($link, $_POST['subjectname']);
@@ -112,6 +112,6 @@ if (isset($_POST['save_failing_grades'])) {
     }
 
     $_SESSION['message'] = $message;
-    header("Location: Lists_of_Failing_Grades.php");
+    header("Location: Grades_Classes.php");
     exit(0);
 }

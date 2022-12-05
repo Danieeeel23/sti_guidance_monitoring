@@ -63,7 +63,7 @@ if (isset($currentsubjectid)) {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="delete_script.js"></script>
     <link rel="stylesheet" href="ListStyle.css" type="text/css">
-    <title>Grades - Students</title>
+    <title>Attendance - Students</title>
     <style>
 
     </style>
@@ -71,7 +71,7 @@ if (isset($currentsubjectid)) {
 
 <body>
     <div class="container">
-        <div class="navigation">
+    <div class="navigation">
             <ul>
                 <li><a href=""><span class="icon1"><img src="" alt=""></span></a></li>
                 <li>
@@ -81,15 +81,15 @@ if (isset($currentsubjectid)) {
                     </a>
                 </li>
                 <li>
-                    <a href="Lists_of_Subjects.php">
+                    <a href="Attendance_Classes.php">
                         <span class="icon"><img src="Images/sidebar_menu/Edit Calendar.svg" alt=""></span>
                         <span class="title">Attendance</span>
                     </a>
                 </li>
                 <li>
-                    <a href="Lists_of_Failing_Grades.php">
+                    <a href="Grades_Classes.php">
                         <span class="icon"><img src="Images/sidebar_menu/Terms and Conditions.svg" alt=""></span>
-                        <span class="title">Record Failing <br> Grades</span>
+                        <span class="title">Grades</span>
                     </a>
                 </li>
                 <li>
@@ -104,7 +104,7 @@ if (isset($currentsubjectid)) {
             <span id="logo"><img src="images/sti_logo.png" alt=""></span>
             <div class="topbar">
                 <div class="toptitle">
-                    <h2>Grades</h2>
+                    <h2>Attendance</h2>
                 </div>
                 <div class="rightbar">
                     <div class="icons">
@@ -125,19 +125,10 @@ if (isset($currentsubjectid)) {
 
         </div>
         <div class="main1">
-            
             <div class="title2">
                 <h1><?php echo "(", $currentsubject, ") ", $currentstrand, "-", $currentsection ?></h1>
-                <div class="bot">
-                    <h3>Quarter: </h3>
-                    <select id="Quarter" class="Quarter" name="Quarter[]">
-                        <option value="1st">1st</option>
-                        <option value="2nd">2nd</option>
-                    </select>
-                </div>
+                <h1><?php echo date("l"), " ", date("Y/m/d") ?></h1>
             </div>
-
-
         </div>
     </div>
     <div class="card-header">
@@ -148,90 +139,29 @@ if (isset($currentsubjectid)) {
                         <th></th>
                         <th>First Name</th>
                         <th>Last Name</th>
-                        <th>Quarter</th>
-                        <th>Grades</th>
+                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
                     $query = "SELECT * FROM `student` WHERE Strand='$currentstrand' AND Section='$currentsection'";
                     $query_run = mysqli_query($link, $query);
+
                     if (mysqli_num_rows($query_run) > 0) {
                         $students = $query_run;
                         foreach ($query_run as $student) {
-                            $studentid = $student['Student_ID'];
-                            $query1 = "SELECT Quarter, Grades FROM `failing_grades` WHERE Student_ID = $studentid AND Class_ID = $currentclassid AND (Quarter ='1st' OR Quarter = '')";
-                            $query_run1 = mysqli_query($link, $query1);
-                            if (mysqli_num_rows($query_run1) > 0) {
-                                $grades = mysqli_fetch_array($query_run1);
-                                $grade = $grades['Grades'];
-                                $quarter = $grades['Quarter'];
-                            } else {
-                                $grade = "";
-                                $quarter = "";
-                            }
-
                     ?>
                             <tr>
                                 <td>
-                                    <input type="checkbox" class="emp_checkbox" data-emp-id="<?= $studentid; ?>">
+                                    <input type="checkbox" class="emp_checkbox" data-emp-id="<?= $student['Student_ID']; ?>">
                                 </td>
                                 <td><?= $student['First_Name']; ?></td>
-                                <td><?= $student['Last_Name'] ?></td>
-                                <td><?= $quarter ?>
-                                </td>
+                                <td><?= $student['Last_Name']; ?></td>
                                 <td>
-                                    <input type="number" name="Grades1st[]" min="60" max="99" data-maxlength="2" oninput="this.value=this.value.slice(0,this.dataset.maxlength)" value="<?= $grade ?>">
-                                </td>
-                            </tr>
-                    <?php
-                        }
-                    } else {
-                    }
-                    ?>
-
-                </tbody>
-            </table>
-            <table id="myDataTable2" class="hover">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Quarter</th>
-                        <th>Grades</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $query = "SELECT * FROM `student` WHERE Strand='$currentstrand' AND Section='$currentsection'";
-                    $query_run = mysqli_query($link, $query);
-                    if (mysqli_num_rows($query_run) > 0) {
-                        $students = $query_run;
-                        foreach ($query_run as $student) {
-                            $studentid = $student['Student_ID'];
-                            $query1 = "SELECT Quarter, Grades FROM `failing_grades` WHERE Student_ID = $studentid AND Class_ID = $currentclassid AND Quarter='2nd'";
-                            $query_run1 = mysqli_query($link, $query1);
-                            if (mysqli_num_rows($query_run1) > 0) {
-                                $grades = mysqli_fetch_array($query_run1);
-                                $grade = $grades['Grades'];
-                                $quarter = $grades['Quarter'];
-                            } else {
-                                $grade = "";
-                                $quarter = "";
-                            }
-
-                    ?>
-                            <tr>
-                                <td>
-                                    <input type="checkbox" class="emp_checkbox" data-emp-id="<?= $studentid; ?>">
-                                </td>
-                                <td><?= $student['First_Name']; ?></td>
-                                <td><?= $student['Last_Name'] ?></td>
-                                <td><?= $quarter ?>
-                                </td>
-                                <td>
-                                    <input type="number" name="Grades2nd[]" min="60" max="99" data-maxlength="2" oninput="this.value=this.value.slice(0,this.dataset.maxlength)" value="<?= $grade ?>">
+                                    <select id="Status" class="Status" name="Status[]">
+                                        <option value="Absent">Absent</option>
+                                        <option value="Present">Present</option>
+                                    </select>
                                 </td>
                             </tr>
                     <?php
@@ -246,10 +176,9 @@ if (isset($currentsubjectid)) {
                 <div class="bot">
                     <span class="create">
                         <i class="fa fa-plus"></i>
-                        <input type="hidden" name="subjectname" value="<?= $currentsubject; ?>">
+
                         <input type="hidden" name="classid" value="<?= $currentclassid; ?>">
                         <input type="hidden" name="subjectid" value="<?= $currentsubjectid; ?>">
-                        <input type="hidden" name="selectedquarter" id="selectedquarter" value="1st">
                         <input type="hidden" name="studentid" value="<?php
                                                                         foreach ($students as $student) {
                                                                             echo $student['Student_ID'], ":";
@@ -265,7 +194,7 @@ if (isset($currentsubjectid)) {
                                                                         echo $student['Last_Name'], ":";
                                                                     }
                                                                     ?>">
-                        <input type="submit" class="btn btn-primary btn-lg" name="save_failing_grades" value="Submit Grades">
+                        <input type="submit" class="btn btn-primary btn-lg" name="save_attendance" value="Submit Report">
 
                     </span>
                     <!-- <form action="code.php" method="POST"> -->
@@ -283,43 +212,7 @@ if (isset($currentsubjectid)) {
                 lengthMenu: [
                     [5, 10, 15, 20],
                     [5, 10, 15, 20]
-                ],
-                // columnDefs: [{
-                //     target: 3,
-                //     visible: false,
-                // }]
-            });
-            $('#myDataTable2').DataTable({
-                pageLength: 5,
-                lengthMenu: [
-                    [5, 10, 15, 20],
-                    [5, 10, 15, 20]
-                ],
-                // columnDefs: [{
-                //     target: 3,
-                //     visible: false,
-                // }]
-            });
-            // var table = $('#myDataTable').DataTable();
-
-            // // #myInput is a <input type="text"> element
-            // $('#Quarter').on('change', function() {
-            //     table
-            //         .columns(3)
-            //         .search(this.value)
-            //         .draw();
-            // });
-            $('#myDataTable2_wrapper').hide();
-            $('#Quarter').on('change', function() {
-                if (this.value == "1st") {
-                    $('#myDataTable2_wrapper').hide();
-                    $('#myDataTable_wrapper').show();
-                    $('#selectedquarter').val("1st");
-                } else {
-                    $('#myDataTable_wrapper').hide();
-                    $('#myDataTable2_wrapper').show();
-                    $('#selectedquarter').val("2nd");
-                }
+                ]
             });
         });
     </script>
