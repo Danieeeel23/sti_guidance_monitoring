@@ -143,7 +143,7 @@ require 'config.php';
                         $classes = mysqli_fetch_array($classquery_run);
 
                         $subjectid = $classes['Subject_ID'];
-                        $subjectquery = "SELECT * FROM subject WHERE Subject_ID = $subjectid";
+                        $subjectquery = "SELECT * FROM `subject` WHERE Subject_ID = '$subjectid'";
                         $subjectquery_run = mysqli_query($link, $subjectquery);
                         $subjects = mysqli_fetch_array($subjectquery_run);
                 ?>

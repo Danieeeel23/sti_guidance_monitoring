@@ -34,6 +34,7 @@ if (isset($_POST['save_attendance'])) {
 if (isset($_POST['save_failing_grades'])) {
     $classid = mysqli_real_escape_string($link, $_POST['classid']);
     $subjectid = mysqli_real_escape_string($link, $_POST['classid']);
+    $subjectname = mysqli_real_escape_string($link, $_POST['subjectname']);
     $studentids = explode(":", mysqli_real_escape_string($link, $_POST['studentid']));
     $firstnames = explode(":", mysqli_real_escape_string($link, $_POST['firstname']));
     $lastnames = explode(":", mysqli_real_escape_string($link, $_POST['lastname']));
@@ -93,13 +94,13 @@ if (isset($_POST['save_failing_grades'])) {
                 } else {
                     $status = "Passed";
                 }
-                $query = "INSERT INTO `failing_grades`(`Class_ID`, `Student_ID`, `First_Name`, `Last_Name`, `Quarter`, `Grades`, `Status` ) VALUES 
-             ('$classid','$studentids[$i]','$firstnames[$i]','$lastnames[$i]', '1st', '$grades[$i]', '$status')";
+                $query = "INSERT INTO `failing_grades`(`Class_ID`, `Student_ID`, `First_Name`, `Last_Name`, `Subject_Name`, `Quarter`, `Grades`, `Status`) VALUES 
+             ('$classid','$studentids[$i]','$firstnames[$i]','$lastnames[$i]', '$subjectname', '1st', '$grades[$i]', '$status')";
                 $query_run = mysqli_multi_query($link, $query);
 
                 //Set default values for 2nd quarter
-                $query1 = "INSERT INTO `failing_grades`(`Class_ID`, `Student_ID`, `First_Name`, `Last_Name`, `Quarter`, `Grades`, `Status` ) VALUES 
-             ('$classid','$studentids[$i]','$firstnames[$i]','$lastnames[$i]', '2nd', 0, '$status')";
+                $query1 = "INSERT INTO `failing_grades`(`Class_ID`, `Student_ID`, `First_Name`, `Last_Name`, `Subject_Name`, `Quarter`, `Grades`, `Status`) VALUES 
+             ('$classid','$studentids[$i]','$firstnames[$i]','$lastnames[$i]', '$subjectname', '2nd', 0, '$status')";
                 $query_run1 = mysqli_multi_query($link, $query1);
             }
             if ($query_run) {

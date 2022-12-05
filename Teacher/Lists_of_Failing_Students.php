@@ -246,7 +246,7 @@ if (isset($currentsubjectid)) {
                 <div class="bot">
                     <span class="create">
                         <i class="fa fa-plus"></i>
-
+                        <input type="hidden" name="subjectname" value="<?= $currentsubject; ?>">
                         <input type="hidden" name="classid" value="<?= $currentclassid; ?>">
                         <input type="hidden" name="subjectid" value="<?= $currentsubjectid; ?>">
                         <input type="hidden" name="selectedquarter" id="selectedquarter" value="1st">
