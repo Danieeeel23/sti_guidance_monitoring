@@ -98,16 +98,7 @@ if (isset($_POST['save_grades'])) {
             }
             //Insert Function
             for ($i = 0; $i < count($studentids) - 1; $i++) {
-                //Wag mong subukang kumulang sa 60
-                if ($grades[$i] < 60) {
-                    $grades[$i] = 60;
-                }
-                //o sumobra sa 99 
-                elseif ($grades[$i] > 99) {
-                    $grades[$i] = 99;
-                } else {
-                    $grades[$i] = $grades[$i];
-                }
+
                 //grades data validation
                 if ($grades[$i] < 75) {
                     $status = "Failed";
@@ -121,13 +112,13 @@ if (isset($_POST['save_grades'])) {
 
                 //Set default values for 2nd quarter
                 $query1 = "INSERT INTO `failing_grades`(`Class_ID`, `Student_ID`, `First_Name`, `Last_Name`, `Subject_Name`, `Quarter`, `Grades`, `Status`) VALUES 
-             ('$classid','$studentids[$i]','$firstnames[$i]','$lastnames[$i]', '$subjectname', '2nd', 0, '$status')";
+             ('$classid','$studentids[$i]','$firstnames[$i]','$lastnames[$i]', '$subjectname', '2nd', 60, '$status')";
                 $query_run1 = mysqli_multi_query($link, $query1);
             }
             if ($query_run && $query_run1) {
                 $message = "Successfully Inserted Grades";
             } else {
-                $message = "Failed to Insert Students!";
+                $message = "Failed to Insert Students! ";
             }
         }
     }
