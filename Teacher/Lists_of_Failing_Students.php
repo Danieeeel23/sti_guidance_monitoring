@@ -159,7 +159,7 @@ if (isset($currentsubjectid)) {
                         $students = $query_run;
                         foreach ($query_run as $student) {
                             $studentid = $student['Student_ID'];
-                            $query1 = "SELECT Quarter, Grades FROM `failing_grades` WHERE Student_ID = $studentid AND Class_ID = $currentclassid AND Quarter ='1st'";
+                            $query1 = "SELECT Quarter, Grades FROM `failing_grades` WHERE Student_ID = $studentid AND Class_ID = $currentclassid AND (Quarter ='1st' OR Quarter = '')";
                             $query_run1 = mysqli_query($link, $query1);
                             if (mysqli_num_rows($query_run1) > 0) {
                                 $grades = mysqli_fetch_array($query_run1);
