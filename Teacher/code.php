@@ -111,6 +111,6 @@ if (isset($_POST['save_failing_grades'])) {
     }
 
     $_SESSION['message'] = $message;
-    header("Location: Lists_of_Failing_Grades");
+    header("Location: Lists_of_Failing_Grades.php");
     exit(0);
 }

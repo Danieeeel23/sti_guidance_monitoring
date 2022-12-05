@@ -125,10 +125,11 @@ if (isset($currentsubjectid)) {
 
         </div>
         <div class="main1">
+            
             <div class="title2">
                 <h1><?php echo "(", $currentsubject, ") ", $currentstrand, "-", $currentsection ?></h1>
                 <div class="bot">
-                    <h3>Quarter: <?= $_SESSION['message'] ?> </h3>
+                    <h3>Quarter: </h3>
                     <select id="Quarter" class="Quarter" name="Quarter[]">
                         <option value="1st">1st</option>
                         <option value="2nd">2nd</option>
