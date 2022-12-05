@@ -88,8 +88,15 @@ if (isset($_POST['save_grades'])) {
             }
             //Insert Function
             for ($i = 0; $i < count($studentids) - 1; $i++) {
-                if (!isset($grades[$i])) {
-                    $grades[$i] = 0;
+                //Wag mong subukang kumulang sa 60
+                if ($grades[$i] < 60) {
+                    $grades[$i] = 60;
+                }
+                //o sumobra sa 99 
+                elseif ($grades[$i] > 99) {
+                    $grades[$i] = 99;
+                } else {
+                    $grades[$i] = $grades[$i];
                 }
                 //grades data validation
                 if ($grades[$i] < 75) {
