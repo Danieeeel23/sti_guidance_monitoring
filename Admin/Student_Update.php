@@ -318,13 +318,16 @@ require 'config.php';
 
                                         <label for="Firstname">Firstname</label> <span id="btk"> <input type="text" placeholder="" name="pfirstname" value="<?= $parent['First_Name']; ?>"></span>
                                         <label for="MI">MI</label> <span id="btk"> <input type="text" placeholder="" name="pmiddlename" value="<?= $parent['Middle_Name']; ?>"></span>
+
+                                        <br>
+
                                         <label for="Surname">Surname</label> <span id="btk"> <input type="text" placeholder="" name="plastname" value="<?= $parent['Last_Name']; ?>"></span></br>
 
                                         <br>
 
                                         <label for="Role"></label> <span id="btk"> <input type="hidden" placeholder="" name="prole" value="Parent" readonly></span>
                                     </div>
-                                    <div class="bottom">
+                                    <div class="right">
                                         <div class="bsinfo1">
                                             <h4><i class="fa fa-phone" style="font-size:15px"></i>Contact Information</h4>
 
