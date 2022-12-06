@@ -1,0 +1,626 @@
+@import url('https://fonts.goggleapis.com/css?family=poppins:200,300,400,500,600,700,800,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    overflow-x: hidden;
+    background: white;
+   
+}
+.container{
+    position: relative;
+    width: 100%;
+    scroll-padding-top: 20px; 
+   
+}
+.navigation{
+    position:fixed;
+    width: 100px;
+    height: 100%;
+    background: rgb(54, 50, 104);
+    transition: 05s;
+    overflow: hidden;  
+ 
+}
+.navigation ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.navigation ul li{
+    position: relative;
+    width: 100%;
+    list-style: none;
+}
+.navigation ul li:hover{
+    background: rgb(217, 217, 217);  
+    
+}
+
+.navigation ul li:nth-child(1)
+{
+
+    margin-bottom: 20px;
+    
+}
+.navigation ul li:nth-child(1):hover{
+    background: transparent;
+
+}
+.navigation ul li a{
+    position: relative;
+    margin: 10px;
+    display: block;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    
+    text-decoration: none;
+    color: white;
+}
+.navigation ul li a .icon{
+    position: relative;
+    display: block;
+    margin-left: 15px;
+    padding-bottom: 53px;
+    min-width: 20px;
+    height: 20px;
+    line-height: 10px;
+    text-align: center;
+}
+.navigation ul li a .icon img{
+    width: 30px;
+}
+
+.navigation ul li a .title{
+    position: absolute;
+    display: block;
+    font-size: 12px;
+    margin-left: -10px;
+    padding-top: 0px;
+    height: 50px;
+    text-align: center;
+    line-height: 30px;
+    white-space: nowrap;
+}
+.navigation ul li a .title1{
+    position: absolute;
+    display: block;
+    font-size: 12px;
+    margin-left: 0px;
+    padding: 0 13px;
+    height: 60px;
+    text-align: center;
+    line-height: 30px;
+    white-space: nowrap;
+}
+.navigation ul li a .title2{
+    position: absolute;
+    display: block;
+    font-size: 12px;
+    margin-left: 0px;
+    padding: 0 2px;
+    height: 60px;
+    text-align: center;
+    line-height: 30px;
+    white-space: nowrap;
+}
+.navigation ul li a .title3{
+    position: absolute;
+    display: block;
+    font-size: 12px;
+    margin-left: 0px;
+    padding: 0 5px;
+    height: 60px;
+    text-align: center;
+    line-height: 30px;
+    white-space: nowrap;
+}
+.navigation ul li a .title4{
+    position: absolute;
+    display: block;
+    font-size: 12px;
+    margin-left: 0px;
+    padding: 0 10px;
+    height: 60px;
+    text-align: center;
+    line-height: 30px;
+    white-space: nowrap;
+}
+
+.main{
+    position: fixed;
+    background: rgb(47, 79, 192);
+    width: 100%;
+    height: 50px;
+    display: inline-flex;
+}
+.topbar{
+    display: flex;
+    position: relative;
+   
+}
+.main .toptitle{
+    position: fixed;
+    display: inline;
+    color: white;
+    align-items: center;
+    margin-top: -5px;
+    margin-left: 10px;
+    margin-right: 200px;
+    padding: 15px;
+    width: 230px;
+    
+}
+.toptitle h2{
+    display: inline;
+    font-size: 25px;
+    margin-top: -8px;
+    width: 170px;
+   
+}
+#logo img{
+    margin:10px 30px 10px 25px;
+    width: 50px;
+}
+.icons{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin-left: 1080px;
+    align-items: center;
+    padding-right: 15px;
+    color: white;
+    
+}
+.icons i{
+    width: 30px;
+    text-align: center;
+}
+
+.icons1{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    color: white;
+    
+}
+.icons1 i{
+    margin-left: 10px;
+    align-items: center;
+}
+.icons1 h3{
+    font-size: 18px;
+    align-items: center;
+    margin-top: -5px;
+    margin-left: -10px;
+    
+}
+.cardbox{
+    margin-left: 100px;
+    margin-top: 30px;
+    width: 30px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    
+   
+}
+.cardbox .card{
+    border-left: solid;
+    box-shadow: 5px 5px #ddd6d6;
+    border-color: lightskyblue;
+    border-width: 5px;
+    background: white;
+    padding: 20px;
+    width: 270px;
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+}
+.cardbox :hover{
+    background: lightskyblue;
+    color: white;
+}
+.card{
+    margin: 10px;
+}
+.cardbox .card .cardname{   
+    margin-left: -120px;
+    font-size: 20px;
+    font-family: 'Bebas Neue';
+}
+.cardbox .card .numbers{
+    margin-left: -120px;
+    font-size: 30px;
+    font-family: 'Bebas Neue';  
+}
+
+.cardbox .card .iconss{
+    margin-left: 10px;
+    align-items: center;
+}
+.mainn{
+    margin-left: 130px;
+}
+.boddy{
+    background: rgb(242, 242, 242);
+    border-style: solid;
+    border-width: 0.7px;
+    border-color: #ddd6d6;
+    box-shadow: 5px 5px #ddd6d6;
+    width: 850px;
+    height: 150px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+
+}
+.cardbody h2{
+    margin-left: 20px;
+    padding: 10px;
+}
+.cardbody2 h2{
+    margin-left: 20px;
+    padding: 10px;
+}
+.cardbody3 h2{
+    margin-left: 20px;
+    padding: 10px;
+}
+.cardbody a{
+    position: absolute;
+    right: 420px;
+    top: 90px;
+}
+.pictures{
+    margin-left: 0px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.pictures .request img{
+    margin-top: -20px;
+    margin-left: 0px;
+    padding: 0px;
+   width: 290px;
+   height: 220px;
+}
+.pictures .rejected img{
+    margin-top: -20px;
+    margin-left: -13px;
+   width: 290px;
+   height: 220px;
+}
+.pictures .accepted img{
+    margin-top: -20px;
+    margin-left: -15px;
+    width: 290px;
+    height: 220px;
+}
+ .pictures .request h3{
+    padding: 15px;
+    text-align: left;
+    margin-top: -50px;
+    margin-left: 10px;
+    margin-bottom: 30px;
+    width: 269px;
+    height: 110px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: lightseagreen;
+    color: white;
+ }
+.request h4{
+    background-color: white;
+    font-size:smaller;
+    color: black;
+    padding: 10px;
+    width: 100px;
+    text-align: center;
+    margin-top: -82px;
+    margin-left: 90px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+}
+.request h4:hover{
+    background-color: rgb(14, 139, 133);
+    color: white;
+}
+.request .fa{
+    padding-left: 5px;
+}
+
+ .pictures .rejected h3{
+    padding: 15px;
+    text-align: left;
+    margin-top: -50px;
+    margin-left: -2px;
+    margin-bottom: 30px;
+    width: 268px;
+    height: 110px;
+    background-color: lightcoral;
+    color: white;
+ }
+ .rejected h4{
+    background-color: white;
+    font-size:smaller;
+    color: black;
+    padding: 10px;
+    width: 100px;
+    text-align: center;
+    margin-top: -82px;
+    margin-left: 90px;
+    border-radius: 20px;
+}
+.rejected h4:hover{
+    background-color: rgb(231, 87, 87);
+    color: white;
+}
+.rejected .fa{
+    padding-left: 5px;
+}
+ .pictures .accepted h3{
+    padding: 15px;
+    text-align: left;
+    margin-top: -50px;
+    margin-left: -3px;
+    margin-bottom: 30px;
+    width: 268px;
+    height: 110px;
+    background-color: lightgreen;
+    color: white;
+ }
+ .accepted h4{
+    background-color: white;
+    font-size:smaller;
+    color: black;
+    padding: 10px;
+    width: 100px;
+    text-align: center;
+    margin-top: -82px;
+    margin-left: 90px;
+    border-radius: 20px;
+}
+.accepted h4:hover{
+    background-color: rgb(89, 204, 89);
+    color: white;
+}
+.accepted .fa{
+    padding-left: 5px;
+}
+
+.announce{
+    margin-top: 30px;
+    padding-top: 20px;
+    border-style: solid;
+    border-width: 0.7px;
+    border-color: #ddd6d6;
+    background: white;
+    box-shadow: 5px 5px #ddd6d6;
+    width: 850px;
+    
+}
+
+.anoun{
+    margin-left: 10px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.ongoing{
+    background-color: white;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: lightgray;
+    margin-left: 5px;
+    margin-bottom: 30px;
+    padding: 30px;
+    width: 400px;
+    height: 200px;
+
+}
+.ongoing p{
+    padding: 20px;
+    font-style:italic;
+    margin-left: -30px;
+    margin-top: -30px;
+    width: 400px;
+    border-radius: 10px 10px 0 0;
+    background-color: lightcoral;   
+    color: white;
+}
+.expired{
+    background-color: white;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: lightgray;
+    margin-left: 20px;
+    padding: 20px;
+    width: 400px;
+    height: 200px;
+}
+.expired p{
+    padding: 20px;
+    width: 400px;
+    margin-left: -20px;
+    margin-top: -20px;
+    border-radius: 10px 10px 0 0;
+    background-color: lightskyblue;
+    color: white;
+}
+.cement{
+    margin-left: 870px;
+    margin-top: -570px;
+    background-color: white;
+    box-shadow: 5px 5px #ddd6d6;
+    border-style: solid;
+    border-width: 0.7px;
+    border-color: #ddd6d6;
+    width: 330px;
+    height: 580px; 
+}
+.cement p{
+    padding: 20px;
+    font-size: 20px;
+    
+}
+
+.table1 tr,
+.table1 td {
+    text-align: left;
+    padding: 10px 10px 10px 30px;
+}
+.table2 tr,
+.table2 td {
+    text-align: left;
+    padding: 10px 10px 10px 30px; 
+}
+.cement p{
+    font-size: 15px;
+
+}
+.cement p .fa{
+    padding-right: 10px;
+}
+.cement .date1{
+    margin-left: 200px;
+    margin-top: -30px;
+}
+.subjects{
+    background-color: white;
+    padding: 30px 0px 20px 20px;
+    font-size: 15px;
+    width: 848px;
+    height: 90px;
+}
+.pictures .date{
+    margin-left: 700px;
+    margin-top: -20px;
+    font-size: 15px;
+}
+
+.subjects1{
+    background-color: white;
+    padding: 5px 0px 5px 20px;
+    width: 848px;
+    height: 50px;
+    margin-top: 20px;
+}
+.mainn2 .boddy{
+    background: rgb(242, 242, 242);
+    border-style: solid;
+    border-width: 0.7px;
+    border-color: #ddd6d6;
+    box-shadow: 5px 5px #ddd6d6;
+    width: 850px;
+    height: 150px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+.mainn3 .boddy{
+    background: rgb(242, 242, 242);
+    border-style: solid;
+    border-width: 0.7px;
+    border-color: #ddd6d6;
+    box-shadow: 5px 5px #ddd6d6;
+    width: 850px;
+    height: 150px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+.cardbody2 a{
+    position: absolute;
+    right: 420px;
+    top: 290px;
+}
+.cardbody3 a{
+    position: absolute;
+    right: 420px;
+    top: 490px;
+}
+.subjects{
+    background-color: white;
+    padding: 20px 0px 5px 30px;
+    width: 848px;
+    height: 80px;
+    margin-top: 20px;
+}
+
+.dropdown1{
+    position: relative;
+    margin-top: -30px;
+    margin-bottom: 30px;
+ }
+ .dropdown-user{
+    top: 0;
+ }
+.dropdown1 .dropbtn1 {
+    text-decoration: none;
+    color: white;
+   }
+   
+   .dropdown-user {
+        display: none;
+        min-width: 100px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+   }
+   
+   .dropdown-user a { 
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display:flex;
+        text-align: right;
+    }
+   
+   .dropdown-user a:hover {
+        background-color: white;
+        color:#1f386f;
+    
+   }
+   
+   .dropdown1:hover .dropdown-user {
+        z-index: 10;
+        display:inline-block;
+        background-color: #1f386f;
+   }
+
+   .dropbtn {
+    background: rgb(47, 79, 192);
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    margin-left: -20px;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  .dropdown:hover .dropbtn {background: rgb(47, 79, 192);}
