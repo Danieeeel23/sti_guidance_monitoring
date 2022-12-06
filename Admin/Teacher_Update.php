@@ -209,9 +209,9 @@ if(window.history.replaceState)
                         <div class="bsinfo1" >
                                 <h4><i class="fa fa-phone" style="font-size:15px"></i>Contact Information</h4>
                                 <div class="info">
-                                <label for="Telephone">Telephone Number</label> <span id="btk"> <input type="text" placeholder="" name="ttelno" value="<?= $teacher['Telephone_No']; ?>"></span>
+                                <label for="Telephone">Telephone Number</label> <span id="btk"> <input type="number" placeholder="" name="ttelno" value="<?= $teacher['Telephone_No']; ?>"></span>
                                 <br>
-                                    <label for="Mobile">Mobile Number</label> <span id="btk"> <input type="text" placeholder="" name="tmobileno" value="<?= $teacher['Mobile_No']; ?>"></span>
+                                    <label for="Mobile">Mobile Number</label> <span id="btk"> <input type="number" placeholder="" name="tmobileno" value="<?= $teacher['Mobile_No']; ?>"></span>
                                     
                             
                             </div>
@@ -223,10 +223,10 @@ if(window.history.replaceState)
                                 <h4><i class="fa fa-map-marker" style="font-size:15px"> </i>Address</h4>
                                 <div class="info">
                                 <label for="Address">Address</label> <span id="btk"> <input type="text" placeholder="" name="taddress" value="<?= $teacher['Address']; ?>"></span>
-                                    <label for="City">City</label> <span id="btk"> <input type="text" placeholder="" name="tcity" value="<?= $teacher['City']; ?>"></span>
+                                    <label for="City">Municipality</label> <span id="btk"> <input type="text" placeholder="" name="tcity" value="<?= $teacher['City']; ?>"></span>
                             
                             <br><label for="Province">Province</label> <span id="btk"> <input type="text" placeholder="" name="tprovince" value="<?= $teacher['Province']; ?>"></span>
-                            <label for="Postcode">Postcode</label> <span id="btk"> <input type="text" placeholder="" name="tpostcode" value="<?= $teacher['Postcode']; ?>"></span>
+                            <label for="Postcode">Postcode</label> <span id="btk"> <input type="number" placeholder="" name="tpostcode" value="<?= $teacher['Postcode']; ?>"></span>
                             </div>
                     
 

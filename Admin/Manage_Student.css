@@ -278,6 +278,7 @@ input[type=submit]{
     border-radius: 4px;
     box-sizing: border-box;
   }
+  
   #sea{
     margin-left: 10px;
     width: 100%;
@@ -414,6 +415,7 @@ input[type=submit]{
     border-radius: 4px;
     box-sizing: border-box;
   }
+ 
 .info input[type=date], select :nth-child(2) {
     width: 100px;
     padding: 12px 10px;
@@ -546,7 +548,7 @@ input[type=submit]{
 .info label[for=City]{
     font-size: 0.9rem;
     padding: 0px 1px;
-    margin-left: 20px;
+    margin-left: -10px;
     margin-right: -10px;
     margin-top: -100px;
 }
@@ -669,6 +671,26 @@ input[type=submit]{
     box-sizing: border-box;
   }
   .info input[type=text], select :nth-child(2) {
+    width: 130px;
+    height: 25px;
+    padding: 12px 10px;
+    margin: 20px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .info input[type=email], select :nth-child(2) {
+    width: 130px;
+    height: 25px;
+    padding: 12px 10px;
+    margin: 20px 50px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .info input[type=number], select :nth-child(2) {
     width: 130px;
     height: 25px;
     padding: 12px 10px;
@@ -817,4 +839,16 @@ select.Violation2{
     border: 1px solid rgb(189, 185, 185);
     width: 100px;
     height: 20px;    
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }

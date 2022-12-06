@@ -109,9 +109,9 @@ if(window.history.replaceState)
                         <h4><i class='fa fa-user-circle'></i>Basic Information</h4>
                         <div class="info">
                            <br>
-                         <label for="Firstname">Firstname</label> <span id="btk"> <input type="text" placeholder="" name="pfirstname" ></span>
+                         <label for="Firstname">Firstname<span class="asterisk"> *</span></label>  <span id="btk"> <input type="text" placeholder="" name="pfirstname" required></span>
                       <label for="MI">MI</label> <span id="btk"> <input type="text" placeholder="" name="pmiddlename"></span>
-                           <label for="Surname">Surname</label> <span id="btk"> <input type="text" placeholder="" name="plastname"></span>
+                           <label for="Surname">Surname<span class="asterisk"> *</span></label> <span id="btk"> <input type="text" placeholder="" name="plastname" required></span>
                            <br>
                            
                            <label for="Gender">Parents</label>
@@ -119,16 +119,16 @@ if(window.history.replaceState)
                           <input type="radio" name="pgender" value="Father">Father
                           <input type="radio" name="pgender" value="Guardian">Guardian
                       <br>
-                       <label for="Email">Email</label> <span id="btk"> <input type="text1" placeholder="" name="pemail" required></span>
+                       <label for="Email">Email<span class="asterisk"> *</span></label> <span id="btk"> <input type="email" placeholder="" name="pemail" required></span>
                            <label for="Role"></label> <span id="btk"> <input type="hidden" placeholder="" name="prole" value="Parent" readonly></span>
                  
                         </div>
                        
                         <div class="info">
                            
-                         <label for="Firstname">Firstname</label> <span id="btk"> <input type="text" placeholder="" name="tfirstname" ></span>
+                         <label for="Firstname">Firstname<span class="asterisk"> *</span></label> <span id="btk"> <input type="text" placeholder="" name="tfirstname" required></span>
                       <label for="MI">MI</label> <span id="btk"> <input type="text" placeholder="" name="tmiddlename"></span>
-                           <label for="Surname">Surname</label> <span id="btk"> <input type="text" placeholder="" name="tlastname"></span>
+                           <label for="Surname">Surname<span class="asterisk"> *</span></label> <span id="btk"> <input type="text" placeholder="" name="tlastname" required></span>
                            <br>
                            
                            <label for="Gender">Parents</label>
@@ -149,9 +149,9 @@ if(window.history.replaceState)
                 <div class="bsinfo1" >
                         <h4><i class="fa fa-phone" style="font-size:15px"></i>Contact Information</h4>
                         <div class="info">
-                           <label for="Telephone">Telephone Number</label> <span id="btk"> <input type="text" placeholder="" name="ptelno"></span>
+                           <label for="Telephone">Telephone Number</label> <span id="btk"> <input type="number" placeholder="" name="ptelno"></span>
                            <br>
-                            <label for="Mobile">Mobile Number</label> <span id="btk"> <input type="text" placeholder="" name="pmobileno"></span>
+                            <label for="Mobile">Mobile Number</label> <span id="btk"> <input type="number" placeholder="" name="pmobileno"></span>
                       
                        
                     </div>
@@ -163,10 +163,10 @@ if(window.history.replaceState)
                         <h4><i class="fa fa-map-marker" style="font-size:15px"> </i>Address</h4>
                         <div class="info">
                            <label for="Address">Address</label> <span id="btk"> <input type="text" placeholder="" name="paddress"></span>
-                            <label for="City">City</label> <span id="btk"> <input type="text" placeholder="" name="pcity" ></span>
+                            <label for="City">Municipality</label> <span id="btk"> <input type="text" placeholder="" name="pcity" ></span>
                       
                       <br><label for="Province">Province</label> <span id="btk"> <input type="text" placeholder="" name="pprovince"></span>
-                       <label for="Postcode">Postcode</label> <span id="btk"> <input type="text" placeholder="" name="ppostcode"></span>
+                       <label for="Postcode">Postcode</label> <span id="btk"> <input type="number" placeholder="" name="ppostcode"></span>
                     </div>
                  
                 </div>

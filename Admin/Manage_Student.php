@@ -144,10 +144,49 @@ session_start();
 
                     <br>
 
-                    <label for="Year">Year Level</label> <span id="btk"> <input type="text" placeholder="" name="yrlvl"></span>
+                    <label for="Year">Year Level</label><span class="asterisk"> *</span>
+                    <select class="Strand" placeholder="" name="yrlvl" required>
+                        <option value="0">Choose Year Level</option>
+                        <?php
+                        $link = mysqli_connect("localhost", "root", "", "sti guidance monitoring");
+                        $query = "SELECT * FROM `year_level`";
+                        $query_run = mysqli_query($link, $query);
+
+                        if (mysqli_num_rows($query_run) > 0) {
+                            foreach ($query_run as $yrlvl) {
+                        ?>
+                                <option value="<?= $yrlvl['Year_Level']; ?>"><?= $yrlvl['Year_Level']; ?></option> <br>
+                        <?php
+                            }
+                        } else {
+                            echo "No Year Level Found";
+                        }
+                        ?>
+                    </select>
+
+                    <label for="Strand">Course/Strand</label><span class="asterisk"> *</span>
+                    <select class="Strand" placeholder="" name="Strand" required>
+                        <option value="0">Choose Course/Strand</option>
+                        <?php
+                        $link = mysqli_connect("localhost", "root", "", "sti guidance monitoring");
+                        $query = "SELECT * FROM `strand`";
+                        $query_run = mysqli_query($link, $query);
+
+                        if (mysqli_num_rows($query_run) > 0) {
+                            foreach ($query_run as $strand) {
+                        ?>
+                                <option value="<?= $strand['Name']; ?>"><?= $strand['Name']; ?></option> <br>
+                        <?php
+                            }
+                        } else {
+                            echo "No Teacher Found";
+                        }
+                        ?>
+                    </select>
                     <!-- <label for="Section">Section</label> <span id="btk"> <input type="text" placeholder="" name="section"></span> -->
-                    <label for="Section">Section</label>
-                    <select class="Strand" placeholder="" name="Section">
+
+                    <label for="Section">Section</label><span class="asterisk"> *</span>
+                    <select class="Strand" placeholder="" name="Section" required>
                         <option value="0">Choose Section</option>
                         <?php
                         $link = mysqli_connect("localhost", "root", "", "sti guidance monitoring");
@@ -166,27 +205,6 @@ session_start();
                         ?>
                     </select>
 
-                    <br>
-
-                    <label for="Strand">Course/Strand</label>
-                    <select class="Strand" placeholder="" name="Strand">
-                        <option value="0">Choose Course/Strand</option>
-                        <?php
-                        $link = mysqli_connect("localhost", "root", "", "sti guidance monitoring");
-                        $query = "SELECT * FROM `strand`";
-                        $query_run = mysqli_query($link, $query);
-
-                        if (mysqli_num_rows($query_run) > 0) {
-                            foreach ($query_run as $strand) {
-                        ?>
-                                <option value="<?= $strand['Name']; ?>"><?= $strand['Name']; ?></option> <br>
-                        <?php
-                            }
-                        } else {
-                            echo "No Teacher Found";
-                        }
-                        ?>
-                    </select>
                     <label for="Role"></label> <span id="btk"> <input type="hidden" placeholder="" name="role" value="Student" readonly></span>
                     <label for="Role"></label> <span id="btk"> <input type="hidden" placeholder="" name="credential" readonly></span>
                 </div>
@@ -199,11 +217,11 @@ session_start();
     <div class="bsinfo1">
         <h4><i class="fa fa-phone" style="font-size:15px"></i>Contact Information</h4>
         <div class="info">
-            <label for="Telephone">Telephone Number</label> <span id="btk"> <input type="text" placeholder="" name="telno"></span>
+            <label for="Telephone">Telephone Number</label> <span id="btk"> <input type="number" placeholder="" name="telno"></span>
             <br>
-            <label for="Mobile">Mobile Number</label> <span id="btk"> <input type="text" placeholder="" name="mobileno"></span>
+            <label for="Mobile">Mobile Number</label> <span id="btk"> <input type="number" placeholder="" name="mobileno"></span>
 
-            <br><label for="Email">Email Address</label> <span id="btk"> <input type="text" placeholder="" name="email" required></span>
+            <br><label for="Email">Email Address<span class="asterisk"> *</span></label> <span id="btk"> <input type="email" placeholder="" name="email" required></span>
 
         </div>
     </div>
@@ -214,10 +232,10 @@ session_start();
         <h4><i class="fa fa-map-marker" style="font-size:15px"> </i>Address</h4>
         <div class="info">
             <label for="Address">Address</label> <span id="btk"> <input type="text" placeholder="" name="address"></span>
-            <label for="City">City</label> <span id="btk"> <input type="text" placeholder="" name="city"></span>
+            <label for="City">Municipality</label> <span id="btk"> <input type="text" placeholder="" name="city"></span>
 
             <br><label for="Province">Province</label> <span id="btk"> <input type="text" placeholder="" name="province"></span>
-            <label for="Postcode">Postcode</label> <span id="btk"> <input type="text" placeholder="" name="postcode"></span>
+            <label for="Postcode">Postcode</label> <span id="btk"> <input type="number" placeholder="" name="postcode"></span>
         </div>
 
     </div>

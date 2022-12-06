@@ -165,9 +165,9 @@ if(window.history.replaceState)
                 <div class="bsinfo1" >
                         <h4><i class="fa fa-phone" style="font-size:15px"></i>Contact Information</h4>
                         <div class="info">
-                           <label for="Telephone ">Telephone Number</label> <span id="btk"> <input type="text" placeholder="" name="ptelno" value="<?= $parent['Telephone_No']; ?>"></span>
+                           <label for="Telephone ">Telephone Number</label> <span id="btk"> <input type="number" placeholder="" name="ptelno" value="<?= $parent['Telephone_No']; ?>"></span>
                            <br>
-                            <label for="Mobile">Mobile Number</label> <span id="btk"> <input type="text" placeholder="" name="pmobileno" value="<?= $parent['Mobile_No']; ?>"></span>
+                            <label for="Mobile">Mobile Number</label> <span id="btk"> <input type="number" placeholder="" name="pmobileno" value="<?= $parent['Mobile_No']; ?>"></span>
                       
                        
                     </div>
@@ -179,10 +179,10 @@ if(window.history.replaceState)
                         <h4><i class="fa fa-map-marker" style="font-size:15px"> </i>Address</h4>
                         <div class="info">
                            <label for="Address">Address</label> <span id="btk"> <input type="text" placeholder="" name="paddress" value="<?= $parent['Address']; ?>"></span>
-                            <label for="City">City</label> <span id="btk"> <input type="text" placeholder="" name="pcity" value="<?= $parent['City']; ?>"></span>
+                            <label for="City">Municipality</label> <span id="btk"> <input type="text" placeholder="" name="pcity" value="<?= $parent['City']; ?>"></span>
                       
                       <br><label for="Province">Province</label> <span id="btk"> <input type="text" placeholder="" name="pprovince" value="<?= $parent['Province']; ?>"></span>
-                       <label for="Postcode">Postcode</label> <span id="btk"> <input type="text" placeholder="" name="ppostcode" value="<?= $parent['Postcode']; ?>"></span>
+                       <label for="Postcode">Postcode</label> <span id="btk"> <input type="number" placeholder="" name="ppostcode" value="<?= $parent['Postcode']; ?>"></span>
                     </div>
                  
                 </div>

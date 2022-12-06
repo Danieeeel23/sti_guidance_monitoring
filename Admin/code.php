@@ -563,9 +563,6 @@ if (isset($_POST['save_excuse_letter'])) {
 
     $allowed = array('jpg', 'jpeg', 'png', 'pdf');
 
-    if (in_array($fileActualExt, $allowed)) {
-        if ($fileError === 0) {
-            if ($fileSize < 1000000) {
                 $fileNameNew = uniqid('', true) . "." . $fileActualExt;
                 $fileDestination = '../Uploads/' . $fileNameNew;
                 move_uploaded_file($fileTmpName, $fileDestination);
@@ -584,22 +581,8 @@ if (isset($_POST['save_excuse_letter'])) {
                     header("Location: Lists_of_Excuse_Letter.php");
                     exit(0);
                 }
-            } else {
-                $_SESSION['message'] = "Your file is too big!";
-                header("Location: Lists_of_Excuse_Letter.php");
-                exit(0);
+            
             }
-        } else {
-            $_SESSION['message'] = "There was an error uploading your file!";
-            header("Location: Lists_of_Excuse_Letter.php");
-            exit(0);
-        }
-    } else {
-        $_SESSION['message'] = "You cannot upload files of this type!";
-        header("Location: Lists_of_Excuse_Letter.php");
-        exit(0);
-    }
-}
 
 //update excuse letter
 if (isset($_POST['update_excuse_letter'])) {

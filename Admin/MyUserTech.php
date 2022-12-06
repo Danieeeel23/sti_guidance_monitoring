@@ -111,15 +111,15 @@ if(window.history.replaceState)
 
                         <div class="info">
 
-                          <label for="Firstname">First Name</label> <span id="btk"> <input type="text" placeholder="" name="tfirstname" autocomplete="off"></span>
+                          <label for="Firstname">First Name<span class="asterisk"> *</span></label> <span id="btk"> <input type="text" placeholder="" name="tfirstname" autocomplete="off" required></span>
 
-                      <label for="MI">Middle Name</label> <span id="btk"> <input type="texta" placeholder="" name="tmiddlename" autocomplete="off"></span>
+                      <label for="MI">MI</label> <span id="btk"> <input type="texta" placeholder="" name="tmiddlename" autocomplete="off"></span>
 
-                           <label for="Surname">Surname</label> <span id="btk"> <input type="text" placeholder="" name="tlastname" autocomplete="off"></span>
+                           <label for="Surname">Surname<span class="asterisk"> *</span></label> <span id="btk"> <input type="text" placeholder="" name="tlastname" autocomplete="off" required></span>
                         
                         
                       <br> 
-                        <label for="Email">Email</label> <span id="btk"> <input type="textb" placeholder="" name="temail" autocomplete="off" required></span>
+                        <label for="Email">Email<span class="asterisk"> *</span></label> <span id="btk"> <input type="email" placeholder="" name="temail" autocomplete="off" required></span>
 
                        
     
@@ -148,9 +148,9 @@ if(window.history.replaceState)
                 <div class="bsinfo1" >
                         <h4><i class="fa fa-phone" style="font-size:15px"></i>Contact Information</h4>
                         <div class="info">
-                           <label for="Telephone">Telephone Number</label> <span id="btk"> <input type="text" placeholder="" name="ttelno" autocomplete="off"></span>
+                           <label for="Telephone">Telephone Number</label> <span id="btk"> <input type="number" placeholder="" name="ttelno" autocomplete="off"></span>
                            <br>
-                            <label for="Mobile">Mobile Number</label> <span id="btk"> <input type="text" placeholder="" name="tmobileno" autocomplete="off"></span>
+                            <label for="Mobile">Mobile Number</label> <span id="btk"> <input type="number" placeholder="" name="tmobileno" autocomplete="off"></span>
                        
                     </div>
                 </div>
@@ -161,10 +161,10 @@ if(window.history.replaceState)
                         <h4><i class="fa fa-map-marker" style="font-size:15px"> </i>Address</h4>
                         <div class="info">
                            <label for="Address">Address</label> <span id="btk"> <input type="text" placeholder="" name="taddress" autocomplete="off"></span>
-                            <label for="City">City</label> <span id="btk"> <input type="text" placeholder="" name="tcity" autocomplete="off"></span>
+                            <label for="City">Municipality</label> <span id="btk"> <input type="text" placeholder="" name="tcity" autocomplete="off"></span>
                       
                       <br><label for="Province">Province</label> <span id="btk"> <input type="text" placeholder="" name="tprovince" autocomplete="off"></span>
-                       <label for="Postcode">Postcode</label> <span id="btk"> <input type="text" placeholder="" name="tpostcode" autocomplete="off"></span>
+                       <label for="Postcode">Postcode</label> <span id="btk"> <input type="number" placeholder="" name="tpostcode" autocomplete="off"></span>
                     </div>
             
 

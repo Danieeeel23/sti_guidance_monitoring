@@ -107,15 +107,6 @@
                 <?php include('message.php'); ?>
                     <div class="title2">
                       <h1>List of Parents</h1>
-                      <div class="bot">
-                        <span class="create">
-                            <form action="Manage_Parent.php" method="POST">  
-                            <input type="submit" class="btn btn-primary btn-lg" value="Create">
-                            </form>
-                        </span>
-                        
-                      <span class="delete"><input type="submit" value="Delete" id="delete_records"></span>
-                    </div>
                     </div>
                    
                 </div>
