@@ -43,9 +43,9 @@
                     </a>
                 </li>
                 <li><a href="">
-                    <div class="dropdown1">
+                    <div class="dropdown2">
                         <span class="icon" style="padding-top: -100px;"><img src="images/sidebar_menu/Manage_Users.svg" alt=""></span>
-                        <a class="dropbtn1" style="margin-top: -40px;">
+                        <a class="dropbtn2" style="margin-top: -40px;">
                             <span class="title">Manage Users</span>
                         </a>
 
@@ -53,6 +53,9 @@
                             <a href="Lists_of_Student.php">Students</a>
                             <a href="Lists_of_Teacher.php">Teachers</a>
                             <a href="Lists_of_Parent.php">Parents</a>
+                            <a href="Lists_of_Subjects.php">Subjects</a>
+                            <a href="Lists_of_Section.php">Sections</a>
+                            <a href="Lists_of_Schedule.php">Classes</a>
                         </div>
                     </div></a>             
                 </li>
@@ -277,8 +280,8 @@
                     </table>
                 </div>
                 <?php 
-                            $subject_id = mysqli_real_escape_string($link, $_POST['subject']);
-                            $query = "SELECT * FROM `subject` WHERE Subject_ID=' $subject_id'";
+                            
+                            $query = "SELECT * FROM `subject`";
                             $query_run = mysqli_query($link, $query);
 
                             if(mysqli_num_rows($query_run) > 0)
@@ -297,9 +300,9 @@
                                 <div class="modal-body"> 
                                     <!-- Data passed is displayed in this part of the modal body -->
 
-                                    <label for="Subject" class="Subject">Subject Name</label> <input type="text" class="sub" placeholder="" name="usubject">
+                                    <label for="Subject" class="Subject">Subject Name</label> <input type="text" class="sub" placeholder="" value="<?= $subject['Subject_Name']; ?> " name="usubject">
                                     <h6 id="modal_body"></h6>
-                                    <input type="submit" class="btnn" name="update_subject" onClick="window.location.href=window.location.href" value="Update"><?= $subject['Subject_Name']; ?> 
+                                    <input type="submit" class="btnn" name="update_subject" onClick="window.location.href=window.location.href" value="Update">
                                 </div> 
                             </div> 
                         </div> 

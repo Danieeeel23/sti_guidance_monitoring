@@ -347,8 +347,9 @@ input[type=submit]{
  
   input[type=text], select {
     width: 200px;
-    padding: 10px 20px;
-    margin: 8px 20px;
+    height: 30px;
+    padding: 5px 5px;
+    margin: 8px 1px;
     display: inline-block;
     border: 1px solid white;
     border-radius: 4px;
@@ -928,6 +929,7 @@ input[type=submit]{
     font-size: 0.9rem;
     padding: 0px 15px;
     margin-left: 15px;
+
     
 }
 .info label[for=Stu]{

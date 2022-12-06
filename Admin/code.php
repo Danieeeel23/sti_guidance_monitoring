@@ -1056,9 +1056,7 @@ if (isset($_POST['save_offense'])) {
     $violation = mysqli_real_escape_string($link, $_POST['Violation']);
     $offense = mysqli_real_escape_string($link, $_POST['Offense']);
     $loffense = mysqli_real_escape_string($link, $_POST['Level_Offense']);
-    $vstatus = mysqli_real_escape_string($link, $_POST['Status']);
-    $date = date('Y-m-d', strtotime($_POST['date']));
-
+    $vstatus = mysqli_real_escape_string($link, $_POST['status']);
 
     $file = $_FILES['file'];
 
@@ -1073,15 +1071,12 @@ if (isset($_POST['save_offense'])) {
 
     $allowed = array('jpg', 'jpeg', 'png', 'pdf');
 
-    if (in_array($fileActualExt, $allowed)) {
-        if ($fileError === 0) {
-            if ($fileSize < 1000000) {
                 $fileNameNew = uniqid('', true) . "." . $fileActualExt;
                 $fileDestination = '../Uploads/' . $fileNameNew;
                 move_uploaded_file($fileTmpName, $fileDestination);
 
                 $query = "INSERT INTO `violation`(`Student_ID`, `Name`, `Strand`, `Year_Level`, `Section`, `Description`, `Type_of_Violation`, `Type_of_Offense`, `Level_of_Offense`, `Images`, `Status`, `Date`) VALUES 
-                ('$student_id','$vfirstname','$vstrand','$vyrlvl','$vsection','$vdescription','$violation','$offense','$loffense','$fileNameNew','$vstatus','$date')";
+                ('$student_id','$vfirstname','$vstrand','$vyrlvl','$vsection','$vdescription','$violation','$offense','$loffense','$fileNameNew','$vstatus',now())";
 
                 $query_run = mysqli_multi_query($link, $query);
                 if($query_run)
@@ -1096,21 +1091,7 @@ if (isset($_POST['save_offense'])) {
                     header("Location: List_of_Offense.php");
                     exit(0);
                 }
-            } else {
-                $_SESSION['message'] = "Your file is too big!";
-                header("Location: List_of_Offense.php");
-                exit(0);
-            }
-        } else {
-            $_SESSION['message'] = "There was an error uploading your file!";
-            header("Location: List_of_Offense.php");
-            exit(0);
-        }
-    } else {
-        $_SESSION['message'] = "You cannot upload files of this type!";
-        header("Location: List_of_Offense.php");
-        exit(0);
-    }
+         
 }
 
 if (isset($_POST['update_offense'])) {
@@ -1156,13 +1137,12 @@ if (isset($_POST['save_concerns'])) {
     $cstrand = mysqli_real_escape_string($link, $_POST['cstrand']);
     $csection = mysqli_real_escape_string($link, $_POST['csection']);
     $title = mysqli_real_escape_string($link, $_POST['title']);
-    $reason = mysqli_real_escape_string($link, $_POST['reason']);
+    $reason = mysqli_real_escape_string($link, $_POST['reasons']);
     $cstatus = mysqli_real_escape_string($link, $_POST['status']);
-    $date = date('Y-m-d', strtotime($_POST['date']));
     $cstatement = mysqli_real_escape_string($link, $_POST['statemen']);
 
     $query = "INSERT INTO `concerns`(`Student_ID`, `Name`, `Title`, `Reason`, `Statement`, `Status`, `Date`) VALUES 
-              ('$student_id','$cfirstname','$title','$reason','$cstatement','$cstatus','$date')";
+              ('$student_id','$cfirstname','$title','$reason','$cstatement','$cstatus',now())";
 
     $query_run = mysqli_multi_query($link, $query);
     if ($query_run) {

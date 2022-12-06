@@ -223,9 +223,6 @@ session_start();
                             </select>
 
                             <input type="hidden" name="status" value="Ongoing">
-
-                        <label for="Date">Date</label>
-                        <input type="date" placeholder="Date" id="Date" name="date" required>
                                             
                         </div>
                         
@@ -251,8 +248,8 @@ session_start();
                         <div class="coninfo1">
                             <label for="Image" name ="Image">Proof of Absence</label>
                             <!--<input type="image" style="border-style:outset" height="560" width="470"/>--> 
-                            <input type="file" id="inputFile" style="width:88%; margin-top: 33px; margin-right: -85px;" name="file" onchange="readURL(this);" required/> <button type="button" onclick="removeImg()">Remove</button>
-                            <img id="file" src="#" style="border-style:outset" height="440" width="410" required/>
+                            <input type="file" id="inputFile" style="width:88%; margin-top: 33px; margin-right: -85px;" name="file" onchange="readURL(this);"/> <button type="button" onclick="removeImg()">Remove</button>
+                            <img id="file" src="#" style="border-style:outset" height="440" width="410"/>
                         </div>
                     </div>
                 </form>
