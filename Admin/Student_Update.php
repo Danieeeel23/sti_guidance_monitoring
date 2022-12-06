@@ -45,11 +45,22 @@ if(window.history.replaceState)
                     <span class="title2" ><br>Excuse Slip</span>
                     </a>
                 </li>
-                <li>
-                    <a href="Manage_User.php">
-                    <span class="icon"><img src="images/sidebar_menu/Manage_Users.svg" alt=""></span>
-                    <span class="title" ><br>Manage Users</span>
-                    </a>
+                <li><a href="">
+                    <div class="dropdown1">
+                        <span class="icon" style="padding-top: -100px;"><img src="images/sidebar_menu/Manage_Users.svg" alt=""></span>
+                        <a class="dropbtn1" style="margin-top: -40px;">
+                            <span class="title">Manage Users</span>
+                        </a>
+
+                        <div class="dropdown-user">
+                        <a href="Lists_of_Student.php">Students</a>
+                            <a href="Lists_of_Teacher.php">Teachers</a>
+                            <a href="Lists_of_Parent.php">Parents</a>
+                            <a href="Lists_of_Subjects.php">Subjects</a>
+                            <a href="Lists_of_Section.php">Sections</a>
+                            <a href="Lists_of_Schedule.php">Classes</a>
+                        </div>
+                    </div></a>            
                 </li>
                 <li>
                     <a href="Lists_of_Announcement.php">
