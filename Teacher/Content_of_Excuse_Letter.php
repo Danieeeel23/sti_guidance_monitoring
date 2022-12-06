@@ -57,6 +57,7 @@ if (isset($_GET['excuse'])) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
 
+    <script src="js/dropdown.js" defer></script>
     <title>View of Excuse Slip</title>
 </head>
 
@@ -103,11 +104,11 @@ if (isset($_GET['excuse'])) {
                         <i class="fa fa-search"></i>
                     </div>
                     <div class="dropdown">
-                        <div class="icons1">
-                            <h3 class="dropbtn"> <?php echo $currentteachername ?> </h3>
-                            <i class="fa fa-angle-down"></i>
-                        </div>
-                        <div class="dropdown-content">
+                        <button class="icons1" onclick="myFunction()">
+                            <h3 class="dropbtn"> <?php echo $currentteachername ?> <i class="fa fa-angle-down"></i></h3>
+
+                        </button>
+                        <div class="dropdown-content" id="myDropdown">
                             <a href="../logins/logout.php">Logout</a>
                         </div>
                     </div>

@@ -133,9 +133,10 @@ a{
   display: flex;
   justify-content: space-between;
   padding: 0;
-  padding-right: 20px;
   color: white;
   align-items: center;
+  border: none;
+  width: 100%;
 }
 
 .dropdown {
@@ -170,10 +171,9 @@ a{
   background-color: #ddd;
 }
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
 .dropdown:hover .dropbtn {
   background: rgb(47, 79, 192);
 }
+
+.show {display: block;}
+

@@ -31,7 +31,8 @@ if (isset($_SESSION['teacher_id'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="delete_script.js"></script>
+
+    <script src="js/dropdown.js" defer></script>
     <link rel="stylesheet" href="ListStyle.css" type="text/css">
     <title>Grades - Classes</title>
     <style>
@@ -41,7 +42,7 @@ if (isset($_SESSION['teacher_id'])) {
 
 <body>
     <div class="container">
-    <div class="navigation">
+        <div class="navigation">
             <ul>
                 <li><a href=""><span class="icon1"><img src="" alt=""></span></a></li>
                 <li>
@@ -82,11 +83,11 @@ if (isset($_SESSION['teacher_id'])) {
                         <i class="fa fa-search"></i>
                     </div>
                     <div class="dropdown">
-                        <div class="icons1">
-                            <h3 class="dropbtn"> <?php echo $currentteachername ?> </h3>
-                            <i class="fa fa-angle-down"></i>
-                        </div>
-                        <div class="dropdown-content">
+                        <button class="icons1" onclick="myFunction()">
+                            <h3 class="dropbtn"> <?php echo $currentteachername ?> <i class="fa fa-angle-down"></i></h3>
+
+                        </button>
+                        <div class="dropdown-content" id="myDropdown">
                             <a href="../logins/logout.php">Logout</a>
                         </div>
                     </div>
