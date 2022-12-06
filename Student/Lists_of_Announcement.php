@@ -128,7 +128,8 @@
                                 <th>Title</th>
                                 <th>Participants</th>
                                 <th>Start Date</th>
-                                <th>End Date</th>               
+                                <th>End Date</th>  
+                                <th></th>             
                             </tr>
                         </thead>
                         <tbody>
@@ -148,6 +149,7 @@
                                 <td><?= $announcement['Participants']; ?></td>
                                 <td><?= $announcement['Start_Date']; ?></td>
                                 <td><?= $announcement['End_Date']; ?></td>
+                                <td><a href="Update_Announcement.php?id=<?= $announcement['Announcement_ID']; ?>"><button type="submit" class="btn btn-update" style="margin-left: 15px;">View</button></a></td>
                             </tr>
                             <?php
                                 }

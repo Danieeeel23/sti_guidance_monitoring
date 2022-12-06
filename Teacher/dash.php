@@ -88,6 +88,12 @@ if (mysqli_num_rows($excusequery_run) > 0) {
                         <span class="title">View of <br> Excuse Slip</span>
                     </a>
                 </li>
+                <li>
+                    <a href="Lists_of_Announcement.php">
+                    <span class="icon"><img src="images/sidebar_menu/Mask group (9).svg" alt="">
+                    <span class="title5" ><br>Announcement</span>
+                    </a>
+                </li>
             </ul>
         </div>
         <div class="main">

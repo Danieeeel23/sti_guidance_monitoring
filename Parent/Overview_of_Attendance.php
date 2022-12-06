@@ -41,7 +41,7 @@ require 'config.php';
                 <li>
                     <a href="Student_Record.php">
                     <span class="icon"><img src="images/sidebar_menu/Student_Record.svg" alt=""></span>
-                    <span class="titlea"><br>Student Record</span>
+                    <span class="title2"><br>Student Record</span>
                     </a>
                 </li>
                 <li>
@@ -53,7 +53,7 @@ require 'config.php';
                 <li>
                     <a href="Lists_of_Announcement.php">
                     <span class="icon"><img src="images/sidebar_menu/Mask group (9).svg" alt=""></span>
-                    <span class="title5" ><br>Announcement</span>
+                    <span class="title4" ><br>Announcement</span>
                     </a>
                 </li>
                 
