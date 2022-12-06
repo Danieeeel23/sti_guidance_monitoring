@@ -152,9 +152,9 @@ if(!isset($_SESSION['student_id'])){
 
                             <input type="hidden" placeholder="" id="Status" name="Status" value="Request">
 
-                            <label for="reasons">Reason</label>
+                            <label for="reasons">Reason<span class="asterisk"> *</span></label>
 
-                            <select name="reasons" id="reasons">
+                            <select name="reasons" id="reasons" required>
                                 <option></option>
                                 <option value="Health Related Problem">Health Related Problem</option>
                                 <option value="Family Issue">Family Issue</option>
@@ -164,11 +164,11 @@ if(!isset($_SESSION['student_id'])){
                                 <option value="Others">Others</option>
                             </select>
                        
-                        <label for="Date">Start Date</label>
-                        <input type="date" placeholder="Date" id="Date" name="sstartdate">
+                        <label for="Date">Start Date<span class="asterisk"> *</span></label>
+                        <input type="date" placeholder="Date" id="Date" name="sstartdate" required>
 
-                        <label for="Date">End Date</label>
-                        <input type="date" placeholder="Date" id="Date" name="sendate">
+                        <label for="Date">End Date<span class="asterisk"> *</span></label>
+                        <input type="date" placeholder="Date" id="Date" name="sendate" required>
 
                  
                         </div>

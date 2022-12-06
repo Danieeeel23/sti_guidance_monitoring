@@ -140,8 +140,6 @@ require 'config.php';
                             <br>    
                             <label for="Name">Name</label>
                             <span id="btk"> <input type="text" placeholder="Name"  name="cname" value="<?= $concerns['Name']; ?>" readonly></span>
-                            <label for="Name">Title</label>
-                            <span id="btk"> <input type="text" placeholder="Year"  name="ctitle" value="<?= $concerns['Title']; ?>"></span>
                             <label for="Name">Reason</label>
                             <span id="btk"> <input type="text" placeholder="Strand"  name="creason" value="<?= $concerns['Reason']; ?>"></span>
                             <label for="Date">Date</label>

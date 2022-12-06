@@ -149,16 +149,15 @@ require 'config.php';
                                         <span id="btk"> <input type="text" placeholder=""  name="cstrand" id="cstrand" value="<?= $student['Strand']; ?>" readonly></span>
                                         <label for="Name">Section</label>
                                         <span id="btk"> <input type="text" placeholder=""  name="csection" id="csection" value="<?= $student['Section']; ?>" readonly></span>
-                
-
-                        <label for="Name">Title</label>
-                            <span id="btk"> <input type="text" placeholder=""  name="title"></span>
-                       
-                        <label for="Name">Reason</label>
-                        <span id="btk"> <input type="text" placeholder=""  name="reason"></span>
-
-                        <label for="Date">Date</label>
-                        <input type="date" placeholder="Date" id="Date" name="date" required>
+            
+                        <label for="Name">Reason<span class="asterisk"> *</span></label>
+                        <select class="Reason" name="reasons" required>
+                            <option value="No input"></option>
+                            <option value="Grades">Grades</option>
+                            <option value="Financial Problem">Financial Problem</option>
+                            <option value="Resources">Resources</option>
+                            <option value="Others">Others</option>
+                        </select>
 
                         <label for="Status"></label> <span id="btk"> <input type="hidden" placeholder="" name="status" value="Ongoing" readonly></span>
                                             

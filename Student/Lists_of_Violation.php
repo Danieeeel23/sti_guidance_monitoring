@@ -126,7 +126,8 @@
                                 <th>Type of Offense</th>
                                 <th >Level of Offense</th>
                                 <th>Type of Violation</th>
-                                <th>Date</th>                              
+                                <th>Date</th>      
+                                <th></th>                        
                             </tr>
                         </thead>
                         <tbody>
@@ -146,6 +147,7 @@
                                 <td><?= $violation['Level_of_Offense']; ?></td>
                                 <td><?= $violation['Type_of_Violation']; ?></td>
                                 <td><?= $violation['Date']; ?></td>
+                                <td><a href="View_of_Offense.php?id=<?= $violation['Violation_ID']; ?>"><button type="submit" class="btn btn-update" style="margin-left: 7px;">View</button></a></td>
                             
                             </tr>
                             <?php

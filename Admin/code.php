@@ -1187,7 +1187,7 @@ if (isset($_POST['update_concerns'])) {
     $cdate = date('Y-m-d', strtotime($_POST['cdate']));
     $cstatement = mysqli_real_escape_string($link, $_POST['statemen']);
 
-    $query = "UPDATE `concerns` SET `Name`='$cname', `Title`='$ctitle', `Reason`='$creason', `Statement`='$cstatement', `Status`='$cstatus', `Date`='$cdate' WHERE Concern_ID='$concern_id'";
+    $query = "UPDATE `concerns` SET `Name`='$cname', `Reason`='$creason', `Statement`='$cstatement', `Status`='$cstatus', `Date`='$cdate' WHERE Concern_ID='$concern_id'";
 
     $query_run = mysqli_multi_query($link, $query);
     if ($query_run) {

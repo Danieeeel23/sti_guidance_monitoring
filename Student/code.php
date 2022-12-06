@@ -534,14 +534,12 @@ if(isset($_POST['save_concerns']))
     $cyrlvl = mysqli_real_escape_string($link, $_POST['cyrlvl']);
     $cstrand = mysqli_real_escape_string($link, $_POST['cstrand']);
     $csection = mysqli_real_escape_string($link, $_POST['csection']);
-    $title = mysqli_real_escape_string($link, $_POST['title']);
-    $reason = mysqli_real_escape_string($link, $_POST['reason']);
+    $reason = mysqli_real_escape_string($link, $_POST['reasons']);
     $cstatus = mysqli_real_escape_string($link, $_POST['status']);
-    $date = date('Y-m-d', strtotime($_POST['date']));  
     $cstatement = mysqli_real_escape_string($link, $_POST['statemen']);
   
-    $query = "INSERT INTO `concerns`(`Student_ID`, `Name`, `Title`, `Reason`, `Statement`, `Status`, `Date`) VALUES 
-              ('$student_id','$cfirstname','$title','$reason','$cstatement','$cstatus','$date')";
+    $query = "INSERT INTO `concerns`(`Student_ID`, `Name`, `Reason`, `Statement`, `Status`, `Date`) VALUES 
+              ('$student_id','$cfirstname','$reason','$cstatement','$cstatus',now())";
 
     $query_run = mysqli_multi_query($link, $query);
         if($query_run)

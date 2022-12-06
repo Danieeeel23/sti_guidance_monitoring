@@ -826,5 +826,9 @@ span.badge2{
     padding: 0px;
     width: 15px;
     height: 15px;
-   
+}
+
+span.asterisk{
+    color: red;
+    font-size: 14px;
 }
