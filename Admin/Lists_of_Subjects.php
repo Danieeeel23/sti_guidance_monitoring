@@ -90,18 +90,66 @@
                     <h2>Subject</h2>
                 </div>
                 <div class="icons">
-                    <i class="fa fa-bell"></i>
-                    <i class="fa fa-question-circle"></i>
+                    <div class="dropdown">
+                        <button class="dropbtn" onclick="myFunction()"> <i class="fa fa-bell"></i></button>
+                        <div class="dropdown-content" id="myDropdown">
+                        <a href="#">Action</a>
+                        <a href="#">Another Action</a>
+                        <a href="#">Something Else</a>
+                    </div> 
+                </div> 
+                <script>
+                /* When the user clicks on the button, 
+                toggle between hiding and showing the dropdown content */
+                function myFunction() {
+                document.getElementById("myDropdown").classList.toggle("show");
+                }
+
+                // Close the dropdown if the user clicks outside of it
+                window.onclick = function(event) {
+                if (!event.target.matches('.dropbtn')) {
+                    var dropdowns = document.getElementsByClassName("dropdown-content");
+                    var i;
+                    for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                    }
+                }
+                }
+                </script>                   
+                <i class="fa fa-question-circle"></i>
                 </div>
-                <div class="dropdown">
-                    <button class="dropbtn">Admin</button>
-                    <div class="dropdown-content">
-                    <a href="../logins/logout.php">Logout</a>
+                <div class="dropdown1">
+                    <button class="dropbtn1" onclick="myFunction1()">Admin</button>
+                    <div class="dropdown-content1" id="myDropdown1">
+                        <a href="../logins/logout.php">Logout</a>
+                    </div>
                 </div>
-                </div>
-                </div>
-            
-                </div>
+            </div>
+        </div>
+        <script>
+                /* When the user clicks on the button, 
+                toggle between hiding and showing the dropdown content */
+                function myFunction1() {
+                document.getElementById("myDropdown1").classList.toggle("show");
+                }
+
+                // Close the dropdown if the user clicks outside of it
+                window.onclick = function(event) {
+                if (!event.target.matches('.dropbtn1')) {
+                    var dropdowns = document.getElementsByClassName("dropdown-content1");
+                    var i;
+                    for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                    }
+                }
+                }
+                </script>
                 
                 <div class="main1">
                 <?php include('message.php'); ?>
