@@ -81,8 +81,8 @@ body{
     position: absolute;
     display: block;
     font-size: 12px;
-    margin-left: -10px;
-    padding-top: 0px;
+    margin-left: 5px;
+    padding-top: -5px;
     height: 50px;
     text-align: center;
     line-height: 30px;
@@ -99,11 +99,11 @@ body{
     line-height: 30px;
     white-space: nowrap;
 }
-.navigation ul li a .title2{
+.navigation ul li a .titlea{
     position: absolute;
     display: block;
     font-size: 12px;
-    margin-left: 0px;
+    margin-left: -15px;
     padding: 0 2px;
     height: 60px;
     text-align: center;
@@ -121,11 +121,11 @@ body{
     line-height: 30px;
     white-space: nowrap;
 }
-.navigation ul li a .title4{
+.navigation ul li a .title5{
     position: absolute;
     display: block;
     font-size: 12px;
-    margin-left: 0px;
+    margin-left: -20px;
     padding: 0 10px;
     height: 60px;
     text-align: center;

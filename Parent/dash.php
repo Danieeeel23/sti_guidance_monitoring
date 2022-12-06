@@ -4,7 +4,7 @@
 
 session_start();
 
-if(!isset($_SESSION['student_id'])){
+if(!isset($_SESSION['parent_id'])){
     header('location:../logins/login_form.php');
 }
 
@@ -81,16 +81,16 @@ if(!isset($_SESSION['student_id'])){
                 </div>
                 <div class="dropdown">
                 <?php 
-                        $student_id = $_SESSION['student_id'];
-                        $query = "SELECT *, CONCAT(First_Name,' ',Last_Name) AS Names FROM `student` WHERE Student_ID='$student_id'";
+                        $parent_id = $_SESSION['parent_id'];
+                        $query = "SELECT *, CONCAT(First_Name,' ',Last_Name) AS Names FROM `parent` WHERE Parent_ID='$parent_id'";
                         $query_run = mysqli_query($link, $query);
 
                         if(mysqli_num_rows($query_run) > 0)
                         {
-                            foreach($query_run as $student)
+                            foreach($query_run as $parent)
                             {
                                 ?>
-                    <button class="dropbtn"><?= $student['Names']; ?></button>
+                    <button class="dropbtn"><?= $parent['Names']; ?></button>
                     <div class="dropdown-content">
                     <a href="../logins/logout.php">Logout</a>
                 </div>
@@ -117,8 +117,8 @@ if(!isset($_SESSION['student_id'])){
              </div>
              <div>
              <?php
-                    $student_id = $_SESSION['student_id'];
-                    $query = "SELECT * FROM `violation` WHERE Student_ID='$student_id'";
+                    $parent_id = $_SESSION['parent_id'];
+                    $query = "SELECT * FROM `violation` WHERE Parent_ID='$parent_id'";
                     $query_run = mysqli_query($link, $query);
 
                     $row = mysqli_num_rows($query_run);
@@ -135,8 +135,8 @@ if(!isset($_SESSION['student_id'])){
                  </div>
                  <div>
                  <?php
-                    $student_id = $_SESSION['student_id'];
-                    $query = "SELECT * FROM `failing_grades` WHERE Student_ID='$student_id'";
+                    $parent_id = $_SESSION['parent_id'];
+                    $query = "SELECT * FROM `failing_grades` WHERE Parent_ID='$parent_id'";
                     $query_run = mysqli_query($link, $query);
 
                     $row = mysqli_num_rows($query_run);
@@ -153,8 +153,8 @@ if(!isset($_SESSION['student_id'])){
                      </div>
                      <div>
                      <?php
-                    $student_id = $_SESSION['student_id'];
-                    $query = "SELECT `Student_ID` FROM `excuse letter` WHERE Student_ID='$student_id'";;
+                    $parent_id = $_SESSION['parent_id'];
+                    $query = "SELECT `Student_ID` FROM `excuse letter` WHERE Parent_ID='$parent_id'";;
                     $query_run = mysqli_query($link, $query);
 
                     $row = mysqli_num_rows($query_run);
@@ -186,8 +186,8 @@ if(!isset($_SESSION['student_id'])){
                                 <table class="table1">
                                     <tbody>
                                     <?php 
-                                        $student_id = $_SESSION['student_id'];
-                                        $query = "SELECT * FROM `excuse letter` WHERE Student_ID='$student_id' LIMIT 3";
+                                        $parent_id = $_SESSION['parent_id'];
+                                        $query = "SELECT * FROM `excuse letter` WHERE Parent_ID='$parent_id' LIMIT 3";
                                         $query_run = mysqli_query($link, $query);
 
                                         if(mysqli_num_rows($query_run) > 0)
@@ -218,8 +218,8 @@ if(!isset($_SESSION['student_id'])){
                                 <table class="table2">
                                     <tbody>
                                     <?php 
-                                        $student_id = $_SESSION['student_id'];
-                                        $query = "SELECT * FROM `concerns` WHERE Student_ID='$student_id' LIMIT 3";
+                                        $parent_id = $_SESSION['parent_id'];
+                                        $query = "SELECT * FROM `concerns` WHERE Parent_ID='$parent_id' LIMIT 3";
                                         $query_run = mysqli_query($link, $query);
 
                                         if(mysqli_num_rows($query_run) > 0)
@@ -257,8 +257,8 @@ if(!isset($_SESSION['student_id'])){
                                 <table class="table1">
                                     <tbody>
                                     <?php 
-                                        $student_id = $_SESSION['student_id'];
-                                        $query = "SELECT * FROM `violation` WHERE Student_ID='$student_id' LIMIT 3";
+                                        $parent_id = $_SESSION['parent_id'];
+                                        $query = "SELECT * FROM `violation` WHERE Parent_ID='$parent_id' LIMIT 3";
                                         $query_run = mysqli_query($link, $query);
 
                                         if(mysqli_num_rows($query_run) > 0)
@@ -290,8 +290,8 @@ if(!isset($_SESSION['student_id'])){
                                 <table class="table1">
                                     <tbody>
                                     <?php 
-                                        $student_id = $_SESSION['student_id'];
-                                        $query = "SELECT * FROM `failing_grades` WHERE Student_ID='$student_id' LIMIT 3";
+                                        $parent_id = $_SESSION['parent_id'];
+                                        $query = "SELECT * FROM `failing_grades` WHERE Parent_ID='$parent_id' LIMIT 3";
                                         $query_run = mysqli_query($link, $query);
 
                                         if(mysqli_num_rows($query_run) > 0)

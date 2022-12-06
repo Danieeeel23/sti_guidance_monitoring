@@ -1,3 +1,15 @@
+<?php
+
+@include 'config.php';
+
+session_start();
+
+if(!isset($_SESSION['parent_id'])){
+    header('location:../logins/login_form.php');
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +44,7 @@
                 <li>
                     <a href="Student_Record.php">
                     <span class="icon"><img src="images/sidebar_menu/Student_Record.svg" alt=""></span>
-                    <span class="title2"><br>Student Record</span>
+                    <span class="titlea"><br>Student Record</span>
                     </a>
                 </li>
                 <li>
@@ -63,7 +75,17 @@
                     <i class="fa fa-question-circle"></i>
                 </div>
                 <div class="dropdown">
-                    <button class="dropbtn">Admin</button>
+                <?php 
+                        $parent_id = $_SESSION['parent_id'];
+                        $query = "SELECT *, CONCAT(First_Name,' ',Last_Name) AS Names FROM `parent` WHERE Parent_ID='$parent_id'";
+                        $query_run = mysqli_query($link, $query);
+
+                        if(mysqli_num_rows($query_run) > 0)
+                        {
+                            foreach($query_run as $parent)
+                            {
+                                ?>
+                    <button class="dropbtn"><?= $parent['Names']; ?></button>
                     <div class="dropdown-content">
                     <a href="../logins/logout.php">Logout</a>
                 </div>
@@ -71,6 +93,14 @@
                 </div>
             
                 </div>
+                <?php
+                     }
+                    }
+                    else
+                    {
+                        
+                    }
+                ?>
 
                 <div class="1title">
                     <p>Admin’s Dashboard</p>

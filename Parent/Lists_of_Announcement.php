@@ -1,7 +1,7 @@
 <?php
     session_start();
     require 'config.php';
-    if(!isset($_SESSION['student_id'])){
+    if(!isset($_SESSION['parent_id'])){
         header('location:../logins/login_form.php');
 }
 ?>
@@ -74,16 +74,16 @@
                 </div>
                 <div class="dropdown">
                 <?php 
-                        $student_id = $_SESSION['student_id'];
-                        $query = "SELECT *, CONCAT(First_Name,' ',Last_Name) AS Names FROM `student` WHERE Student_ID='$student_id'";
+                        $parent_id = $_SESSION['parent_id'];
+                        $query = "SELECT *, CONCAT(First_Name,' ',Last_Name) AS Names FROM `parent` WHERE Parent_ID='$parent_id'";
                         $query_run = mysqli_query($link, $query);
 
                         if(mysqli_num_rows($query_run) > 0)
                         {
-                            foreach($query_run as $student)
+                            foreach($query_run as $parent)
                             {
                                 ?>
-                    <button class="dropbtn"><?= $student['Names']; ?></button>
+                    <button class="dropbtn"><?= $parent['Names']; ?></button>
                     <div class="dropdown-content">
                     <a href="../logins/logout.php">Logout</a>
                 </div>
@@ -122,7 +122,7 @@
                         </thead>
                         <tbody>
                         <?php 
-                            $student_id = $_SESSION['student_id'];
+                            $parent_id = $_SESSION['parent_id'];
                             //$strand = $_SESSION['strand'];
                             $query = "SELECT * FROM `announcement`";
                             $query_run = mysqli_query($link, $query);

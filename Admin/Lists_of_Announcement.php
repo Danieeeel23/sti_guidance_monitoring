@@ -65,7 +65,7 @@
                 <li>
                     <a href="Student_Record.php">
                     <span class="icon"><img src="images/sidebar_menu/Student_Record.svg" alt=""></span><span class="badge2 badge-primary">4</span>
-                    <span class="title" ><br>Student Record</span>
+                    <span class="title1" ><br>Student Record</span>
                     </a>
                 </li>
                 <li>

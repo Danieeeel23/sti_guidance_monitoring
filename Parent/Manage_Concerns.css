@@ -76,61 +76,7 @@ body{
 .navigation ul li a .icon img{
     width: 30px;
 }
-.navigation ul li a .titlea{
-    position: absolute;
-    display: block;
-    font-size: 12px;
-    margin-left: -10px;
-    padding-top: 0px;
-    height: 50px;
-    text-align: center;
-    line-height: 30px;
-    white-space: nowrap;
-}
-.navigation ul li a .titleb{
-    position: absolute;
-    display: block;
-    font-size: 12px;
-    margin-left: -10px;
-    padding-top: 0px;
-    height: 50px;
-    text-align: center;
-    line-height: 30px;
-    white-space: nowrap;
-}
-.navigation ul li a .titlec{
-    position: absolute;
-    display: block;
-    font-size: 12px;
-    margin-left: -10px;
-    padding-top: 0px;
-    height: 50px;
-    text-align: center;
-    line-height: 30px;
-    white-space: nowrap;
-}
-.navigation ul li a .title0{
-    position: absolute;
-    display: block;
-    font-size: 12px;
-    margin-left: -10px;
-    padding-top: 0px;
-    height: 50px;
-    text-align: center;
-    line-height: 30px;
-    white-space: nowrap;
-}
-.navigation ul li a .title01{
-    position: absolute;
-    display: block;
-    font-size: 12px;
-    margin-left: -10px;
-    padding-top: 0px;
-    height: 50px;
-    text-align: center;
-    line-height: 30px;
-    white-space: nowrap;
-}
+
 .navigation ul li a .title{
     position: absolute;
     display: block;
@@ -142,34 +88,13 @@ body{
     line-height: 30px;
     white-space: nowrap;
 }
-.navigation ul li a .titleh{
-    position: absolute;
-    display: block;
-    font-size: 12px;
-    margin-left: 0px;
-    padding: 0 13px;
-    height: 60px;
-    text-align: center;
-    line-height: 30px;
-    white-space: nowrap;
-}
+
 .navigation ul li a .title1{
     position: absolute;
     display: block;
     font-size: 12px;
-    margin-left: -20px;
-    padding: 0 13px;
-    height: 60px;
-    text-align: center;
-    line-height: 30px;
-    white-space: nowrap;
-}
-.navigation ul li a .titlee{
-    position: absolute;
-    display: block;
-    font-size: 12px;
     margin-left: 0px;
-    padding: 0 2px;
+    padding: 0 13px;
     height: 60px;
     text-align: center;
     line-height: 30px;
@@ -197,11 +122,11 @@ body{
     line-height: 30px;
     white-space: nowrap;
 }
-.navigation ul li a .title4{
+.navigation ul li a .title5{
     position: absolute;
     display: block;
     font-size: 12px;
-    margin-left: 0px;
+    margin-left: -20px;
     padding: 0 10px;
     height: 60px;
     text-align: center;

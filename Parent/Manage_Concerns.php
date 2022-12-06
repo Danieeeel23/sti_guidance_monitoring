@@ -1,5 +1,13 @@
 <?php
+
+@include 'config.php';
+
 session_start();
+
+if(!isset($_SESSION['parent_id'])){
+    header('location:../logins/login_form.php');
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +37,7 @@ session_start();
 </head>
 <body>
     <div class="container">
-        <div class="navigation">
+    <div class="navigation">
             <ul>
                 <li>
                     <a href="">
@@ -40,53 +48,29 @@ session_start();
                 <li>
                     <a href="dash.php">
                     <span class="icon"><img src="images/sidebar_menu/Home.svg" alt=""></span>
-                    <span class="titleh" ><br>Home</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="Lists_of_Excuse_Letter.php">
-                    <span class="icon"><img src="images/sidebar_menu/Excuse_slip.svg" alt=""></span>
-                    <span class="titlee" ><br>Excuse Slip</span>
-                    </a>
-                </li>
-                <li><a href="">
-                    <div class="dropdown1">
-                        <span class="icon" style="padding-top: -100px;"><img src="images/sidebar_menu/Manage_Users.svg" alt=""></span>
-                        <a class="dropbtn1" style="margin-top: -40px;">
-                            <span class="titlea">Manage Users</span>
-                        </a>
-
-                        <div class="dropdown-user">
-                            <a href="Lists_of_Student.php">Students</a>
-                            <a href="Lists_of_Teacher.php">Teachers</a>
-                            <a href="Lists_of_Parent.php">Parents</a>
-                        </div>
-                    </div></a>            
-                </li>
-                <li>
-                    <a href="Lists_of_Announcement.php">
-                    <span class="icon"><img src="images/sidebar_menu/Announcement.svg" alt=""></span>
-                    <span class="titlea" ><br>Announcement</span>
+                    <span class="title1" ><br>Home</span>
                     </a>
                 </li>
                 <li>
                     <a href="Student_Record.php">
                     <span class="icon"><img src="images/sidebar_menu/Student_Record.svg" alt=""></span>
-                    <span class="titlea" ><br>Student Record</span>
+                    <span class="title2"><br>Student Record</span>
                     </a>
                 </li>
                 <li>
                     <a href="Lists_of_Concerns.php">
                     <span class="icon"><img src="images/sidebar_menu/Concerns.svg" alt=""></span>
-                    <span class="title3" ><br>Concerns</span>
+                    <span class="title" ><br>Concerns</span>
                     </a>
                 </li>
                 <li>
-                    <a href="List_of_Inquiries.php">
-                    <span class="icon"><img src="images/sidebar_menu/Inquiry.svg" alt=""></span>
-                    <span class="title4" ><br>Inquiry</span>
+                    <a href="Lists_of_Announcement.php">
+                    <span class="icon"><img src="images/sidebar_menu/Mask group (9).svg" alt=""></span>
+                    <span class="title5" ><br>Announcement</span>
                     </a>
                 </li>
+                
+               
 
             </ul>
         </div>
@@ -101,7 +85,17 @@ session_start();
                     <i class="fa fa-question-circle"></i>
                 </div>
                 <div class="dropdown">
-                    <button class="dropbtn">Admin</button>
+                <?php 
+                        $parent_id = $_SESSION['parent_id'];
+                        $query = "SELECT *, CONCAT(First_Name,' ',Last_Name) AS Names FROM `parent` WHERE Parent_ID='$parent_id'";
+                        $query_run = mysqli_query($link, $query);
+
+                        if(mysqli_num_rows($query_run) > 0)
+                        {
+                            foreach($query_run as $parent)
+                            {
+                                ?>
+                    <button class="dropbtn"><?= $parent['Names']; ?></button>
                     <div class="dropdown-content">
                     <a href="../logins/logout.php">Logout</a>
                 </div>
@@ -109,6 +103,14 @@ session_start();
                 </div>
             
                 </div>
+                <?php
+                     }
+                    }
+                    else
+                    {
+                        
+                    }
+                ?>
                 <div class="main1">
                 <?php include('message.php'); ?>
                     <div class="title2">
