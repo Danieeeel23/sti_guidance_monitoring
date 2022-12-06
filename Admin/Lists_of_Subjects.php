@@ -261,7 +261,7 @@
                                             <input type="checkbox" class="emp_checkbox" data-emp-id="<?= $subject['Subject_ID']; ?>">
                                         </td>
                                         <td><?= $subject['Subject_Name']; ?></a></td>
-                                        <td><a href="Update_Subject.php?id=<?= $subject['Subject_ID']; ?>"><button type="submit" class="btn btn-update">View</button></a></td>
+                                        <td><button type="button" class="btn btn-update" data-toggle="modal" data-target="#exampleModal1" id="submit">View</button></td>
                                     </tr>
                                     <?php
                                 }
@@ -276,7 +276,43 @@
                         </tbody>
                     </table>
                 </div>
-                </form>
+                <?php 
+                            $subject_id = mysqli_real_escape_string($link, $_POST['subject']);
+                            $query = "SELECT * FROM `subject` WHERE Subject_ID=' $subject_id'";
+                            $query_run = mysqli_query($link, $query);
+
+                            if(mysqli_num_rows($query_run) > 0)
+                            {
+                                foreach($query_run as $subject)
+                                {
+                                    ?>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog"> 
+                            <div class="modal-content"> 
+                                <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button> 
+                                    <h5 class="modal-title" id="exampleModalLabel">Update Subject</h5>  
+                                </div> 
+                                <div class="modal-body"> 
+                                    <!-- Data passed is displayed in this part of the modal body -->
+
+                                    <label for="Subject" class="Subject">Subject Name</label> <input type="text" class="sub" placeholder="" name="usubject">
+                                    <h6 id="modal_body"></h6>
+                                    <input type="submit" class="btnn" name="update_subject" onClick="window.location.href=window.location.href" value="Update"><?= $subject['Subject_Name']; ?> 
+                                </div> 
+                            </div> 
+                        </div> 
+                    </div>
+                    <?php
+                                }
+                            }
+                            else
+                            {
+                                
+                            }
+                        ?>
+                    </form>
                 
                 <script src="js/jquery-3.6.1.min.js"></script>
                 <script src="js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
