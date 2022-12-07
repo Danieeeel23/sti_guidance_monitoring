@@ -124,7 +124,7 @@ if(!isset($_SESSION['parent_id'])){
              <div>
              <?php
                     $parent_id = $_SESSION['parent_id'];
-                    $query = "SELECT * FROM `violation` WHERE Parent_ID='$parent_id'";
+                    $query = "SELECT * FROM `violation` WHERE Student_ID='$parent_id'";
                     $query_run = mysqli_query($link, $query);
 
                     $row = mysqli_num_rows($query_run);
@@ -142,7 +142,7 @@ if(!isset($_SESSION['parent_id'])){
                  <div>
                  <?php
                     $parent_id = $_SESSION['parent_id'];
-                    $query = "SELECT * FROM `failing_grades` WHERE Parent_ID='$parent_id'";
+                    $query = "SELECT * FROM `failing_grades` WHERE Student_ID='$parent_id'";
                     $query_run = mysqli_query($link, $query);
 
                     $row = mysqli_num_rows($query_run);
@@ -160,7 +160,7 @@ if(!isset($_SESSION['parent_id'])){
                      <div>
                      <?php
                     $parent_id = $_SESSION['parent_id'];
-                    $query = "SELECT `Student_ID` FROM `excuse letter` WHERE Parent_ID='$parent_id'";;
+                    $query = "SELECT `Student_ID` FROM `excuse letter` WHERE Student_ID='$parent_id'";;
                     $query_run = mysqli_query($link, $query);
 
                     $row = mysqli_num_rows($query_run);
@@ -193,7 +193,7 @@ if(!isset($_SESSION['parent_id'])){
                                     <tbody>
                                     <?php 
                                         $parent_id = $_SESSION['parent_id'];
-                                        $query = "SELECT * FROM `excuse letter` WHERE Parent_ID='$parent_id' LIMIT 3";
+                                        $query = "SELECT * FROM `excuse letter` WHERE Student_ID='$parent_id' LIMIT 3";
                                         $query_run = mysqli_query($link, $query);
 
                                         if(mysqli_num_rows($query_run) > 0)
@@ -264,7 +264,7 @@ if(!isset($_SESSION['parent_id'])){
                                     <tbody>
                                     <?php 
                                         $parent_id = $_SESSION['parent_id'];
-                                        $query = "SELECT * FROM `violation` WHERE Parent_ID='$parent_id' LIMIT 3";
+                                        $query = "SELECT * FROM `violation` WHERE Student_ID='$parent_id' LIMIT 3";
                                         $query_run = mysqli_query($link, $query);
 
                                         if(mysqli_num_rows($query_run) > 0)
@@ -297,7 +297,7 @@ if(!isset($_SESSION['parent_id'])){
                                     <tbody>
                                     <?php 
                                         $parent_id = $_SESSION['parent_id'];
-                                        $query = "SELECT * FROM `failing_grades` WHERE Parent_ID='$parent_id' LIMIT 3";
+                                        $query = "SELECT * FROM `failing_grades` WHERE Student_ID='$parent_id' LIMIT 3";
                                         $query_run = mysqli_query($link, $query);
 
                                         if(mysqli_num_rows($query_run) > 0)

@@ -264,7 +264,7 @@ if(!isset($_SESSION['admin_id'])){
                                             {
                                     ?>
                                         <tr>
-                                            <td><?= $concerns['Title']; ?></td>
+                                            <td>Complaints <?= $concerns['Concern_ID']; ?></td>
                                             <td><?= $concerns['Date']; ?></td>   
                                         </tr>
 
