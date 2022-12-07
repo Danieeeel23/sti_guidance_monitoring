@@ -17,7 +17,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 1130px;
+  width: 1190px;
 }
 .main1 .title2 h1 {
   position: relative;
@@ -117,9 +117,8 @@ select {
 }
 /* CARD HEADER */
 .card-header {
-  position: absolute;
-  /* top: 250px; */
-  left: 90px;
+  margin-left: 150px;
+  width: 1190px;
 }
 /* HOVER / STYLED TABLE */
 .hover {
@@ -447,7 +446,6 @@ select.Violation2 {
   border: 1px solid black;
 }
 
-<<<<<<< HEAD
 span.badge{
   background-color: red;
   border-radius: 50px;
@@ -500,8 +498,6 @@ span.badge2{
     margin-right: 300px;
     margin-top: -10px;
 } */
-=======
->>>>>>> 5afab19fdd4b415fce64bd4c8d2f7ecd5b0cee67
 
 table.dataTable {
   width: 1100px;

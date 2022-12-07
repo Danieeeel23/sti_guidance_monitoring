@@ -99,19 +99,13 @@ if (isset($currentsubjectid)) {
                         <span class="title">View of <br> Excuse Slip</span>
                     </a>
                 </li>
-                <li>
-                    <a href="Lists_of_Announcement.php">
-                    <span class="icon"><img src="images/sidebar_menu/Mask group (9).svg" alt="">
-                    <span class="title5" ><br>Announcement</span>
-                    </a>
-                </li>
             </ul>
         </div>
         <div class="main">
             <span id="logo"><img src="images/sti_logo.png" alt=""></span>
             <div class="topbar">
                 <div class="toptitle">
-                    <h2>Attendance</h2>
+                    <h2 id="check">Insert Attendance</h2>
                 </div>
                 <div class="rightbar">
                     <div class="icons">
@@ -135,7 +129,7 @@ if (isset($currentsubjectid)) {
             <div class="title2">
                 <h1 id="check"><?php echo "(", $currentsubject, ") ", $currentstrand, "-", $currentsection ?></h1>
                 <div class="bot">
-                    <select id="SelectDate" class="SelectDate" name="SelectDate[]" style="width: 200px;">
+                    <select id="SelectDate" class="SelectDate" name="SelectDate[]" style="width: 220px;">
                         <option value="<?= date("Y-m-d") ?>"><?= date("l") . ' ' . date("Y-m-d") ?></option>
                         <?php
                         $query = "SELECT DISTINCT Date FROM `attendance` ORDER BY Date DESC";
@@ -143,9 +137,12 @@ if (isset($currentsubjectid)) {
 
                         if (mysqli_num_rows($query_run) > 0) {
                             foreach ($query_run as $dates) {
+                                if ($dates['Date'] == date("Y-m-d")){}
+                                else{
                         ?>
                                 <option value="<?= $dates['Date'] ?>"><?= date("l", strtotime($dates['Date'])) . ' ' . $dates['Date'] ?></option>
                         <?php
+                                }
                             }
                         } else {
                         }
@@ -160,6 +157,16 @@ if (isset($currentsubjectid)) {
     </div>
     <div class="card-header">
         <form action="code.php" method="POST">
+        <?php
+                    $today = date("Y-m-d");
+                    //If existing, don't create table
+                    $query1 = "SELECT * FROM `attendance` WHERE Class_ID = '$currentclassid' AND Date='$today'";
+                    $query1_run = mysqli_query($link, $query1);
+
+                    if (mysqli_num_rows($query1_run) > 0) {}
+                
+                     else {
+                        ?>
             <table id="myDataTable" class="hover">
                 <thead>
                     <tr>
@@ -191,14 +198,15 @@ if (isset($currentsubjectid)) {
                                     </select>
                                 </td>
                             </tr>
-                    <?php
-                        }
-                    } else {
-                    }
-                    ?>
+                    
 
                 </tbody>
             </table>
+            <?php
+            }
+                    }
+                    }
+                    ?>
             <table id="myDataTable1" class="hover">
                 <thead>
                     <tr>
@@ -211,7 +219,7 @@ if (isset($currentsubjectid)) {
                 </thead>
                 <tbody>
                     <?php
-                    $query = "SELECT * FROM `attendance` ";
+                    $query = "SELECT * FROM `attendance` WHERE Class_ID = '$currentclassid'";
                     $query_run = mysqli_query($link, $query);
 
                     if (mysqli_num_rows($query_run) > 0) {
@@ -282,50 +290,60 @@ if (isset($currentsubjectid)) {
         console.log(currentDate);
         $(document).ready(function() {
             $('#myDataTable').DataTable({
-                pageLength: 5,
-                lengthMenu: [
-                    [5, 10, 15, 20],
-                    [5, 10, 15, 20]
-                ]
+                bPaginate: false,
             });
             $('#myDataTable1').DataTable({
-                pageLength: 5,
-                lengthMenu: [
-                    [5, 10, 15, 20],
-                    [5, 10, 15, 20]
-                ],
+                bPaginate: false,
                 // columnDefs: [{
                 //     target: 3,
                 //     visible: false,
                 // }]
             });
             var table1 = $('#myDataTable1').DataTable();
-            $('#myDataTable1_wrapper').hide();
+            if($('#myDataTable').length){
+                $('#myDataTable1_wrapper').hide();
+                $('#updateattendance').hide();
+                $('#insertattendance').show();
+            }
+            else{
+                $('#updateattendance').show();
+                $('#insertattendance').hide();
+            }
+            $('#myDataTable_filter').hide();
             $('#myDataTable1_filter').hide();
+            table1.search($('#SelectDate').val()).draw();
             $('#SelectDate').on('change', function() {
                 if ($('#SelectDate').val() == currentDate) {
-                    $('#myDataTable1_wrapper').hide();
-                    $('#myDataTable_wrapper').show();
-                    $('#check').text("CURRENT!");
-                    $('#selecteddate').val("");
-                    $('#insertattendance').show();
-                    $('#updateattendance').hide();
+                    table1.search($('#SelectDate').val()).draw();
+                    if(table1.page.info().recordsDisplay == 0){
+                        $('#myDataTable_wrapper').show();
+                        $('#myDataTable1_wrapper').hide();
+                        $('#insertattendance').show();
+                        $('#updateattendance').hide();
+                        $('#check').text("Insert Attendance");
+                    }else{
+                        $('#myDataTable1_wrapper').show();
+                        $('#myDataTable_wrapper').hide();
+                        $('#insertattendance').hide();
+                        $('#updateattendance').show();
+                        $('#check').text("Update Attendance");
+                    }
+                    $('#selecteddate').val($('#SelectDate').val());
                 } else {
                     $('#myDataTable1_wrapper').show();
                     $('#myDataTable_wrapper').hide();
                     table1.search($('#SelectDate').val()).draw();
 
-                    $('#check').text("NO.");
                     $('#selecteddate').val($('#SelectDate').val());
                     $('#insertattendance').hide();
                     $('#updateattendance').show();
+                    
+                    $('#check').text("Update Attendance");
                 }
 
             });
         });
     </script>
-
-
 </body>
 
 </html>

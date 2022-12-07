@@ -99,12 +99,6 @@ if (isset($currentsubjectid)) {
                         <span class="title">View of <br> Excuse Slip</span>
                     </a>
                 </li>
-                <li>
-                    <a href="Lists_of_Announcement.php">
-                    <span class="icon"><img src="images/sidebar_menu/Mask group (9).svg" alt="">
-                    <span class="title5" ><br>Announcement</span>
-                    </a>
-                </li>
             </ul>
         </div>
         <div class="main">
@@ -166,7 +160,7 @@ if (isset($currentsubjectid)) {
                     if (mysqli_num_rows($query_run) > 0) {
                         $students = $query_run;
                         foreach ($query_run as $student) {
-                            $studentid = $student['Student_ID'];
+                            $studentid = $student['Student_ID'];    
                             $query1 = "SELECT Quarter, Grades FROM `failing_grades` WHERE Student_ID = $studentid AND Class_ID = $currentclassid AND (Quarter ='1st' OR Quarter = '')";
                             $query_run1 = mysqli_query($link, $query1);
                             if (mysqli_num_rows($query_run1) > 0) {
@@ -286,22 +280,14 @@ if (isset($currentsubjectid)) {
     <script>
         $(document).ready(function() {
             $('#myDataTable').DataTable({
-                pageLength: 5,
-                lengthMenu: [
-                    [5, 10, 15, 20],
-                    [5, 10, 15, 20]
-                ],
+                bPaginate: false,
                 // columnDefs: [{
                 //     target: 3,
                 //     visible: false,
                 // }]
             });
             $('#myDataTable2').DataTable({
-                pageLength: 5,
-                lengthMenu: [
-                    [5, 10, 15, 20],
-                    [5, 10, 15, 20]
-                ],
+                bPaginate: false,
                 // columnDefs: [{
                 //     target: 3,
                 //     visible: false,
@@ -330,8 +316,6 @@ if (isset($currentsubjectid)) {
             });
         });
     </script>
-
-
 </body>
 
 </html>
