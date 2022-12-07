@@ -322,11 +322,6 @@ button#submit.btn.btn-primary.btn-sm {
 .task:hover {
   background-color: aliceblue;
 }
-.show {
-  display: block;
-  margin-top: -20px;
-  margin-left: 10px;
-}
 div.list.show {
   display: block;
   margin-top: -10px;
@@ -369,11 +364,6 @@ input.input-selector {
 }
 .task:hover {
   background-color: aliceblue;
-}
-.show {
-  display: block;
-  margin-top: -20px;
-  margin-left: 10px;
 }
 div.list1.show {
   display: block;
@@ -423,11 +413,6 @@ input.input-selector1 {
 .task:hover {
   background-color: aliceblue;
 }
-.show {
-  display: block;
-  margin-top: -20px;
-  margin-left: 10px;
-}
 div.list2.show {
   display: block;
   margin-top: 0px;
@@ -462,6 +447,7 @@ select.Violation2 {
   border: 1px solid black;
 }
 
+<<<<<<< HEAD
 span.badge{
   background-color: red;
   border-radius: 50px;
@@ -514,6 +500,8 @@ span.badge2{
     margin-right: 300px;
     margin-top: -10px;
 } */
+=======
+>>>>>>> 5afab19fdd4b415fce64bd4c8d2f7ecd5b0cee67
 
 table.dataTable {
   width: 1100px;

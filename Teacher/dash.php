@@ -55,6 +55,7 @@ if (mysqli_num_rows($excusequery_run) > 0) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
+    <script src="js/dropdown.js" defer></script>
     <link rel="stylesheet" href="style.css">
     <title>Dashboard</title>
 </head>
@@ -108,11 +109,11 @@ if (mysqli_num_rows($excusequery_run) > 0) {
                         <i class="fa fa-search"></i>
                     </div>
                     <div class="dropdown">
-                        <div class="icons1">
-                            <h3 class="dropbtn"> <?php echo $currentteachername ?> </h3>
-                            <i class="fa fa-angle-down"></i>
-                        </div>
-                        <div class="dropdown-content">
+                        <button class="icons1" onclick="myFunction()">
+                            <h3 class="dropbtn"> <?php echo $currentteachername ?> <i class="fa fa-angle-down"></i></h3>
+
+                        </button>
+                        <div class="dropdown-content" id="myDropdown">
                             <a href="../logins/logout.php">Logout</a>
                         </div>
                     </div>
