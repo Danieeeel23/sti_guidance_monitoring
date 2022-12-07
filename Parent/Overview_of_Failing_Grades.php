@@ -1,6 +1,16 @@
 <?php
 session_start();
 require 'config.php';
+
+if (!isset($_SESSION['parent_id'])) {
+    header('location:../logins/login_form.php');
+}
+
+$parent_id = $_SESSION['parent_id'];
+$query = "SELECT * FROM `student` WHERE Parent_ID='$parent_id'";
+$query_run = mysqli_query($link, $query);
+$students = mysqli_fetch_array($query_run);
+$studentid = $students['Student_ID'];
 ?>
 
 <!DOCTYPE html>
@@ -24,40 +34,40 @@ require 'config.php';
 
 <body>
     <div class="container">
-    <div class="navigation">
+        <div class="navigation">
             <ul>
                 <li>
                     <a href="">
-                    <span class="icon1"><img src="" alt=""></span>
-                    
+                        <span class="icon1"><img src="" alt=""></span>
+
                     </a>
                 </li>
                 <li>
                     <a href="dash.php">
-                    <span class="icon"><img src="images/sidebar_menu/Home.svg" alt=""></span>
-                    <span class="title1" ><br>Home</span>
+                        <span class="icon"><img src="images/sidebar_menu/Home.svg" alt=""></span>
+                        <span class="title1"><br>Home</span>
                     </a>
                 </li>
                 <li>
                     <a href="Student_Record.php">
-                    <span class="icon"><img src="images/sidebar_menu/Student_Record.svg" alt=""></span>
-                    <span class="title2"><br>Student Record</span>
+                        <span class="icon"><img src="images/sidebar_menu/Student_Record.svg" alt=""></span>
+                        <span class="title2"><br>Student Record</span>
                     </a>
                 </li>
                 <li>
                     <a href="Lists_of_Concerns.php">
-                    <span class="icon"><img src="images/sidebar_menu/Concerns.svg" alt=""></span>
-                    <span class="title" ><br>Concerns</span>
+                        <span class="icon"><img src="images/sidebar_menu/Concerns.svg" alt=""></span>
+                        <span class="title"><br>Concerns</span>
                     </a>
                 </li>
                 <li>
                     <a href="Lists_of_Announcement.php">
-                    <span class="icon"><img src="images/sidebar_menu/Mask group (9).svg" alt=""></span>
-                    <span class="title4" ><br>Announcement</span>
+                        <span class="icon"><img src="images/sidebar_menu/Mask group (9).svg" alt=""></span>
+                        <span class="title4"><br>Announcement</span>
                     </a>
                 </li>
-                
-               
+
+
 
             </ul>
         </div>
@@ -106,7 +116,7 @@ require 'config.php';
             </thead>
             <tbody>
                 <?php
-                $query = "SELECT *, CONCAT(First_Name,' ',Last_Name) AS Name FROM `failing_grades` ";
+                $query = "SELECT *, CONCAT(First_Name,' ',Last_Name) AS Name FROM `failing_grades` WHERE Student_ID='$studentid'";
                 $query_run = mysqli_query($link, $query);
 
                 if (mysqli_num_rows($query_run) > 0) {
