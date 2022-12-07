@@ -8,6 +8,11 @@ if (!isset($_SESSION['parent_id'])) {
     header('location:../logins/login_form.php');
 }
 
+$parent_id = $_SESSION['parent_id'];
+$query = "SELECT * FROM `student` WHERE Parent_ID='$parent_id'";
+$query_run = mysqli_query($link, $query);
+$students = mysqli_fetch_array($query_run);
+$studentid = $students['Student_ID'];
 ?>
 
 <!DOCTYPE html>
@@ -115,7 +120,7 @@ if (!isset($_SESSION['parent_id'])) {
                 <div class="cardtable">
                     <?php
 
-                    $attendancequery = "SELECT *, CONCAT(Student_First_Name,' ',Student_Last_Name) AS Name FROM attendance ORDER BY `Last_Modified` DESC LIMIT 1";
+                    $attendancequery = "SELECT *, CONCAT(Student_First_Name,' ',Student_Last_Name) AS Name FROM attendance WHERE Student_ID = '$studentid' ORDER BY `Last_Modified` DESC LIMIT 1";
                     $attendancequery_run = mysqli_query($link, $attendancequery);
                     $query_run = mysqli_query($link, $attendancequery);
 
@@ -152,7 +157,7 @@ if (!isset($_SESSION['parent_id'])) {
                     <div class="cardtable">
                         <?php
 
-                        $attendancequery = "SELECT *, CONCAT(First_Name,' ',Last_Name) AS Name FROM failing_grades ORDER BY `Last_Modified` DESC LIMIT 1";
+                        $attendancequery = "SELECT *, CONCAT(First_Name,' ',Last_Name) AS Name FROM failing_grades WHERE Student_ID = '$studentid' ORDER BY `Last_Modified` DESC LIMIT 1";
                         $attendancequery_run = mysqli_query($link, $attendancequery);
                         $query_run = mysqli_query($link, $attendancequery);
 
@@ -190,7 +195,7 @@ if (!isset($_SESSION['parent_id'])) {
                         <div class="cardtable">
                             <?php
 
-                            $attendancequery = "SELECT * FROM violation ORDER BY `Date` DESC LIMIT 1";
+                            $attendancequery = "SELECT * FROM violation WHERE Student_ID = '$studentid' ORDER BY `Date` DESC LIMIT 1";
                             $attendancequery_run = mysqli_query($link, $attendancequery);
                             $query_run = mysqli_query($link, $attendancequery);
 

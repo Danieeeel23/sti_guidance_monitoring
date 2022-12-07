@@ -126,85 +126,40 @@ if(!isset($_SESSION['parent_id'])){
                         <h4>Basic Information</h4>
                         <div class="info">
                        
-                            <label for="Stu">Search</label>
-                            <span id="btk"> <input type="text" placeholder="" name="studentno" id="studentno" onkeyup="GetDetail(this.value)" value="" required></span>
-                            <button class="btn"><i class="fa fa-search"></i></button>
-                       
+                        <?php
+                                    if(isset($_GET['id']))
+                                    {
+                                        $parent_id = mysqli_real_escape_string($link, $_GET['id']);
+                                        $query = "SELECT *, CONCAT(First_Name,' ',Middle_Name,' ',Last_Name) AS Names FROM `parent` WHERE Parent_ID='$parent_id'";
+                                        $query_run = mysqli_query($link, $query);
+
+                                        if(mysqli_num_rows($query_run) > 0)
+                                        {
+                                            $parent = mysqli_fetch_array($query_run);
+                                            ?>
+                        
+
+                            <label for="Name">Parent ID</label>
+                            <span id="btk"> <input type="text" placeholder=""  name="parentno" value="<?= $parent['Parent_ID']; ?>"></span>
                             <label for="Name">Name</label>
-                            <span id="btk"> <input type="text" placeholder=""  name="cfirstname" id="firstname" value="" readonly></span>
-                            <label for="Name">Year</label>
-                            <span id="btk"> <input type="text" placeholder=""  name="cyrlvl" id="yrlvl" value="" readonly></span>
-                            <label for="Name">Strand</label>
-                            <span id="btk"> <input type="text" placeholder=""  name="cstrand" id="strand" value="" readonly></span>
-                            <label for="Name">Section</label>
-                            <span id="btk"> <input type="text" placeholder=""  name="csection" id="section" value="" readonly></span>
+                            <span id="btk"> <input type="text" placeholder=""  name="pfirstname" id="name" value="<?= $parent['Names']; ?>" readonly></span>
 
-                            <script>
-  
-                            // onkeyup event will occur when the user 
-                            // release the key and calls the function
-                            // assigned to this event
-                            function GetDetail(str) {
-                                if (str.length == 0) {
-                                    document.getElementById("firstname").value = "";
-                                    document.getElementById("yrlvl").value = "";
-                                    document.getElementById("strand").value = "";
-                                    document.getElementById("section").value = "";
-                                    return;
-                                }
-                                else {
-                    
-                                    // Creates a new XMLHttpRequest object
-                                    var xmlhttp = new XMLHttpRequest();
-                                    xmlhttp.onreadystatechange = function () {
-                    
-                                        // Defines a function to be called when
-                                        // the readyState property changes
-                                        if (this.readyState == 4 && 
-                                                this.status == 200) {
-                                            
-                                            // Typical action to be performed
-                                            // when the document is ready
-                                            var myObj = JSON.parse(this.responseText);
-                    
-                                            // Returns the response data as a
-                                            // string and store this array in
-                                            // a variable assign the value 
-                                            // received to first name input field
-                                            
-                                            document.getElementById
-                                                ("firstname").value = myObj[0];
-                                            
-                                            // Assign the value received to
-                                            // last name input field
-                                            document.getElementById(
-                                                "yrlvl").value = myObj[1];
-
-                                                document.getElementById(
-                                                "strand").value = myObj[2];
-
-                                                document.getElementById(
-                                                "section").value = myObj[3];
-                                        }
-                                    };
-                    
-                                    // xhttp.open("GET", "filename", true);
-                                    xmlhttp.open("GET", "gfg.php?studentno=" + str, true);
-                                    
-                                    // Sends the request to the server
-                                    xmlhttp.send();
+                            <?php
                                 }
                             }
-                        </script>
-
-                        <label for="Name">Title</label>
-                            <span id="btk"> <input type="text" placeholder=""  name="title"></span>
-                       
-                        <label for="Name">Reason</label>
-                        <span id="btk"> <input type="text" placeholder=""  name="reason"></span>
-
-                        <label for="Date">Date</label>
-                        <input type="date" placeholder="Date" id="Date" name="date" required>
+                            else
+                            {
+                                
+                            }
+                        ?>
+                            <label for="Name">Reason<span class="asterisk"> *</span></label>
+                        <select class="Reason" name="reasons" required>
+                            <option value="No input"></option>
+                            <option value="Grades">Grades</option>
+                            <option value="Financial Problem">Financial Problem</option>
+                            <option value="Resources">Resources</option>
+                            <option value="Others">Others</option>
+                        </select>
 
                         <label for="Status"></label> <span id="btk"> <input type="hidden" placeholder="" name="status" value="Ongoing" readonly></span>
                                             

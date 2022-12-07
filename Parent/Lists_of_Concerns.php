@@ -108,13 +108,32 @@ if(!isset($_SESSION['parent_id'])){
         <div class="title2">
           <h1>List of Concerns</h1>
           <div class="bot">
-            <span class="create">
-                <form action="Manage_Concerns.php" method="POST">
-                <input type="submit" value="Create"></span>
-                </form>
-            </span>
+          <?php 
+                        $parent_id = $_SESSION['parent_id'];
+                        $query = "SELECT * FROM `parent` WHERE Parent_ID='$parent_id'";
+                        $query_run = mysqli_query($link, $query);
 
-          <span class="delete"><input type="submit" value="Delete" id="delete_records"></span>
+                        if(mysqli_num_rows($query_run) > 0)
+                        {
+                            foreach($query_run as $parent)
+                            {
+                                ?>
+                        <span class="create">
+                            <a href="Manage_Concerns.php?id=<?= $parent['Parent_ID']; ?>"><input type="submit" value="Create"></a>
+                        </span>
+        
+                      <span class="delete"><input type="submit" value="Delete" id="delete_records"></span>
+                    
+                    </div>
+                    </div>
+                    <?php
+                                }
+                            }
+                            else
+                            {
+                                
+                            }
+                        ?>
           
         </div>
         </div>
@@ -136,8 +155,8 @@ if(!isset($_SESSION['parent_id'])){
             </thead>
             <tbody>
             <?php 
-
-                $query = "SELECT * FROM `concerns`";
+                $parent_id = $_SESSION['parent_id'];
+                $query = "SELECT * FROM `concerns` WHERE Parent_ID='$parent_id'";
                 $query_run = mysqli_query($link, $query);
 
                     if(mysqli_num_rows($query_run) > 0)
@@ -163,6 +182,7 @@ if(!isset($_SESSION['parent_id'])){
                             {
                                 
                             }
+                        
                         ?>
                         </tbody>
                     </table>
