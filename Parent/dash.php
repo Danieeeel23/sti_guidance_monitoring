@@ -4,73 +4,74 @@
 
 session_start();
 
-if(!isset($_SESSION['parent_id'])){
+if (!isset($_SESSION['parent_id'])) {
     header('location:../logins/login_form.php');
 }
 
+$parent_id = $_SESSION['parent_id'];
+$query = "SELECT * FROM `student` WHERE Parent_ID='$parent_id'";
+$query_run = mysqli_query($link, $query);
+$students = mysqli_fetch_array($query_run);
+$studentid = $students['Student_ID'];
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <!--font-->
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--font-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <script>
-    if ( window.history.replaceState ) {
-        window.history.replaceState( null, null, window.location.href );
-    }
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
     </script>
     <title>Dashboard</title>
 </head>
+
 <body>
     <div class="container">
         <div class="navigation">
             <ul>
                 <li>
                     <a href="">
-                    <span class="icon1"><img src="" alt=""></span>
-                    
+                        <span class="icon1"><img src="" alt=""></span>
+
                     </a>
                 </li>
                 <li>
                     <a href="dash.php">
-                    <span class="icon"><img src="images/sidebar_menu/Home.svg" alt=""></span>
-                    <span class="title1" ><br>Home</span>
+                        <span class="icon"><img src="images/sidebar_menu/Home.svg" alt=""></span>
+                        <span class="title1"><br>Home</span>
                     </a>
                 </li>
                 <li>
                     <a href="Student_Record.php">
-                    <span class="icon"><img src="images/sidebar_menu/Student_Record.svg" alt=""></span>
-                    <span class="title2"><br>Student Record</span>
+                        <span class="icon"><img src="images/sidebar_menu/Student_Record.svg" alt=""></span>
+                        <span class="title2"><br>Student Record</span>
                     </a>
                 </li>
                 <li>
                     <a href="Lists_of_Concerns.php">
-                    <span class="icon"><img src="images/sidebar_menu/Concerns.svg" alt=""></span>
-                    <span class="title" ><br>Concerns</span>
+                        <span class="icon"><img src="images/sidebar_menu/Concerns.svg" alt=""></span>
+                        <span class="title"><br>Concerns</span>
                     </a>
                 </li>
                 <li>
                     <a href="Lists_of_Announcement.php">
-                    <span class="icon"><img src="images/sidebar_menu/Mask group (9).svg" alt=""></span>
-                    <span class="title5" ><br>Announcement</span>
+                        <span class="icon"><img src="images/sidebar_menu/Mask group (9).svg" alt=""></span>
+                        <span class="title5"><br>Announcement</span>
                     </a>
                 </li>
-                <li>
-                    <a href="Lists_of_Announcement.php">
-                    <span class="icon"><img src="images/sidebar_menu/Mask group (9).svg" alt=""></span><span class="badge2 badge-primary">4</span>
-                    <span class="title5" ><br>Announcement</span>
-                    </a>
-                </li>
-                
-               
+
+
 
             </ul>
         </div>
@@ -83,280 +84,291 @@ if(!isset($_SESSION['parent_id'])){
                 <div class="icons">
                     <i class="fa fa-bell"></i>
                     <i class="fa fa-question-circle"></i>
-                    
+
                 </div>
                 <div class="dropdown">
-                <?php 
-                        $parent_id = $_SESSION['parent_id'];
-                        $query = "SELECT *, CONCAT(First_Name,' ',Last_Name) AS Names FROM `parent` WHERE Parent_ID='$parent_id'";
-                        $query_run = mysqli_query($link, $query);
-
-                        if(mysqli_num_rows($query_run) > 0)
-                        {
-                            foreach($query_run as $parent)
-                            {
-                                ?>
-                    <button class="dropbtn"><?= $parent['Names']; ?></button>
-                    <div class="dropdown-content">
-                    <a href="../logins/logout.php">Logout</a>
-                </div>
-                </div>
-                </div>
-            
-                </div>
-                <?php
-                                }
-                            }
-                            else
-                            {
-                                
-                            }
-                        ?>
-                <div class="1title">
-                    <p>Student Dashboard</p>
-                </div>
-                
-        <div class="cardbox">
-            <div class="card">
-            <div class="iconss">
-                <i class="fa fa-users"></i>
-             </div>
-             <div>
-             <?php
+                    <?php
                     $parent_id = $_SESSION['parent_id'];
-                    $query = "SELECT * FROM `violation` WHERE Student_ID='$parent_id'";
+                    $query = "SELECT *, CONCAT(First_Name,' ',Last_Name) AS Names FROM `parent` WHERE Parent_ID='$parent_id'";
                     $query_run = mysqli_query($link, $query);
 
-                    $row = mysqli_num_rows($query_run);
+                    if (mysqli_num_rows($query_run) > 0) {
+                        foreach ($query_run as $parent) {
+                    ?>
+                            <button class="dropbtn"><?= $parent['Names']; ?></button>
+                            <div class="dropdown-content">
+                                <a href="../logins/logout.php">Logout</a>
+                            </div>
+                </div>
+            </div>
 
-                    echo '<div class="cardname"><strong>Violation</strong></div>
-                        <div class="numbers">'.$row.'</div>
+        </div>
+<?php
+                        }
+                    } else {
+                    }
+?>
+<div class="1title">
+    <p>Student Dashboard</p>
+</div>
+
+<div class="cardbox">
+    <div class="card">
+        <div class="iconss">
+            <i class="fa fa-users"></i>
+        </div>
+        <div>
+            <?php
+            $parent_id = $_SESSION['parent_id'];
+            $query = "SELECT * FROM `violation` WHERE Student_ID='$studentid'";
+            $query_run = mysqli_query($link, $query);
+
+            $row = mysqli_num_rows($query_run);
+
+            echo '<div class="cardname"><strong>Violation</strong></div>
+                        <div class="numbers">' . $row . '</div>
                         </div>
                         </div>'
-                ?>
+            ?>
 
             <div class="card">
                 <div class="iconss">
                     <i class="fa fa-users"></i>
-                 </div>
-                 <div>
-                 <?php
+                </div>
+                <div>
+                    <?php
                     $parent_id = $_SESSION['parent_id'];
-                    $query = "SELECT * FROM `failing_grades` WHERE Student_ID='$parent_id'";
+                    $query = "SELECT * FROM `failing_grades` WHERE Student_ID='$studentid'";
                     $query_run = mysqli_query($link, $query);
 
                     $row = mysqli_num_rows($query_run);
 
                     echo '<div class="cardname"><strong>Failing Grades</strong></div>
-                        <div class="numbers">'.$row.'</div>
+                        <div class="numbers">' . $row . '</div>
                         </div>
                         </div>'
-                ?>
+                    ?>
 
-                <div class="card">
-                    <div class="iconss">
-                        <i class="fa fa-users"></i>
-                     </div>
-                     <div>
-                     <?php
-                    $parent_id = $_SESSION['parent_id'];
-                    $query = "SELECT `Student_ID` FROM `excuse letter` WHERE Student_ID='$parent_id'";;
-                    $query_run = mysqli_query($link, $query);
-
-                    $row = mysqli_num_rows($query_run);
-
-                    echo '<div class="cardname"><strong>Absenteeism</strong></div>
-                        <div class="numbers">'.$row.'</div>
+                    <div class="card">
+                        <div class="iconss">
+                            <i class="fa fa-users"></i>
                         </div>
-                        </div>'
-                ?>
-                 </div>
-            <div class="mainn">
-                <div class="boddy">
-                    <div class="cardbody">
-                        <h2>Student Records</h2>
-                    </div>
-                    <div class="pictures">
-                        <div class="request"><img src="images/violation.png" alt=""><h3>Violation</h3><a href="Lists_of_Violation.php" style="text-decoration: none;"><h4>Start <i class="fa fa-play" aria-hidden="true"></i></h4></a></div>
-                        <div class="rejected"><img src="images/Failing_Grades.jpg"alt=""><h3>Failing Grades</h3><a href="Lists_of_Failing_Grades.php" style="text-decoration: none;"><h4>Start <i class="fa fa-play" aria-hidden="true"></i></h4></a></div>
-                        <div class="accepted"><img src="images/Absenteeism.png" alt=""><h3>Absenteeism</h3><a href="Lists_of_Excuse_Letter.php" style="text-decoration: none;"><h4>Start <i class="fa fa-play" aria-hidden="true"></i></h4></a></div>
-                    </div>
-                </div>
-                
-                <div class="announce">
-                    <div class="cardbody2">
-                        <h2>Newly Created</h2>
-                    <div class="anoun">
-                        <div class="ongoing"><p><strong>Excuse Letter</strong><a href="Lists_of_Concerns.php" class="btn" style="text-decoration: none; color: white;">View All</a></p>
-                            <div class="card1">
-                                <table class="table1">
-                                    <tbody>
-                                    <?php 
-                                        $parent_id = $_SESSION['parent_id'];
-                                        $query = "SELECT * FROM `excuse letter` WHERE Student_ID='$parent_id' LIMIT 3";
-                                        $query_run = mysqli_query($link, $query);
-
-                                        if(mysqli_num_rows($query_run) > 0)
-                                        {
-                                            foreach($query_run as $excuse)
-                                            {
-                                        ?>
-                                        <tr>
-                                            <td><?= $excuse['Reason_for_Absence']; ?></td>
-                                            <td><?= $excuse['Start_Date']; ?></td>   
-                                        </tr>
-
-                                        <?php
-                                        }
-                                        }
-                                        else
-                                        {
-
-                                        }
-                                        ?>
-                                        <!-- and so on... -->
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="expired"><p><strong>Complaints</strong><a href="Lists_of_Excuse_Letter.php" class="btn2" style="text-decoration: none; color: white;">View All</a></p>
-                            <div class="card2">
-                                <table class="table2">
-                                    <tbody>
-                                    <?php 
-                                        $parent_id = $_SESSION['parent_id'];
-                                        $query = "SELECT * FROM `concerns` WHERE Parent_ID='$parent_id' LIMIT 3";
-                                        $query_run = mysqli_query($link, $query);
-
-                                        if(mysqli_num_rows($query_run) > 0)
-                                        {
-                                            foreach($query_run as $concerns)
-                                            {
-                                        ?>
-                                        <tr>
-                                            <td><?= $concerns['Title']; ?></td>
-                                            <td><?= $concerns['Date']; ?></td>   
-                                        </tr>
-
-                                        <?php
-                                        }
-                                        }
-                                        else
-                                        {
-
-                                        }
-                                        ?>
-                                        <!-- and so on... -->
-                                    </tbody>
-                                </table>
-                            </div></div>
-                    </div>
-                    </div>
-                </div>
-                
-                <div class="announce2">
-                    <div class="cardbody3">
-                        <h2>Newly Received</h2>
-                    <div class="anoun">
-                        <div class="ongoing"><p><strong>Violation</strong> <a href="Lists_of_Violation.php" class="btn3" style="text-decoration: none; color: white;">View All</a></p>
-                            <div class="card1">
-                                <table class="table1">
-                                    <tbody>
-                                    <?php 
-                                        $parent_id = $_SESSION['parent_id'];
-                                        $query = "SELECT * FROM `violation` WHERE Student_ID='$parent_id' LIMIT 3";
-                                        $query_run = mysqli_query($link, $query);
-
-                                        if(mysqli_num_rows($query_run) > 0)
-                                        {
-                                            foreach($query_run as $violation)
-                                            {
-                                        ?>
-                                        <tr>
-                                            <td>Violation <?= $violation['Violation_ID']; ?></td>
-                                            <td><?= $violation['Type_of_Violation']; ?></td>   
-                                        </tr>
-
-                                        <?php
-                                        }
-                                        }
-                                        else
-                                        {
-
-                                        }
-                                        ?>
-                                                                     
-                                        <!-- and so on... -->
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="expired"><p><strong>Failing Grades</strong> <a href="Lists_of_Failing_Grades.php" class="btn4" style="text-decoration: none; color: white;">View All</a></p>
-                            <div class="card1">
-                                <table class="table1">
-                                    <tbody>
-                                    <?php 
-                                        $parent_id = $_SESSION['parent_id'];
-                                        $query = "SELECT * FROM `failing_grades` WHERE Student_ID='$parent_id' LIMIT 3";
-                                        $query_run = mysqli_query($link, $query);
-
-                                        if(mysqli_num_rows($query_run) > 0)
-                                        {
-                                            foreach($query_run as $fails)
-                                            {
-                                        ?>
-                                        <tr>
-                                            <td>Violation <?= $fails['Subject']; ?></td>
-                                            <td><?= $fails['Grades']; ?></td>   
-                                        </tr>
-
-                                        <?php
-                                        }
-                                        }
-                                        else
-                                        {
-
-                                        }
-                                        ?>
-                                   
-                                   
-                                        <!-- and so on... -->
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                     </div>
-                     <div class="cement">
-                        <p><strong>Announcement</strong></p>
-
-                        <?php 
-
-                            $query = "SELECT * FROM `announcement` LIMIT 6";
+                        <div>
+                            <?php
+                            $parent_id = $_SESSION['parent_id'];
+                            $query = "SELECT `Student_ID` FROM `send_excuse_letter` WHERE Student_ID='$studentid'";
                             $query_run = mysqli_query($link, $query);
 
-                            if(mysqli_num_rows($query_run) > 0)
-                            {
-                                foreach($query_run as $announcements)
-                                {
-                                    ?>
-                        <p><i class="fa fa-bullhorn" aria-hidden="true"></i>Announcement <?= $announcements['Announcement_ID']; ?>: <?= $announcements['Title']; ?></p>
-                        <p class="date1">06/18/2022</p>
+                            $row = mysqli_num_rows($query_run);
 
-                        <?php
-                                    }
-                                }
-                                else
-                                {
-                                
-                                }
+                            echo '<div class="cardname"><strong>Absenteeism</strong></div>
+                        <div class="numbers">' . $row . '</div>
+                        </div>
+                        </div>'
                             ?>
-                        
-                     </div>
+                        </div>
+                        <div class="mainn">
+                            <div class="boddy">
+                                <div class="cardbody">
+                                    <h2>Student Records</h2>
+                                </div>
+                                <div class="pictures">
+                                    <div class="request"><img src="images/violation.png" alt="">
+                                        <h3>Violation</h3><a href="Lists_of_Violation.php" style="text-decoration: none;">
+                                            <h4>Start <i class="fa fa-play" aria-hidden="true"></i></h4>
+                                        </a>
+                                    </div>
+                                    <div class="rejected"><img src="images/Failing_Grades.jpg" alt="">
+                                        <h3>Grades</h3><a href="Lists_of_Failing_Grades.php" style="text-decoration: none;">
+                                            <h4>Start <i class="fa fa-play" aria-hidden="true"></i></h4>
+                                        </a>
+                                    </div>
+                                    <div class="accepted"><img src="images/Absenteeism.png" alt="">
+                                        <h3>Attendance</h3><a href="Lists_of_Excuse_Letter.php" style="text-decoration: none;">
+                                            <h4>Start <i class="fa fa-play" aria-hidden="true"></i></h4>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="announce">
+                                <div class="cardbody2">
+                                    <h2>Newly Created</h2>
+                                    <div class="anoun">
+                                        <div class="ongoing">
+                                            <p><strong>Excuse Letter</strong><a href="Lists_of_Concerns.php" class="btn" style="text-decoration: none; color: white;">View All</a></p>
+                                            <div class="card1">
+                                                <table class="table1">
+                                                    <tbody>
+                                                        <?php
+                                                        $parent_id = $_SESSION['parent_id'];
+                                                        $query = "SELECT `Student_ID` FROM `send_excuse_letter` WHERE Student_ID='$studentid' LIMIT 3";
+                                                        $query_run = mysqli_query($link, $query);
+
+                                                        if (mysqli_num_rows($query_run) > 0) {
+                                                            foreach ($query_run as $excuse) {
+                                                        ?>
+                                                                <tr>
+                                                                    <td><?= $excuse['Reason_for_Absence']; ?></td>
+                                                                    <td><?= $excuse['Start_Date']; ?></td>
+                                                                </tr>
+
+                                                            <?php
+                                                            }
+                                                        } else {
+                                                            ?>
+                                                            <tr>
+                                                                <td>No Available Data</td>
+                                                            </tr>
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                        <!-- and so on... -->
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="expired">
+                                            <p><strong>Complaints</strong><a href="Lists_of_Excuse_Letter.php" class="btn2" style="text-decoration: none; color: white;">View All</a></p>
+                                            <div class="card2">
+                                                <table class="table2">
+                                                    <tbody>
+                                                        <?php
+                                                        $parent_id = $_SESSION['parent_id'];
+                                                        $query = "SELECT * FROM `concerns` WHERE Student_ID='$studentid' LIMIT 3";
+                                                        $query_run = mysqli_query($link, $query);
+
+                                                        if (mysqli_num_rows($query_run) > 0) {
+                                                            foreach ($query_run as $concerns) {
+                                                        ?>
+                                                                <tr>
+                                                                    <td><?= $concerns['Title']; ?></td>
+                                                                    <td><?= $concerns['Date']; ?></td>
+                                                                </tr>
+
+                                                            <?php
+                                                            }
+                                                        } else {
+                                                            ?>
+                                                            <tr>
+                                                                <td>No Available Data</td>
+                                                            </tr>
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                        <!-- and so on... -->
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="announce2">
+                                <div class="cardbody3">
+                                    <h2>Newly Received</h2>
+                                    <div class="anoun">
+                                        <div class="ongoing">
+                                            <p><strong>Violation</strong> <a href="Lists_of_Violation.php" class="btn3" style="text-decoration: none; color: white;">View All</a></p>
+                                            <div class="card1">
+                                                <table class="table1">
+                                                    <tbody>
+                                                        <?php
+                                                        $parent_id = $_SESSION['parent_id'];
+                                                        $query = "SELECT * FROM `violation` WHERE Student_ID='$studentid' LIMIT 3";
+                                                        $query_run = mysqli_query($link, $query);
+
+                                                        if (mysqli_num_rows($query_run) > 0) {
+                                                            foreach ($query_run as $violation) {
+                                                        ?>
+                                                                <tr>
+                                                                    <td>Violation <?= $violation['Violation_ID']; ?></td>
+                                                                    <td><?= $violation['Type_of_Violation']; ?></td>
+                                                                </tr>
+
+                                                            <?php
+                                                            }
+                                                        } else {
+                                                            ?>
+                                                            <tr>
+                                                                <td>No Available Data</td>
+                                                            </tr>
+                                                        <?php
+                                                        }
+                                                        ?>
+
+                                                        <!-- and so on... -->
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="expired">
+                                            <p><strong>Failing Grades</strong> <a href="Lists_of_Failing_Grades.php" class="btn4" style="text-decoration: none; color: white;">View All</a></p>
+                                            <div class="card1">
+                                                <table class="table1">
+                                                    <tbody>
+                                                        <?php
+                                                        $parent_id = $_SESSION['parent_id'];
+                                                        $query = "SELECT * FROM `failing_grades` WHERE Student_ID='$studentid' LIMIT 3";
+                                                        $query_run = mysqli_query($link, $query);
+
+                                                        if (mysqli_num_rows($query_run) > 0) {
+                                                            foreach ($query_run as $fails) {
+                                                        ?>
+                                                                <tr>
+                                                                    <td>Violation <?= $fails['Subject']; ?></td>
+                                                                    <td><?= $fails['Grades']; ?></td>
+                                                                </tr>
+
+                                                            <?php
+                                                            }
+                                                        } else {
+                                                            ?>
+                                                            <tr>
+                                                                <td>No Available Data</td>
+                                                            </tr>
+                                                        <?php
+                                                        }
+                                                        ?>
+
+
+                                                        <!-- and so on... -->
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cement">
+                                <p><strong>Announcement</strong></p>
+
+                                <?php
+
+                                $query = "SELECT * FROM `announcement` LIMIT 6";
+                                $query_run = mysqli_query($link, $query);
+
+                                if (mysqli_num_rows($query_run) > 0) {
+                                    foreach ($query_run as $announcements) {
+                                ?>
+                                        <p><i class="fa fa-bullhorn" aria-hidden="true"></i>Announcement <?= $announcements['Announcement_ID']; ?>: <?= $announcements['Title']; ?></p>
+                                        <p class="date1">06/18/2022</p>
+
+                                    <?php
+                                    }
+                                } else {
+                                    ?>
+                                    <p>No Available Data</p>
+                                <?php
+                                }
+                                ?>
+
+                            </div>
+                        </div>
+
                     </div>
-                    
-            </div>
-</div>
+                </div>
 </body>
+
 </html>
