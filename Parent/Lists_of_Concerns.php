@@ -150,7 +150,7 @@ if(!isset($_SESSION['parent_id'])){
                                     <input type="checkbox" class="emp_checkbox" data-emp-id="<?= $concerns['Concern_ID']; ?>">
                                 </td>
                                 <td><?= $concerns['Name']; ?>
-                                <td><?= $concerns['Title']; ?></a></td>
+                                <td>Complaints <?= $concerns['Concern_ID']; ?></a></td>
                                 <td><?= $concerns['Reason']; ?></td>
                                 <td><?= $concerns['Status']; ?></td>
                                 <td><?= $concerns['Date']; ?></td>
