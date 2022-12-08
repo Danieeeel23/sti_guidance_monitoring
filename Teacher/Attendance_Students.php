@@ -215,6 +215,7 @@ if (isset($currentsubjectid)) {
                         <th>Last Name</th>
                         <th>Date</th>
                         <th>Status</th>
+                        <th>Remarks</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -237,6 +238,9 @@ if (isset($currentsubjectid)) {
                                         <option value="Absent" <?= $student['Status'] == 'Absent' ? ' selected="selected"' : ''; ?>>Absent</option>
                                         <option value="Present" <?= $student['Status'] == 'Present' ? ' selected="selected"' : ''; ?>>Present</option>
                                     </select>
+                                </td>
+                                <td>
+                                    <input type="text" name="remarks">
                                 </td>
                             </tr>
                     <?php

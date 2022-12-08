@@ -11,6 +11,7 @@ if (isset($_POST['save_attendance'])) {
     $firstnames = explode(":", mysqli_real_escape_string($link, $_POST['firstname']));
     $lastnames = explode(":", mysqli_real_escape_string($link, $_POST['lastname']));
     $status = $_POST['Status'];
+    $remarks = mysqli_real_escape_string($link, $_POST['remarks']);
     $date = date("Y-m-d");
     
     if ($studentids) {
@@ -33,8 +34,8 @@ if (isset($_POST['save_attendance'])) {
         }
         else{
             for ($i = 0; $i < count($studentids) - 1; $i++) {
-                $query = "INSERT INTO `attendance`(`Class_ID`, `Student_ID`, `Student_First_Name`, `Student_Last_Name`, `Date`, `Status` ) VALUES 
-                 ('$classid','$studentids[$i]','$firstnames[$i]','$lastnames[$i]','$date', '$status[$i]' )";
+                $query = "INSERT INTO `attendance`(`Class_ID`, `Student_ID`, `Student_First_Name`, `Student_Last_Name`, `Date`, `Status`, `Remarks`) VALUES 
+                 ('$classid','$studentids[$i]','$firstnames[$i]','$lastnames[$i]','$date', '$status[$i]', '$remarks')";
                 $query_run = mysqli_multi_query($link, $query);
             }
         }

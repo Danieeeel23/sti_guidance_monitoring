@@ -105,6 +105,16 @@ select {
   border-radius: 4px;
   box-sizing: border-box;
 }
+input[type="text"],
+input[type="number"],
+select {
+  width: 200px;
+  padding: 10px 12px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
 #sea {
   margin-left: 10px;
   width: 100%;
