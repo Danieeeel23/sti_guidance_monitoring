@@ -1282,3 +1282,4 @@ if(isset($_POST['imports']))
               ('$student_id','$firstname','$middlename','$lastname','$gender','$birthdate','$strand','$yrlvl','$section','$address','$city','$province','$postcode','$telno','$mobileno')");
     }
 }
+?>
