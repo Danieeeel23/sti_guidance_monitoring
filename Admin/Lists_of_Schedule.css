@@ -477,7 +477,7 @@ input[type=submit]{
     margin: auto;
     padding: 20px;
     width: 70%;
-    height: 350px;
+    height: 250px;
   }
 
   h5#exampleModalLabel.modal-title {
@@ -485,7 +485,7 @@ input[type=submit]{
     background-color: #2F4FC0;
     color: white;
     margin-top: -20px;
-    width: 107.3%;
+    width: 104%;
     margin-left: -21px;
     padding: 10px 0 10px 15px;
   }

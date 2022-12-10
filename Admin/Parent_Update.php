@@ -35,43 +35,43 @@ if(window.history.replaceState)
                 </li>
                 <li>
                     <a href="dash.php">
-                    <span class="icon"><img src="images/sidebar_menu/Home.svg" alt=""></span>
+                    <span class="icon"><img src="Images/sidebar_menu/Home.svg" alt=""></span>
                     <span class="title1" ><br>Home</span>
                     </a>
                 </li>
                 <li>
                     <a href="Lists_of_Excuse_Letter.php">
-                    <span class="icon"><img src="images/sidebar_menu/Excuse_slip.svg" alt=""></span>
+                    <span class="icon"><img src="Images/sidebar_menu/Excuse_slip.svg" alt=""></span>
                     <span class="title2" ><br>Excuse Slip</span>
                     </a>
                 </li>
                 <li>
                     <a href="">
-                    <span class="icon"><img src="images/sidebar_menu/Manage_Users.svg" alt=""></span>
+                    <span class="icon"><img src="Images/sidebar_menu/Manage_Users.svg" alt=""></span>
                     <span class="title" ><br>Manage Users</span>
                     </a>
                 </li>
                 <li>
                     <a href="Lists_of_Announcement.php">
-                    <span class="icon"><img src="images/sidebar_menu/Announcement.svg" alt=""></span>
+                    <span class="icon"><img src="Images/sidebar_menu/Announcement.svg" alt=""></span>
                     <span class="title" ><br>Annoucement</span>
                     </a>
                 </li>
                 <li>
                     <a href="Student_Record.php">
-                    <span class="icon"><img src="images/sidebar_menu/Student_Record.svg" alt=""></span>
+                    <span class="icon"><img src="Images/sidebar_menu/Student_Record.svg" alt=""></span>
                     <span class="title" ><br>Student Record</span>
                     </a>
                 </li>
                 <li>
                     <a href="Lists_of_Concern.php">
-                    <span class="icon"><img src="images/sidebar_menu/Concerns.svg" alt=""></span>
+                    <span class="icon"><img src="Images/sidebar_menu/Concerns.svg" alt=""></span>
                     <span class="title3" ><br>Concerns</span>
                     </a>
                 </li>
                 <li>
                     <a href="Lists_of_Inquiries.php">
-                    <span class="icon"><img src="images/sidebar_menu/Inquiry.svg" alt=""></span>
+                    <span class="icon"><img src="Images/sidebar_menu/Inquiry.svg" alt=""></span>
                     <span class="title4" ><br>Inquiry</span>
                     </a>
                 </li>
@@ -79,7 +79,7 @@ if(window.history.replaceState)
             </ul>
         </div>
         <div class="main">
-            <span id="logo"><img src="images/sti_logo.png" alt=""></span>
+            <span id="logo"><img src="Images/sti_logo.png" alt=""></span>
             <div class="topbar">
                 <div class="toptitle">
                     <h2>My User</h2>

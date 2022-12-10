@@ -1,7 +1,7 @@
 <?php
 session_start();
-require 'config.php';
-$link = mysqli_connect("localhost", "root", "", "sti guidance monitoring");
+require '../config.php';
+$link = mysqli_connect("localhost", "u794078053_danieeel", "TheG0dHid4lg0&R1b4ld3", "u794078053_monitoring");
 
 //delete single data
 if (isset($_POST['delete_student'])) {
@@ -324,7 +324,7 @@ if (isset($_POST['update_student'])) {
     $birthdate = date('Y-m-d', strtotime($_POST['birthday']));
     $strand = mysqli_real_escape_string($link, $_POST['Strand']);
     $yrlvl = mysqli_real_escape_string($link, $_POST['yrlvl']);
-    $section = mysqli_real_escape_string($link, $_POST['section']);
+    $section = mysqli_real_escape_string($link, $_POST['Section']);
     $address = mysqli_real_escape_string($link, $_POST['address']);
     $city = mysqli_real_escape_string($link, $_POST['city']);
     $province = mysqli_real_escape_string($link, $_POST['province']);
@@ -332,16 +332,28 @@ if (isset($_POST['update_student'])) {
     $telno = mysqli_real_escape_string($link, $_POST['telno']);
     $mobileno = mysqli_real_escape_string($link, $_POST['mobileno']);
     $role = mysqli_real_escape_string($link, $_POST['role']);
+    
+    $parent_id = mysqli_real_escape_string($link, $_POST['parent_id']);
+    $pfirstname = mysqli_real_escape_string($link, $_POST['pfirstname']);
+    $pmiddlename = mysqli_real_escape_string($link, $_POST['pmiddlename']);
+    $plastname =  mysqli_real_escape_string($link, $_POST['plastname']);
+    $pgender = mysqli_real_escape_string($link, $_POST['pgender']);
+    $paddress = mysqli_real_escape_string($link, $_POST['paddress']);
+    $pcity = mysqli_real_escape_string($link, $_POST['pcity']);
+    $pprovince = mysqli_real_escape_string($link, $_POST['pprovince']);
+    $ppostcode = mysqli_real_escape_string($link, $_POST['ppostcode']);
+    $ptelno = mysqli_real_escape_string($link, $_POST['ptelno']);
+    $pmobileno = mysqli_real_escape_string($link, $_POST['pmobileno']);
 
-    $query = "UPDATE student SET First_Name='$firstname', Middle_Name='$middlename', Last_Name='$lastname', Gender='$gender', Birthdate='$birthdate', Strand='$strand', Year_Level='$yrlvl', Section='$section', Address='$address', City='$city', Province='$province', Postcode='$postcode', Telephone_No='$telno', Mobile_No='$mobileno' WHERE Student_ID='$student_id'";
+    $query = "UPDATE student SET First_Name='$firstname', Middle_Name='$middlename', Last_Name='$lastname', Gender='$gender', Birthdate='$birthdate', Strand='$strand', Year_Level='$yrlvl', Section='$section', Address='$address', City='$city', Province='$province', Postcode='$postcode', Telephone_No='$telno', Mobile_No='$mobileno' WHERE Student_ID='$student_id'; UPDATE parent SET First_Name='$pfirstname', Middle_Name='$pmiddlename', Last_Name='$plastname', Gender='$pgender', Address='$paddress', City='$pcity', Province='$pprovince', Postcode='$ppostcode', Telephone_No='$ptelno', Mobile_No='$pmobileno'";
     $query_run = mysqli_multi_query($link, $query);
 
     if ($query_run) {
-        $_SESSION['message'] = "Student Updated Successfully";
+        $_SESSION['message'] = "Student/Parent Updated Successfully";
         header("Location: Lists_of_Student.php");
         exit(0);
     } else {
-        $_SESSION['message'] = "Student Not Updated";
+        $_SESSION['message'] = "Student/Parent Not Updated";
         header("Location: Lists_of_Student.php");
         exit(0);
     }
@@ -500,7 +512,7 @@ if (isset($_POST['update_teacher'])) {
     $tmobileno = mysqli_real_escape_string($link, $_POST['tmobileno']);
     $trole = mysqli_real_escape_string($link, $_POST['trole']);
 
-    $query = "UPDATE teacher SET First_Name='$tfirstname', Middle_Initial='$tmiddlename', Last_Name='$tlastname', Department='$department', Birthdate='$tbirthdate', Gender='$tgender', Address='$taddress', City='$tcity', Province='$tprovince', Postcode='$tpostcode', Telephone_No='$ttelno', Mobile_No='$tmobileno' WHERE Teacher_ID='$teacher_id'";
+    $query = "UPDATE teacher SET First_Name='$tfirstname', Middle_Initial='$tmiddlename', Last_Name='$tlastname', Department='$department', Gender='$tgender', Address='$taddress', City='$tcity', Province='$tprovince', Postcode='$tpostcode', Telephone_No='$ttelno', Mobile_No='$tmobileno' WHERE Teacher_ID='$teacher_id'";
     $query_run = mysqli_multi_query($link, $query);
 
     if ($query_run) {

@@ -36,19 +36,19 @@ require 'config.php';
                 </li>
                 <li>
                     <a href="dash.php">
-                        <span class="icon"><img src="images/sidebar_menu/Home.svg" alt=""></span>
+                        <span class="icon"><img src="Images/sidebar_menu/Home.svg" alt=""></span>
                         <span class="title1"><br>Home</span>
                     </a>
                 </li>
                 <li>
                     <a href="Lists_of_Excuse_Letter.php">
-                        <span class="icon"><img src="images/sidebar_menu/Excuse_slip.svg" alt=""></span>
+                        <span class="icon"><img src="Images/sidebar_menu/Excuse_slip.svg" alt=""></span>
                         <span class="title2"><br>Excuse Slip</span>
                     </a>
                 </li>
                 <li><a href="">
                         <div class="dropdown1">
-                            <span class="icon" style="padding-top: -100px;"><img src="images/sidebar_menu/Manage_Users.svg" alt=""></span>
+                            <span class="icon" style="padding-top: -100px;"><img src="Images/sidebar_menu/Manage_Users.svg" alt=""></span>
                             <a class="dropbtn1" style="margin-top: -40px;">
                                 <span class="title">Manage Users</span>
                             </a>
@@ -66,32 +66,32 @@ require 'config.php';
                 </li>
                 <li>
                     <a href="Lists_of_Announcement.php">
-                        <span class="icon"><img src="images/sidebar_menu/Announcement.svg" alt=""></span>
+                        <span class="icon"><img src="Images/sidebar_menu/Announcement.svg" alt=""></span>
                         <span class="title"><br>Announcement</span>
                     </a>
                 </li>
                 <li>
                     <a href="Student_Record.php">
-                        <span class="icon"><img src="images/sidebar_menu/Student_Record.svg" alt=""></span>
+                        <span class="icon"><img src="Images/sidebar_menu/Student_Record.svg" alt=""></span>
                         <span class="title"><br>Student Record</span>
                     </a>
                 </li>
                 <li>
                     <a href="Lists_of_Concerns.php">
-                        <span class="icon"><img src="images/sidebar_menu/Concerns.svg" alt=""></span>
+                        <span class="icon"><img src="Images/sidebar_menu/Concerns.svg" alt=""></span>
                         <span class="title3"><br>Concerns</span>
                     </a>
                 </li>
                 <li>
                     <a href="List_of_Inquiries.php">
-                        <span class="icon"><img src="images/sidebar_menu/Inquiry.svg" alt=""></span>
+                        <span class="icon"><img src="Images/sidebar_menu/Inquiry.svg" alt=""></span>
                         <span class="title4"><br>Inquiry</span>
                     </a>
                 </li>
             </ul>
         </div>
         <div class="main">
-            <span id="logo"><img src="images/sti_logo.png" alt=""></span>
+            <span id="logo"><img src="Images/sti_logo.png" alt=""></span>
             <div class="topbar">
                 <div class="toptitle">
                     <h2>My User</h2>
@@ -111,6 +111,7 @@ require 'config.php';
             <div class="title2">
                 <?php include('message.php'); ?>
                 <h1>Update Student</h1>
+                <form action="code.php" method="POST">
                 <span class="create">
                     <input type="submit" name="update_student" class="btn btn-primary btn-lg" value="Update">
                 </span>
@@ -118,7 +119,6 @@ require 'config.php';
 
 
         </div>
-        <form action="code.php" method="POST">
             <div class="info-container">
                 <h4>Student Information</h4>
                 <div class="bsinfo-container">
@@ -166,7 +166,7 @@ require 'config.php';
                                     <label for="Year">Year Level</label><span class="asterisk"> *</span>
                                     <select class="Strand" placeholder="" name="yrlvl" required>
                                         <?php
-                                        $link = mysqli_connect("localhost", "root", "", "sti guidance monitoring");
+                                        $link = mysqli_connect("localhost", "u794078053_danieeel", "TheG0dHid4lg0&R1b4ld3", "u794078053_monitoring");
                                         $query = "SELECT * FROM `year_level`";
                                         $query_run = mysqli_query($link, $query);
 
@@ -190,7 +190,7 @@ require 'config.php';
                                     <label for="Strand" name="Strand">Strand</label>
                                     <select class="Strand" placeholder="" name="Strand" required>
                                         <?php
-                                        $link = mysqli_connect("localhost", "root", "", "sti guidance monitoring");
+                                        $link = mysqli_connect("localhost", "u794078053_danieeel", "TheG0dHid4lg0&R1b4ld3", "u794078053_monitoring");
                                         $query = "SELECT * FROM `strand`";
                                         $query_run = mysqli_query($link, $query);
 
@@ -213,9 +213,9 @@ require 'config.php';
                                     </select>
 
                                     <label for="Section">Section</label> <span id="btk">
-                                        <select class="Strand" placeholder="" name="Strand" required>
+                                        <select class="Strand" placeholder="" name="Section" required>
                                             <?php
-                                            $link = mysqli_connect("localhost", "root", "", "sti guidance monitoring");
+                                            $link = mysqli_connect("localhost", "u794078053_danieeel", "TheG0dHid4lg0&R1b4ld3", "u794078053_monitoring");
                                             $query = "SELECT * FROM `section`";
                                             $query_run = mysqli_query($link, $query);
 
@@ -298,21 +298,21 @@ require 'config.php';
                                         <label for="Student No">Parent No</label> <span id="btk"> <input type="text" placeholder="" name="parent_id" value="<?= $parent['Parent_ID']; ?>" readonly></span>
 
                                         <label for="Gender">Parents</label>
-                                        <input type="radio" name="pgender<?= $index ?>" value="Mother" <?php
-                                                                                                        if ($parent['Gender'] == "Mother") {
-                                                                                                            echo "checked";
-                                                                                                        }
-                                                                                                        ?>> Mother
-                                        <input type="radio" name="pgender<?= $index ?>" value="Father" <?php
-                                                                                                        if ($parent['Gender'] == "Father") {
-                                                                                                            echo "checked";
-                                                                                                        }
-                                                                                                        ?>> Father
-                                        <input type="radio" name="pgender<?= $index ?>" value="Guardian" <?php
-                                                                                                            if ($parent['Gender'] == "Guardian") {
-                                                                                                                echo "checked";
-                                                                                                            }
-                                                                                                            ?>> Guardian
+                                        <input type="radio" name="pgender" value="Mother" <?php
+                                                                                    if ($parent['Gender'] == "Mother") {
+                                                                                        echo "checked";
+                                                                                    }
+                                                                                    ?>> Mother
+                                    <input type="radio" name="pgender" value="Father" <?php
+                                                                                        if ($parent['Gender'] == "Father") {
+                                                                                            echo "checked";
+                                                                                        }
+                                                                                        ?>> Father
+                                    <input type="radio" name="pgender" value="Guardian" <?php
+                                                                                        if ($parent['Gender'] == "Guardian") {
+                                                                                            echo "checked";
+                                                                                        }
+                                                                                        ?>> Guardian
 
                                         <br>
 
@@ -332,9 +332,9 @@ require 'config.php';
                                             <h4><i class="fa fa-phone" style="font-size:15px"></i>Contact Information</h4>
 
                                             <div class="info">
-                                                <label for="TelephoneNumber">Telephone Number</label> <span id="btk"> <input type="number" placeholder="" name="telno" value="<?= $parent['Telephone_No']; ?>"></span>
+                                                <label for="TelephoneNumber">Telephone Number</label> <span id="btk"> <input type="number" placeholder="" name="ptelno" value="<?= $parent['Telephone_No']; ?>"></span>
                                                 <br>
-                                                <label for="MobileNumber">Mobile Number</label> <span id="btk"> <input type="number" placeholder="" name="mobileno" value="<?= $parent['Mobile_No']; ?>"></span>
+                                                <label for="MobileNumber">Mobile Number</label> <span id="btk"> <input type="number" placeholder="" name="pmobileno" value="<?= $parent['Mobile_No']; ?>"></span>
 
                                                 <!-- <br><label for="Email Address">Email Address</label> <span id="btk"> <input type="text" placeholder="" name="email" value=""></span> -->
 
@@ -343,11 +343,11 @@ require 'config.php';
                                         <div class="bsinfo2">
                                             <h4><i class="fa fa-map-marker" style="font-size:15px"> </i>Address</h4>
                                             <div class="info">
-                                                <label for="Address">Address</label> <span id="btk"> <input type="text" placeholder="" name="address" value="<?= $parent['Address']; ?>"></span>
-                                                <label for="City">City</label> <span id="btk"> <input type="text" placeholder="" name="city" value="<?= $parent['City']; ?>"></span>
+                                                <label for="Address">Address</label> <span id="btk"> <input type="text" placeholder="" name="paddress" value="<?= $parent['Address']; ?>"></span>
+                                                <label for="City">City</label> <span id="btk"> <input type="text" placeholder="" name="pcity" value="<?= $parent['City']; ?>"></span>
 
-                                                <br><label for="Province">Province</label> <span id="btk"> <input type="text" placeholder="" name="province" value="<?= $parent['Province']; ?>"></span>
-                                                <label for="Postcode">Postcode</label> <span id="btk"> <input type="number" placeholder="" name="postcode" value="<?= $parent['Postcode']; ?>"></span>
+                                                <br><label for="Province">Province</label> <span id="btk"> <input type="text" placeholder="" name="pprovince" value="<?= $parent['Province']; ?>"></span>
+                                                <label for="Postcode">Postcode</label> <span id="btk"> <input type="number" placeholder="" name="ppostcode" value="<?= $parent['Postcode']; ?>"></span>
                                             </div>
                                         </div>
                                     </div>

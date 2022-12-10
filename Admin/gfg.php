@@ -4,7 +4,7 @@
 $user_id = $_REQUEST['studentno'];
   
 // Database connection
-$link = mysqli_connect("localhost", "root", "", "sti guidance monitoring");
+$link = mysqli_connect("localhost", "u794078053_danieeel", "TheG0dHid4lg0&R1b4ld3", "u794078053_monitoring");
   
 if ($user_id !== "") {
       

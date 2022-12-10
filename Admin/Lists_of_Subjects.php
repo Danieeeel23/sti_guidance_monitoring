@@ -32,19 +32,19 @@
                 </li>
                 <li>
                     <a href="dash.php">
-                    <span class="icon"><img src="images/sidebar_menu/Home.svg" alt=""></span>
+                    <span class="icon"><img src="Images/sidebar_menu/Home.svg" alt=""></span>
                     <span class="title1" ><br>Home</span>
                     </a>
                 </li>
                 <li>
                     <a href="Lists_of_Excuse_Letter.php">
-                    <span class="icon"><img src="images/sidebar_menu/Excuse_slip.svg" alt=""></span>
+                    <span class="icon"><img src="Images/sidebar_menu/Excuse_slip.svg" alt=""></span>
                     <span class="title2" ><br>Excuse Slip</span>
                     </a>
                 </li>
                 <li><a href="">
                     <div class="dropdown2">
-                        <span class="icon" style="padding-top: -100px;"><img src="images/sidebar_menu/Manage_Users.svg" alt=""></span>
+                        <span class="icon" style="padding-top: -100px;"><img src="Images/sidebar_menu/Manage_Users.svg" alt=""></span>
                         <a class="dropbtn2" style="margin-top: -40px;">
                             <span class="title">Manage Users</span>
                         </a>
@@ -61,25 +61,25 @@
                 </li>
                 <li>
                     <a href="Lists_of_Announcement.php">
-                    <span class="icon"><img src="images/sidebar_menu/Announcement.svg" alt=""></span>
+                    <span class="icon"><img src="Images/sidebar_menu/Announcement.svg" alt=""></span>
                     <span class="title" ><br>Announcement</span>
                     </a>
                 </li>
                 <li>
                     <a href="Student_Record.php">
-                    <span class="icon"><img src="images/sidebar_menu/Student_Record.svg" alt=""></span>
+                    <span class="icon"><img src="Images/sidebar_menu/Student_Record.svg" alt=""></span>
                     <span class="title" ><br>Student Record</span>
                     </a>
                 </li>
                 <li>
                     <a href="Lists_of_Concerns.php">
-                    <span class="icon"><img src="images/sidebar_menu/Concerns.svg" alt=""></span>
+                    <span class="icon"><img src="Images/sidebar_menu/Concerns.svg" alt=""></span>
                     <span class="title3" ><br>Concerns</span>
                     </a>
                 </li>
                 <li>
                     <a href="List_of_Inquiries.php">
-                    <span class="icon"><img src="images/sidebar_menu/Inquiry.svg" alt=""></span>
+                    <span class="icon"><img src="Images/sidebar_menu/Inquiry.svg" alt=""></span>
                     <span class="title4" ><br>Inquiry</span>
                     </a>
                 </li>
@@ -87,7 +87,7 @@
             </ul>
         </div>
         <div class="main">
-            <span id="logo"><img src="images/sti_logo.png" alt=""></span>
+            <span id="logo"><img src="Images/sti_logo.png" alt=""></span>
             <div class="topbar">
                 <div class="toptitle">
                     <h2>Subject</h2>
@@ -251,7 +251,7 @@
                         <tbody>
                         <?php 
 
-                            $query = "SELECT * FROM `subject` ORDER BY `Subject_Name` ASC";
+                            $query = "SELECT * FROM `subject` ORDER BY `Subject_Name` DESC";
                             $query_run = mysqli_query($link, $query);
 
                             if(mysqli_num_rows($query_run) > 0)
@@ -280,8 +280,8 @@
                     </table>
                 </div>
                 <?php 
-                            
-                            $query = "SELECT * FROM `subject`";
+                            $subject_id = "";
+                            $query = "SELECT * FROM `subject` WHERE Subject_ID='$subject_id'";
                             $query_run = mysqli_query($link, $query);
 
                             if(mysqli_num_rows($query_run) > 0)
@@ -299,7 +299,7 @@
                                 </div> 
                                 <div class="modal-body"> 
                                     <!-- Data passed is displayed in this part of the modal body -->
-
+                                    <input type="hidden" name="subject_id" value="<?= $subject['Subject_ID']; ?>"
                                     <label for="Subject" class="Subject">Subject Name</label> <input type="text" class="sub" placeholder="" value="<?= $subject['Subject_Name']; ?> " name="usubject">
                                     <h6 id="modal_body"></h6>
                                     <input type="submit" class="btnn" name="update_subject" onClick="window.location.href=window.location.href" value="Update">

@@ -40,19 +40,19 @@ require 'config.php';
                 </li>
                 <li>
                     <a href="dash.php">
-                    <span class="icon"><img src="images/sidebar_menu/Home.svg" alt=""></span>
+                    <span class="icon"><img src="Images/sidebar_menu/Home.svg" alt=""></span>
                     <span class="titleh" ><br>Home</span>
                     </a>
                 </li>
                 <li>
                     <a href="Lists_of_Excuse_Letter.php">
-                    <span class="icon"><img src="images/sidebar_menu/Excuse_slip.svg" alt=""></span>
+                    <span class="icon"><img src="Images/sidebar_menu/Excuse_slip.svg" alt=""></span>
                     <span class="titlee" ><br>Excuse Slip</span>
                     </a>
                 </li>
                 <li><a href="">
                     <div class="dropdown1">
-                        <span class="icon" style="padding-top: -100px;"><img src="images/sidebar_menu/Manage_Users.svg" alt=""></span>
+                        <span class="icon" style="padding-top: -100px;"><img src="Images/sidebar_menu/Manage_Users.svg" alt=""></span>
                         <a class="dropbtn1" style="margin-top: -40px;">
                             <span class="titlem">Manage Users</span>
                         </a>
@@ -66,25 +66,25 @@ require 'config.php';
                 </li>
                 <li>
                     <a href="Lists_of_Announcement.php">
-                    <span class="icon"><img src="images/sidebar_menu/Announcement.svg" alt=""></span>
+                    <span class="icon"><img src="Images/sidebar_menu/Announcement.svg" alt=""></span>
                     <span class="titlea" ><br>Announcement</span>
                     </a>
                 </li>
                 <li>
                     <a href="Student_Record.php">
-                    <span class="icon"><img src="images/sidebar_menu/Student_Record.svg" alt=""></span>
+                    <span class="icon"><img src="Images/sidebar_menu/Student_Record.svg" alt=""></span>
                     <span class="titles" ><br>Student Record</span>
                     </a>
                 </li>
                 <li>
                     <a href="Lists_of_Concerns.php">
-                    <span class="icon"><img src="images/sidebar_menu/Concerns.svg" alt=""></span>
+                    <span class="icon"><img src="Images/sidebar_menu/Concerns.svg" alt=""></span>
                     <span class="titlec" ><br>Concerns</span>
                     </a>
                 </li>
                 <li>
                     <a href="List_of_Inquiries.php">
-                    <span class="icon"><img src="images/sidebar_menu/Inquiry.svg" alt=""></span>
+                    <span class="icon"><img src="Images/sidebar_menu/Inquiry.svg" alt=""></span>
                     <span class="titlei" ><br>Inquiry</span>
                     </a>
                 </li>
@@ -92,7 +92,7 @@ require 'config.php';
             </ul>
         </div>
         <div class="main">
-            <span id="logo"><img src="images/sti_logo.png" alt=""></span>
+            <span id="logo"><img src="Images/sti_logo.png" alt=""></span>
             <div class="topbar">
                 <div class="toptitle">
                     <h2>Student Record</h2>

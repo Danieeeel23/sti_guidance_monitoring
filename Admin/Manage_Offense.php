@@ -39,19 +39,19 @@ session_start();
                 </li>
                 <li>
                     <a href="dash.php">
-                    <span class="icon"><img src="images/sidebar_menu/Home.svg" alt=""></span>
+                    <span class="icon"><img src="Images/sidebar_menu/Home.svg" alt=""></span>
                     <span class="titleh" ><br>Home</span>
                     </a>
                 </li>
                 <li>
                     <a href="Lists_of_Excuse_Letter.php">
-                    <span class="icon"><img src="images/sidebar_menu/Excuse_slip.svg" alt=""></span>
+                    <span class="icon"><img src="Images/sidebar_menu/Excuse_slip.svg" alt=""></span>
                     <span class="titlee" ><br>Excuse Slip</span>
                     </a>
                 </li>
                 <li><a href="">
                     <div class="dropdown1">
-                        <span class="icon" style="padding-top: -100px;"><img src="images/sidebar_menu/Manage_Users.svg" alt=""></span>
+                        <span class="icon" style="padding-top: -100px;"><img src="Images/sidebar_menu/Manage_Users.svg" alt=""></span>
                         <a class="dropbtn1" style="margin-top: -40px;">
                             <span class="titlem">Manage Users</span>
                         </a>
@@ -65,25 +65,25 @@ session_start();
                 </li>
                 <li>
                     <a href="Lists_of_Announcement.php">
-                    <span class="icon"><img src="images/sidebar_menu/Announcement.svg" alt=""></span>
+                    <span class="icon"><img src="Images/sidebar_menu/Announcement.svg" alt=""></span>
                     <span class="titlea" ><br>Announcement</span>
                     </a>
                 </li>
                 <li>
                     <a href="Student_Record.php">
-                    <span class="icon"><img src="images/sidebar_menu/Student_Record.svg" alt=""></span>
+                    <span class="icon"><img src="Images/sidebar_menu/Student_Record.svg" alt=""></span>
                     <span class="titles" ><br>Student Record</span>
                     </a>
                 </li>
                 <li>
                     <a href="Lists_of_Concerns.php">
-                    <span class="icon"><img src="images/sidebar_menu/Concerns.svg" alt=""></span>
+                    <span class="icon"><img src="Images/sidebar_menu/Concerns.svg" alt=""></span>
                     <span class="titlec" ><br>Concerns</span>
                     </a>
                 </li>
                 <li>
                     <a href="List_of_Inquiries.php">
-                    <span class="icon"><img src="images/sidebar_menu/Inquiry.svg" alt=""></span>
+                    <span class="icon"><img src="Images/sidebar_menu/Inquiry.svg" alt=""></span>
                     <span class="titlei" ><br>Inquiry</span>
                     </a>
                 </li>
@@ -91,7 +91,7 @@ session_start();
             </ul>
         </div>
         <div class="main">
-            <span id="logo"><img src="images/sti_logo.png" alt=""></span>
+            <span id="logo"><img src="Images/sti_logo.png" alt=""></span>
             <div class="topbar">
                 <div class="toptitle">
                     <h2>Student Record</h2>
@@ -193,14 +193,24 @@ session_start();
                        
                         
                         <label for="Violation" name ="Violation">Type of Violation</label>
-                        <select class="Violation" name="Violation" required>
-                            <option value="No input"></option>
-                            <option value="Bullying">Bullying</option>
-                            <option value="Smoking">Smoking</option>
-                            <option value="Vandalism">Vandalism</option>
-                            <option value="Gambling">Gambling</option>
-                            <option value="Cheating">Cheating</option>
-                            </select>
+                        <select class="Violation" placeholder="" name="Violation" required>
+                        <option value="No input."></option>
+                        <?php
+                        $link = mysqli_connect("localhost", "u794078053_danieeel", "TheG0dHid4lg0&R1b4ld3", "u794078053_monitoring");
+                        $query = "SELECT * FROM `offense`";
+                        $query_run = mysqli_query($link, $query);
+
+                        if (mysqli_num_rows($query_run) > 0) {
+                            foreach ($query_run as $offense) {
+                        ?>
+                                <option value="<?= $offense['Type_of_Violation']; ?>"><?= $offense['Type_of_Violation']; ?></option> <br>
+                        <?php
+                            }
+                        } else {
+                            echo "No Offense Found";
+                        }
+                        ?>
+                    </select>
 
                          
                         <label for="Offense" name ="Offense">Type of Offense</label>

@@ -33,43 +33,43 @@ if(window.history.replaceState)
                 </li>
                 <li>
                     <a href="dash.php">
-                    <span class="icon"><img src="images/sidebar_menu/Home.svg" alt=""></span>
+                    <span class="icon"><img src="Images/sidebar_menu/Home.svg" alt=""></span>
                     <span class="title1" ><br>Home</span>
                     </a>
                 </li>
                 <li>
                     <a href="Lists_of_Excuse_Letter.php">
-                    <span class="icon"><img src="images/sidebar_menu/Excuse_slip.svg" alt=""></span>
+                    <span class="icon"><img src="Images/sidebar_menu/Excuse_slip.svg" alt=""></span>
                     <span class="title2" ><br>Excuse Slip</span>
                     </a>
                 </li>
                 <li>
                     <a href="Manage_User.php">
-                    <span class="icon"><img src="images/sidebar_menu/Manage_Users.svg" alt=""></span>
+                    <span class="icon"><img src="Images/sidebar_menu/Manage_Users.svg" alt=""></span>
                     <span class="title" ><br>Manage Users</span>
                     </a>
                 </li>
                 <li>
                     <a href=Lists_of_Announcement.php">
-                    <span class="icon"><img src="images/sidebar_menu/Announcement.svg" alt=""></span>
+                    <span class="icon"><img src="Images/sidebar_menu/Announcement.svg" alt=""></span>
                     <span class="title" ><br>Annoucement</span>
                     </a>
                 </li>
                 <li>
                     <a href="Student_Record.php">
-                    <span class="icon"><img src="images/sidebar_menu/Student_Record.svg" alt=""></span>
+                    <span class="icon"><img src="Images/sidebar_menu/Student_Record.svg" alt=""></span>
                     <span class="title" ><br>Student Record</span>
                     </a>
                 </li>
                 <li>
                     <a href="Lists_of_Concerns.php">
-                    <span class="icon"><img src="images/sidebar_menu/Concerns.svg" alt=""></span>
+                    <span class="icon"><img src="Images/sidebar_menu/Concerns.svg" alt=""></span>
                     <span class="title3" ><br>Concerns</span>
                     </a>
                 </li>
                 <li>
                     <a href="List_of_Inquiries.php">
-                    <span class="icon"><img src="images/sidebar_menu/Inquiry.svg" alt=""></span>
+                    <span class="icon"><img src="Images/sidebar_menu/Inquiry.svg" alt=""></span>
                     <span class="title4" ><br>Inquiry</span>
                     </a>
                 </li>
@@ -77,7 +77,7 @@ if(window.history.replaceState)
             </ul>
         </div>
         <div class="main">
-            <span id="logo"><img src="images/sti_logo.png" alt=""></span>
+            <span id="logo"><img src="Images/sti_logo.png" alt=""></span>
             <div class="topbar">
                 <div class="toptitle">
                     <h2>My User</h2>
@@ -160,43 +160,27 @@ if(window.history.replaceState)
                             <label for="Strand">Department</label>
                         <label for="Strand" name = "Department"></label>
                         <select class="Strand" name="Department">
-                            <option value="<?= $teacher['Department']; ?>"></option>
-                            <option value="STEM"
-                            <?php 
-                                if($teacher['Department'] == "STEM")
-                                {
-                                    echo "selected";
-                                }
-                            ?>>STEM</option>
-                            <option value="ABM"
-                            <?php 
-                                if($teacher['Department'] == "ABM")
-                                {
-                                    echo "selected";
-                                }
-                            ?>>ABM</option>
-                            <option value="ICT"
-                            <?php 
-                                if($teacher['Department'] == "ICT")
-                                {
-                                    echo "selected";
-                                }
-                            ?>>ICT</option>
-                            <option value="GAS"
-                            <?php 
-                                if($teacher['Department'] == "GAS")
-                                {
-                                    echo "selected";
-                                }
-                            ?>>GAS</option>
-                            <option value="TVL"
-                            <?php 
-                                if($teacher['Department'] == "TVL")
-                                {
-                                    echo "selected";
-                                }
-                            ?>>TVL</option>
-                            
+                            <?php
+                                        $link = mysqli_connect("localhost", "u794078053_danieeel", "TheG0dHid4lg0&R1b4ld3", "u794078053_monitoring");
+                                        $query = "SELECT DISTINCT Department FROM `teacher`";
+                                        $query_run = mysqli_query($link, $query);
+
+                                        if (mysqli_num_rows($query_run) > 0) {
+                                            foreach ($query_run as $dept) {
+                                                if ($teacher['Department'] == $dept['Department']) {
+                                        ?>
+                                                    <option value="<?= $dept['Department']; ?>" selected><?= $dept['Department']; ?></option> <br>
+                                                <?php
+                                                } else {
+                                                ?>
+                                                    <option value="<?= $dept['Department']; ?>"><?= $dept['Department']; ?></option> <br>
+                                        <?php
+                                                }
+                                            }
+                                        } else {
+                                            echo "No Department Found";
+                                        }
+                                        ?>
                         </select>
                 
                                 </div>
@@ -239,7 +223,7 @@ if(window.history.replaceState)
                         {
                             echo "<h4>No Such Id Found</h4>";
                         }
-                    }
+                                    }
                     ?>
                 
                 

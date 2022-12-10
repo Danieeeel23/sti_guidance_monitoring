@@ -7,34 +7,44 @@ require_once("PHPMailer/PHPMailerAutoload.php");
 
 function send_password_reset($get_name,$get_email,$token)
 {
-    $mail = new PHPMailer;
-    $mail->isSMTP();                  
+    try{
+        $mail = new PHPMailer;
+        $mail->isSMTP();                  
+        
+        $mail->CharSet="UTF-8";
+        $mail->Host = 'smtp.gmail.com'; 
+        $mail->SMTPDebug = false;
+        $mail->Debugoutput = 'html';
+        $mail->Port = 587; 
     
-    $mail->CharSet="UTF-8";
-    $mail->Host = 'smtp.gmail.com'; 
-    $mail->SMTPDebug = false;
-    $mail->Debugoutput = 'html';
-    $mail->Port = 587; 
+        $mail->Username   = 'guidance.stidasma@gmail.com';                     
+        $mail->Password   = 'tnufgftypgjmcdug';     
+                                 
+        $mail->SMTPSecure = 'tls';
+        $mail->SMTPAuth   = true;
+        $mail->isHTML(true);           
+    
+        $mail->setFrom('guidance.stidasma@gmail.com',$get_name);
+        $mail->addAddress($get_email);     
+        $mail->Subject = "Reset Password Notification";    
+        $email_template = "
+            <h2>Greetings!</h2>
+            <h3>A message from the Office of the Guidance Department STI College Dasmarinas</h3>
+            <h3>We've noticed a password reset request for your account.</h3>
+            <a href='http://localhost/Thesis/logins/password-change.php?token=$token&email=$get_email'> Reset My Password </a>
+        ";
+        $mail->Body = $email_template;
+        $mail->send();
 
-    $mail->Username   = 'guidance.stidasma@gmail.com';                     
-    $mail->Password   = 'tnufgftypgjmcdug';     
-                             
-    $mail->SMTPSecure = 'tls';
-    $mail->SMTPAuth   = true;
-    $mail->isHTML(true);           
-
-    $mail->setFrom('guidance.stidasma@gmail.com',$get_name);
-    $mail->addAddress($get_email);     
-    $mail->Subject = "Reset Password Notification";    
-    $email_template = "
-        <h2>Greetings!</h2>
-        <h3>A message from the Office of the Guidance Department STI College Dasmarinas</h3>
-        <h3>We've noticed a password reset request for your account.</h3>
-        <a href='http://localhost/Thesis/logins/password-change.php?token=$token&email=$get_email'> Reset My Password </a>
-    ";
-
-    $mail->Body = $email_template;
-    $mail->send();
+        $_SESSION['status'] = "Email Sent Successfully";
+        header("Location: password-reset.php");
+        exit(0);
+    }
+    catch (Exception $e){
+        $_SESSION['status_danger'] = "Something Went Wrong. #1" . $e;
+        header("Location: password-reset.php");
+        exit(0);
+    }   
 }
 
 if(isset($_POST['password_reset_link']))
@@ -57,9 +67,7 @@ if(isset($_POST['password_reset_link']))
         if($update_token_run)
         {
             send_password_reset($get_name,$get_email,$token);
-            $_SESSION['status'] = "We Emailed You A Password Reset Link!";
-            header("Location: password-reset.php");
-            exit(0);
+            
         }
         else
         {

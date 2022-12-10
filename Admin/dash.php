@@ -37,19 +37,19 @@ if(!isset($_SESSION['admin_id'])){
                 </li>
                 <li>
                     <a href="dash.php">
-                    <span class="icon"><img src="images/sidebar_menu/Home.svg" alt=""></span>
+                    <span class="icon"><img src="Images/sidebar_menu/Home.svg" alt=""></span>
                     <span class="title1"><br>Home</span>
                     </a>
                 </li>
                 <li>
                     <a href="Lists_of_Excuse_Letter.php">
-                    <span class="icon"><img src="images/sidebar_menu/Excuse_slip.svg" alt=""></span><span class="badge2 badge-primary">4</span>
+                    <span class="icon"><img src="Images/sidebar_menu/Excuse_slip.svg" alt=""></span><span class="badge2 badge-primary">4</span>
                     <span class="title2"><br>Excuse Slip</span>
                     </a>
                 </li>
                 <li><a href="">
                     <div class="dropdown2">
-                        <span class="icon" style="padding-top: -100px;"><img src="images/sidebar_menu/Manage_Users.svg" alt=""></span>
+                        <span class="icon" style="padding-top: -100px;"><img src="Images/sidebar_menu/Manage_Users.svg" alt=""></span>
                         <a class="dropbtn2" style="margin-top: -40px;">
                             <span class="title3">Manage</span>
                         </a>
@@ -67,25 +67,25 @@ if(!isset($_SESSION['admin_id'])){
                 </li>
                 <li>
                     <a href="Lists_of_Announcement.php">
-                    <span class="icon"><img src="images/sidebar_menu/Announcement.svg" alt=""></span><span class="badge2 badge-primary">4</span>
+                    <span class="icon"><img src="Images/sidebar_menu/Announcement.svg" alt=""></span><span class="badge2 badge-primary">4</span>
                     <span class="title"><br>Announcement</span>
-                    </a>
+                    </a>a
                 </li>
                 <li>
                     <a href="Student_Record.php">
-                    <span class="icon"><img src="images/sidebar_menu/Student_Record.svg" alt=""></span><span class="badge2 badge-primary">4</span>
+                    <span class="icon"><img src="Images/sidebar_menu/Student_Record.svg" alt=""></span><span class="badge2 badge-primary">4</span>
                     <span class="title"><br>Student Record</span>
                     </a>
                 </li>
                 <li>
                     <a href="Lists_of_Concerns.php">
-                    <span class="icon"><img src="images/sidebar_menu/Concerns.svg" alt=""></span><span class="badge2 badge-primary">4</span>
+                    <span class="icon"><img src="Images/sidebar_menu/Concerns.svg" alt=""></span><span class="badge2 badge-primary">4</span>
                     <span class="title3"><br>Concerns</span>
                     </a>
                 </li>
                 <li>
                     <a href="List_of_Inquiries.php">
-                    <span class="icon"><img src="images/sidebar_menu/Inquiry.svg" alt=""></span><span class="badge2 badge-primary">4</span>
+                    <span class="icon"><img src="Images/sidebar_menu/Inquiry.svg" alt=""></span><span class="badge2 badge-primary">4</span>
                     <span class="title4"><br>Inquiry</span>
                     </a>
                 </li>
@@ -93,7 +93,7 @@ if(!isset($_SESSION['admin_id'])){
             </ul>
         </div>
         <div class="main">
-            <span id="logo"><img src="images/sti_logo.png" alt=""></span>
+            <span id="logo"><img src="Images/sti_logo.png" alt=""></span>
             <div class="topbar">
                 <div class="toptitle">
                     <h2>Dashboard</h2>
@@ -218,31 +218,45 @@ if(!isset($_SESSION['admin_id'])){
                       ?> 
                   
                  </div>
-            <div class="mainn">
+                 <div class="mainn">
+            <div class="boddy">
+                <div class="cardbody">
+                    <h2>Announcement</h2>
+                    <div class="cement">
+                    <?php 
+
+                                        $query = "SELECT * FROM announcement LIMIT 5";
+                                        $query_run = mysqli_query($link, $query);
+
+                                        if(mysqli_num_rows($query_run) > 0)
+                                        {
+                                            foreach($query_run as $announcements)
+                                            {
+                                                ?>
+                        <p style="color:#00008B;"><i class="fa fa-bullhorn" aria-hidden="true"></i><a href="Update_Announcement.php?id=<?= $announcements['Announcement_ID']; ?>" style="text-decoration: none;"><?= $announcements['Title']; ?> - <?= $announcements['Description']; ?> <span style="font-size: 12px; color: gray;"><?= $announcements['Start_Date']; ?></span></a></p>
+                       
+                        <?php
+                                    }
+                                }
+                                else
+                                {
+                                    echo '<span style="margin-left: 50px;">' . 'No Available Announcement' . '</span>';
+                                }
+                            ?>
+                            </div>
+                </div>
+            </div>
                 <div class="boddy">
                     <div class="cardbody">
                         <h2>Excuse Slip</h2>
                     </div>
                     <div class="pictures">
-                        <div class="request"><img src="Images/request.jpeg" alt=""><h3>Request</h3><a href="Request_Letter.php" style="text-decoration: none;"><h4>Start <i class="fa fa-play" aria-hidden="true"></i></h4></a></div>
-                        <div class="rejected"><img src="Images/rejected.jpg"alt=""><h3>Rejected</h3><a href="Rejected_Letter.php" style="text-decoration: none;"><h4>Start <i class="fa fa-play" aria-hidden="true"></i></h4></a></div>
-                        <div class="accepted"><img src="Images/accepted.jpg"  alt=""><h3>Accepted</h3><a href="Accepted_Letter.php" style="text-decoration: none;"><h4>Start <i class="fa fa-play" aria-hidden="true"></i></h4></a></div>
-                    </div>
-                </div>
-                <div class="mainn2">
-                <div class="boddy">
-                    <div class="cardbody3">
-                        <h2>Student Record</h2>
-                    </div>
-                    <div class="pictures">
-                        <div class="request"><img src="Images/attendance.jpg" alt=""><h3>Attendance</h3><a href="Overview_of_Attendance.php" style="text-decoration: none;"><h4>Start <i class="fa fa-play" aria-hidden="true"></i></h4></a></div>
+                        <div class="request"><img src="Images/request.jpeg" alt=""><h3>Excuse Letter</h3><a href="Lists_of_Excuse_Letter.php" style="text-decoration: none;"><h4>Start <i class="fa fa-play" aria-hidden="true"></i></h4></a></div>
+                        <div class="request1"><img src="Images/attendance.jpg" alt=""><h3>Attendance</h3><a href="Overview_of_Attendance.php" style="text-decoration: none;"><h4>Start <i class="fa fa-play" aria-hidden="true"></i></h4></a></div>
                         <div class="rejected"><img src="Images/failinggrades.jpg"alt=""><h3>Failing Grades</h3><a href="Overview_of_Failing_Grades.php" style="text-decoration: none;"><h4>Start <i class="fa fa-play" aria-hidden="true"></i></h4></a></div>
                         <div class="accepted"><img src="Images/offense.jpg" alt=""><h3>Offenses</h3><a href="List_of_Offense.php" style="text-decoration: none;"><h4>Start <i class="fa fa-play" aria-hidden="true"></i></h4></a></div>
+                       
                     </div>
-                </div>
-                
-                
-                    
                 </div>
                 <div class="announce">
                     <div class="cardbody4">
@@ -319,30 +333,7 @@ if(!isset($_SESSION['admin_id'])){
                     </div>
                     </div>
                      </div>
-                     <div class="cement">
-                        <p><strong>Announcement</strong></p>
-
-                        <?php 
-
-                                        $query = "SELECT * FROM announcement LIMIT 5";
-                                        $query_run = mysqli_query($link, $query);
-
-                                        if(mysqli_num_rows($query_run) > 0)
-                                        {
-                                            foreach($query_run as $announcements)
-                                            {
-                                                ?>
-                        <p style="color:#00008B;"><i class="fa fa-bullhorn" aria-hidden="true"></i><a href="Update_Announcement.php?id=<?= $announcements['Announcement_ID']; ?>" style="text-decoration: none;"><?= $announcements['Title']; ?> - <?= $announcements['Description']; ?> <span style="font-size: 12px; color: gray;"><?= $announcements['Start_Date']; ?></span></a></p>
-                       
-                        <?php
-                                    }
-                                }
-                                else
-                                {
-                                    echo '<span style="margin-left: 50px;">' . 'No Available Announcement' . '</span>';
-                                }
-                            ?>
-                     </div>
+                     
                     </div>
                     
             </div>

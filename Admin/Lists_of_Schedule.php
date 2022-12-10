@@ -20,49 +20,7 @@ require 'config.php';
     <script type="text/javascript" src="delete_script.js"></script>
 
     <title>List of Classes</title>
-    <style>
-        .card-header {
-            margin-left: 133px;
-            text-align: center;
-            margin-top: -60px;
-        }
-
-        label {
-            margin-left: 80px;
-            margin-bottom: -1100px;
-        }
-
-        div#myDataTable_length.dataTables_length {
-            margin-top: -20px;
-            margin-bottom: 30px;
-        }
-
-        div#myDataTable_info.dataTables_info {
-            margin-left: 80px;
-            margin-top: 10px;
-        }
-
-        div#myDataTable_paginate.dataTables_paginate.paging_simple_numbers {
-            margin-right: -95px;
-            margin-top: 10px;
-        }
-
-        div#myDataTable_filter.dataTables_filter {
-            margin-right: 300px;
-            margin-top: -10px;
-        }
-
-        table.dataTable th,
-        table.dataTable td {
-            border-bottom: 10px solid #f3f3f3;
-            font-size: 16px;
-        }
-
-        table.dataTable td {
-            background-color: white;
-            height: 10px;
-        }
-    </style>
+    
 </head>
 
 <body>
@@ -77,19 +35,19 @@ require 'config.php';
                 </li>
                 <li>
                     <a href="dash.php">
-                        <span class="icon"><img src="images/sidebar_menu/Home.svg" alt=""></span>
+                        <span class="icon"><img src="Images/sidebar_menu/Home.svg" alt=""></span>
                         <span class="title1"><br>Home</span>
                     </a>
                 </li>
                 <li>
                     <a href="Lists_of_Excuse_Letter.php">
-                        <span class="icon"><img src="images/sidebar_menu/Excuse_slip.svg" alt=""></span>
+                        <span class="icon"><img src="Images/sidebar_menu/Excuse_slip.svg" alt=""></span>
                         <span class="title2"><br>Excuse Slip</span>
                     </a>
                 </li>
                 <li><a href="">
                         <div class="dropdown1">
-                            <span class="icon" style="padding-top: -100px;"><img src="images/sidebar_menu/Manage_Users.svg" alt=""></span>
+                            <span class="icon" style="padding-top: -100px;"><img src="Images/sidebar_menu/Manage_Users.svg" alt=""></span>
                             <a class="dropbtn1" style="margin-top: -40px;">
                                 <span class="title">Manage Users</span>
                             </a>
@@ -104,25 +62,25 @@ require 'config.php';
                 </li>
                 <li>
                     <a href="Lists_of_Announcement.php">
-                        <span class="icon"><img src="images/sidebar_menu/Announcement.svg" alt=""></span>
+                        <span class="icon"><img src="Images/sidebar_menu/Announcement.svg" alt=""></span>
                         <span class="title"><br>Announcement</span>
                     </a>
                 </li>
                 <li>
                     <a href="Student_Record.php">
-                        <span class="icon"><img src="images/sidebar_menu/Student_Record.svg" alt=""></span>
+                        <span class="icon"><img src="Images/sidebar_menu/Student_Record.svg" alt=""></span>
                         <span class="title"><br>Student Record</span>
                     </a>
                 </li>
                 <li>
                     <a href="Lists_of_Concerns.php">
-                        <span class="icon"><img src="images/sidebar_menu/Concerns.svg" alt=""></span>
+                        <span class="icon"><img src="Images/sidebar_menu/Concerns.svg" alt=""></span>
                         <span class="title3"><br>Concerns</span>
                     </a>
                 </li>
                 <li>
                     <a href="List_of_Inquiries.php">
-                        <span class="icon"><img src="images/sidebar_menu/Inquiry.svg" alt=""></span>
+                        <span class="icon"><img src="Images/sidebar_menu/Inquiry.svg" alt=""></span>
                         <span class="title4"><br>Inquiry</span>
                     </a>
                 </li>
@@ -130,7 +88,7 @@ require 'config.php';
             </ul>
         </div>
         <div class="main">
-            <span id="logo"><img src="images/sti_logo.png" alt=""></span>
+            <span id="logo"><img src="Images/sti_logo.png" alt=""></span>
             <div class="topbar">
                 <div class="toptitle">
                     <h2>Classes</h2>
@@ -178,7 +136,7 @@ require 'config.php';
                                     <select class="Violation" placeholder="" name="subjects" onchange="changeSubjectValue(event)">
                                         <option>Choose Subject</option>
                                         <?php
-                                        $link = mysqli_connect("localhost", "root", "", "sti guidance monitoring");
+                                        $link = mysqli_connect("localhost", "u794078053_danieeel", "TheG0dHid4lg0&R1b4ld3", "u794078053_monitoring");
 
                                         $query = "SELECT DISTINCT * FROM `subject`";
                                         $query_run = mysqli_query($link, $query);
@@ -199,7 +157,7 @@ require 'config.php';
                                     <select class="Violation" placeholder="" name="teachers" onchange="changeTeacherValue(event)">
                                         <option>Choose Teacher</option>
                                         <?php
-                                        $link = mysqli_connect("localhost", "root", "", "sti guidance monitoring");
+                                        $link = mysqli_connect("localhost", "u794078053_danieeel", "TheG0dHid4lg0&R1b4ld3", "u794078053_monitoring");
 
                                         $query = "SELECT *, CONCAT(First_Name,' ',Middle_Initial,' ',Last_Name) AS Names FROM `teacher`";
                                         $query_run = mysqli_query($link, $query);
@@ -220,7 +178,7 @@ require 'config.php';
                                     <select class="Violation" placeholder="" name="strand" onchange="changeStrandValue(event)">
                                         <option>Choose Strand</option>
                                         <?php
-                                        $link = mysqli_connect("localhost", "root", "", "sti guidance monitoring");
+                                        $link = mysqli_connect("localhost", "u794078053_danieeel", "TheG0dHid4lg0&R1b4ld3", "u794078053_monitoring");
 
                                         $query = "SELECT DISTINCT * FROM `strand`";
                                         $query_run = mysqli_query($link, $query);
@@ -241,7 +199,7 @@ require 'config.php';
                                     <select class="Violation" placeholder="" name="section" onchange="changeSectionValue(event)">
                                         <option>Choose Section</option>
                                         <?php
-                                        $link = mysqli_connect("localhost", "root", "", "sti guidance monitoring");
+                                       $link = mysqli_connect("localhost", "u794078053_danieeel", "TheG0dHid4lg0&R1b4ld3", "u794078053_monitoring");
 
                                         $query = "SELECT DISTINCT * FROM `section`";
                                         $query_run = mysqli_query($link, $query);
@@ -341,7 +299,7 @@ require 'config.php';
                         <h6 id="modal_body"></h6>
                         <input type="hidden" name="status" value="Accepted">
                         <input type="hidden" name="comment" value="The Guidance Office Accepts This Excuse Letter">
-                        <input type="submit" class="btnn" name="save_schedule" onClick="window.location.href=window.location.href" value="Create" style="width: 150px; height: 30px; margin-top: 180px; margin-bottom: -10px; margin-left: 820px; font-size: 15px;">
+                        <input type="submit" class="btnn" name="save_schedule" onClick="window.location.href=window.location.href" value="Create" style="width: 150px; height: 30px; margin-top: 45px; margin-bottom: -10px; margin-left: 820px; font-size: 15px;">
                     </div>
                 </div>
             </div>
@@ -460,7 +418,7 @@ require 'config.php';
                     var selected_values = employee.join(",");
                     $.ajax({
                         type: "POST",
-                        url: "delete_subject_assigned.php",
+                        url: "delete_class.php",
                         cache: false,
                         data: 'emp_id=' + selected_values,
                         success: function(response) {

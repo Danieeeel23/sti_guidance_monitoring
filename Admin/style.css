@@ -252,37 +252,18 @@ body{
 }
 .boddy{
     background: white;
-    border-style: solid;
-    border-width: 0.1px;
-    border-color: rgb(204, 201, 201);
-    width: 1060px;
-    height: 390px;
-    margin-left: -30px;
+    border: 1px solid rgb(204, 201, 201);
     margin-bottom: 20px;
     border-radius: 10px;
+    padding: 20px 10px;
+    width: calc(100vw - 190px);
 }
+
 .cardbody h2{
     font-family:sans-serif ;
     font-weight: 1rem;
     font-size: 1rem;
     margin-left: 20px;
-    padding: 20px;
-}
-.cardbody2 h2{
-    margin-left: 20px;
-    padding: 20px;
-}
-.cardbody3 h2{
-    font-family:sans-serif ;
-    font-weight: 1rem;
-    font-size: 1rem;
-    margin-left: 20px;
-    padding: 20px;
-}
-.cardbody4 h2{
-    font-size: 1rem;
-    margin-left: 20px;
-    padding: 20px;
 }
 a.btn{
     position: absolute;
@@ -306,38 +287,60 @@ a.btn3{
 .pictures{
     margin-left: 0px;
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(4,1fr);
 }
 
 .pictures .request img{
     margin-top: -20px;
-    margin-left: 15px;
-   width: 330px;
-   height: 240px;
+    margin-left: 10px;
+   width: 250px;
+   height: 210px;
+   border-radius: 10px 10px 0 0;
+   
+}
+.pictures .request1 img{
+    margin-top: -20px;
+    margin-left: 5px;
+    gap: 5px;
+   width: 250px;
+   height: 210px;
    border-radius: 10px 10px 0 0;
    
 }
 .pictures .rejected img{
     margin-top: -20px;
-    margin-left: 10px;
-    width: 330px;
-    height: 240px;
+    margin-left: 5px;
+    width: 250px;
+    height: 210px;
     border-radius: 10px 10px 0 0;
 }
 .pictures .accepted img{
     margin-top: -20px;
     margin-left: 5px;
-    width: 330px;
-   height: 240px;
+    width: 250px;
+   height: 210px;
    border-radius: 10px 10px 0 0;
 }
  .pictures .request h3{
     padding: 60px 0 0 20px;
     text-align: left;
     margin-top: -50px;
-    margin-left: 15px;
+    margin-left: 10px;
     margin-bottom: 30px;
-    width: 330px;
+    width: 250px;
+    height: 140px;
+    font-size: 1rem;
+    background-color: lightseagreen;
+    color: white;
+    border-radius: 0 0 10px 10px;
+ }
+ .pictures .request1 h3{
+    padding: 60px 0 0 20px;
+    text-align: left;
+    margin-top: -50px;
+    margin-left: 5px;
+    margin-bottom: 30px;
+    width: 250px;
     height: 140px;
     font-size: 1rem;
     background-color: lightseagreen;
@@ -345,6 +348,26 @@ a.btn3{
     border-radius: 0 0 10px 10px;
  }
  
+ .request1 h4{
+    background-color: white;
+    font-size:smaller;
+    color: black;
+    padding: 8px;
+    width: 80px;
+    text-align: center;
+    margin-top: -82px;
+    margin-left: 100px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+
+}
+.request1 h4:hover{
+    background-color: rgb(14, 139, 133);
+    color: white;
+}
+.request1 .fa{
+    padding-left: 5px;
+}
 .request h4{
     background-color: white;
     font-size:smaller;
@@ -353,7 +376,7 @@ a.btn3{
     width: 80px;
     text-align: center;
     margin-top: -82px;
-    margin-left: 130px;
+    margin-left: 100px;
     margin-bottom: 20px;
     border-radius: 20px;
 
@@ -370,10 +393,10 @@ a.btn3{
     padding: 60px 0 0 20px;
     text-align: left;
     margin-top: -50px;
-    margin-left: 10px;
+    margin-left: 5px;
     margin-bottom: 30px;
     font-size: 1rem;
-    width: 330px;
+    width: 250px;
     height: 140px;
     background-color: lightcoral;
     color: white;
@@ -387,7 +410,7 @@ a.btn3{
     width: 80px;
     text-align: center;
     margin-top: -82px;
-    margin-left: 130px;
+    margin-left: 100px;
     border-radius: 20px;
 }
 .rejected h4:hover{
@@ -403,7 +426,7 @@ a.btn3{
     margin-top: -50px;
     margin-left: 5px;
     margin-bottom: 30px;
-    width: 330px;
+    width: 250px;
     height: 140px;
     background-color: lightgreen;
     color: white;
@@ -417,7 +440,7 @@ a.btn3{
     width: 80px;
     text-align: center;
     margin-top: -82px;
-    margin-left: 130px;
+    margin-left: 100px;
     border-radius: 20px;
 }
 .accepted h4:hover{
@@ -490,20 +513,15 @@ a.btn3{
     color: white;
 }
 .cement{
-    position: fixed;
-    margin-left: 1050px;
-    margin-top: -1230px;
-    background-color: white;
-    border-style: solid;
-    border-width: 0.1px;
-    border-color: rgb(204, 201, 201);
-    width: 300px;
-    height: 600px; 
+    display: flex;
+    justify-content: space-between;
 }
 .cement p{
-    padding: 20px;
-    font-size: 20px;
-    
+    padding: 10px 20px;
+    font-size: 15px;
+}
+.cement p .fa{
+    padding-right: 10px;
 }
 
 .table1 tr,
@@ -516,17 +534,7 @@ a.btn3{
     text-align: left;
     padding: 10px 10px 10px 30px; 
 }
-.cement p{
-    font-size: 15px;
 
-}
-.cement p .fa{
-    padding-right: 10px;
-}
-.cement .date1{
-    margin-left: 200px;
-    margin-top: -30px;
-}
 
   .dropdown1{
     position: relative;
